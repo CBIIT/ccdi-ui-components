@@ -1,0 +1,74 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: 
+      - "main"
+      - "develop"
+  pull_request:
+      branches:
+      - "main"
+      - "develop"
+
+permissions:
+  contents: read
+  pages: write          # needed for GitHub Pages deploy
+  id-token: write       # needed for GitHub Pages deploy
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      # Optional — only if you actually have a shadcn build step
+      - name: Build shadcn registry
+        run: npm run registry:build
+        continue-on-error: true
+
+      - name: Build Storybook
+        run: npm run storybook:build
+
+      # Prepare one Pages artifact that includes both:
+      # - /r  -> your shadcn registry JSONs
+      # - /   -> Storybook static site (root)
+      - name: Assemble site artifact
+        run: |
+          rm -rf site
+          mkdir -p site/r
+          # Copy Storybook static build
+          cp -R storybook-static/* site/
+          # Copy your JSON registry files to site/r
+          cp registry/*.json site/r/ 2>/dev/null || true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
