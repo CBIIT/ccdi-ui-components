@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "ccdi-ui-components",
-  "homepage": "https://fmanuelos.github.io/ccdi-ui-components",
+  "homepage": "https://ccdi-ui-components.github.io/ccdi-ui-components",
   "description": "USWDS-compliant React components with full accessibility and government design standards",
   "items": [
     {
@@ -16,7 +16,7 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "button-group",
@@ -30,7 +30,7 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx", "@radix-ui/react-slot"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "alert",
@@ -44,7 +44,7 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/icon.json"]
     },
     {
       "name": "icon",
@@ -58,7 +58,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "badge",
@@ -72,7 +72,7 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "banner",
@@ -86,7 +86,7 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/icon.json"]
     },
     {
       "name": "breadcrumb",
@@ -100,7 +100,7 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/icon.json"]
     },
     {
       "name": "input",
@@ -114,7 +114,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "label",
@@ -128,7 +128,7 @@
         }
       ],
       "dependencies": ["@radix-ui/react-label", "class-variance-authority", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "select",
@@ -142,7 +142,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "separator",
@@ -156,7 +156,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "checkbox",
@@ -170,7 +170,7 @@
         }
       ],
       "dependencies": ["@radix-ui/react-checkbox", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/icon.json"]
     },
     {
       "name": "accordion",
@@ -184,7 +184,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/icon.json"]
     },
     {
       "name": "card",
@@ -198,7 +198,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "dialog",
@@ -212,7 +212,7 @@
         }
       ],
       "dependencies": ["@radix-ui/react-dialog", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/icon.json"]
     },
     {
       "name": "form",
@@ -226,7 +226,7 @@
         }
       ],
       "dependencies": ["react-hook-form", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "pagination",
@@ -240,7 +240,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/icon.json"]
     },
     {
       "name": "radio-group",
@@ -254,7 +254,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "search",
@@ -268,7 +268,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/icon.json"]
     },
     {
       "name": "autocomplete",
@@ -282,7 +282,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/icon.json"]
     },
     {
       "name": "chart",
@@ -296,7 +296,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "table",
@@ -310,7 +310,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "tooltip",
@@ -324,7 +324,7 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "context-menu",
@@ -338,7 +338,7 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/icon.json"]
     },
     {
       "name": "dropdown-menu",
@@ -352,7 +352,7 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/icon.json"]
     },
     {
       "name": "progress",
@@ -366,7 +366,7 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "avatar",
@@ -380,7 +380,7 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "textarea",
@@ -394,7 +394,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "header",
@@ -408,7 +408,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/button.json", "https://fmanuelos.github.io/ccdi-ui-components/r/search.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/button.json", "https://ccdi-ui-components.github.io/ccdi-ui-components/r/search.json"]
     },
     {
       "name": "footer",
@@ -422,7 +422,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "in-page-navigation",
@@ -436,7 +436,7 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
       "name": "utils",
@@ -581,7 +581,7 @@
         }
       ],
       "dependencies": ["tailwindcss"],
-      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/fonts.json"]
+      "registryDependencies": ["https://ccdi-ui-components.github.io/ccdi-ui-components/r/fonts.json"]
     }
   ]
 }
