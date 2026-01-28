@@ -1,0 +1,309 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Installation" />
+
+
+# Installation & Usage Guide
+
+Learn how to install and use USWDS Demo components in your Next.js project. This guide covers everything from initial setup to advanced customization.
+
+## 📋 Prerequisites
+
+Before installing components, ensure you have the following:
+
+- Node.js 20+ and npm/yarn/pnpm
+- Next.js 14+ project
+- TypeScript
+- Tailwind CSS
+
+## 🚀 Quick Installation
+
+Install components directly into your Next.js project using our shadcn-compatible registry.
+
+### 1. Initialize shadcn/ui
+
+First, set up shadcn/ui in your Next.js project:
+
+```bash
+npx shadcn@latest init
+```
+
+Follow the prompts to configure your project with TypeScript and Tailwind CSS.
+
+### 2. Configure Components Registry (Optional)
+
+For easier component installation, create a `components.json` file in your project root. This allows you to install components without specifying the full registry URL each time.
+
+```json
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "src/styles/globals.css",
+    "baseColor": "slate",
+    "cssVariables": false,
+    "prefix": ""
+  },
+  "iconLibrary": "none",
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "blocks": "@/components/blocks",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "registries": {
+    "@ccdi-ui-components": "https://fmanuelos.github.io/ccdi-ui-components/r/{name}.json"
+  }
+}
+```
+
+**Benefits of using `components.json`:**
+- Install components with short commands: `npx shadcn@latest add @ccdi-ui-components/buttons`
+- Automatic path resolution and dependency management
+- Consistent configuration across your project
+
+### 3. Install Individual Components
+
+**Option A: With `components.json` configured**
+
+Install components using short names:
+
+```bash
+npx shadcn@latest add @ccdi-ui-components/button
+npx shadcn@latest add @ccdi-ui-components/input
+npx shadcn@latest add @ccdi-ui-components/dialog
+```
+
+**Option B: Without `components.json`**
+
+Install components using the full registry URL:
+
+```bash
+npx shadcn@latest add https://fmanuelos.github.io/ccdi-ui-components/r/button.json
+npx shadcn@latest add https://fmanuelos.github.io/ccdi-ui-components/r/input.json
+npx shadcn@latest add https://fmanuelos.github.io/ccdi-ui-components/r/dialog.json
+```
+
+### 4. Install Required Dependencies
+
+Some components require additional dependencies:
+
+```bash
+npm install @radix-ui/react-dialog @radix-ui/react-checkbox @radix-ui/react-label @radix-ui/react-slot
+npm install class-variance-authority clsx tailwind-merge
+npm install react-hook-form
+```
+
+## ⚙️ Configuration
+
+Configure your project to work optimally with USWDS Demo components.
+
+### Tailwind CSS Configuration
+
+Update your `tailwind.config.js` to include USWDS color tokens:
+
+```typescript
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+}
+
+export default config 
+```
+
+### PostCSS Configuration
+
+Create a `postcss.config.mjs` file in your project root:
+
+```javascript
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+```
+
+### Global Styles
+
+Add USWDS-compatible base styles to your `globals.css`:
+
+```bash
+npx shadcn@latest add https://fmanuelos.github.io/ccdi-ui-components/r/nextjs-styles.json
+```
+
+## 🎯 Usage Examples
+
+See how to use components in your Next.js application.
+
+### Basic Button Usage
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export default function HomePage() {
+  return (
+    <div className="space-y-4">
+      <Button variant="primary">Primary Action</Button>
+      <Button variant="secondary">Secondary Action</Button>
+      <Button variant="outline">Outline Button</Button>
+    </div>
+  )
+}
+```
+
+### Form with Input and Label
+
+```tsx
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button"
+
+export default function ContactForm() {
+  return (
+    <form className="space-y-4 max-w-md">
+      <div className="space-y-2">
+        <Label htmlFor="email">Email Address</Label>
+        <Input id="email" type="email" placeholder="Enter your email" />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="message">Message</Label>
+        <Input id="message" placeholder="Enter your message" />
+      </div>
+      <Button type="submit" variant="primary">
+        Send Message
+      </Button>
+    </form>
+  )
+}
+```
+
+### Dialog Modal
+
+```tsx
+import { 
+  Dialog, 
+  DialogContent, 
+  DialogHeader, 
+  DialogTitle, 
+  DialogTrigger 
+} from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+
+export default function ModalExample() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button>Open Dialog</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Confirm Action</DialogTitle>
+        </DialogHeader>
+        <p>Are you sure you want to proceed?</p>
+      </DialogContent>
+    </Dialog>
+  )
+}
+```
+
+## 🎨 Customization
+
+Learn how to customize components to match your design system.
+
+### Color Variants
+
+Components support multiple color variants following USWDS guidelines:
+
+- **Primary:** Blue-60 for main actions
+- **Secondary:** Gray-90 for secondary actions
+- **Success:** Green for positive actions
+- **Warning:** Yellow for caution
+- **Danger:** Red-60 for destructive actions
+
+### Size Variants
+
+Most components support size variants:
+
+- **Small (sm):** Compact for dense layouts
+- **Default:** Standard size for most use cases
+- **Large (lg):** Prominent for important actions
+- **Extra Large (xl):** Hero sections and CTAs
+
+### Custom Styling
+
+Override component styles using className prop:
+
+```tsx
+<Button 
+  variant="primary" 
+  className="bg-custom-blue hover:bg-custom-blue-dark"
+>
+  Custom Styled Button
+</Button>
+```
+
+## ♿ Accessibility
+
+All components are built with accessibility in mind, following WCAG 2.1 AA guidelines.
+
+### Built-in Features
+
+- ✅ Keyboard navigation support
+- ✅ Screen reader compatibility
+- ✅ Focus management
+- ✅ ARIA attributes
+- ✅ High contrast support
+- ✅ Color contrast compliance
+
+### Best Practices
+
+- Always provide meaningful labels
+- Use semantic HTML elements
+- Test with screen readers
+- Ensure sufficient color contrast
+- Provide alternative text for icons
+
+## 🚨 Troubleshooting
+
+Common issues and their solutions.
+
+### Common Issues
+
+**❌ "Module not found" errors**
+Ensure all required dependencies are installed and your import paths are correct.
+
+**❌ Styling not applied**
+Check that Tailwind CSS is properly configured and your CSS is being processed.
+
+**❌ TypeScript errors**
+Make sure you have the latest TypeScript types and that your tsconfig.json includes the components directory.
+
+**❌ Build errors**
+Verify that all peer dependencies are installed and compatible versions are being used.
+
+## 📚 Additional Resources
+
+Further reading and helpful links.
+
+### Documentation Links
+
+- [U.S. Web Design System](https://designsystem.digital.gov/)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+
+### Support
+
+Need help? Check out our GitHub repository for issues, discussions, and contributions.

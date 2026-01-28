@@ -1,0 +1,4 @@
+/* Self-hosted variable fonts for optimal performance */
+@import "./fonts.css";
+@import "tailwindcss";
+@import "./theme.css";

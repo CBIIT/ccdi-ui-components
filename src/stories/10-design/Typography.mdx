@@ -1,0 +1,576 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Design/Typography" />
+
+# Typography
+
+Typography is the art and technique of arranging type to make written language legible, readable, and appealing. This design system includes a comprehensive typography scale with font normalization for consistent rendering across different typefaces.
+
+### Typography System Features
+
+- **Font Normalization**: Automatic optical size adjustment for each font family
+- **Responsive Sizing**: Font sizes scale with the normalization factor
+- **USWDS Compliance**: Follows USWDS typography standards
+- **Self-hosted Fonts**: Optimal performance with locally hosted variable fonts
+
+## Font Families
+
+Our design system includes 10 carefully selected font families, each with its own normalization factor for optical consistency.
+
+### Basic Font Utilities
+
+The design system provides three basic font utility classes for different font styles:
+
+<div className="sb-unstyled space-y-6 my-8">
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-sans text-4xl font-bold mb-2">Sans-Serif Font</div>
+    <div className="font-sans text-base text-gray-700 mb-4">
+      The quick brown fox jumps over the lazy dog.
+    </div>
+    <div className="text-sm text-gray-600 font-mono">
+      <strong>Class:</strong> <code>font-sans</code><br />
+      <strong>Style:</strong> Poppins, sans-serif
+    </div>
+  </div>
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-serif text-4xl font-bold mb-2">Serif Font</div>
+    <div className="font-serif text-base text-gray-700 mb-4">
+      The quick brown fox jumps over the lazy dog.
+    </div>
+    <div className="text-sm text-gray-600 font-mono">
+      <strong>Class:</strong> <code>font-serif</code><br />
+      <strong>Style:</strong> Merriweather, serif
+    </div>
+  </div>
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-mono text-4xl font-bold mb-2">Monospace Font</div>
+    <div className="font-mono text-base text-gray-700 mb-4">
+      The quick brown fox jumps over the lazy dog.
+    </div>
+    <div className="text-sm text-gray-600 font-mono">
+      <strong>Class:</strong> <code>font-mono</code><br />
+      <strong>Style:</strong> Roboto Mono, monospace
+    </div>
+  </div>
+</div>
+
+### Serif Fonts
+
+<div className="sb-unstyled space-y-6 my-8">
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-merriweather text-4xl font-bold mb-2">Merriweather</div>
+      <div className="font-merriweather text-base text-gray-700 mb-4">
+        The quick brown fox jumps over the lazy dog
+      </div>
+      <div className="text-sm text-gray-600 font-mono">
+        <strong>Class:</strong> <code>font-merriweather</code><br />
+        <strong>Normalization:</strong> 0.98
+      </div>
+    </div>
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-georgia text-4xl font-bold mb-2">Georgia</div>
+    <div className="font-georgia text-base text-gray-700 mb-4">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="text-sm text-gray-600 font-mono">
+      <strong>Class:</strong> <code>font-georgia</code><br />
+      <strong>Normalization:</strong> 1.05
+    </div>
+  </div>
+</div>
+
+### Sans-Serif Fonts
+
+<div className="sb-unstyled space-y-6 my-8">
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-public-sans text-4xl font-bold mb-2">Public Sans</div>
+    <div className="font-public-sans text-base text-gray-700 mb-4">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="text-sm text-gray-600 font-mono">
+      <strong>Class:</strong> <code>font-public-sans</code><br />
+      <strong>Normalization:</strong> 1.0
+    </div>
+  </div>
+
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-source-sans text-4xl font-bold mb-2">Source Sans 3</div>
+    <div className="font-source-sans text-base text-gray-700 mb-4">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="text-sm text-gray-600 font-mono">
+      <strong>Class:</strong> <code>font-source-sans</code><br />
+      <strong>Normalization:</strong> 1.06
+    </div>
+  </div>
+
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-open-sans text-4xl font-bold mb-2">Open Sans</div>
+    <div className="font-open-sans text-base text-gray-700 mb-4">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="text-sm text-gray-600 font-mono">
+      <strong>Class:</strong> <code>font-open-sans</code><br />
+      <strong>Normalization:</strong> 1.01
+    </div>
+  </div>
+
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-helvetica text-4xl font-bold mb-2">Helvetica Neue</div>
+    <div className="font-helvetica text-base text-gray-700 mb-4">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="text-sm text-gray-600 font-mono">
+      <strong>Class:</strong> <code>font-helvetica</code><br />
+      <strong>Normalization:</strong> 1.01
+    </div>
+  </div>
+
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-tahoma text-4xl font-bold mb-2">Tahoma</div>
+    <div className="font-tahoma text-base text-gray-700 mb-4">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="text-sm text-gray-600 font-mono">
+      <strong>Class:</strong> <code>font-tahoma</code><br />
+      <strong>Normalization:</strong> 1.0
+    </div>
+  </div>
+
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-verdana text-4xl font-bold mb-2">Verdana</div>
+    <div className="font-verdana text-base text-gray-700 mb-4">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="text-sm text-gray-600 font-mono">
+      <strong>Class:</strong> <code>font-verdana</code><br />
+      <strong>Normalization:</strong> 0.99
+    </div>
+  </div>
+
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-poppins text-4xl font-bold mb-2">Poppins</div>
+    <div className="font-poppins text-base text-gray-700 mb-4">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="text-sm text-gray-600 font-mono">
+      <strong>Class:</strong> <code>font-poppins</code><br />
+      <strong>Normalization:</strong> 1.0
+    </div>
+  </div>
+</div>
+
+### Monospace Fonts
+
+<div className="sb-unstyled space-y-6 my-8">
+  <div className="border border-gray-300 rounded-lg p-6">
+    <div className="font-roboto-mono text-4xl font-bold mb-2">Roboto Mono</div>
+    <div className="font-roboto-mono text-base text-gray-700 mb-4">
+      The quick brown fox jumps over the lazy dog
+    </div>
+    <div className="text-sm text-gray-600 font-mono">
+      <strong>Class:</strong> <code>font-roboto-mono</code><br />
+      <strong>Normalization:</strong> 0.95
+    </div>
+  </div>
+</div>
+
+---
+
+## Font Sizes
+
+Our typography system includes a comprehensive scale from `xs` to `9xl`, all with built-in font normalization support.
+
+<div className="sb-unstyled space-y-4 my-8">
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">xs</div>
+    <div className="text-xs">The quick brown fox jumps over the lazy dog</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">0.75rem</div>
+  </div>
+  
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">sm</div>
+    <div className="text-sm">The quick brown fox jumps over the lazy dog</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">0.875rem</div>
+  </div>
+  
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">base</div>
+    <div className="text-base">The quick brown fox jumps over the lazy dog</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">1rem</div>
+  </div>
+  
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">lg</div>
+    <div className="text-lg">The quick brown fox jumps over the lazy dog</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">1.125rem</div>
+  </div>
+  
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">xl</div>
+    <div className="text-xl">The quick brown fox jumps over the lazy dog</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">1.25rem</div>
+  </div>
+  
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">2xl</div>
+    <div className="text-2xl">The quick brown fox jumps over the lazy dog</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">1.5rem</div>
+  </div>
+  
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">3xl</div>
+    <div className="text-3xl">The quick brown fox jumps over the lazy dog</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">1.875rem</div>
+  </div>
+  
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">4xl</div>
+    <div className="text-4xl">The quick brown fox jumps over the lazy dog</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">2.25rem</div>
+  </div>
+  
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">5xl</div>
+    <div className="text-5xl">The quick brown fox</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">3rem</div>
+  </div>
+  
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">6xl</div>
+    <div className="text-6xl">The quick brown</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">3.75rem</div>
+  </div>
+  
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">7xl</div>
+    <div className="text-7xl">The quick</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">4.5rem</div>
+  </div>
+  
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">8xl</div>
+    <div className="text-8xl">Quick</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">6rem</div>
+  </div>
+  
+  <div className="flex items-center gap-4 border-b border-gray-200 pb-4">
+    <div className="w-24 text-sm font-mono text-gray-600">9xl</div>
+    <div className="text-9xl">Big</div>
+    <div className="ml-auto text-sm font-mono text-gray-500">8rem</div>
+  </div>
+</div>
+
+---
+
+## Headings
+
+Semantic heading elements with consistent styling using Tailwind utilities.
+
+<div className="sb-unstyled space-y-6 my-8">
+  <div className="border-l-4 border-blue-500 pl-4">
+    <h1 className="text-5xl font-bold mb-2">Heading 1</h1>
+    <code className="text-sm text-gray-600">text-5xl font-bold</code>
+  </div>
+  
+  <div className="border-l-4 border-blue-500 pl-4">
+    <h2 className="text-4xl font-bold mb-2">Heading 2</h2>
+    <code className="text-sm text-gray-600">text-4xl font-bold</code>
+  </div>
+  
+  <div className="border-l-4 border-blue-500 pl-4">
+    <h3 className="text-3xl font-semibold mb-2">Heading 3</h3>
+    <code className="text-sm text-gray-600">text-3xl font-semibold</code>
+  </div>
+  
+  <div className="border-l-4 border-blue-500 pl-4">
+    <h4 className="text-2xl font-semibold mb-2">Heading 4</h4>
+    <code className="text-sm text-gray-600">text-2xl font-semibold</code>
+  </div>
+  
+  <div className="border-l-4 border-blue-500 pl-4">
+    <h5 className="text-xl font-medium mb-2">Heading 5</h5>
+    <code className="text-sm text-gray-600">text-xl font-medium</code>
+  </div>
+  
+  <div className="border-l-4 border-blue-500 pl-4">
+    <h6 className="text-lg font-medium mb-2">Heading 6</h6>
+    <code className="text-sm text-gray-600">text-lg font-medium</code>
+  </div>
+</div>
+
+### Heading with Different Fonts
+
+<div className="sb-unstyled space-y-4 my-8">
+  <h2 className="text-3xl font-bold font-merriweather">Merriweather Heading</h2>
+  <h2 className="text-3xl font-bold font-public-sans">Public Sans Heading</h2>
+  <h2 className="text-3xl font-bold font-source-sans">Source Sans Heading</h2>
+  <h2 className="text-3xl font-bold font-open-sans">Open Sans Heading</h2>
+  <h2 className="text-3xl font-bold font-poppins">Poppins Heading</h2>
+</div>
+
+---
+
+## Paragraph Styles
+
+Standard paragraph styling with different size and spacing options.
+
+### Default Paragraph
+
+<div className="sb-unstyled my-8">
+  <p className="text-base leading-relaxed text-gray-700 mb-4">
+    This is a default paragraph with standard sizing. Typography is more than choosing pretty fonts: it's a vital component of user interface design. Good typography will establish a strong visual hierarchy, provide a graphic balance to the website, and set the product's overall tone.
+  </p>
+  <code className="text-sm text-gray-600">text-base leading-relaxed text-gray-700</code>
+</div>
+
+### Lead Paragraph
+
+<div className="sb-unstyled my-8">
+  <p className="text-lg leading-relaxed text-gray-700 mb-4 font-light">
+    This is a lead paragraph, typically used for introductory text. It's slightly larger and lighter in weight to draw attention and improve readability for important opening content.
+  </p>
+  <code className="text-sm text-gray-600">text-lg leading-relaxed text-gray-700 font-light</code>
+</div>
+
+### Small Paragraph
+
+<div className="sb-unstyled my-8">
+  <p className="text-sm leading-normal text-gray-600 mb-4">
+    This is a small paragraph, useful for secondary information, captions, or footnotes. The smaller size and lighter color help establish information hierarchy.
+  </p>
+  <code className="text-sm text-gray-600">text-sm leading-normal text-gray-600</code>
+</div>
+
+### Paragraph with Max Width
+
+<div className="sb-unstyled my-8">
+  <p className="text-base leading-relaxed text-gray-700 max-w-prose mb-4">
+    This paragraph has a maximum width constraint (max-w-prose) for optimal readability. Research shows that line lengths between 45-75 characters are most comfortable for reading. This constraint prevents text from stretching too wide on large screens.
+  </p>
+  <code className="text-sm text-gray-600">text-base leading-relaxed text-gray-700 max-w-prose</code>
+</div>
+
+---
+
+## List Styles
+
+### Unordered List (Default)
+
+<div className="sb-unstyled my-8">
+  <ul className="list-disc list-inside space-y-2 text-gray-700">
+    <li>First item in the list</li>
+    <li>Second item in the list</li>
+    <li>
+      Third item with nested list:
+      <ul className="list-circle list-inside ml-6 mt-2 space-y-1">
+        <li>Nested item one</li>
+        <li>Nested item two</li>
+      </ul>
+    </li>
+    <li>Fourth item in the list</li>
+  </ul>
+  <code className="text-sm text-gray-600 mt-4 block">list-disc list-inside space-y-2</code>
+</div>
+
+### Ordered List
+
+<div className="sb-unstyled my-8">
+  <ol className="list-decimal list-inside space-y-2 text-gray-700">
+    <li>First step in the process</li>
+    <li>Second step in the process</li>
+    <li>
+      Third step with nested items:
+      <ol className="list-decimal list-inside ml-6 mt-2 space-y-1">
+        <li>Sub-step one</li>
+        <li>Sub-step two</li>
+      </ol>
+    </li>
+    <li>Fourth step in the process</li>
+  </ol>
+  <code className="text-sm text-gray-600 mt-4 block">list-decimal list-inside space-y-2</code>
+</div>
+
+### List Reset (No Markers)
+
+<div className="sb-unstyled my-8">
+  <ul className="list-none space-y-2 text-gray-700">
+    <li>✓ Item without bullet point</li>
+    <li>✓ Another item without bullet</li>
+    <li>✓ Custom icons or symbols can be used</li>
+    <li>✓ Useful for custom styled lists</li>
+  </ul>
+  <code className="text-sm text-gray-600 mt-4 block">list-none space-y-2</code>
+</div>
+
+### List Outside
+
+<div className="sb-unstyled my-8 border-l-4 border-blue-500 pl-6">
+  <ul className="list-disc list-outside space-y-2 text-gray-700">
+    <li>List marker appears outside the content area</li>
+    <li>This is the traditional list style used in print</li>
+    <li>Better for longer list items that wrap to multiple lines</li>
+    <li>The marker stays aligned with the first line</li>
+  </ul>
+  <code className="text-sm text-gray-600 mt-4 block">list-disc list-outside space-y-2</code>
+</div>
+
+---
+
+## Text Styles
+
+### Font Weights
+
+<div className="sb-unstyled space-y-3 my-8">
+  <p className="font-thin">Thin (100) - The quick brown fox jumps over the lazy dog</p>
+  <p className="font-extralight">Extra Light (200) - The quick brown fox jumps over the lazy dog</p>
+  <p className="font-light">Light (300) - The quick brown fox jumps over the lazy dog</p>
+  <p className="font-normal">Normal (400) - The quick brown fox jumps over the lazy dog</p>
+  <p className="font-medium">Medium (500) - The quick brown fox jumps over the lazy dog</p>
+  <p className="font-semibold">Semi Bold (600) - The quick brown fox jumps over the lazy dog</p>
+  <p className="font-bold">Bold (700) - The quick brown fox jumps over the lazy dog</p>
+  <p className="font-extrabold">Extra Bold (800) - The quick brown fox jumps over the lazy dog</p>
+  <p className="font-black">Black (900) - The quick brown fox jumps over the lazy dog</p>
+</div>
+
+### Text Alignment
+
+<div className="sb-unstyled space-y-4 my-8 border border-gray-300 rounded-lg p-6">
+  <p className="text-left">Left aligned text - This is the default for LTR languages</p>
+  <p className="text-center">Center aligned text - Often used for headings or callouts</p>
+  <p className="text-right">Right aligned text - Useful for numbers or RTL content</p>
+  <p className="text-justify">Justified text - This text will stretch to fill the entire width of the container, creating even edges on both sides. This is commonly used in print but should be used carefully on the web.</p>
+</div>
+
+### Text Transform
+
+<div className="sb-unstyled space-y-3 my-8">
+  <p className="uppercase">uppercase - The quick brown fox jumps over the lazy dog</p>
+  <p className="lowercase">LOWERCASE - THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG</p>
+  <p className="capitalize">capitalize - the quick brown fox jumps over the lazy dog</p>
+  <p className="normal-case">Normal case - The Quick Brown Fox Jumps Over The Lazy Dog</p>
+</div>
+
+### Text Decoration
+
+<div className="sb-unstyled space-y-3 my-8">
+  <p className="underline">Underlined text - Useful for links or emphasis</p>
+  <p className="line-through">Strikethrough text - Shows deleted or outdated content</p>
+  <p className="no-underline">No underline - Removes default underlines</p>
+  <p className="underline decoration-2">Thicker underline - More prominent decoration</p>
+  <p className="underline decoration-blue-500">Colored underline - Brand colored decoration</p>
+  <p className="underline decoration-wavy decoration-red-500">Wavy underline - Spell check style</p>
+</div>
+
+### Text Color
+
+<div className="sb-unstyled space-y-3 my-8">
+  <p className="text-gray-900">Primary text color - Darkest gray for main content</p>
+  <p className="text-gray-700">Secondary text color - Standard body text</p>
+  <p className="text-gray-500">Tertiary text color - Less prominent text</p>
+  <p className="text-gray-400">Quaternary text color - Disabled or placeholder text</p>
+  <p className="text-blue-600">Link color - Interactive elements</p>
+  <p className="text-red-600">Error color - Error messages and warnings</p>
+  <p className="text-green-600">Success color - Success messages</p>
+  <p className="text-yellow-700">Warning color - Warning messages</p>
+</div>
+
+### Font Style
+
+<div className="sb-unstyled space-y-3 my-8">
+  <p className="italic">Italic text - Used for emphasis, titles, or foreign words</p>
+  <p className="not-italic">Not italic text - Removes italic styling</p>
+  <p className="font-normal">Normal style - Standard text appearance</p>
+</div>
+
+### Line Height
+
+<div className="sb-unstyled space-y-6 my-8">
+  <div className="border border-gray-300 rounded p-4">
+    <p className="leading-none text-sm text-gray-600 mb-2">leading-none (1)</p>
+    <p className="leading-none">This text has very tight line spacing. Each line is close to the next. This is useful for headings or when you need compact text.</p>
+  </div>
+  
+  <div className="border border-gray-300 rounded p-4">
+    <p className="leading-tight text-sm text-gray-600 mb-2">leading-tight (1.25)</p>
+    <p className="leading-tight">This text has tight line spacing. It's a bit more spacious than leading-none but still compact. Good for headings or subheadings.</p>
+  </div>
+  
+  <div className="border border-gray-300 rounded p-4">
+    <p className="leading-normal text-sm text-gray-600 mb-2">leading-normal (1.5)</p>
+    <p className="leading-normal">This text has normal line spacing. This is the standard line height for most body text and provides good readability for paragraphs.</p>
+  </div>
+  
+  <div className="border border-gray-300 rounded p-4">
+    <p className="leading-relaxed text-sm text-gray-600 mb-2">leading-relaxed (1.625)</p>
+    <p className="leading-relaxed">This text has relaxed line spacing. It provides extra breathing room between lines, which can improve readability for longer content.</p>
+  </div>
+  
+  <div className="border border-gray-300 rounded p-4">
+    <p className="leading-loose text-sm text-gray-600 mb-2">leading-loose (2)</p>
+    <p className="leading-loose">This text has loose line spacing. The lines are quite far apart, creating a very open and airy feel. Use this sparingly for special emphasis.</p>
+  </div>
+</div>
+
+### Letter Spacing
+
+<div className="sb-unstyled space-y-3 my-8">
+  <p className="tracking-tighter">Tighter letter spacing - tracking-tighter</p>
+  <p className="tracking-tight">Tight letter spacing - tracking-tight</p>
+  <p className="tracking-normal">Normal letter spacing - tracking-normal</p>
+  <p className="tracking-wide">Wide letter spacing - tracking-wide</p>
+  <p className="tracking-wider">Wider letter spacing - tracking-wider</p>
+  <p className="tracking-widest">Widest letter spacing - tracking-widest</p>
+</div>
+
+### Truncation and Overflow
+
+<div className="sb-unstyled space-y-6 my-8">
+  <div className="border border-gray-300 rounded p-4">
+    <p className="text-sm text-gray-600 mb-2">truncate</p>
+    <p className="truncate w-64">This is a very long text that will be truncated with an ellipsis when it exceeds the width of its container</p>
+  </div>
+  
+  <div className="border border-gray-300 rounded p-4">
+    <p className="text-sm text-gray-600 mb-2">overflow-ellipsis</p>
+    <p className="overflow-ellipsis overflow-hidden w-64">This is a very long text that will show an ellipsis when it overflows its container width</p>
+  </div>
+  
+  <div className="border border-gray-300 rounded p-4">
+    <p className="text-sm text-gray-600 mb-2">line-clamp-2</p>
+    <p className="line-clamp-2">This is a longer paragraph that will be clamped to exactly two lines. Any content beyond two lines will be hidden and replaced with an ellipsis. This is particularly useful for card layouts where you need consistent heights.</p>
+  </div>
+  
+  <div className="border border-gray-300 rounded p-4">
+    <p className="text-sm text-gray-600 mb-2">line-clamp-3</p>
+    <p className="line-clamp-3">This is a longer paragraph that will be clamped to exactly three lines. Any content beyond three lines will be hidden and replaced with an ellipsis. This technique is great for preview text in lists or grids where you want to show a snippet of content without taking up too much space.</p>
+  </div>
+</div>
+
+---
+
+## Accessibility Considerations
+
+### Minimum Font Sizes
+
+- Body text should be at least 16px (1rem)
+- Small text (14px) should be used sparingly
+- Avoid text smaller than 12px for accessibility
+
+### Line Length
+
+- Optimal: 45-75 characters per line
+- Use `max-w-prose` (65ch) for readable line lengths
+- Avoid extremely wide text blocks
+
+### Color Contrast
+
+- Normal text: Minimum 4.5:1 contrast ratio
+- Large text (18px+): Minimum 3:1 contrast ratio
+- Use `text-gray-700` or darker for body text on white backgrounds
+
+### Line Height
+
+- Body text: 1.5 (leading-normal) or greater
+- Headings: 1.25 (leading-tight) or greater
+- Never use line-height less than 1.0 for readability

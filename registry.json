@@ -1,0 +1,587 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ccdi-ui-components",
+  "homepage": "https://fmanuelos.github.io/ccdi-ui-components",
+  "description": "USWDS-compliant React components with full accessibility and government design standards",
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "USWDS-compliant button component with 8+ variants including primary, secondary, outline, success, warning, danger, ghost, and link styles. Fully accessible with WCAG 2.1 AA compliance.",
+      "files": [
+        {
+          "path": "src/components/ui/button.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:component",
+      "title": "Button Group",
+      "description": "USWDS-compliant button group component with default and segmented variants. Supports multiple color schemes including blue, red, cyan, orange, gray, and outline styles. Fully accessible with WCAG 2.1 AA compliance.",
+      "files": [
+        {
+          "path": "src/components/ui/button-group.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx", "@radix-ui/react-slot"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "alert",
+      "type": "registry:component", 
+      "title": "Alert",
+      "description": "USWDS-compliant alert component with variants for default, success, warning, danger, info, and emergency states. Includes proper ARIA roles and icon integration.",
+      "files": [
+        {
+          "path": "src/components/ui/alert.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+    },
+    {
+      "name": "icon",
+      "type": "registry:component",
+      "title": "Icon", 
+      "description": "USWDS-compliant icon component with Material Icons integration and proper accessibility features.",
+      "files": [
+        {
+          "path": "src/components/ui/icon.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "badge",
+      "type": "registry:component",
+      "title": "Badge",
+      "description": "USWDS-compliant badge component for status indicators and labels with proper color contrast and accessibility.",
+      "files": [
+        {
+          "path": "src/components/ui/badge.tsx", 
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "banner",
+      "type": "registry:component",
+      "title": "Banner",
+      "description": "USWDS-compliant banner component that identifies official websites of government organizations with .gov and .mil variants.",
+      "files": [
+        {
+          "path": "src/components/ui/banner.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:component",
+      "title": "Breadcrumb",
+      "description": "USWDS-compliant breadcrumb navigation component showing the location of the current page in the site structure. Includes responsive behavior with mobile-optimized display and proper ARIA attributes for accessibility.",
+      "files": [
+        {
+          "path": "src/components/ui/breadcrumb.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+    },
+    {
+      "name": "input",
+      "type": "registry:component",
+      "title": "Input",
+      "description": "USWDS-compliant input component with proper labeling, validation states, and accessibility features.",
+      "files": [
+        {
+          "path": "src/components/ui/input.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "label",
+      "type": "registry:component", 
+      "title": "Label",
+      "description": "USWDS-compliant label component with proper form association and accessibility features.",
+      "files": [
+        {
+          "path": "src/components/ui/label.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["@radix-ui/react-label", "class-variance-authority", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "title": "Select",
+      "description": "USWDS-compliant select dropdown component with keyboard navigation and proper accessibility.",
+      "files": [
+        {
+          "path": "src/components/ui/select.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "separator",
+      "type": "registry:component",
+      "title": "Separator",
+      "description": "USWDS-compliant separator component for visual content division with proper semantic markup.",
+      "files": [
+        {
+          "path": "src/components/ui/separator.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "title": "Checkbox",
+      "description": "USWDS-compliant checkbox component with proper accessibility and form integration.",
+      "files": [
+        {
+          "path": "src/components/ui/checkbox.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["@radix-ui/react-checkbox", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "USWDS-compliant accordion component with keyboard navigation and proper ARIA states.",
+      "files": [
+        {
+          "path": "src/components/ui/accordion.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+    },
+    {
+      "name": "card",
+      "type": "registry:component",
+      "title": "Card",
+      "description": "USWDS-compliant card component for content grouping and layout with proper semantic structure.",
+      "files": [
+        {
+          "path": "src/components/ui/card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "title": "Dialog",
+      "description": "USWDS-compliant dialog/modal component with focus management and accessibility features.",
+      "files": [
+        {
+          "path": "src/components/ui/dialog.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["@radix-ui/react-dialog", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+    },
+    {
+      "name": "form",
+      "type": "registry:component",
+      "title": "Form",
+      "description": "USWDS-compliant form component with validation and accessibility features.",
+      "files": [
+        {
+          "path": "src/components/ui/form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["react-hook-form", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:component",
+      "title": "Pagination",
+      "description": "USWDS-compliant pagination component with keyboard navigation and accessibility.",
+      "files": [
+        {
+          "path": "src/components/ui/pagination.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:component",
+      "title": "Radio Group",
+      "description": "USWDS-compliant radio button group with proper accessibility and form integration.",
+      "files": [
+        {
+          "path": "src/components/ui/radio-group.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "search",
+      "type": "registry:component",
+      "title": "Search",
+      "description": "USWDS-compliant search input component with proper accessibility and keyboard support.",
+      "files": [
+        {
+          "path": "src/components/ui/search.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+    },
+    {
+      "name": "autocomplete",
+      "type": "registry:component",
+      "title": "Autocomplete",
+      "description": "USWDS-compliant autocomplete component providing users with search suggestions in real time. Based on the NCI Design System with full keyboard navigation, accessibility features, and configurable options including minimum character count, highlighting, and async search support.",
+      "files": [
+        {
+          "path": "src/components/ui/autocomplete.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+    },
+    {
+      "name": "chart",
+      "type": "registry:component",
+      "title": "Chart Foundation",
+      "description": "Base chart components with USWDS styling including ChartContainer, ChartTooltip, and ChartLegend. Provides the foundation for all chart types with government-compliant theming and accessibility features.",
+      "files": [
+        {
+          "path": "src/components/charts/chart.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "table",
+      "type": "registry:component",
+      "title": "Table",
+      "description": "USWDS-compliant table component with proper semantic markup and accessibility features.",
+      "files": [
+        {
+          "path": "src/components/ui/table.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "A USWDS-compliant tooltip component that displays a short descriptive message when a user hovers or focuses on an element. Supports four positions (top, right, bottom, left) and is fully accessible with WCAG 2.1 AA compliance.",
+      "files": [
+        {
+          "path": "src/components/ui/tooltip.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:component",
+      "title": "Context Menu",
+      "description": "A context menu component that displays a menu when right-clicking on an element. Built with native HTML/CSS following USWDS design guidelines. Supports checkboxes, radio groups, submenus, shortcuts, and destructive actions.",
+      "files": [
+        {
+          "path": "src/components/ui/context-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:component",
+      "title": "Dropdown Menu",
+      "description": "A dropdown menu component that displays a list of actions or options when triggered. Built with native HTML/CSS following USWDS design guidelines. Supports checkboxes, radio groups, submenus, shortcuts, and destructive actions.",
+      "files": [
+        {
+          "path": "src/components/ui/dropdown-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/icon.json"]
+    },
+    {
+      "name": "progress",
+      "type": "registry:component",
+      "title": "Progress",
+      "description": "A progress bar component that visually indicates the completion status of a task. Built with native HTML/CSS following USWDS design guidelines. Supports multiple variants (default, success, warning, error) and optional labels.",
+      "files": [
+        {
+          "path": "src/components/ui/progress.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:component",
+      "title": "Avatar",
+      "description": "USWDS-compliant avatar component for displaying user profile images with fallback initials. Supports multiple sizes and proper accessibility.",
+      "files": [
+        {
+          "path": "src/components/ui/avatar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:component",
+      "title": "Textarea",
+      "description": "USWDS-compliant textarea component for multi-line text input with proper labeling, validation states, and accessibility features.",
+      "files": [
+        {
+          "path": "src/components/ui/textarea.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "header",
+      "type": "registry:block",
+      "title": "Header",
+      "description": "USWDS-compliant header block with navigation, search, and responsive design. Includes keyboard navigation and accessibility features.",
+      "files": [
+        {
+          "path": "src/components/blocks/header.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json", "https://fmanuelos.github.io/ccdi-ui-components/r/button.json", "https://fmanuelos.github.io/ccdi-ui-components/r/search.json"]
+    },
+    {
+      "name": "footer",
+      "type": "registry:block",
+      "title": "Footer",
+      "description": "USWDS-compliant footer block with navigation links and proper semantic structure.",
+      "files": [
+        {
+          "path": "src/components/blocks/footer.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "in-page-navigation",
+      "type": "registry:block", 
+      "title": "In-Page Navigation",
+      "description": "USWDS-compliant in-page navigation component for section jumping and content organization.",
+      "files": [
+        {
+          "path": "src/components/blocks/in-page-navigation.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utility Functions",
+      "description": "Shared utility functions for class name merging and conditional styling used across USWDS components.",
+      "files": [
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "dependencies": ["clsx", "tailwind-merge"],
+      "registryDependencies": []
+    },
+    {
+      "name": "fonts",
+      "type": "registry:style",
+      "title": "USWDS Fonts",
+      "description": "Self-hosted variable fonts optimized for USWDS including Public Sans, Source Sans 3, Open Sans, Roboto Mono, Merriweather, and Poppins. Latin subset only, WOFF2 format for optimal performance (~1MB total).",
+      "files": [
+        {
+          "path": "src/styles/fonts.css",
+          "type": "registry:style",
+          "target": "~/src/app/fonts.css"
+
+        },
+        {
+          "path": "public/fonts/public-sans/public-sans.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/public-sans/public-sans.woff2"
+        },
+        {
+          "path": "public/fonts/public-sans/public-sans-italic.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/public-sans/public-sans-italic.woff2"
+        },
+        {
+          "path": "public/fonts/source-sans-3/source-sans-3.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/source-sans-3/source-sans-3.woff2"
+        },
+        {
+          "path": "public/fonts/source-sans-3/source-sans-3-italic.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/source-sans-3/source-sans-3-italic.woff2"
+        },
+        {
+          "path": "public/fonts/open-sans/open-sans.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/open-sans/open-sans.woff2"
+        },
+        {
+          "path": "public/fonts/open-sans/open-sans-italic.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/open-sans/open-sans-italic.woff2"
+        },
+        {
+          "path": "public/fonts/roboto-mono/roboto-mono.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/roboto-mono/roboto-mono.woff2"
+        },
+        {
+          "path": "public/fonts/roboto-mono/roboto-mono-italic.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/roboto-mono/roboto-mono-italic.woff2"
+        },
+        {
+          "path": "public/fonts/merriweather/merriweather.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/merriweather/merriweather.woff2"
+        },
+        {
+          "path": "public/fonts/merriweather/merriweather-italic.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/merriweather/merriweather-italic.woff2"
+        },
+        {
+          "path": "public/fonts/poppins/poppins-300.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/poppins/poppins-300.woff2"
+        },
+        {
+          "path": "public/fonts/poppins/poppins-400.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/poppins/poppins-400.woff2"
+        },
+        {
+          "path": "public/fonts/poppins/poppins-500.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/poppins/poppins-500.woff2"
+        },
+        {
+          "path": "public/fonts/poppins/poppins-600.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/poppins/poppins-600.woff2"
+        },
+        {
+          "path": "public/fonts/poppins/poppins-700.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/poppins/poppins-700.woff2"
+        },
+        {
+          "path": "public/fonts/poppins/poppins-300-italic.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/poppins/poppins-300-italic.woff2"
+        },
+        {
+          "path": "public/fonts/poppins/poppins-400-italic.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/poppins/poppins-400-italic.woff2"
+        },
+        {
+          "path": "public/fonts/poppins/poppins-500-italic.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/poppins/poppins-500-italic.woff2"
+        },
+        {
+          "path": "public/fonts/poppins/poppins-600-italic.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/poppins/poppins-600-italic.woff2"
+        },
+        {
+          "path": "public/fonts/poppins/poppins-700-italic.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/poppins/poppins-700-italic.woff2"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": []
+    },
+    {
+      "name": "nextjs-styles",
+      "type": "registry:style",
+      "title": "USWDS Global Styles",
+      "description": "Complete USWDS design system styles including Tailwind CSS v4 configuration, color tokens, typography system, and spacing. Government-compliant design tokens for accessible federal websites with Section 508 compliance.",
+      "files": [
+        {
+          "path": "src/styles/globals.css",
+          "type": "registry:style",
+          "target": "~/src/app/globals.css"
+        }
+      ],
+      "dependencies": ["tailwindcss"],
+      "registryDependencies": ["https://fmanuelos.github.io/ccdi-ui-components/r/fonts.json"]
+    }
+  ]
+}
