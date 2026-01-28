@@ -1,4 +1,4 @@
-#CCDI UI Components Library
+# CCDI UI Components Library
 
 A comprehensive UI component library built with **React**, **TypeScript**, and **Storybook**, following the [U.S. Web Design System (USWDS)](https://designsystem.digital.gov/) guidelines. This project demonstrates modern, accessible, and government-compliant web components.
 
