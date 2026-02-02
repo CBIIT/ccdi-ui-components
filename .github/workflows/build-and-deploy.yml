@@ -41,6 +41,12 @@ jobs:
         run: npm run registry:build
         continue-on-error: true
 
+      - name: Clean site directory
+        run: rm -rf site
+
+      - name: Clean Storybook output directory
+        run: rm -rf storybook-static
+
       - name: Build Storybook
         run: npm run storybook:build
 
@@ -49,7 +55,6 @@ jobs:
       # - /   -> Storybook static site (root)
       - name: Assemble site artifact
         run: |
-          rm -rf site
           mkdir -p site/r
           # Copy Storybook static build
           cp -R storybook-static/* site/
