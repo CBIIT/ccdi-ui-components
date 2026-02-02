@@ -48,6 +48,7 @@ npm run registry:build
 
 ## 📖 Documentation
 
+- **Live Storybook**: [https://cbiit.github.io/ccdi-ui-components/](https://cbiit.github.io/ccdi-ui-components/) - Production component documentation
 - **Storybook UI**: [http://localhost:6006](http://localhost:6006) - Interactive component documentation
 - **Registry Guide**: See [REGISTRY_USAGE.md](./REGISTRY_USAGE.md) for using components as a registry
 - **Setup Guide**: See [STORYBOOK_GUIDE.md](./STORYBOOK_GUIDE.md) for detailed Storybook usage
