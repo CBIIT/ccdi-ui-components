@@ -397,6 +397,48 @@
       "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
+      "name": "slider",
+      "type": "registry:component",
+      "title": "Slider",
+      "description": "USWDS-compliant slider component for selecting a value or range of values. Supports single and multi-thumb sliders with keyboard navigation, step increments, and full accessibility features.",
+      "files": [
+        {
+          "path": "src/components/ui/slider.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "switch",
+      "type": "registry:component",
+      "title": "Switch",
+      "description": "USWDS-compliant switch/toggle component for binary choices. Built with native HTML/CSS following USWDS design guidelines with proper accessibility and keyboard support.",
+      "files": [
+        {
+          "path": "src/components/ui/switch.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "title": "Tabs",
+      "description": "USWDS-compliant tabs component for organizing content into multiple panels. Includes Tabs, TabsList, TabsTrigger, and TabsContent components with keyboard navigation and proper ARIA attributes.",
+      "files": [
+        {
+          "path": "src/components/ui/tabs.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
       "name": "header",
       "type": "registry:block",
       "title": "Header",
