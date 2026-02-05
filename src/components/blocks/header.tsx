@@ -217,9 +217,9 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
                 el.style.width = `${navContainerRef.current.offsetWidth}px`;
               }
             }}
-            className="absolute top-full z-50 bg-[#1f4671] shadow-lg"
+            className="fixed left-0 right-0 z-50 bg-[#1f4671] shadow-lg"
           >
-            <div className="max-w-[1400px] mx-auto flex gap-[123px] px-8 py-9">
+            <div className="mx-auto flex gap-[123px] px-8 py-9 ">
               <div className="flex flex-col gap-8">
                 <h3 className="text-white text-xl font-semibold">
                   {item.label}
@@ -231,7 +231,7 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
                     key={subItem.id}
                     href={subItem.href}
                     onClick={() => setActiveDropdown(null)}
-                    className="text-white text-xl font-semibold hover:text-blue-200"
+                    className="text-white text-xl font-semibold hover:underline"
                   >
                     {subItem.label}
                   </a>
@@ -243,7 +243,7 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
                     key={subItem.id}
                     href={subItem.href}
                     onClick={() => setActiveDropdown(null)}
-                    className="text-white text-xl font-semibold hover:text-blue-200"
+                    className="text-white text-xl font-semibold hover:underline"
                   >
                     {subItem.label}
                   </a>
@@ -255,7 +255,7 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
                     key={subItem.id}
                     href={subItem.href}
                     onClick={() => setActiveDropdown(null)}
-                    className="text-white text-xl font-semibold hover:text-blue-200"
+                    className="text-white text-xl font-semibold hover:underline"
                   >
                     {subItem.label}
                   </a>
@@ -367,62 +367,13 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
 
   return (
     <div ref={navbarRef} className={cn("bg-white", className)}>
-      {/* Government Header Bar - Figma Colors */}
-      <div className="bg-[#f0f0f0] flex items-center justify-between max-w-[1400px] mx-auto px-8 py-3">
-        <div className="flex items-center gap-3">
-          <div className="h-3 w-4">
-            <svg viewBox="0 0 16 11" className="h-full w-full">
-              <rect width="16" height="11" fill="#B22234"/>
-              <rect width="16" height="0.85" fill="white"/>
-              <rect y="1.7" width="16" height="0.85" fill="white"/>
-              <rect y="3.4" width="16" height="0.85" fill="white"/>
-              <rect y="5.1" width="16" height="0.85" fill="white"/>
-              <rect y="6.8" width="16" height="0.85" fill="white"/>
-              <rect y="8.5" width="16" height="0.85" fill="white"/>
-              <rect y="10.2" width="16" height="0.85" fill="white"/>
-              <rect width="6.4" height="5.95" fill="#3C3B6E"/>
-              <circle cx="1.6" cy="1.19" r="0.34" fill="white"/>
-              <circle cx="3.2" cy="1.19" r="0.34" fill="white"/>
-              <circle cx="4.8" cy="1.19" r="0.34" fill="white"/>
-              <circle cx="1.6" cy="2.38" r="0.34" fill="white"/>
-              <circle cx="3.2" cy="2.38" r="0.34" fill="white"/>
-              <circle cx="4.8" cy="2.38" r="0.34" fill="white"/>
-              <circle cx="1.6" cy="3.57" r="0.34" fill="white"/>
-              <circle cx="3.2" cy="3.57" r="0.34" fill="white"/>
-              <circle cx="4.8" cy="3.57" r="0.34" fill="white"/>
-              <circle cx="1.6" cy="4.76" r="0.34" fill="white"/>
-              <circle cx="3.2" cy="4.76" r="0.34" fill="white"/>
-              <circle cx="4.8" cy="4.76" r="0.34" fill="white"/>
-              <circle cx="1.6" cy="5.95" r="0.34" fill="white"/>
-              <circle cx="3.2" cy="5.95" r="0.34" fill="white"/>
-              <circle cx="4.8" cy="5.95" r="0.34" fill="white"/>
-            </svg>
-          </div>
-          <p className="text-xs text-black font-normal">
-            An official website of the United States government
-          </p>
-        </div>
-        <Button 
-          className="bg-[#3b7f84] hover:bg-[#2a5f64] text-white px-4 py-2 rounded font-bold text-sm"
-        >
-          Español
-        </Button>
-      </div>
 
       {/* Main Header - Figma Layout */}
-      <div className="max-w-[1400px] mx-auto px-8 py-9 flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-8 py-8 pb-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center">
+        <div>
           {logo || (
-            <div className="flex items-center gap-4">
-              <div className="h-12 w-12 bg-blue-600 rounded flex items-center justify-center">
-                <span className="text-white font-bold text-lg">DSH</span>
-              </div>
-              <div>
-                <div className="h-2 w-60 bg-blue-200 rounded"></div>
-                <p className="text-[#606061] text-lg font-bold mt-2">Data Sharing Hub</p>
-              </div>
-            </div>
+            <img src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg" alt="Data Sharing Hub" className="h-12 w-auto" />
           )}
         </div>
 
@@ -432,21 +383,15 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
             label="Search Data Sharing Hub"
             buttonText="Search"
             onSearch={(value) => console.log("Search:", value)}
-            inputProps={{
-              className: "border border-[#71767a] rounded-l px-4 py-2 focus:outline focus:outline-4 focus:outline-blue-40"
-            }}
-            buttonProps={{
-              className: "bg-[#3a75bd] hover:bg-blue-700 text-white px-4 py-2 rounded-r font-bold"
-            }}
           />
         </div>
       </div>
 
       {/* Navigation - Figma Colors and Layout */}
       <div ref={navContainerRef} className="max-w-[1400px] mx-auto px-8 relative">
-        <div className="flex items-center h-12">
+        <div className="flex items-center h-12 ">
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-0">
+          <div className="hidden -mx-4 lg:flex lg:items-center lg:space-x-0">
             {navItems.map(item => renderDesktopNavItem(item))}
           </div>
 
