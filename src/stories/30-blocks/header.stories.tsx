@@ -1,282 +1,97 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Header, type HeaderNavigation } from '@/components/blocks/header'
-
-// Sample navigation data for stories
-const sampleNavigation: HeaderNavigation = {
-  primary: [
-    {
-      label: "Services",
-      href: "#",
-      children: [
-        { label: "Web Design", href: "/services/web-design" },
-        { label: "Development", href: "/services/development" },
-        { label: "Consulting", href: "/services/consulting" },
-        { label: "UI/UX Design", href: "/services/design" }
-      ]
-    },
-    { label: "About", href: "/about", isActive: true },
-    { label: "Contact", href: "/contact" },
-    {
-      label: "Resources",
-      href: "#",
-      children: [
-        { label: "Documentation", href: "/docs" },
-        { label: "Blog", href: "/blog" },
-        { label: "Tutorials", href: "/tutorials" }
-      ]
-    }
-  ],
-  secondary: [
-    { label: "Help", href: "/help" },
-    { label: "Login", href: "/login" }
-  ]
-}
-
-const simpleNavigation: HeaderNavigation = {
-  primary: [
-    { label: "Home", href: "/", isActive: true },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" }
-  ]
-}
+import USWDSNavbar from '@/components/blocks/header'
 
 const meta = {
   title: 'Blocks/Header',
-  component: Header,
+  component: USWDSNavbar,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A comprehensive header component with navigation, search functionality, and mobile responsiveness following USWDS design guidelines.',
+        component: 'A USWDS-compliant header component with navigation menu, search functionality, and responsive mobile menu. Supports nested submenus and follows government website design standards.',
       },
     },
   },
   tags: ['autodocs'],
   argTypes: {
-    projectTitle: {
-      control: 'text',
-      description: 'The title/brand name displayed in the header',
-    },
-    projectTitleHref: {
-      control: 'text',
-      description: 'The URL for the project title link',
-    },
-    variant: {
-      control: { type: 'select' },
-      options: ['default', 'extended'],
-      description: 'The visual variant of the header',
-    },
-    navigation: {
+    navItems: {
       control: 'object',
-      description: 'Navigation structure with primary and optional secondary items',
+      description: 'Array of navigation items with optional submenus',
     },
-    onSearch: { 
-      action: 'searched',
-      description: 'Callback function when search is performed'
+    logo: {
+      control: false,
+      description: 'Custom logo component (optional)',
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes',
     },
   },
-} satisfies Meta<typeof Header>
+} satisfies Meta<typeof USWDSNavbar>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-// Default story
 export const Default: Story = {
   args: {
-    projectTitle: 'USWDS Demo Site',
-    projectTitleHref: '/',
-    navigation: sampleNavigation,
-  },
-}
-
-// Simple navigation variant
-export const SimpleNavigation: Story = {
-  args: {
-    projectTitle: 'Simple Site',
-    navigation: simpleNavigation,
-  },
-}
-
-// Extended variant
-export const Extended: Story = {
-  args: {
-    projectTitle: 'Extended Header Site',
-    variant: 'extended',
-    navigation: sampleNavigation,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Extended variant provides more space for the project title and additional navigation layout.',
+    navItems: [
+      {
+        id: 'home',
+        label: 'Home',
+        href: '/'
       },
-    },
-  },
-}
-
-// No secondary navigation
-export const NoSecondaryNav: Story = {
-  args: {
-    projectTitle: 'Primary Only Site',
-    navigation: {
-      primary: [
-        { label: "Home", href: "/", isActive: true },
-        { label: "Products", href: "/products" },
-        { label: "Support", href: "/support" }
-      ]
-    },
-  },
-}
-
-// Dropdown navigation test
-export const DropdownNavigation: Story = {
-  args: {
-    projectTitle: 'Dropdown Test Site',
-    navigation: {
-      primary: [
-        {
-          label: "Products",
-          href: "#",
-          children: [
-            { label: "Product A", href: "/products/a" },
-            { label: "Product B", href: "/products/b" },
-            { label: "Product C", href: "/products/c" }
-          ]
-        },
-        { label: "About", href: "/about" }
-      ]
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Navigation with dropdown menus. Click on "Products" to see the dropdown functionality.',
+      {
+        id: 'index-studies',
+        label: 'Index of NCI Studies',
+        href: '/studies'
       },
-    },
-  },
-}
-
-// Search functionality
-export const SearchTest: Story = {
-  args: {
-    projectTitle: 'Search Test Site',
-    navigation: simpleNavigation,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Test search functionality in the header. The search component should trigger the onSearch callback.',
+      {
+        id: 'data-guidance',
+        label: 'Data Sharing Guidance',
+        hasSubmenu: true,
+        submenu: [
+          { id: 'guidance-nci-expectations', label: 'NCI Expectations for Genomic Data Sharing (GDS Policy)', href: '/guidance/gds-policy' },
+          { id: 'guidance-nih-policy', label: 'NIH Data Sharing Guidance', href: '/guidance/nih-policy' },
+          { id: 'guidance-dms-plan', label: 'How to Write a Data Management and Sharing (DMS) Plan', href: '/guidance/dms-plan' },
+          { id: 'guidance-compliance', label: 'Compliance Requirements', href: '/guidance/compliance' },
+        ]
       },
-    },
-  },
-}
-
-// Mobile menu
-export const MobileMenu: Story = {
-  args: {
-    projectTitle: 'Mobile Test Site',
-    navigation: sampleNavigation,
-  },
-  parameters: {
-    viewport: {
-      defaultViewport: 'mobile1',
-    },
-    docs: {
-      description: {
-        story: 'Mobile responsive view with hamburger menu. Resize viewport to mobile to see the mobile menu button.',
+      {
+        id: 'data-processes',
+        label: 'Data Sharing Processes',
+        hasSubmenu: true,
+        submenu: [
+          { id: 'processes-submission', label: 'Data Submission Process', href: '/processes/submission' },
+          { id: 'processes-review', label: 'Review and Approval', href: '/processes/review' },
+          { id: 'processes-timeline', label: 'Timeline and Deadlines', href: '/processes/timeline' },
+        ]
       },
-    },
-  },
-}
-
-// Custom project title href
-export const CustomTitleHref: Story = {
-  args: {
-    projectTitle: 'Custom Link Site',
-    projectTitleHref: '/custom-home',
-    navigation: simpleNavigation,
-  },
-}
-
-// Active navigation state
-export const ActiveNavigation: Story = {
-  args: {
-    projectTitle: 'Active State Site',
-    navigation: {
-      primary: [
-        { label: "Home", href: "/" },
-        { label: "Products", href: "/products", isActive: true },
-        { label: "About", href: "/about" }
-      ]
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Navigation with active state styling. The "Products" item is marked as active.',
+      {
+        id: 'data-tools',
+        label: 'Data Tools & Resources',
+        href: '/tools'
       },
-    },
+      {
+        id: 'news',
+        label: 'News',
+        hasSubmenu: true,
+        submenu: [
+          { id: 'news-announcements', label: 'Announcements', href: '/news/announcements' },
+          { id: 'news-updates', label: 'Updates', href: '/news/updates' },
+          { id: 'news-events', label: 'Events', href: '/news/events' },
+        ]
+      },
+      {
+        id: 'about',
+        label: 'About',
+        hasSubmenu: true,
+        submenu: [
+          { id: 'about-overview', label: 'Overview', href: '/about' },
+          { id: 'about-team', label: 'Team', href: '/about/team' },
+          { id: 'about-contact', label: 'Contact', href: '/about/contact' },
+        ]
+      }
+    ],
   },
 }
 
-// Accessibility test
-export const AccessibilityTest: Story = {
-  args: {
-    projectTitle: 'Accessible Site',
-    navigation: sampleNavigation,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Tests accessibility features including semantic HTML, ARIA labels, and keyboard navigation support.',
-      },
-    },
-  },
-}
-
-// Complete header showcase
-export const CompleteShowcase: Story = {
-  args: {
-    projectTitle: 'Complete USWDS Demo',
-    projectTitleHref: '/',
-    variant: 'default',
-    navigation: {
-      primary: [
-        {
-          label: "Government",
-          href: "#",
-          children: [
-            { label: "Federal Agencies", href: "/federal" },
-            { label: "State & Local", href: "/state-local" },
-            { label: "Tribal", href: "/tribal" }
-          ]
-        },
-        {
-          label: "Services",
-          href: "#",
-          isActive: true,
-          children: [
-            { label: "Digital Services", href: "/services/digital" },
-            { label: "Consulting", href: "/services/consulting" },
-            { label: "Training", href: "/services/training" },
-            { label: "Support", href: "/services/support" }
-          ]
-        },
-        { label: "Resources", href: "/resources" },
-        { label: "News", href: "/news" },
-        { label: "Contact", href: "/contact" }
-      ],
-      secondary: [
-        { label: "Help", href: "/help" },
-        { label: "Sign In", href: "/login" },
-        { label: "Create Account", href: "/register" }
-      ]
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Complete header implementation showcasing all features: complex navigation with dropdowns, secondary navigation, active states, and search functionality.',
-      },
-    },
-  },
-}

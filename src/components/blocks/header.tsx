@@ -1,393 +1,491 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import React, { useState, useRef, useEffect } from 'react';
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Search } from "@/components/ui/search"
-import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog"
-import { Icon } from "@/components/ui/icon"
+// import { Icon } from "@/components/ui/icon"
+import { Search } from '@/components/ui/search';
 
-// Types for navigation structure
-export interface NavigationItem {
-  label: string
-  href: string
-  isActive?: boolean
-  children?: NavigationItem[]
+interface NavItem {
+  id: string;
+  label: string;
+  href?: string;
+  hasSubmenu?: boolean;
+  submenu?: NavItem[];
 }
 
-export interface HeaderNavigation {
-  primary: NavigationItem[]
-  secondary?: NavigationItem[]
+interface USWDSNavbarProps {
+  logo?: React.ReactNode;
+  navItems: NavItem[];
+  className?: string;
 }
 
-// Header variants
-const headerVariants = cva(
-  "bg-white border-b border-gray-cool-10",
+const uswdsNavItems = [
   {
-    variants: {
-      variant: {
-        default: "",
-        extended: "border-b-0"
+    id: 'home',
+    label: 'Home',
+    href: '/'
+  },
+  {
+    id: 'index-studies',
+    label: 'Index of NCI Studies',
+    href: '/studies'
+  },
+  {
+    id: 'data-guidance',
+    label: 'Data Sharing Guidance',
+    hasSubmenu: true,
+    submenu: [
+      { id: 'guidance-nci-expectations', label: 'NCI Expectations for Genomic Data Sharing (GDS Policy)', href: '/guidance/gds-policy' },
+      { id: 'guidance-nih-policy', label: 'NIH Data Sharing Guidance', href: '/guidance/nih-policy' },
+      { id: 'guidance-dms-plan', label: 'How to Write a Data Management and Sharing (DMS) Plan', href: '/guidance/dms-plan' },
+      { id: 'guidance-compliance', label: 'Compliance Requirements', href: '/guidance/compliance' },
+    ]
+  },
+  {
+    id: 'data-processes',
+    label: 'Data Sharing Processes',
+    hasSubmenu: true,
+    submenu: [
+      { id: 'processes-submission', label: 'Data Submission Process', href: '/processes/submission' },
+      { id: 'processes-review', label: 'Review and Approval', href: '/processes/review' },
+      { id: 'processes-timeline', label: 'Timeline and Deadlines', href: '/processes/timeline' },
+    ]
+  },
+  {
+    id: 'data-tools',
+    label: 'Data Tools & Resources',
+    href: '/tools'
+  },
+  {
+    id: 'news',
+    label: 'News',
+    hasSubmenu: true,
+    submenu: [
+      { id: 'news-announcements', label: 'Announcements', href: '/news/announcements' },
+      { id: 'news-updates', label: 'Updates', href: '/news/updates' },
+      { id: 'news-events', label: 'Events', href: '/news/events' },
+    ]
+  },
+  {
+    id: 'about',
+    label: 'About',
+    hasSubmenu: true,
+    submenu: [
+      { id: 'about-overview', label: 'Overview', href: '/about' },
+      { id: 'about-team', label: 'Team', href: '/about/team' },
+      { id: 'about-contact', label: 'Contact', href: '/about/contact' },
+    ]
+  }
+];
+
+export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeSecondaryMenu, setActiveSecondaryMenu] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const navButtonRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({});
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const navbarRef = useRef<HTMLDivElement>(null);
+  const navContainerRef = useRef<HTMLDivElement>(null);
+  const navItemRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  // Handle responsive behavior
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 1024); // lg breakpoint
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
+
+  // Handle dropdown clicks
+  const handleDropdownClick = (itemId: string) => {
+    if (isMobile) {
+      setActiveSecondaryMenu(activeSecondaryMenu === itemId ? null : itemId);
+    } else {
+      // If clicking the same item that's already open, close it. Otherwise, open the new one.
+      if (activeDropdown === itemId) {
+        setActiveDropdown(null);
+      } else {
+        setActiveDropdown(itemId);
       }
-    },
-    defaultVariants: {
-      variant: "default"
     }
-  }
-)
+  };
 
-// Navigation dropdown component
-const NavigationDropdown: React.FC<{
-  item: NavigationItem
-  isMobile?: boolean
-}> = ({ item, isMobile = false }) => {
-  const [isOpen, setIsOpen] = React.useState(false)
-  const [focusedIndex, setFocusedIndex] = React.useState(-1)
-  const buttonRef = React.useRef<HTMLButtonElement>(null)
-  const dropdownRef = React.useRef<HTMLDivElement>(null)
-
-  // Keyboard navigation handler
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!item.children) return
-
-    switch (e.key) {
-      case 'Enter':
-      case ' ':
-        e.preventDefault()
-        if (!isOpen) {
-          setIsOpen(true)
-          setFocusedIndex(0)
-        } else if (focusedIndex >= 0) {
-          // Navigate to focused item
-          const focusedItem = item.children[focusedIndex]
-          if (focusedItem) {
-            window.location.href = focusedItem.href
-          }
+  // Handle outside clicks for dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!isMobile) {
+        const target = event.target as HTMLElement;
+        
+        // Don't close if clicking on a navigation button
+        const isNavButton = Object.values(navButtonRefs.current).some(ref => 
+          ref && ref.contains(target)
+        );
+        if (isNavButton) {
+          return;
         }
-        break
-      case 'ArrowDown':
-        e.preventDefault()
-        if (!isOpen) {
-          setIsOpen(true)
-          setFocusedIndex(0)
-        } else if (item.children) {
-          setFocusedIndex(prev => 
-            prev < item.children!.length - 1 ? prev + 1 : 0
-          )
+        
+        // Don't close if clicking inside the dropdown
+        const isInsideDropdown = Object.values(dropdownRefs.current).some(ref => 
+          ref && ref.contains(target)
+        );
+        if (isInsideDropdown) {
+          return;
         }
-        break
-      case 'ArrowUp':
-        e.preventDefault()
-        if (!isOpen) {
-          setIsOpen(true)
-          setFocusedIndex(item.children ? item.children.length - 1 : 0)
-        } else if (item.children) {
-          setFocusedIndex(prev => 
-            prev > 0 ? prev - 1 : item.children!.length - 1
-          )
-        }
-        break
-      case 'Escape':
-        e.preventDefault()
-        setIsOpen(false)
-        setFocusedIndex(-1)
-        buttonRef.current?.focus()
-        break
-      case 'Tab':
-        if (isOpen) {
-          setIsOpen(false)
-          setFocusedIndex(-1)
-        }
-        break
-    }
-  }
+        
+        // Close dropdown if clicking outside
+        setActiveDropdown(null);
+      }
+    };
 
-  // Close dropdown and reset focus
-  const closeDropdown = () => {
-    setIsOpen(false)
-    setFocusedIndex(-1)
-  }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMobile]);
 
-  if (!item.children) {
+  // Handle mobile menu outside clicks
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
+        setActiveSecondaryMenu(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const renderDesktopNavItem = (item: NavItem) => {
+    const hasSubmenu = item.hasSubmenu && item.submenu && item.submenu.length > 0;
+    const isActive = activeDropdown === item.id;
+
     return (
-      <a
-        href={item.href}
-        className={cn(
-          isMobile
-            ? "block py-3 px-4 leading-none text-gray-60 hover:text-blue-60 hover:bg-gray-5 focus:outline focus:outline-4 focus:outline-blue-40"
-            : cn(
-                "relative p-4 flex font-bold text-gray-cool-60 focus:outline focus:outline-4 focus:outline-blue-40 hover:text-blue-60 hover:after:bg-blue-60  hover:after:absolute hover:after:-bottom-1 hover:after:inset-x-4 hover:after:h-1",
-                item.isActive && "after:bg-blue-60 after:absolute after:-bottom-1 after:inset-x-4 after:h-1"
-              )
+      <div key={item.id} ref={el => { navItemRefs.current[item.id] = el; }} className="relative">
+        {hasSubmenu ? (
+          <button
+            ref={el => { navButtonRefs.current[item.id] = el; }}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDropdownClick(item.id);
+            }}
+            className={cn(
+              "flex items-center px-5 py-3 text-base font-semibold whitespace-nowrap focus:outline focus:outline-4 focus:outline-blue-40",
+              isActive 
+                ? "bg-[#1f4671] text-white" 
+                : "text-[#585c65] hover:text-gray-900"
+            )}
+          >
+            <span>{item.label}</span>
+            <svg
+              className={cn(
+                "ml-2 h-4 w-4",
+                isActive && "rotate-180"
+              )}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        ) : (
+          <a
+            href={item.href}
+            className="block px-5 py-3 text-base font-semibold whitespace-nowrap text-[#585c65] hover:text-gray-900 focus:outline focus:outline-4 focus:outline-blue-40"
+          >
+            {item.label}
+          </a>
         )}
-      >
-        {item.label}
-      </a>
-    )
-  }
 
-  if (isMobile) {
+        {/* Desktop Dropdown - Figma Style */}
+        {hasSubmenu && isActive && (
+          <div
+            ref={el => { 
+              dropdownRefs.current[item.id] = el;
+              if (el && navContainerRef.current && navItemRefs.current[item.id]) {
+                const navItemRect = navItemRefs.current[item.id]!.getBoundingClientRect();
+                const navContainerRect = navContainerRef.current.getBoundingClientRect();
+                el.style.left = `${navContainerRect.left - navItemRect.left}px`;
+                el.style.right = `${navItemRect.right - navContainerRect.right}px`;
+                el.style.width = `${navContainerRef.current.offsetWidth}px`;
+              }
+            }}
+            className="absolute top-full z-50 bg-[#1f4671] shadow-lg"
+          >
+            <div className="max-w-[1400px] mx-auto flex gap-[123px] px-8 py-9">
+              <div className="flex flex-col gap-8">
+                <h3 className="text-white text-xl font-semibold">
+                  {item.label}
+                </h3>
+              </div>
+              <div className="flex flex-col gap-5">
+                {item.submenu?.slice(0, 3).map(subItem => (
+                  <a
+                    key={subItem.id}
+                    href={subItem.href}
+                    onClick={() => setActiveDropdown(null)}
+                    className="text-white text-xl font-semibold hover:text-blue-200"
+                  >
+                    {subItem.label}
+                  </a>
+                ))}
+              </div>
+              <div className="flex flex-col gap-5">
+                {item.submenu?.slice(3, 6).map(subItem => (
+                  <a
+                    key={subItem.id}
+                    href={subItem.href}
+                    onClick={() => setActiveDropdown(null)}
+                    className="text-white text-xl font-semibold hover:text-blue-200"
+                  >
+                    {subItem.label}
+                  </a>
+                ))}
+              </div>
+              <div className="flex flex-col gap-5">
+                {item.submenu?.slice(6).map(subItem => (
+                  <a
+                    key={subItem.id}
+                    href={subItem.href}
+                    onClick={() => setActiveDropdown(null)}
+                    className="text-white text-xl font-semibold hover:text-blue-200"
+                  >
+                    {subItem.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const renderMobileNavItem = (item: NavItem, isSecondary = false) => {
+    const hasSubmenu = item.hasSubmenu && item.submenu && item.submenu.length > 0;
+    const isActive = isSecondary ? activeSecondaryMenu === item.id : false;
+
+    if (isSecondary) {
+      return (
+        <div key={item.id} className="border-t border-gray-10">
+          <button
+            onClick={() => hasSubmenu && handleDropdownClick(item.id)}
+            className={cn(
+              "text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40 gap-3",
+              hasSubmenu && "flex items-center justify-between"
+            )}
+          >
+            <span className="text-[#3d4551] group-hover:text-blue-60">
+              {item.label}
+            </span>
+            {hasSubmenu && (
+              <svg
+                className={cn(
+                  "ml-2 h-4 w-4",
+                  isActive && "rotate-180"
+                )}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            )}
+          </button>
+          {hasSubmenu && isActive && (
+            <ul>
+              {item.submenu?.map(subItem => (
+                <li key={subItem.id} className="border-t border-gray-10">
+                  <a
+                    href={subItem.href}
+                    onClick={() => {
+                      setActiveSecondaryMenu(null);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="block py-2 pl-8 pr-4 text-[#3d4551] hover:text-blue-60 hover:bg-gray-5 focus:outline focus:outline-4 focus:outline-blue-40"
+                  >
+                    {subItem.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      );
+    }
+
     return (
-      <div className="border-t border-t-gray-10">
+      <div key={item.id} className="border-t border-gray-10">
         <button
-          ref={buttonRef}
-          onClick={() => setIsOpen(!isOpen)}
-          onKeyDown={handleKeyDown}
+          onClick={() => hasSubmenu && handleDropdownClick(item.id)}
           className={cn(
             "text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40 gap-3",
-            item.isActive && "font-bold after:block after:absolute after:bg-blue-60 after:inset-y-1 after:left-0 after:w-1 after:rounded-full"
+            hasSubmenu && "flex items-center justify-between"
           )}
-          aria-expanded={isOpen}
         >
-          <span className={cn(
-            "text-gray-60 group-hover:text-blue-60",
-            item.isActive && "text-blue-60"
-          )}>
+          <span className="text-[#3d4551] group-hover:text-blue-60">
             {item.label}
           </span>
-          <span className="h-full flex items-center">
-            <Icon 
-              icon={isOpen ? "remove" : "add"} 
-              size="sm" 
-              className="size-5" 
-            />
-          </span>
+          {hasSubmenu && (
+            <svg
+              className={cn(
+                "ml-2 h-4 w-4",
+                isActive && "rotate-180"
+              )}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          )}
         </button>
-        {isOpen && (
+        {hasSubmenu && isActive && (
           <ul>
-            {item.children.map((child, index) => (
-              <li key={index} className="border-t border-t-gray-10">
+            {item.submenu?.map(subItem => (
+              <li key={subItem.id} className="border-t border-gray-10">
                 <a
-                  href={child.href}
-                  className={cn(
-                    "block py-2 pl-8 pr-4 text-gray-60 hover:text-blue-60 hover:bg-gray-5 focus:outline focus:outline-4 focus:outline-blue-40",
-                    focusedIndex === index && "bg-gray-5 text-blue-60"
-                  )}
-                  onClick={closeDropdown}
+                  href={subItem.href}
+                  className="block py-2 pl-8 pr-4 text-[#3d4551] hover:text-blue-60 hover:bg-gray-5 focus:outline focus:outline-4 focus:outline-blue-40"
                 >
-                  {child.label}
+                  {subItem.label}
                 </a>
               </li>
             ))}
           </ul>
         )}
       </div>
-    )
-  }
+    );
+  };
 
   return (
-    <div className="relative">
-      <button
-        ref={buttonRef}
-        onClick={() => setIsOpen(!isOpen)}
-        onKeyDown={handleKeyDown}
-        onBlur={() => setTimeout(() => closeDropdown(), 150)}
-        className={cn(
-          "relative flex items-center gap-1 group p-4 font-bold text-gray-cool-60 focus:outline focus:outline-4 focus:outline-blue-40",
-          isOpen && "bg-blue-warm-80 text-white",
-          item.isActive && !isOpen && "after:bg-blue-60  after:absolute after:-bottom-1 after:inset-x-4 after:h-1",
-          isOpen && "after:hidden"
-        )}
-        aria-expanded={isOpen}
-        aria-haspopup="menu"
-      >
-        <span>{item.label}</span>
-        <div aria-hidden="true" className="hidden lg:inline-flex">
-          <Icon 
-            icon={isOpen ? "arrow_drop_up" : "arrow_drop_down"} 
-            size="xs" 
-            className="align-middle size-4" 
-          />
-        </div>
-      </button>
-      {isOpen && (
-        <div 
-          ref={dropdownRef}
-          className="absolute outline-none z-10 bg-blue-warm-80 py-2 w-60 leading-snug"
-          role="menu"
-        >
-          {item.children.map((child, index) => (
-            <a
-              key={index}
-              href={child.href}
-              role="menuitem"
-              className={cn(
-                "flex text-white py-2 px-4 hover:underline focus:outline focus:outline-4 focus:-outline-offset-4 focus:outline-blue-40",
-                focusedIndex === index && "underline bg-blue-warm-70"
-              )}
-              onClick={closeDropdown}
-            >
-              {child.label}
-            </a>
-          ))}
-        </div>
-      )}
-    </div>
-  )
-}
-
-// Desktop navigation component
-const DesktopNavigation: React.FC<{
-  navigation: HeaderNavigation
-  onSearch?: (value: string) => void
-}> = ({ navigation, onSearch }) => (
-  <nav className="flex justify-end items-center pl-2 pb-1">
-    <ul className="flex">
-      {navigation.primary.map((item, index) => (
-        <li key={index} className="leading-none">
-          <NavigationDropdown item={item} />
-        </li>
-      ))}
-    </ul>
-
-    <section aria-label="search component">
-      <Search
-        iconOnly
-        onSearch={onSearch}
-        className="max-w-lg"
-        inputProps={{
-          className: "h-8 border-r-0"
-        }}
-        buttonProps={{
-          className: "h-8 px-3"
-        }}
-      />
-    </section>
-  </nav>
-)
-
-// Mobile navigation component
-const MobileNavigation: React.FC<{
-  navigation: HeaderNavigation
-  onSearch?: (value: string) => void
-}> = ({ navigation, onSearch }) => (
-  <div className="flex flex-col gap-6 pt-16 pb-4 px-4 bg-white w-60 fixed right-0 inset-y-0 overflow-auto">
-    <DialogClose className="absolute top-0 right-0 size-12 flex items-center justify-center text-black bg-transparent focus:outline focus:outline-4 focus:-outline-offset-4 focus:outline-blue-40" aria-label="Close">
-      <Icon icon="close" size="sm" className="size-6" />
-    </DialogClose>
-
-    <ul className="flex flex-col">
-      {navigation.primary.map((item, index) => (
-        <li key={index}>
-          <NavigationDropdown item={item} isMobile />
-        </li>
-      ))}
-    </ul>
-
-    <div className="flex flex-col gap-4">
-      {navigation.secondary && navigation.secondary.length > 0 && (
-        <ul>
-          {navigation.secondary.map((item, index) => (
-            <li key={index}>
-              <a
-                href={item.href}
-                className="text-gray-50 text-sm leading-1 hover:underline hover:text-blue-60 focus:outline focus:outline-4 focus:outline-blue-40"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <section aria-label="search component">
-        <Search
-          onSearch={onSearch}
-          inputProps={{
-            className: "bg-transparent h-8 border-r-0"
-          }}
-          buttonProps={{
-            className: "h-8 px-3"
-          }}
-        />
-      </section>
-    </div>
-  </div>
-)
-
-export interface HeaderProps
-  extends React.HTMLAttributes<HTMLElement>,
-    VariantProps<typeof headerVariants> {
-  projectTitle: string
-  projectTitleHref?: string
-  navigation: HeaderNavigation
-  onSearch?: (value: string) => void
-}
-
-const Header = React.forwardRef<HTMLElement, HeaderProps>(
-  ({
-    className,
-    variant,
-    projectTitle,
-    projectTitleHref = "/",
-    navigation,
-    onSearch,
-    ...props
-  }, ref) => {
-    return (
-      <header
-        ref={ref}
-        className={cn(headerVariants({ variant }), className)}
-        {...props}
-      >
-        <div className="w-full">
-          <div className={cn(
-            "max-w-5xl flex mx-auto justify-between items-center border-b border-b-gray-cool-10 px-4",
-            variant === "extended" ? "lg:items-end lg:border-b-0" : "lg:items-end lg:border-b-0"
-          )}>
-            {/* Project Title */}
-            <div className={cn(
-              "lg:w-1/3 w-full",
-              variant === "extended" ? "lg:text-4xl lg:pt-8 lg:pb-6" : "lg:text-2xl lg:mt-8 lg:mb-4"
-            )}>
-              <em className="font-bold not-italic">
-                <a
-                  className="text-gray-90 focus:outline focus:outline-4 focus:outline-blue-40v"
-                  href={projectTitleHref}
-                >
-                  {projectTitle}
-                </a>
-              </em>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden">
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button
-                    size="sm"
-                    className="uppercase ml-auto leading-none text-white text-sm h-12 px-3 bg-blue-60v hover:bg-blue-warm-70v active:bg-blue-warm-80v focus:outline focus:outline-4 focus:outline-blue-40v"
-                  >
-                    Menu
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="fixed z-50 inset-0 overflow-y-auto flex items-center justify-center p-4">
-                  <MobileNavigation navigation={navigation} onSearch={onSearch} />
-                </DialogContent>
-              </Dialog>
-            </div>
-
-            {/* Desktop Navigation - only show for default variant */}
-            {variant !== "extended" && (
-              <div className="hidden lg:flex ml-auto">
-                <DesktopNavigation navigation={navigation} onSearch={onSearch} />
-              </div>
-            )}
+    <div ref={navbarRef} className={cn("bg-white", className)}>
+      {/* Government Header Bar - Figma Colors */}
+      <div className="bg-[#f0f0f0] flex items-center justify-between max-w-[1400px] mx-auto px-8 py-3">
+        <div className="flex items-center gap-3">
+          <div className="h-3 w-4">
+            <svg viewBox="0 0 16 11" className="h-full w-full">
+              <rect width="16" height="11" fill="#B22234"/>
+              <rect width="16" height="0.85" fill="white"/>
+              <rect y="1.7" width="16" height="0.85" fill="white"/>
+              <rect y="3.4" width="16" height="0.85" fill="white"/>
+              <rect y="5.1" width="16" height="0.85" fill="white"/>
+              <rect y="6.8" width="16" height="0.85" fill="white"/>
+              <rect y="8.5" width="16" height="0.85" fill="white"/>
+              <rect y="10.2" width="16" height="0.85" fill="white"/>
+              <rect width="6.4" height="5.95" fill="#3C3B6E"/>
+              <circle cx="1.6" cy="1.19" r="0.34" fill="white"/>
+              <circle cx="3.2" cy="1.19" r="0.34" fill="white"/>
+              <circle cx="4.8" cy="1.19" r="0.34" fill="white"/>
+              <circle cx="1.6" cy="2.38" r="0.34" fill="white"/>
+              <circle cx="3.2" cy="2.38" r="0.34" fill="white"/>
+              <circle cx="4.8" cy="2.38" r="0.34" fill="white"/>
+              <circle cx="1.6" cy="3.57" r="0.34" fill="white"/>
+              <circle cx="3.2" cy="3.57" r="0.34" fill="white"/>
+              <circle cx="4.8" cy="3.57" r="0.34" fill="white"/>
+              <circle cx="1.6" cy="4.76" r="0.34" fill="white"/>
+              <circle cx="3.2" cy="4.76" r="0.34" fill="white"/>
+              <circle cx="4.8" cy="4.76" r="0.34" fill="white"/>
+              <circle cx="1.6" cy="5.95" r="0.34" fill="white"/>
+              <circle cx="3.2" cy="5.95" r="0.34" fill="white"/>
+              <circle cx="4.8" cy="5.95" r="0.34" fill="white"/>
+            </svg>
           </div>
+          <p className="text-xs text-black font-normal">
+            An official website of the United States government
+          </p>
+        </div>
+        <Button 
+          className="bg-[#3b7f84] hover:bg-[#2a5f64] text-white px-4 py-2 rounded font-bold text-sm"
+        >
+          Español
+        </Button>
+      </div>
 
-          {/* Extended variant navigation */}
-          {variant === "extended" && (
-            <div className="hidden lg:block border-t border-t-gray-cool-10">
-              <DesktopNavigation navigation={navigation} onSearch={onSearch} />
+      {/* Main Header - Figma Layout */}
+      <div className="max-w-[1400px] mx-auto px-8 py-9 flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex items-center">
+          {logo || (
+            <div className="flex items-center gap-4">
+              <div className="h-12 w-12 bg-blue-600 rounded flex items-center justify-center">
+                <span className="text-white font-bold text-lg">DSH</span>
+              </div>
+              <div>
+                <div className="h-2 w-60 bg-blue-200 rounded"></div>
+                <p className="text-[#606061] text-lg font-bold mt-2">Data Sharing Hub</p>
+              </div>
             </div>
           )}
         </div>
-      </header>
-    )
-  }
-)
 
-Header.displayName = "Header"
+        {/* Search Bar - Using USWDS Search Component */}
+        <div className="w-80">
+          <Search
+            label="Search Data Sharing Hub"
+            buttonText="Search"
+            onSearch={(value) => console.log("Search:", value)}
+            inputProps={{
+              className: "border border-[#71767a] rounded-l px-4 py-2 focus:outline focus:outline-4 focus:outline-blue-40"
+            }}
+            buttonProps={{
+              className: "bg-[#3a75bd] hover:bg-blue-700 text-white px-4 py-2 rounded-r font-bold"
+            }}
+          />
+        </div>
+      </div>
 
-export { Header, headerVariants }
+      {/* Navigation - Figma Colors and Layout */}
+      <div ref={navContainerRef} className="max-w-[1400px] mx-auto px-8 relative">
+        <div className="flex items-center h-12">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex lg:items-center lg:space-x-0">
+            {navItems.map(item => renderDesktopNavItem(item))}
+          </div>
+
+          {/* Mobile menu button - Using USWDS Button */}
+          <div className="flex items-center lg:hidden">
+            <Button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="bg-[#1f4671] hover:bg-[#0f2a4a] text-white px-4 py-2 rounded font-bold text-lg"
+            >
+              Menu
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Navigation Overlay - Figma Style */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div className="absolute inset-0 bg-gray-400/20" onClick={() => setIsMobileMenuOpen(false)} />
+          <div ref={mobileMenuRef} className="absolute left-0 top-0 h-full w-80 bg-white shadow-xl">
+            <div className="p-4">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-[#007bbd] text-lg font-semibold">Main Menu</h2>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-gray-500 hover:text-gray-700 focus:outline focus:outline-4 focus:outline-blue-40"
+                >
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div className="space-y-0">
+                {navItems.map(item => renderMobileNavItem(item, true))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
