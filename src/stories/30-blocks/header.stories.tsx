@@ -50,7 +50,17 @@ export const Default: Story = {
         label: 'Data Sharing Guidance',
         hasSubmenu: true,
         submenu: [
-          { id: 'guidance-nci-expectations', label: 'NCI Expectations for Genomic Data Sharing (GDS Policy)', href: '/guidance/gds-policy' },
+          { 
+            id: 'guidance-nci-expectations', 
+            label: 'NCI Expectations for Genomic Data Sharing (GDS Policy)', 
+            href: '/guidance/gds-policy',
+            hasSubmenu: true,
+            submenu: [
+              { id: 'gds-overview', label: 'Overview', href: '/guidance/gds-policy/overview' },
+              { id: 'gds-requirements', label: 'Requirements', href: '/guidance/gds-policy/requirements' },
+              { id: 'gds-timeline', label: 'Timeline', href: '/guidance/gds-policy/timeline' },
+            ]
+          },
           { id: 'guidance-nih-policy', label: 'NIH Data Sharing Guidance', href: '/guidance/nih-policy' },
           { id: 'guidance-dms-plan', label: 'How to Write a Data Management and Sharing (DMS) Plan', href: '/guidance/dms-plan' },
           { id: 'guidance-compliance', label: 'Compliance Requirements', href: '/guidance/compliance' },

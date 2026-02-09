@@ -20,65 +20,6 @@ interface USWDSNavbarProps {
   className?: string;
 }
 
-const uswdsNavItems = [
-  {
-    id: 'home',
-    label: 'Home',
-    href: '/'
-  },
-  {
-    id: 'index-studies',
-    label: 'Index of NCI Studies',
-    href: '/studies'
-  },
-  {
-    id: 'data-guidance',
-    label: 'Data Sharing Guidance',
-    hasSubmenu: true,
-    submenu: [
-      { id: 'guidance-nci-expectations', label: 'NCI Expectations for Genomic Data Sharing (GDS Policy)', href: '/guidance/gds-policy' },
-      { id: 'guidance-nih-policy', label: 'NIH Data Sharing Guidance', href: '/guidance/nih-policy' },
-      { id: 'guidance-dms-plan', label: 'How to Write a Data Management and Sharing (DMS) Plan', href: '/guidance/dms-plan' },
-      { id: 'guidance-compliance', label: 'Compliance Requirements', href: '/guidance/compliance' },
-    ]
-  },
-  {
-    id: 'data-processes',
-    label: 'Data Sharing Processes',
-    hasSubmenu: true,
-    submenu: [
-      { id: 'processes-submission', label: 'Data Submission Process', href: '/processes/submission' },
-      { id: 'processes-review', label: 'Review and Approval', href: '/processes/review' },
-      { id: 'processes-timeline', label: 'Timeline and Deadlines', href: '/processes/timeline' },
-    ]
-  },
-  {
-    id: 'data-tools',
-    label: 'Data Tools & Resources',
-    href: '/tools'
-  },
-  {
-    id: 'news',
-    label: 'News',
-    hasSubmenu: true,
-    submenu: [
-      { id: 'news-announcements', label: 'Announcements', href: '/news/announcements' },
-      { id: 'news-updates', label: 'Updates', href: '/news/updates' },
-      { id: 'news-events', label: 'Events', href: '/news/events' },
-    ]
-  },
-  {
-    id: 'about',
-    label: 'About',
-    hasSubmenu: true,
-    submenu: [
-      { id: 'about-overview', label: 'Overview', href: '/about' },
-      { id: 'about-team', label: 'Team', href: '/about/team' },
-      { id: 'about-contact', label: 'Contact', href: '/about/contact' },
-    ]
-  }
-];
-
 export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -176,10 +117,17 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
               handleDropdownClick(item.id);
             }}
             className={cn(
-              "flex items-center px-5 py-3 text-base font-semibold whitespace-nowrap focus:outline focus:outline-4 focus:outline-blue-40",
+              // Base styles
+              "relative flex items-center px-4 py-4 text-base font-semibold whitespace-nowrap leading-4",
+              
               isActive 
-                ? "bg-[#1f4671] text-white" 
-                : "text-[#585c65] hover:text-gray-900"
+                ? "bg-cerulean-70 text-white" 
+                : "text-gray-cool-60",
+              // Hover styles
+              !isActive && "hover:text-cerulean-50",
+              !isActive && "hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-4 hover:after:right-4 hover:after:h-1 hover:after:bg-cerulean-50 hover:after:rounded-none hover:after:block",
+              // Focus styles
+              "focus:outline focus:outline-4 focus:outline-blue-40v"
             )}
           >
             <span>{item.label}</span>
@@ -198,7 +146,15 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
         ) : (
           <a
             href={item.href}
-            className="block px-5 py-3 text-base font-semibold whitespace-nowrap text-[#585c65] hover:text-gray-900 focus:outline focus:outline-4 focus:outline-blue-40"
+            className={cn(
+              // Base styles
+              "relative block px-4 py-4 text-base font-semibold whitespace-nowrap text-gray-cool-60 leading-4",
+              // Hover styles
+              "hover:text-cerulean-50",
+              "hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-4 hover:after:right-4 hover:after:h-1 hover:after:bg-cerulean-50 hover:after:rounded-none hover:after:block",
+              // Focus styles
+              "focus:outline focus:outline-4 focus:outline-blue-40v"
+            )}
           >
             {item.label}
           </a>
@@ -217,49 +173,99 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
                 el.style.width = `${navContainerRef.current.offsetWidth}px`;
               }
             }}
-            className="fixed left-0 right-0 z-50 bg-[#1f4671] shadow-lg"
+            className="fixed left-0 right-0 z-50 bg-cerulean-70 shadow-lg"
           >
-            <div className="mx-auto flex gap-[123px] px-8 py-9 ">
-              <div className="flex flex-col gap-8">
+            <div className="max-w-[87.5rem] mx-auto flex gap-2 px-8 py-8 grid grid-cols-4">
+              <div className="flex flex-col col-span-1">
                 <h3 className="text-white text-xl font-semibold">
                   {item.label}
                 </h3>
               </div>
-              <div className="flex flex-col gap-5">
-                {item.submenu?.slice(0, 3).map(subItem => (
-                  <a
-                    key={subItem.id}
-                    href={subItem.href}
-                    onClick={() => setActiveDropdown(null)}
-                    className="text-white text-xl font-semibold hover:underline"
-                  >
-                    {subItem.label}
-                  </a>
-                ))}
-              </div>
-              <div className="flex flex-col gap-5">
-                {item.submenu?.slice(3, 6).map(subItem => (
-                  <a
-                    key={subItem.id}
-                    href={subItem.href}
-                    onClick={() => setActiveDropdown(null)}
-                    className="text-white text-xl font-semibold hover:underline"
-                  >
-                    {subItem.label}
-                  </a>
-                ))}
-              </div>
-              <div className="flex flex-col gap-5">
-                {item.submenu?.slice(6).map(subItem => (
-                  <a
-                    key={subItem.id}
-                    href={subItem.href}
-                    onClick={() => setActiveDropdown(null)}
-                    className="text-white text-xl font-semibold hover:underline"
-                  >
-                    {subItem.label}
-                  </a>
-                ))}
+              <div className="flex gap-2 col-span-3">
+                <div className="flex flex-col w-1/3 px-4 mb-8">
+                  {item.submenu?.slice(0, 3).map(subItem => (
+                    <>
+                      <a
+                        key={subItem.id}
+                        href={subItem.href}
+                        onClick={() => setActiveDropdown(null)}
+                        className="text-white text-xl font-semibold hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                      >
+                        {subItem.label}
+            
+                      </a>
+                      {subItem.hasSubmenu && (
+                        <ul>
+                          {subItem.submenu?.map(subItemChild => (
+                            <li key={subItemChild.id} className="my-3">
+                              <a
+                                href={subItemChild.href}
+                                className="text-white hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                              >
+                                {subItemChild.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ))}
+                </div>
+                <div className="flex flex-col gap-5 w-1/3 px-4">
+                  {item.submenu?.slice(3, 6).map(subItem => (
+                    <a
+                      key={subItem.id}
+                      href={subItem.href}
+                      onClick={() => setActiveDropdown(null)}
+                      className="text-white text-xl font-semibold hover:underline"
+                    >
+                      {subItem.label}
+                         {subItem.hasSubmenu && (
+                        <ul>
+                          {subItem.submenu?.map(subItemChild => (
+                            <li key={subItemChild.id} className="border-t border-gray-10">
+                              <a
+                                href={subItemChild.href}
+                                className="block py-2 pl-8 pr-4 text-white hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                              >
+                                {subItemChild.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </a>
+                  ))}
+                </div>
+                <div className="flex flex-col gap-5 w-1/3 px-4">
+                  {item.submenu?.slice(6).map(subItem => (
+                    <>
+                      <a
+                        key={subItem.id}
+                        href={subItem.href}
+                        onClick={() => setActiveDropdown(null)}
+                        className="text-white text-xl font-semibold hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                      >
+                        {subItem.label}
+                        
+                      </a>
+                      {subItem.hasSubmenu && (
+                        <ul>
+                          {subItem.submenu?.map(subItemChild => (
+                            <li key={subItemChild.id} className="border-t border-gray-10">
+                              <a
+                                href={subItemChild.href}
+                                className="block py-2 pl-8 pr-4 text-white hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                              >
+                                {subItemChild.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -278,7 +284,7 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
           <button
             onClick={() => hasSubmenu && handleDropdownClick(item.id)}
             className={cn(
-              "text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40 gap-3",
+              "text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-4v gap-3",
               hasSubmenu && "flex items-center justify-between"
             )}
           >
@@ -309,7 +315,7 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
                       setActiveSecondaryMenu(null);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="block py-2 pl-8 pr-4 text-[#3d4551] hover:text-blue-60 hover:bg-gray-5 focus:outline focus:outline-4 focus:outline-blue-40"
+                    className="block py-2 pl-8 pr-4 text-[#3d4551] hover:text-blue-60 hover:bg-gray-5 focus:outline focus:outline-4 focus:outline-blue-40v"
                   >
                     {subItem.label}
                   </a>
@@ -326,7 +332,7 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
         <button
           onClick={() => hasSubmenu && handleDropdownClick(item.id)}
           className={cn(
-            "text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40 gap-3",
+            "text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3",
             hasSubmenu && "flex items-center justify-between"
           )}
         >
@@ -353,7 +359,7 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
               <li key={subItem.id} className="border-t border-gray-10">
                 <a
                   href={subItem.href}
-                  className="block py-2 pl-8 pr-4 text-[#3d4551] hover:text-blue-60 hover:bg-gray-5 focus:outline focus:outline-4 focus:outline-blue-40"
+                  className="block py-2 pl-8 pr-4 text-[#3d4551] hover:text-blue-60 hover:bg-gray-5 focus:outline focus:outline-4 focus:outline-blue-40v"
                 >
                   {subItem.label}
                 </a>
@@ -369,12 +375,14 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
     <div ref={navbarRef} className={cn("bg-white", className)}>
 
       {/* Main Header - Figma Layout */}
-      <div className="max-w-[1400px] mx-auto px-8 py-8 pb-4 flex items-center justify-between">
+      <div className="max-w-[87.5rem] mx-auto px-8 py-8 pb-4 flex items-center justify-between">
         {/* Logo */}
         <div>
-          {logo || (
-            <img src="https://www.cancer.gov/profiles/custom/cgov_site/themes/custom/cgov/static/images/design-elements/logos/nci-logo-full.svg" alt="Data Sharing Hub" className="h-12 w-auto" />
-          )}
+          <a href="/" className="inline-block focus:outline focus:outline-4 focus:outline-blue-40v">
+            {logo || (
+              <img src="https://www.cancer.gov/sites/g/files/xnrzdm211/files/ncids_header/logos/Logo_NCI.svg" alt="Data Sharing Hub" className="h-[3.125rem] max-h-[3.125rem] w-auto" />
+            )}
+          </a>
         </div>
 
         {/* Search Bar - Using USWDS Search Component */}
@@ -389,7 +397,7 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
 
       {/* Navigation - Figma Colors and Layout */}
       <div ref={navContainerRef} className="max-w-[1400px] mx-auto px-8 relative">
-        <div className="flex items-center h-12 ">
+        <div className="flex items-center h-12">
           {/* Desktop Navigation */}
           <div className="hidden -mx-4 lg:flex lg:items-center lg:space-x-0">
             {navItems.map(item => renderDesktopNavItem(item))}
@@ -417,7 +425,7 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
                 <h2 className="text-[#007bbd] text-lg font-semibold">Main Menu</h2>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-gray-500 hover:text-gray-700 focus:outline focus:outline-4 focus:outline-blue-40"
+                  className="text-gray-500 hover:text-gray-700 focus:outline focus:outline-4 focus:outline-blue-40v"
                 >
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
