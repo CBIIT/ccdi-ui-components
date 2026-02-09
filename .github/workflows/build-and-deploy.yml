@@ -34,10 +34,11 @@ jobs:
       - name: Install
         run: npm ci
 
-      # Optional — only if you actually have a shadcn build step
+      - name: Clean registry directory
+        run: rm -rf registry
+        
       - name: Build shadcn registry
         run: npm run registry:build
-        continue-on-error: true
 
       - name: Clean site directory
         run: rm -rf site
@@ -65,7 +66,7 @@ jobs:
           path: site
 
   deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
