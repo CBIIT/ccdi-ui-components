@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import USWDSNavbar from '@/components/blocks/header'
+import NCIDSNavbar from '@/components/blocks/header'
 
 const meta = {
   title: 'Blocks/Header',
-  component: USWDSNavbar,
+  component: NCIDSNavbar,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -27,7 +27,7 @@ const meta = {
       description: 'Additional CSS classes',
     },
   },
-} satisfies Meta<typeof USWDSNavbar>
+} satisfies Meta<typeof NCIDSNavbar>
 
 export default meta
 type Story = StoryObj<typeof meta>

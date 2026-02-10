@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React, { useState, useRef, useEffect } from 'react';
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import React, { useState, useRef, useEffect } from "react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 // import { Icon } from "@/components/ui/icon"
-import { Search } from '@/components/ui/search';
+import { Search } from "@/components/ui/search";
 
 interface NavItem {
   id: string;
@@ -14,18 +14,24 @@ interface NavItem {
   submenu?: NavItem[];
 }
 
-interface USWDSNavbarProps {
+interface NCIDSNavbarProps {
   logo?: React.ReactNode;
   navItems: NavItem[];
   className?: string;
 }
 
-export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarProps) {
+export default function NCIDSNavbar({
+  logo,
+  navItems,
+  className,
+}: NCIDSNavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [activeSecondaryMenu, setActiveSecondaryMenu] = useState<string | null>(null);
+  const [activeSecondaryMenu, setActiveSecondaryMenu] = useState<string | null>(
+    null,
+  );
   const [isMobile, setIsMobile] = useState(false);
-  
+
   const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const navButtonRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({});
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -38,12 +44,11 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 1024); // lg breakpoint
     };
-    
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-    return () => window.removeEventListener('resize', checkIsMobile);
-  }, []);
 
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
 
   // Handle dropdown clicks
   const handleDropdownClick = (itemId: string) => {
@@ -64,54 +69,66 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
     const handleClickOutside = (event: MouseEvent) => {
       if (!isMobile) {
         const target = event.target as HTMLElement;
-        
+
         // Don't close if clicking on a navigation button
-        const isNavButton = Object.values(navButtonRefs.current).some(ref => 
-          ref && ref.contains(target)
+        const isNavButton = Object.values(navButtonRefs.current).some(
+          (ref) => ref && ref.contains(target),
         );
         if (isNavButton) {
           return;
         }
-        
+
         // Don't close if clicking inside the dropdown
-        const isInsideDropdown = Object.values(dropdownRefs.current).some(ref => 
-          ref && ref.contains(target)
+        const isInsideDropdown = Object.values(dropdownRefs.current).some(
+          (ref) => ref && ref.contains(target),
         );
         if (isInsideDropdown) {
           return;
         }
-        
+
         // Close dropdown if clicking outside
         setActiveDropdown(null);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isMobile]);
 
   // Handle mobile menu outside clicks
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node)
+      ) {
         setIsMobileMenuOpen(false);
         setActiveSecondaryMenu(null);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const renderDesktopNavItem = (item: NavItem) => {
-    const hasSubmenu = item.hasSubmenu && item.submenu && item.submenu.length > 0;
+    const hasSubmenu =
+      item.hasSubmenu && item.submenu && item.submenu.length > 0;
     const isActive = activeDropdown === item.id;
 
     return (
-      <div key={item.id} ref={el => { navItemRefs.current[item.id] = el; }} className="relative">
+      <div
+        key={item.id}
+        ref={(el) => {
+          navItemRefs.current[item.id] = el;
+        }}
+        className="relative"
+      >
         {hasSubmenu ? (
           <button
-            ref={el => { navButtonRefs.current[item.id] = el; }}
+            ref={(el) => {
+              navButtonRefs.current[item.id] = el;
+            }}
             onClick={(e) => {
               e.stopPropagation();
               handleDropdownClick(item.id);
@@ -119,28 +136,29 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
             className={cn(
               // Base styles
               "relative flex items-center px-4 py-4 text-base font-semibold whitespace-nowrap leading-4",
-              
-              isActive 
-                ? "bg-cerulean-70 text-white" 
-                : "text-gray-cool-60",
+
+              isActive ? "bg-cerulean-70 text-white" : "text-gray-cool-60",
               // Hover styles
               !isActive && "hover:text-cerulean-50",
-              !isActive && "hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-4 hover:after:right-4 hover:after:h-1 hover:after:bg-cerulean-50 hover:after:rounded-none hover:after:block",
+              !isActive &&
+                "hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-4 hover:after:right-4 hover:after:h-1 hover:after:bg-cerulean-50 hover:after:rounded-none hover:after:block",
               // Focus styles
-              "focus:outline focus:outline-4 focus:outline-blue-40v"
+              "focus:outline focus:outline-4 focus:outline-blue-40v",
             )}
           >
             <span>{item.label}</span>
             <svg
-              className={cn(
-                "ml-2 h-4 w-4",
-                isActive && "rotate-180"
-              )}
+              className={cn("ml-2 h-4 w-4", isActive && "rotate-180")}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
         ) : (
@@ -153,7 +171,7 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
               "hover:text-cerulean-50",
               "hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-4 hover:after:right-4 hover:after:h-1 hover:after:bg-cerulean-50 hover:after:rounded-none hover:after:block",
               // Focus styles
-              "focus:outline focus:outline-4 focus:outline-blue-40v"
+              "focus:outline focus:outline-4 focus:outline-blue-40v",
             )}
           >
             {item.label}
@@ -163,11 +181,17 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
         {/* Desktop Dropdown - Figma Style */}
         {hasSubmenu && isActive && (
           <div
-            ref={el => { 
+            ref={(el) => {
               dropdownRefs.current[item.id] = el;
-              if (el && navContainerRef.current && navItemRefs.current[item.id]) {
-                const navItemRect = navItemRefs.current[item.id]!.getBoundingClientRect();
-                const navContainerRect = navContainerRef.current.getBoundingClientRect();
+              if (
+                el &&
+                navContainerRef.current &&
+                navItemRefs.current[item.id]
+              ) {
+                const navItemRect =
+                  navItemRefs.current[item.id]!.getBoundingClientRect();
+                const navContainerRect =
+                  navContainerRef.current.getBoundingClientRect();
                 el.style.left = `${navContainerRect.left - navItemRect.left}px`;
                 el.style.right = `${navItemRect.right - navContainerRect.right}px`;
                 el.style.width = `${navContainerRef.current.offsetWidth}px`;
@@ -175,16 +199,16 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
             }}
             className="fixed left-0 right-0 z-50 bg-cerulean-70 shadow-lg"
           >
-            <div className="max-w-[87.5rem] mx-auto flex gap-2 px-8 py-8 grid grid-cols-4">
+            <div className="max-w-[87.5rem] mx-auto flex gap-2 px-8 py-8 pb-0 grid grid-cols-4">
               <div className="flex flex-col col-span-1">
                 <h3 className="text-white text-xl font-semibold">
                   {item.label}
                 </h3>
               </div>
-              <div className="flex gap-2 col-span-3">
-                <div className="flex flex-col w-1/3 px-4 mb-8">
-                  {item.submenu?.slice(0, 3).map(subItem => (
-                    <>
+              <div className="flex gap-2 col-span-3 grid grid-flow-col grid-rows-[auto_auto_auto]">
+                <div className="flex flex-col items-start grid grid-cols-3">
+                  {item.submenu?.slice(0, 3).map((subItem) => (
+                    <div className="mb-10 px-4">
                       <a
                         key={subItem.id}
                         href={subItem.href}
@@ -192,15 +216,17 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
                         className="text-white text-xl font-semibold hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
                       >
                         {subItem.label}
-            
                       </a>
                       {subItem.hasSubmenu && (
                         <ul>
-                          {subItem.submenu?.map(subItemChild => (
-                            <li key={subItemChild.id} className="my-3">
+                          {subItem.submenu?.map((subItemChild) => (
+                            <li
+                              key={subItemChild.id}
+                              className="my-2 leading-5"
+                            >
                               <a
                                 href={subItemChild.href}
-                                className="text-white hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                                className="font-open-sans text-base text-white leading-4 font-normal hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
                               >
                                 {subItemChild.label}
                               </a>
@@ -208,38 +234,12 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
                           ))}
                         </ul>
                       )}
-                    </>
+                    </div>
                   ))}
                 </div>
-                <div className="flex flex-col gap-5 w-1/3 px-4">
-                  {item.submenu?.slice(3, 6).map(subItem => (
-                    <a
-                      key={subItem.id}
-                      href={subItem.href}
-                      onClick={() => setActiveDropdown(null)}
-                      className="text-white text-xl font-semibold hover:underline"
-                    >
-                      {subItem.label}
-                         {subItem.hasSubmenu && (
-                        <ul>
-                          {subItem.submenu?.map(subItemChild => (
-                            <li key={subItemChild.id} className="border-t border-gray-10">
-                              <a
-                                href={subItemChild.href}
-                                className="block py-2 pl-8 pr-4 text-white hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
-                              >
-                                {subItemChild.label}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </a>
-                  ))}
-                </div>
-                <div className="flex flex-col gap-5 w-1/3 px-4">
-                  {item.submenu?.slice(6).map(subItem => (
-                    <>
+                <div className="flex flex-col items-start grid grid-cols-3">
+                  {item.submenu?.slice(3, 6).map((subItem) => (
+                    <div className="mb-10 px-4">
                       <a
                         key={subItem.id}
                         href={subItem.href}
@@ -247,15 +247,17 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
                         className="text-white text-xl font-semibold hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
                       >
                         {subItem.label}
-                        
                       </a>
                       {subItem.hasSubmenu && (
                         <ul>
-                          {subItem.submenu?.map(subItemChild => (
-                            <li key={subItemChild.id} className="border-t border-gray-10">
+                          {subItem.submenu?.map((subItemChild) => (
+                            <li
+                              key={subItemChild.id}
+                              className="my-2 leading-5"
+                            >
                               <a
                                 href={subItemChild.href}
-                                className="block py-2 pl-8 pr-4 text-white hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                                className="font-open-sans text-base text-white leading-4 font-normal hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
                               >
                                 {subItemChild.label}
                               </a>
@@ -263,7 +265,38 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
                           ))}
                         </ul>
                       )}
-                    </>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-col items-start grid grid-cols-3">
+                  {item.submenu?.slice(6).map((subItem) => (
+                    <div className="mb-10 px-4">
+                      <a
+                        key={subItem.id}
+                        href={subItem.href}
+                        onClick={() => setActiveDropdown(null)}
+                        className="text-white text-xl font-semibold hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                      >
+                        {subItem.label}
+                      </a>
+                      {subItem.hasSubmenu && (
+                        <ul>
+                          {subItem.submenu?.map((subItemChild) => (
+                            <li
+                              key={subItemChild.id}
+                              className="my-2 leading-5"
+                            >
+                              <a
+                                href={subItemChild.href}
+                                className="font-open-sans text-base text-white leading-4 font-normal hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                              >
+                                {subItemChild.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   ))}
                 </div>
               </div>
@@ -275,7 +308,8 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
   };
 
   const renderMobileNavItem = (item: NavItem, isSecondary = false) => {
-    const hasSubmenu = item.hasSubmenu && item.submenu && item.submenu.length > 0;
+    const hasSubmenu =
+      item.hasSubmenu && item.submenu && item.submenu.length > 0;
     const isActive = isSecondary ? activeSecondaryMenu === item.id : false;
 
     if (isSecondary) {
@@ -285,7 +319,7 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
             onClick={() => hasSubmenu && handleDropdownClick(item.id)}
             className={cn(
               "text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-4v gap-3",
-              hasSubmenu && "flex items-center justify-between"
+              hasSubmenu && "flex items-center justify-between",
             )}
           >
             <span className="text-[#3d4551] group-hover:text-blue-60">
@@ -293,21 +327,23 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
             </span>
             {hasSubmenu && (
               <svg
-                className={cn(
-                  "ml-2 h-4 w-4",
-                  isActive && "rotate-180"
-                )}
+                className={cn("ml-2 h-4 w-4", isActive && "rotate-180")}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
               </svg>
             )}
           </button>
           {hasSubmenu && isActive && (
             <ul>
-              {item.submenu?.map(subItem => (
+              {item.submenu?.map((subItem) => (
                 <li key={subItem.id} className="border-t border-gray-10">
                   <a
                     href={subItem.href}
@@ -333,7 +369,7 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
           onClick={() => hasSubmenu && handleDropdownClick(item.id)}
           className={cn(
             "text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3",
-            hasSubmenu && "flex items-center justify-between"
+            hasSubmenu && "flex items-center justify-between",
           )}
         >
           <span className="text-[#3d4551] group-hover:text-blue-60">
@@ -341,21 +377,23 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
           </span>
           {hasSubmenu && (
             <svg
-              className={cn(
-                "ml-2 h-4 w-4",
-                isActive && "rotate-180"
-              )}
+              className={cn("ml-2 h-4 w-4", isActive && "rotate-180")}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           )}
         </button>
         {hasSubmenu && isActive && (
           <ul>
-            {item.submenu?.map(subItem => (
+            {item.submenu?.map((subItem) => (
               <li key={subItem.id} className="border-t border-gray-10">
                 <a
                   href={subItem.href}
@@ -373,14 +411,20 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
 
   return (
     <div ref={navbarRef} className={cn("bg-white", className)}>
-
       {/* Main Header - Figma Layout */}
       <div className="max-w-[87.5rem] mx-auto px-8 py-8 pb-4 flex items-center justify-between">
         {/* Logo */}
         <div>
-          <a href="/" className="inline-block focus:outline focus:outline-4 focus:outline-blue-40v">
+          <a
+            href="/"
+            className="inline-block focus:outline focus:outline-4 focus:outline-blue-40v"
+          >
             {logo || (
-              <img src="https://www.cancer.gov/sites/g/files/xnrzdm211/files/ncids_header/logos/Logo_NCI.svg" alt="Data Sharing Hub" className="h-[3.125rem] max-h-[3.125rem] w-auto" />
+              <img
+                src="https://www.cancer.gov/sites/g/files/xnrzdm211/files/ncids_header/logos/Logo_NCI.svg"
+                alt="Data Sharing Hub"
+                className="h-[3.125rem] max-h-[3.125rem] w-auto"
+              />
             )}
           </a>
         </div>
@@ -396,11 +440,14 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
       </div>
 
       {/* Navigation - Figma Colors and Layout */}
-      <div ref={navContainerRef} className="max-w-[1400px] mx-auto px-8 relative">
+      <div
+        ref={navContainerRef}
+        className="max-w-[1400px] mx-auto px-8 relative"
+      >
         <div className="flex items-center h-12">
           {/* Desktop Navigation */}
           <div className="hidden -mx-4 lg:flex lg:items-center lg:space-x-0">
-            {navItems.map(item => renderDesktopNavItem(item))}
+            {navItems.map((item) => renderDesktopNavItem(item))}
           </div>
 
           {/* Mobile menu button - Using USWDS Button */}
@@ -418,22 +465,40 @@ export default function USWDSNavbar({ logo, navItems, className }: USWDSNavbarPr
       {/* Mobile Navigation Overlay - Figma Style */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="absolute inset-0 bg-gray-400/20" onClick={() => setIsMobileMenuOpen(false)} />
-          <div ref={mobileMenuRef} className="absolute left-0 top-0 h-full w-80 bg-white shadow-xl">
+          <div
+            className="absolute inset-0 bg-gray-400/20"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          <div
+            ref={mobileMenuRef}
+            className="absolute left-0 top-0 h-full w-80 bg-white shadow-xl"
+          >
             <div className="p-4">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-[#007bbd] text-lg font-semibold">Main Menu</h2>
+                <h2 className="text-[#007bbd] text-lg font-semibold">
+                  Main Menu
+                </h2>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-gray-500 hover:text-gray-700 focus:outline focus:outline-4 focus:outline-blue-40v"
                 >
-                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <svg
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </button>
               </div>
               <div className="space-y-0">
-                {navItems.map(item => renderMobileNavItem(item, true))}
+                {navItems.map((item) => renderMobileNavItem(item, true))}
               </div>
             </div>
           </div>
