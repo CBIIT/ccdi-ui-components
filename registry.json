@@ -169,7 +169,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": ["@radix-ui/react-checkbox", "clsx"],
+      "dependencies": ["clsx"],
       "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
     },
     {

@@ -189,7 +189,8 @@ export const WithIcon: Story = {
   },
   render: (args) => (
     <Button {...args}>
-      Primary <Icon icon="navigate_next" size="xs" />
+      Primary
+      <Icon icon="navigate_next" size="xs" />
     </Button>
   ),
   parameters: {
