@@ -412,30 +412,48 @@ export default function NCIDSNavbar({
   return (
     <div ref={navbarRef} className={cn("bg-white", className)}>
       {/* Main Header - Figma Layout */}
-      <div className="max-w-[87.5rem] mx-auto px-8 py-8 pb-4 flex items-center justify-between">
+      <div className="max-w-[87.5rem] mx-auto px-4 py-8 lg:px-8 pb-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         {/* Logo */}
-        <div>
+        <div className="h-auto w-full">
           <a
             href="/"
-            className="inline-block focus:outline focus:outline-4 focus:outline-blue-40v"
+            className="block focus:outline focus:outline-4 focus:outline-blue-40v"
           >
             {logo || (
-              <img
-                src="https://www.cancer.gov/sites/g/files/xnrzdm211/files/ncids_header/logos/Logo_NCI.svg"
-                alt="Data Sharing Hub"
-                className="h-[3.125rem] max-h-[3.125rem] w-auto"
-              />
+              <picture>
+                <source
+                  media="(min-width: 1024px)"
+                  srcSet="https://www.cancer.gov/sites/g/files/xnrzdm211/files/ncids_header/logos/Logo_NCI.svg"
+                />
+                <img
+                  src="https://www.cancer.gov/sites/g/files/xnrzdm211/files/ncids_header/logos/Logo_NCI_Mobile.svg"
+                  alt="National Cancer Institute Home Page"
+                  className="lg:h-[3.125rem] lg:max-h-[3.125rem] h-[2.375rem] max-h-[2.375rem] w-auto"
+                />
+              </picture>
             )}
           </a>
         </div>
 
         {/* Search Bar - Using USWDS Search Component */}
-        <div className="w-80">
-          <Search
-            label="Search Data Sharing Hub"
-            buttonText="Search"
-            onSearch={(value) => console.log("Search:", value)}
-          />
+        <div className="flex flex-row items-center gap-6 w-full justify-start lg:justify-end">
+            {/* Mobile menu button - Using USWDS Button */}
+            <div className="flex items-center lg:hidden">
+              <Button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="bg-cerulean-70 text-white px-5 py-3 text-base leading-4"
+              >
+                Menu
+              </Button>
+            </div>
+            <Search
+              // className="w-100 lg:w-40"
+              iconOnly={isMobile ? true : false}
+              label="Search Data Sharing Hub"
+              buttonText="Search"
+              size={isMobile ? "large" : "default"}
+              onSearch={(value) => console.log("Search:", value)}
+            />
         </div>
       </div>
 
@@ -450,15 +468,6 @@ export default function NCIDSNavbar({
             {navItems.map((item) => renderDesktopNavItem(item))}
           </div>
 
-          {/* Mobile menu button - Using USWDS Button */}
-          <div className="flex items-center lg:hidden">
-            <Button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="bg-[#1f4671] hover:bg-[#0f2a4a] text-white px-4 py-2 rounded font-bold text-lg"
-            >
-              Menu
-            </Button>
-          </div>
         </div>
       </div>
 
