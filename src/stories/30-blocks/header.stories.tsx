@@ -1,282 +1,631 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Header, type HeaderNavigation } from '@/components/blocks/header'
-
-// Sample navigation data for stories
-const sampleNavigation: HeaderNavigation = {
-  primary: [
-    {
-      label: "Services",
-      href: "#",
-      children: [
-        { label: "Web Design", href: "/services/web-design" },
-        { label: "Development", href: "/services/development" },
-        { label: "Consulting", href: "/services/consulting" },
-        { label: "UI/UX Design", href: "/services/design" }
-      ]
-    },
-    { label: "About", href: "/about", isActive: true },
-    { label: "Contact", href: "/contact" },
-    {
-      label: "Resources",
-      href: "#",
-      children: [
-        { label: "Documentation", href: "/docs" },
-        { label: "Blog", href: "/blog" },
-        { label: "Tutorials", href: "/tutorials" }
-      ]
-    }
-  ],
-  secondary: [
-    { label: "Help", href: "/help" },
-    { label: "Login", href: "/login" }
-  ]
-}
-
-const simpleNavigation: HeaderNavigation = {
-  primary: [
-    { label: "Home", href: "/", isActive: true },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" }
-  ]
-}
+import type { Meta, StoryObj } from "@storybook/react";
+import NCIDSNavbar from "@/components/blocks/header";
 
 const meta = {
-  title: 'Blocks/Header',
-  component: Header,
+  title: "Blocks/Header",
+  component: NCIDSNavbar,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     docs: {
       description: {
-        component: 'A comprehensive header component with navigation, search functionality, and mobile responsiveness following USWDS design guidelines.',
+        component:
+          "A USWDS-compliant header component with navigation menu, search functionality, and responsive mobile menu. Supports nested submenus and follows government website design standards.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    projectTitle: {
-      control: 'text',
-      description: 'The title/brand name displayed in the header',
+    navItems: {
+      control: "object",
+      description: "Array of navigation items with optional submenus",
     },
-    projectTitleHref: {
-      control: 'text',
-      description: 'The URL for the project title link',
+    logo: {
+      control: false,
+      description: "Custom logo component (optional)",
     },
-    variant: {
-      control: { type: 'select' },
-      options: ['default', 'extended'],
-      description: 'The visual variant of the header',
-    },
-    navigation: {
-      control: 'object',
-      description: 'Navigation structure with primary and optional secondary items',
-    },
-    onSearch: { 
-      action: 'searched',
-      description: 'Callback function when search is performed'
+    className: {
+      control: "text",
+      description: "Additional CSS classes",
     },
   },
-} satisfies Meta<typeof Header>
+} satisfies Meta<typeof NCIDSNavbar>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-// Default story
 export const Default: Story = {
   args: {
-    projectTitle: 'USWDS Demo Site',
-    projectTitleHref: '/',
-    navigation: sampleNavigation,
-  },
-}
-
-// Simple navigation variant
-export const SimpleNavigation: Story = {
-  args: {
-    projectTitle: 'Simple Site',
-    navigation: simpleNavigation,
-  },
-}
-
-// Extended variant
-export const Extended: Story = {
-  args: {
-    projectTitle: 'Extended Header Site',
-    variant: 'extended',
-    navigation: sampleNavigation,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Extended variant provides more space for the project title and additional navigation layout.',
+    navItems: [
+      {
+        id: "current-section",
+        label: "Current Section",
+        title: "Explore Section",
+        href: "#",
+        hasSubmenu: true,
+        submenu: [
+          {
+            id: "current-section-header-1",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "current-section-submenu-1",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "current-section-submenu-2",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "current-section-header-2",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "current-section-submenu-3",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+              {
+                id: "current-section-submenu-5",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+              {
+                id: "current-section-submenu-6",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "current-section-header-3",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "current-section-submenu-7",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "current-section-submenu-8",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "current-section-header-4",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "current-section-submenu-9",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "current-section-submenu-10",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "current-section-submenu-11",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+              {
+                id: "current-section-submenu-12",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "current-section-header-5",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "current-section-submenu-13",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "current-section-submenu-14",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "current-section-submenu-15",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "current-section-submenu-16",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "current-section-header-6",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "current-section-submenu-17",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "current-section-submenu-18",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "current-section-submenu-19",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+            ],
+          },
+        ],
       },
-    },
-  },
-}
-
-// No secondary navigation
-export const NoSecondaryNav: Story = {
-  args: {
-    projectTitle: 'Primary Only Site',
-    navigation: {
-      primary: [
-        { label: "Home", href: "/", isActive: true },
-        { label: "Products", href: "/products" },
-        { label: "Support", href: "/support" }
-      ]
-    },
-  },
-}
-
-// Dropdown navigation test
-export const DropdownNavigation: Story = {
-  args: {
-    projectTitle: 'Dropdown Test Site',
-    navigation: {
-      primary: [
-        {
-          label: "Products",
-          href: "#",
-          children: [
-            { label: "Product A", href: "/products/a" },
-            { label: "Product B", href: "/products/b" },
-            { label: "Product C", href: "/products/c" }
-          ]
-        },
-        { label: "About", href: "/about" }
-      ]
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Navigation with dropdown menus. Click on "Products" to see the dropdown functionality.',
+      {
+        id: "second-section",
+        label: "Second Section",
+        href: "#",
+        hasSubmenu: true,
+        submenu: [
+          {
+            id: "second-section-header-1",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "second-section-submenu-1",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "second-section-submenu-2",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "second-section-header-2",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "second-section-submenu-3",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+              {
+                id: "second-section-submenu-4",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+              {
+                id: "second-section-submenu-5",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "second-section-header-3",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "second-section-submenu-6",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "second-section-submenu-7",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "second-section-header-4",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "second-section-submenu-8",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "second-section-submenu-9",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "second-section-submenu-10",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+              {
+                id: "second-section-submenu-11",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "second-section-header-5",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "second-section-submenu-12",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "second-section-submenu-13",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "second-section-submenu-14",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "second-section-submenu-15",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "second-section-header-6",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "second-section-submenu-16",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "second-section-submenu-17",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "second-section-submenu-18",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+            ],
+          },
+        ],
       },
-    },
-  },
-}
-
-// Search functionality
-export const SearchTest: Story = {
-  args: {
-    projectTitle: 'Search Test Site',
-    navigation: simpleNavigation,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Test search functionality in the header. The search component should trigger the onSearch callback.',
+      {
+        id: "section-without-submenu",
+        label: "Section without Submenu",
+        href: "#",
       },
-    },
-  },
-}
-
-// Mobile menu
-export const MobileMenu: Story = {
-  args: {
-    projectTitle: 'Mobile Test Site',
-    navigation: sampleNavigation,
-  },
-  parameters: {
-    viewport: {
-      defaultViewport: 'mobile1',
-    },
-    docs: {
-      description: {
-        story: 'Mobile responsive view with hamburger menu. Resize viewport to mobile to see the mobile menu button.',
+      {
+        id: "fourth-section",
+        label: "Fourth Section",
+        href: "#",
+        hasSubmenu: true,
+        submenu: [
+          {
+            id: "fourth-section-header-1",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "fourth-section-submenu-1",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fourth-section-submenu-2",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "fourth-section-header-2",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "fourth-section-submenu-3",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+              {
+                id: "fourth-section-submenu-4",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+              {
+                id: "fourth-section-submenu-5",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "fourth-section-header-3",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "fourth-section-submenu-6",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                  id: "fourth-section-submenu-7",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "fourth-section-header-4",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "fourth-section-submenu-8",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fourth-section-submenu-9",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fourth-section-submenu-10",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+              {
+                id: "fourth-section-submenu-11",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "fourth-section-header-5",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "fourth-section-submenu-12",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fourth-section-submenu-13",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fourth-section-submenu-14",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fourth-section-submenu-15",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "fourth-section-header-6",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "fourth-section-submenu-16",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fourth-section-submenu-17",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fourth-section-submenu-18",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+            ],
+          },
+        ],
       },
-    },
-  },
-}
-
-// Custom project title href
-export const CustomTitleHref: Story = {
-  args: {
-    projectTitle: 'Custom Link Site',
-    projectTitleHref: '/custom-home',
-    navigation: simpleNavigation,
-  },
-}
-
-// Active navigation state
-export const ActiveNavigation: Story = {
-  args: {
-    projectTitle: 'Active State Site',
-    navigation: {
-      primary: [
-        { label: "Home", href: "/" },
-        { label: "Products", href: "/products", isActive: true },
-        { label: "About", href: "/about" }
-      ]
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Navigation with active state styling. The "Products" item is marked as active.',
+      {
+        id: "fifth-section",
+        label: "Fifth Section",
+        href: "#",
+        hasSubmenu: true,
+        submenu: [
+          {
+            id: "fifth-section-header-1",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "fifth-section-submenu-1",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fifth-section-submenu-2",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "fifth-section-header-2",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "fifth-section-submenu-3",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+              {
+                id: "fifth-section-submenu-4",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+              {
+                id: "fifth-section-submenu-5",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "fifth-section-header-3",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "fifth-section-submenu-6",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                  id: "fifth-section-submenu-7",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "fifth-section-header-4",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "fifth-section-submenu-8",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fifth-section-submenu-9",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fifth-section-submenu-10",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+              {
+                id: "fifth-section-submenu-11",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "fifth-section-header-5",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "fifth-section-submenu-12",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fifth-section-submenu-13",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fifth-section-submenu-14",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fifth-section-submenu-15",
+                label: "Navigationlink",
+                href: "#",
+              },
+            ],
+          },
+          {
+            id: "fifth-section-header-6",
+            label: "Section Header",
+            href: "#",
+            hasSubmenu: true,
+            submenu: [
+              {
+                id: "fifth-section-submenu-16",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fifth-section-submenu-17",
+                label: "Navigationlink",
+                href: "#",
+              },
+              {
+                id: "fifth-section-submenu-18",
+                label: "A very long navigation link that goes onto twolines",
+                href: "#",
+              },
+            ],
+          },
+        ],
       },
-    },
+    ],
   },
-}
-
-// Accessibility test
-export const AccessibilityTest: Story = {
-  args: {
-    projectTitle: 'Accessible Site',
-    navigation: sampleNavigation,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Tests accessibility features including semantic HTML, ARIA labels, and keyboard navigation support.',
-      },
-    },
-  },
-}
-
-// Complete header showcase
-export const CompleteShowcase: Story = {
-  args: {
-    projectTitle: 'Complete USWDS Demo',
-    projectTitleHref: '/',
-    variant: 'default',
-    navigation: {
-      primary: [
-        {
-          label: "Government",
-          href: "#",
-          children: [
-            { label: "Federal Agencies", href: "/federal" },
-            { label: "State & Local", href: "/state-local" },
-            { label: "Tribal", href: "/tribal" }
-          ]
-        },
-        {
-          label: "Services",
-          href: "#",
-          isActive: true,
-          children: [
-            { label: "Digital Services", href: "/services/digital" },
-            { label: "Consulting", href: "/services/consulting" },
-            { label: "Training", href: "/services/training" },
-            { label: "Support", href: "/services/support" }
-          ]
-        },
-        { label: "Resources", href: "/resources" },
-        { label: "News", href: "/news" },
-        { label: "Contact", href: "/contact" }
-      ],
-      secondary: [
-        { label: "Help", href: "/help" },
-        { label: "Sign In", href: "/login" },
-        { label: "Create Account", href: "/register" }
-      ]
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Complete header implementation showcasing all features: complex navigation with dropdowns, secondary navigation, active states, and search functionality.',
-      },
-    },
-  },
-}
+};
