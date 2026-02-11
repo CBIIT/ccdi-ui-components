@@ -40,6 +40,14 @@ export default function NCIDSNavbar({
   const navContainerRef = useRef<HTMLDivElement>(null);
   const navItemRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
+  const chunkSubmenu = (items: NavItem[] = [], size = 3) => {
+    const chunks: NavItem[][] = [];
+    for (let i = 0; i < items.length; i += size) {
+      chunks.push(items.slice(i, i + size));
+    }
+    return chunks;
+  };
+
   // Handle responsive behavior
   useEffect(() => {
     const checkIsMobile = () => {
@@ -67,37 +75,43 @@ export default function NCIDSNavbar({
 
   // Handle outside clicks for dropdowns
   useEffect(() => {
+    if (isMobile || !activeDropdown) {
+      return;
+    }
+
     const handleClickOutside = (event: MouseEvent) => {
-      if (!isMobile) {
-        const target = event.target as HTMLElement;
+      const target = event.target as HTMLElement;
 
-        // Don't close if clicking on a navigation button
-        const isNavButton = Object.values(navButtonRefs.current).some(
-          (ref) => ref && ref.contains(target),
-        );
-        if (isNavButton) {
-          return;
-        }
-
-        // Don't close if clicking inside the dropdown
-        const isInsideDropdown = Object.values(dropdownRefs.current).some(
-          (ref) => ref && ref.contains(target),
-        );
-        if (isInsideDropdown) {
-          return;
-        }
-
-        // Close dropdown if clicking outside
-        setActiveDropdown(null);
+      // Don't close if clicking on a navigation button
+      const isNavButton = Object.values(navButtonRefs.current).some(
+        (ref) => ref && ref.contains(target),
+      );
+      if (isNavButton) {
+        return;
       }
+
+      // Don't close if clicking inside the dropdown
+      const isInsideDropdown = Object.values(dropdownRefs.current).some(
+        (ref) => ref && ref.contains(target),
+      );
+      if (isInsideDropdown) {
+        return;
+      }
+
+      // Close dropdown if clicking outside
+      setActiveDropdown(null);
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isMobile]);
+  }, [isMobile, activeDropdown]);
 
   // Handle mobile menu outside clicks
   useEffect(() => {
+    if (!isMobileMenuOpen) {
+      return;
+    }
+
     const handleClickOutside = (event: MouseEvent) => {
       if (
         mobileMenuRef.current &&
@@ -110,7 +124,7 @@ export default function NCIDSNavbar({
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  }, [isMobileMenuOpen]);
 
   const renderDesktopNavItem = (item: NavItem) => {
     const hasSubmenu =
@@ -137,7 +151,6 @@ export default function NCIDSNavbar({
             className={cn(
               // Base styles
               "relative flex items-center px-4 py-4 text-base font-semibold whitespace-nowrap leading-4",
-
               isActive ? "bg-cerulean-70 text-white" : "text-gray-cool-60",
               // Hover styles
               !isActive && "hover:text-cerulean-50",
@@ -210,99 +223,41 @@ export default function NCIDSNavbar({
                 </a>
               </div>
               <div className="flex gap-8 col-span-3 grid grid-flow-col grid-rows-[auto_auto_auto]">
-                <div className="flex flex-col items-start grid grid-cols-3">
-                  {item.submenu?.slice(0, 3).map((subItem) => (
-                    <div className="px-4">
-                      <a
-                        key={subItem.id}
-                        href={subItem.href}
-                        onClick={() => setActiveDropdown(null)}
-                        className="text-white text-xl font-semibold hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
-                      >
-                        {subItem.label}
-                      </a>
-                      {subItem.hasSubmenu && (
-                        <ul>
-                          {subItem.submenu?.map((subItemChild) => (
-                            <li
-                              key={subItemChild.id}
-                              className="my-2 leading-5"
-                            >
-                              <a
-                                href={subItemChild.href}
-                                className="font-open-sans text-base text-white leading-4 font-light hover:underline focus:outline focus:outline-4 focus:outline-blue-40v tracking-wide"
+                {chunkSubmenu(item.submenu).map((columnItems, columnIndex) => (
+                  <div
+                    key={`${item.id}-col-${columnIndex}`}
+                    className="flex flex-col items-start grid grid-cols-3"
+                  >
+                    {columnItems.map((subItem) => (
+                      <div key={subItem.id} className="px-4">
+                        <a
+                          href={subItem.href}
+                          onClick={() => setActiveDropdown(null)}
+                          className="text-white text-xl font-semibold hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                        >
+                          {subItem.label}
+                        </a>
+                        {subItem.hasSubmenu && (
+                          <ul>
+                            {subItem.submenu?.map((subItemChild) => (
+                              <li
+                                key={subItemChild.id}
+                                className="my-2 leading-5"
                               >
-                                {subItemChild.label}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-col items-start grid grid-cols-3">
-                  {item.submenu?.slice(3, 6).map((subItem) => (
-                    <div className="px-4">
-                      <a
-                        key={subItem.id}
-                        href={subItem.href}
-                        onClick={() => setActiveDropdown(null)}
-                        className="text-white text-xl font-semibold hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
-                      >
-                        {subItem.label}
-                      </a>
-                      {subItem.hasSubmenu && (
-                        <ul>
-                          {subItem.submenu?.map((subItemChild) => (
-                            <li
-                              key={subItemChild.id}
-                              className="my-2 leading-5"
-                            >
-                              <a
-                                href={subItemChild.href}
-                                className="font-open-sans text-base text-white leading-4 font-light hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
-                              >
-                                {subItemChild.label}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-col items-start grid grid-cols-3">
-                  {item.submenu?.slice(6).map((subItem) => (
-                    <div className="px-4">
-                      <a
-                        key={subItem.id}
-                        href={subItem.href}
-                        onClick={() => setActiveDropdown(null)}
-                        className="text-white text-xl font-semibold hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
-                      >
-                        {subItem.label}
-                      </a>
-                      {subItem.hasSubmenu && (
-                        <ul>
-                          {subItem.submenu?.map((subItemChild) => (
-                            <li
-                              key={subItemChild.id}
-                              className="my-2 leading-5"
-                            >
-                              <a
-                                href={subItemChild.href}
-                                className="font-open-sans text-base text-white leading-4 font-light hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
-                              >
-                                {subItemChild.label}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                                <a
+                                  href={subItemChild.href}
+                                  className="font-open-sans text-base text-white leading-4 font-light hover:underline focus:outline focus:outline-4 focus:outline-blue-40v tracking-wide"
+                                >
+                                  {subItemChild.label}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -311,61 +266,10 @@ export default function NCIDSNavbar({
     );
   };
 
-  const renderMobileNavItem = (item: NavItem, isSecondary = false) => {
+  const renderMobileNavItem = (item: NavItem) => {
     const hasSubmenu =
       item.hasSubmenu && item.submenu && item.submenu.length > 0;
-    const isActive = isSecondary ? activeSecondaryMenu === item.id : false;
-
-    if (isSecondary) {
-      return (
-        <div key={item.id} className="border-t last:border-b border-gray-10">
-          <button
-            onClick={() => hasSubmenu && handleDropdownClick(item.id)}
-            className={cn(
-              "font-open-sans text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-warm-2 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3",
-              hasSubmenu && "flex items-center justify-between",
-            )}
-          >
-            <span className="text-gray-warm-60">
-              {item.label}
-            </span>
-            {hasSubmenu && (
-              <svg
-                className={cn("mx-2 h-4 w-4 text-gray-900", isActive && "rotate-180")}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            )}
-          </button>
-          {hasSubmenu && isActive && (
-            <ul>
-              {item.submenu?.map((subItem) => (
-                <li key={subItem.id} className="border-t border-gray-10">
-                  <a
-                    href={subItem.href}
-                    onClick={() => {
-                      setActiveSecondaryMenu(null);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="block py-2 pl-8 pr-4 font-open-sans text-gray-warm-60  hover:bg-gray-warm-2 focus:outline focus:outline-4 focus:outline-blue-40v"
-                  >
-                    {subItem.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      );
-    }
+    const isActive = activeSecondaryMenu === item.id;
 
     return (
       <div key={item.id} className="border-t last:border-b border-gray-10">
@@ -376,12 +280,13 @@ export default function NCIDSNavbar({
             hasSubmenu && "flex items-center justify-between",
           )}
         >
-          <span className="text-gray-warm-60">
-            {item.label}
-          </span>
+          <span className="text-gray-warm-60">{item.label}</span>
           {hasSubmenu && (
             <svg
-              className={cn("mx-2 h-4 w-4 text-gray-900", isActive && "rotate-180")}
+              className={cn(
+                "mx-2 h-4 w-4 text-gray-900",
+                isActive && "rotate-180",
+              )}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -434,10 +339,9 @@ export default function NCIDSNavbar({
             )}
           </a>
         </div>
-
-        {/* Search Bar - Using USWDS Search Component */}
+        {/* Search and Mobile Menu Button */}
         <div className="flex flex-row items-center gap-6 w-full justify-start lg:justify-end">
-          {/* Mobile menu button - Using USWDS Button */}
+          {/* Mobile menu button - Using Button */}
           <div className="flex items-center lg:hidden">
             <Button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -446,6 +350,7 @@ export default function NCIDSNavbar({
               Menu
             </Button>
           </div>
+          {/* Search Bar - Using  Search Component */}
           <Search
             iconOnly={isMobile ? true : false}
             label="Search Data Sharing Hub"
@@ -456,7 +361,7 @@ export default function NCIDSNavbar({
         </div>
       </div>
 
-      {/* Navigation - Figma Colors and Layout */}
+      {/* Navigation  */}
       <div
         ref={navContainerRef}
         className="hidden lg:block max-w-[87.5rem] mx-auto px-8 relative"
@@ -469,7 +374,7 @@ export default function NCIDSNavbar({
         </div>
       </div>
 
-      {/* Mobile Navigation Overlay - Figma Style */}
+      {/* Mobile Navigation Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div
@@ -502,7 +407,7 @@ export default function NCIDSNavbar({
                 </button>
               </div>
               <div className="space-y-0">
-                {navItems.map((item) => renderMobileNavItem(item, true))}
+                {navItems.map((item) => renderMobileNavItem(item))}
               </div>
             </div>
           </div>
