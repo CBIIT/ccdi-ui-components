@@ -154,7 +154,7 @@ const NewsletterSignup: React.FC<{
   return (
     <>
       {/* Mobile version */}
-      <div className="lg:hidden border-t border-black bg-[#1F4571]">
+      <div className="lg:hidden border-t border-black">
         <div className="flex flex-col gap-[20px] pt-6 pb-[30px] px-4">
           <h3 className="font-poppins font-bold text-white w-full text-[22.88px] leading-normal">
             Sign up for email updates
@@ -179,7 +179,7 @@ const NewsletterSignup: React.FC<{
             </div>
             <Button
               type="submit"
-              className="w-full rounded-lg bg-[#F1D40E] hover:bg-[#E6C50D] text-[#1F4571] px-4 py-[9px] font-['Open_Sans'] text-base font-bold"
+              className="w-full rounded-lg text-gray-90 bg-golden-20 hover:bg-golden-30 px-4 py-[9px] font-['Open_Sans'] text-base font-bold"
             >
               Sign up
             </Button>
@@ -188,7 +188,7 @@ const NewsletterSignup: React.FC<{
       </div>
 
       {/* Desktop version */}
-      <div className="hidden lg:block bg-[#1F4571]">
+      <div className="hidden lg:block">
         <h3 className="text-lg font-bold font-public-sans text-white mb-3">
           Sign up for email updates
         </h3>
@@ -373,7 +373,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
   return (
     <footer
       ref={ref}
-      className={cn("w-full bg-[#1F4571]", className)}
+      className={cn("w-full bg-cerulean-70", className)}
       {...props}
     >
         <div className="w-full">
@@ -404,7 +404,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
           {(agencyInfo || contactInfo || socialLinks.length > 0) && (
             <>
               <Separator />
-              <div className="w-full px-4 py-5 lg:px-8 lg:py-8 bg-[#122F4B]">
+              <div className="w-full px-4 py-5 lg:px-8 lg:py-8 bg-cerulean-80">
                 <div className="max-w-7xl mx-auto">
                   {/* Mobile layout: vertical stack */}
                   <div className="flex flex-col gap-5 lg:hidden">
@@ -496,7 +496,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
           )}
 
           {/* Copyright */}
-          <div className="w-full px-4 py-4 lg:px-8 bg-[#122F4B]">
+          <div className="w-full px-4 py-4 lg:px-8 bg-cerulean-80">
             <div className="max-w-7xl mx-auto">
               <div className="text-center text-xs text-white font-public-sans">
                 <p>
