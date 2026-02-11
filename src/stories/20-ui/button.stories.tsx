@@ -144,6 +144,24 @@ export const Large: Story = {
   },
 }
 
+export const AsChildLink: Story = {
+  args: {
+    variant: 'primary',
+  },
+  render: (args) => (
+    <Button asChild {...args}>
+      <a href="/">Go to Home</a>
+    </Button>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Use asChild to render the child element (e.g. an anchor) instead of a button, while applying button styles.',
+      },
+    },
+  },
+}
+
 export const IconButton: Story = {
   args: {
     size: 'icon',
@@ -171,7 +189,8 @@ export const WithIcon: Story = {
   },
   render: (args) => (
     <Button {...args}>
-      Primary <Icon icon="navigate_next" size="xs" />
+      Primary
+      <Icon icon="navigate_next" size="xs" />
     </Button>
   ),
   parameters: {
