@@ -447,7 +447,6 @@ export default function NCIDSNavbar({
             </Button>
           </div>
           <Search
-            // className="w-100 lg:w-40"
             iconOnly={isMobile ? true : false}
             label="Search Data Sharing Hub"
             buttonText="Search"
@@ -460,11 +459,11 @@ export default function NCIDSNavbar({
       {/* Navigation - Figma Colors and Layout */}
       <div
         ref={navContainerRef}
-        className="max-w-[87.5rem] mx-auto px-8 relative"
+        className="hidden lg:block max-w-[87.5rem] mx-auto px-8 relative"
       >
         <div className="flex items-center h-12">
           {/* Desktop Navigation */}
-          <div className="hidden -mx-4 lg:flex lg:items-center lg:space-x-0">
+          <div className="flex items-center space-x-0 -mx-4">
             {navItems.map((item) => renderDesktopNavItem(item))}
           </div>
         </div>
