@@ -318,20 +318,20 @@ export default function NCIDSNavbar({
 
     if (isSecondary) {
       return (
-        <div key={item.id} className="border-t border-gray-10">
+        <div key={item.id} className="border-t last:border-b border-gray-10">
           <button
             onClick={() => hasSubmenu && handleDropdownClick(item.id)}
             className={cn(
-              "text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-4v gap-3",
+              "font-open-sans text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-warm-2 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3",
               hasSubmenu && "flex items-center justify-between",
             )}
           >
-            <span className="text-[#3d4551] group-hover:text-blue-60">
+            <span className="text-gray-warm-60">
               {item.label}
             </span>
             {hasSubmenu && (
               <svg
-                className={cn("ml-2 h-4 w-4", isActive && "rotate-180")}
+                className={cn("mx-2 h-4 w-4 text-gray-900", isActive && "rotate-180")}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -355,7 +355,7 @@ export default function NCIDSNavbar({
                       setActiveSecondaryMenu(null);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="block py-2 pl-8 pr-4 text-[#3d4551] hover:text-blue-60 hover:bg-gray-5 focus:outline focus:outline-4 focus:outline-blue-40v"
+                    className="block py-2 pl-8 pr-4 font-open-sans text-gray-warm-60  hover:bg-gray-warm-2 focus:outline focus:outline-4 focus:outline-blue-40v"
                   >
                     {subItem.label}
                   </a>
@@ -368,20 +368,20 @@ export default function NCIDSNavbar({
     }
 
     return (
-      <div key={item.id} className="border-t border-gray-10">
+      <div key={item.id} className="border-t last:border-b border-gray-10">
         <button
           onClick={() => hasSubmenu && handleDropdownClick(item.id)}
           className={cn(
-            "text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3",
+            "font-open-sans text-left group relative flex items-center cursor-pointer justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3",
             hasSubmenu && "flex items-center justify-between",
           )}
         >
-          <span className="text-[#3d4551] group-hover:text-blue-60">
+          <span className="text-gray-warm-60">
             {item.label}
           </span>
           {hasSubmenu && (
             <svg
-              className={cn("ml-2 h-4 w-4", isActive && "rotate-180")}
+              className={cn("mx-2 h-4 w-4 text-gray-900", isActive && "rotate-180")}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -401,7 +401,7 @@ export default function NCIDSNavbar({
               <li key={subItem.id} className="border-t border-gray-10">
                 <a
                   href={subItem.href}
-                  className="block py-2 pl-8 pr-4 text-[#3d4551] hover:text-blue-60 hover:bg-gray-5 focus:outline focus:outline-4 focus:outline-blue-40v"
+                  className="block py-2 pl-8 pr-4 font-open-sans text-gray-warm-60  hover:bg-gray-warm-2 focus:outline focus:outline-4 focus:outline-blue-40v"
                 >
                   {subItem.label}
                 </a>
@@ -481,13 +481,10 @@ export default function NCIDSNavbar({
             className="absolute left-0 top-0 h-full w-80 bg-white shadow-xl"
           >
             <div className="p-4">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-[#007bbd] text-lg font-semibold">
-                  Main Menu
-                </h2>
+              <div className="flex items-center justify-end mb-12">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-gray-500 hover:text-gray-700 focus:outline focus:outline-4 focus:outline-blue-40v"
+                  className="text-gray-900 cursor-pointer focus:outline focus:outline-4 focus:outline-blue-40v"
                 >
                   <svg
                     className="h-6 w-6"
