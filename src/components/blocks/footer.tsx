@@ -71,7 +71,7 @@ const MobileAccordion: React.FC<{
             key={index} 
             className="border-t border-black"
           >
-            <div className="flex flex-col gap-[10px]">
+            <div className="flex flex-col">
               <button
                 onClick={() => toggleItem(index)}
                 className="w-full flex items-center gap-1 p-4 cursor-pointer focus:outline focus:outline-4 focus:outline-blue-40"
@@ -84,31 +84,20 @@ const MobileAccordion: React.FC<{
                   {/* <Icon icon="expand_more" className="size-6 text-white" /> */}
                   <Icon icon="expand_less" size="sm" className="text-white"/>
                 </div>
-                <span 
-                  className="font-bold text-white"
-                  style={{ 
-                    fontFamily: 'Open Sans, sans-serif',
-                    fontSize: '16px',
-                    lineHeight: '16px'
-                  }}
-                >
+                <span className="font-bold text-white font-['Open_Sans'] text-base leading-4">
                   {section.title}
                 </span>
               </button>
               {isOpen && (
-                <div className="flex flex-col pl-4">
+                <div className="flex flex-col pl-4 pb-5">
                   {section.links.map((link, linkIndex) => (
                     <a
                       key={linkIndex}
                       href={link.href}
-                      className="text-white visited:text-white hover:text-white focus:outline focus:outline-4 focus:outline-blue-40 hover:underline"
-                      style={{ 
-                        fontFamily: 'Open Sans, sans-serif',
-                        fontSize: '16.16px',
-                        fontWeight: 400,
-                        lineHeight: 'normal',
-                        marginBottom: linkIndex < section.links.length - 1 ? '10px' : '0'
-                      }}
+                      className={cn(
+                        "text-white visited:text-white pl-4 hover:text-white focus:outline focus:outline-4 focus:outline-blue-40 hover:underline font-['Open_Sans'] font-normal leading-normal text-[16.16px]",
+                        linkIndex < section.links.length - 1 ? 'mb-4' : 'mb-0'
+                      )}
                     >
                       {link.label}
                     </a>
@@ -165,25 +154,16 @@ const NewsletterSignup: React.FC<{
   return (
     <>
       {/* Mobile version */}
-      <div className="lg:hidden border-t border-black" style={{ backgroundColor: '#1F4571' }}>
+      <div className="lg:hidden border-t border-black bg-[#1F4571]">
         <div className="flex flex-col gap-[20px] pt-6 pb-[30px] px-4">
-          <h3 
-            className="font-poppins font-bold text-white w-full"
-            style={{ fontSize: '22.88px', lineHeight: 'normal' }}
-          >
+          <h3 className="font-poppins font-bold text-white w-full text-[22.88px] leading-normal">
             Sign up for email updates
           </h3>
           <form onSubmit={handleSubmit} className="flex flex-col gap-[20px] w-full">
             <div className="flex flex-col gap-[10px] w-full">
               <label 
                 htmlFor="footer-email-mobile" 
-                className="text-white w-full"
-                style={{ 
-                  fontFamily: 'Open Sans, sans-serif',
-                  fontSize: '16px',
-                  fontWeight: 400,
-                  lineHeight: 'normal'
-                }}
+                className="text-white w-full font-['Open_Sans'] text-base font-normal leading-normal"
               >
                 Enter your email address
               </label>
@@ -194,27 +174,12 @@ const NewsletterSignup: React.FC<{
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder=""
                 required
-                className="w-full bg-white"
-                style={{ height: '47px' }}
+                className="w-full bg-white h-[47px]"
               />
             </div>
             <Button
               type="submit"
-              className="w-full rounded-lg"
-              style={{ 
-                backgroundColor: '#F1D40E',
-                color: '#1F4571',
-                padding: '9px 16px',
-                fontFamily: 'Open Sans, sans-serif',
-                fontSize: '16px',
-                fontWeight: 700
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#E6C50D'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#F1D40E'
-              }}
+              className="w-full rounded-lg bg-[#F1D40E] hover:bg-[#E6C50D] text-[#1F4571] px-4 py-[9px] font-['Open_Sans'] text-base font-bold"
             >
               Sign up
             </Button>
@@ -223,7 +188,7 @@ const NewsletterSignup: React.FC<{
       </div>
 
       {/* Desktop version */}
-      <div className="hidden lg:block" style={{ backgroundColor: '#1F4571' }}>
+      <div className="hidden lg:block bg-[#1F4571]">
         <h3 className="text-lg font-bold font-public-sans text-white mb-3">
           Sign up for email updates
         </h3>
@@ -247,17 +212,7 @@ const NewsletterSignup: React.FC<{
           </div>
           <Button
             type="submit"
-            className="px-4 py-2 text-sm font-public-sans"
-            style={{ 
-              backgroundColor: '#F1D40E',
-              color: '#000000',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#E6C50D'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#F1D40E'
-            }}
+            className="px-4 py-2 text-sm font-public-sans bg-[#F1D40E] hover:bg-[#E6C50D] text-black"
           >
             Sign up
           </Button>
@@ -291,12 +246,7 @@ const ContactInfo: React.FC<{
   contact: ContactInfo
   className?: string
 }> = ({ contact, className }) => {
-  const contactTextStyle = {
-    fontSize: '16px', 
-    fontFamily: 'Open Sans, sans-serif',
-    fontWeight: 400,
-    lineHeight: 'normal'
-  }
+  const contactTextClassName = "text-base font-['Open_Sans'] font-normal leading-normal"
 
   return (
     <div className={cn("", className)}>
@@ -305,8 +255,7 @@ const ContactInfo: React.FC<{
         {contact.email && (
           <a
             href={`mailto:${contact.email}`}
-            className="text-white visited:text-white hover:text-white focus:outline focus:outline-4 focus:outline-blue-40 hover:underline font-public-sans"
-            style={contactTextStyle}
+            className={cn("text-white visited:text-white hover:text-white focus:outline focus:outline-4 focus:outline-blue-40 hover:underline font-public-sans", contactTextClassName)}
           >
             {contact.email}
           </a>
@@ -316,15 +265,14 @@ const ContactInfo: React.FC<{
       {/* Tablet: Horizontal layout, left-aligned */}
       <div className="hidden md:flex lg:hidden gap-[10px] items-start flex-wrap">
         {contact.liveChat && (
-          <p className="text-white font-public-sans whitespace-nowrap" style={contactTextStyle}>
+          <p className={cn("text-white font-public-sans whitespace-nowrap", contactTextClassName)}>
             {contact.liveChat}
           </p>
         )}
         {contact.phone && (
           <a
             href={`tel:${contact.phone.replace(/\D/g, '')}`}
-            className="text-white visited:text-white hover:text-white focus:outline focus:outline-4 focus:outline-blue-40 hover:underline font-public-sans whitespace-nowrap"
-            style={contactTextStyle}
+            className={cn("text-white visited:text-white hover:text-white focus:outline focus:outline-4 focus:outline-blue-40 hover:underline font-public-sans whitespace-nowrap", contactTextClassName)}
           >
             {contact.phone}
           </a>
@@ -332,14 +280,13 @@ const ContactInfo: React.FC<{
         {contact.email && (
           <a
             href={`mailto:${contact.email}`}
-            className="text-white visited:text-white hover:text-white focus:outline focus:outline-4 focus:outline-blue-40 hover:underline font-public-sans whitespace-nowrap"
-            style={contactTextStyle}
+            className={cn("text-white visited:text-white hover:text-white focus:outline focus:outline-4 focus:outline-blue-40 hover:underline font-public-sans whitespace-nowrap", contactTextClassName)}
           >
             {contact.email}
           </a>
         )}
         {contact.siteFeedback && (
-          <p className="text-white font-public-sans whitespace-nowrap" style={contactTextStyle}>
+          <p className={cn("text-white font-public-sans whitespace-nowrap", contactTextClassName)}>
             {contact.siteFeedback}
           </p>
         )}
@@ -348,15 +295,14 @@ const ContactInfo: React.FC<{
       {/* Mobile: Vertical layout, left-aligned */}
       <div className="flex md:hidden flex-col gap-[2px] items-start">
         {contact.liveChat && (
-          <p className="text-white font-public-sans" style={contactTextStyle}>
+          <p className={cn("text-white font-public-sans", contactTextClassName)}>
             {contact.liveChat}
           </p>
         )}
         {contact.phone && (
           <a
             href={`tel:${contact.phone.replace(/\D/g, '')}`}
-            className="text-white visited:text-white hover:text-white focus:outline focus:outline-4 focus:outline-blue-40 hover:underline font-public-sans"
-            style={contactTextStyle}
+            className={cn("text-white visited:text-white hover:text-white focus:outline focus:outline-4 focus:outline-blue-40 hover:underline font-public-sans", contactTextClassName)}
           >
             {contact.phone}
           </a>
@@ -364,14 +310,13 @@ const ContactInfo: React.FC<{
         {contact.email && (
           <a
             href={`mailto:${contact.email}`}
-            className="text-white visited:text-white hover:text-white focus:outline focus:outline-4 focus:outline-blue-40 hover:underline font-public-sans"
-            style={contactTextStyle}
+            className={cn("text-white visited:text-white hover:text-white focus:outline focus:outline-4 focus:outline-blue-40 hover:underline font-public-sans", contactTextClassName)}
           >
             {contact.email}
           </a>
         )}
         {contact.siteFeedback && (
-          <p className="text-white font-public-sans" style={contactTextStyle}>
+          <p className={cn("text-white font-public-sans", contactTextClassName)}>
             {contact.siteFeedback}
           </p>
         )}
@@ -387,25 +332,11 @@ const AgencyInfo: React.FC<{
   <div className="space-y-4">
     <div>
       <h2 className="text-white mb-2">
-        <span 
-          className="font-poppins font-bold"
-          style={{ 
-            fontSize: '24px', 
-            fontWeight: 700,
-            lineHeight: 'normal'
-          }}
-        >
+        <span className="font-poppins font-bold text-2xl leading-normal">
           National Cancer Institute
         </span>
         <br />
-        <span 
-          className="font-poppins font-medium"
-          style={{ 
-            fontSize: '18px', 
-            fontWeight: 500,
-            lineHeight: '21px'
-          }}
-        >
+        <span className="font-poppins font-medium text-lg leading-[21px]">
           at the National Institutes of Health
         </span>
       </h2>
@@ -442,8 +373,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
   return (
     <footer
       ref={ref}
-      className={cn("w-full", className)}
-      style={{ backgroundColor: '#1F4571' }}
+      className={cn("w-full bg-[#1F4571]", className)}
       {...props}
     >
         <div className="w-full">
@@ -474,7 +404,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
           {(agencyInfo || contactInfo || socialLinks.length > 0) && (
             <>
               <Separator />
-              <div className="w-full px-4 py-5 lg:px-8 lg:py-8" style={{ backgroundColor: '#122F4B' }}>
+              <div className="w-full px-4 py-5 lg:px-8 lg:py-8 bg-[#122F4B]">
                 <div className="max-w-7xl mx-auto">
                   {/* Mobile layout: vertical stack */}
                   <div className="flex flex-col gap-5 lg:hidden">
@@ -488,10 +418,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
                     {/* Contact Us */}
                     {contactInfo && (
                       <div className="flex flex-col gap-[4px] items-start">
-                        <h3 
-                          className="font-poppins font-bold text-white"
-                          style={{ fontSize: '22px', lineHeight: 'normal' }}
-                        >
+                        <h3 className="font-poppins font-bold text-white text-[22px] leading-normal">
                           Contact Us
                         </h3>
                         <ContactInfo contact={contactInfo} />
@@ -503,10 +430,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
                       {/* Social links */}
                       {socialLinks.length > 0 && (
                         <div>
-                          <h3 
-                            className="font-poppins font-bold text-white mb-[14px]"
-                            style={{ fontSize: '22px', lineHeight: 'normal' }}
-                          >
+                          <h3 className="font-poppins font-bold text-white mb-[14px] text-[22px] leading-normal">
                             Follow us
                           </h3>
                           <SocialLinks socialLinks={socialLinks} />
@@ -514,10 +438,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
                       )}
 
                       {/* Government hierarchy */}
-                      <div 
-                        className="text-white font-public-sans"
-                        style={{ fontSize: '14.24px', lineHeight: '18px' }}
-                      >
+                      <div className="text-white font-public-sans text-[14.24px] leading-[18px]">
                         <p className="mb-[5px]">U.S. Department of Health and Human Services</p>
                         <p className="mb-[5px]">National Institutes of Health</p>
                         <p className="mb-[5px]">National Cancer Institute</p>
@@ -538,10 +459,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
                       {/* Social links */}
                       {socialLinks.length > 0 && (
                         <div>
-                          <h3 
-                            className="font-poppins font-bold text-white mb-3"
-                            style={{ fontSize: '22px', lineHeight: 'normal' }}
-                          >
+                          <h3 className="font-poppins font-bold text-white mb-3 text-[22px] leading-normal">
                             Follow us
                           </h3>
                           <SocialLinks socialLinks={socialLinks} />
@@ -555,10 +473,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
                         {/* Contact info */}
                         {contactInfo && (
                           <div className="flex flex-col gap-[10px] items-end">
-                            <h3 
-                              className="font-poppins font-bold text-white"
-                              style={{ fontSize: '22px', lineHeight: 'normal' }}
-                            >
+                            <h3 className="font-poppins font-bold text-white text-[22px] leading-normal">
                               Contact Us
                             </h3>
                             <ContactInfo contact={contactInfo} />
@@ -566,10 +481,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
                         )}
 
                         {/* Government hierarchy */}
-                        <div 
-                          className="text-white font-public-sans text-right"
-                          style={{ fontSize: '14px', lineHeight: '18px' }}
-                        >
+                        <div className="text-white font-public-sans text-right text-sm leading-[18px]">
                           <p className="mb-[5px]">U.S. Department of Health and Human Services</p>
                           <p className="mb-[5px]">National Institutes of Health</p>
                           <p className="mb-[5px]">National Cancer Institute</p>
@@ -584,7 +496,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
           )}
 
           {/* Copyright */}
-          <div className="w-full px-4 py-4 lg:px-8" style={{ backgroundColor: '#122F4B' }}>
+          <div className="w-full px-4 py-4 lg:px-8 bg-[#122F4B]">
             <div className="max-w-7xl mx-auto">
               <div className="text-center text-xs text-white font-public-sans">
                 <p>
