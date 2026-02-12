@@ -296,7 +296,7 @@ const NewsletterSignup: React.FC<{
               Enter your email address
             </label>
             {error && (
-              <div className="bg--cranberry-50v text-white px-2 py-1 text-sm font-normal leading-normal border-l-4 border-cranberry-50v">
+              <div className="bg-cranberry-50v text-white px-2 py-1 text-sm font-normal leading-normal border-l-4 border-cranberry-50v">
                 {error}
               </div>
             )}
