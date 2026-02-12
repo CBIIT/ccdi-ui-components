@@ -53,44 +53,33 @@ export const Default: Story = {
     navigation: {
       sections: [
         {
-          title: "Services",
+          title: "About",
           links: [
-            { label: "Web Development", href: "#" },
-            { label: "Mobile Apps", href: "#" },
-            { label: "Cloud Solutions", href: "#" },
-            { label: "Consulting", href: "#" },
-            { label: "Support", href: "#" }
-          ]
-        },
-        {
-          title: "Company",
-          links: [
-            { label: "About Us", href: "#" },
-            { label: "Our Team", href: "#" },
-            { label: "Careers", href: "#" },
-            { label: "Press", href: "#" },
-            { label: "Blog", href: "#" }
+            { label: "About this Website", href: "#" },
+            { label: "en Español", href: "#" },
+            { label: "Reuse & Copyright", href: "#" },
+            { label: "Social Media", href: "#" }
           ]
         },
         {
           title: "Resources",
           links: [
-            { label: "Documentation", href: "#" },
-            { label: "API Reference", href: "#" },
-            { label: "Tutorials", href: "#" },
-            { label: "Help Center", href: "#" },
-            { label: "Community", href: "#" }
+            { label: "Contact Us", href: "#" },
+            { label: "Publications", href: "#" },
+            { label: "Dictionary of Cancer Terms", href: "#" },
+            { label: "Find a Clinical Trial", href: "#" }
           ]
         },
         {
-          title: "Legal",
+          title: "Policies",
           links: [
-            { label: "Privacy Policy", href: "#" },
-            { label: "Terms of Service", href: "#" },
-            { label: "Cookie Policy", href: "#" },
-            { label: "GDPR", href: "#" }
+            { label: "Accessibility", href: "#" },
+            { label: "FOIA", href: "#" },
+            { label: "Privacy & Security", href: "#" },
+            { label: "Disclaimers", href: "#" },
+            { label: "Vulnerability Disclosure", href: "#" }
           ]
-        }
+        },
       ],
       primaryLinks: [
         { label: "Privacy Policy", href: "#" },

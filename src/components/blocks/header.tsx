@@ -32,6 +32,8 @@ export default function NCIDSNavbar({
     null,
   );
   const [isMobile, setIsMobile] = useState(false);
+  // Navigation stack for mobile/tablet menu pages
+  const [mobileMenuStack, setMobileMenuStack] = useState<NavItem[]>([]);
 
   const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const navButtonRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({});
@@ -54,15 +56,37 @@ export default function NCIDSNavbar({
   // Handle dropdown clicks
   const handleDropdownClick = (itemId: string) => {
     if (isMobile) {
-      setActiveSecondaryMenu(activeSecondaryMenu === itemId ? null : itemId);
+      // For mobile/tablet: navigate to submenu page instead of dropdown
+      const currentItems = mobileMenuStack.length > 0 
+        ? mobileMenuStack[mobileMenuStack.length - 1].submenu || []
+        : navItems;
+      
+      const item = currentItems.find((item) => item.id === itemId);
+      if (item && item.hasSubmenu && item.submenu && item.submenu.length > 0) {
+        setMobileMenuStack([...mobileMenuStack, item]);
+      }
     } else {
-      // If clicking the same item that's already open, close it. Otherwise, open the new one.
+      // Desktop: toggle dropdown
       if (activeDropdown === itemId) {
         setActiveDropdown(null);
       } else {
         setActiveDropdown(itemId);
       }
     }
+  };
+
+  // Handle mobile menu navigation - go back
+  const handleMobileMenuBack = () => {
+    if (mobileMenuStack.length > 0) {
+      setMobileMenuStack(mobileMenuStack.slice(0, -1));
+    }
+  };
+
+  // Reset mobile menu stack when closing menu
+  const handleCloseMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setMobileMenuStack([]);
+    setActiveSecondaryMenu(null);
   };
 
   // Handle outside clicks for dropdowns
@@ -104,6 +128,7 @@ export default function NCIDSNavbar({
         !mobileMenuRef.current.contains(event.target as Node)
       ) {
         setIsMobileMenuOpen(false);
+        setMobileMenuStack([]);
         setActiveSecondaryMenu(null);
       }
     };
@@ -311,77 +336,22 @@ export default function NCIDSNavbar({
     );
   };
 
-  const renderMobileNavItem = (item: NavItem, isSecondary = false) => {
+  const renderMobileNavItem = (item: NavItem) => {
     const hasSubmenu =
       item.hasSubmenu && item.submenu && item.submenu.length > 0;
-    const isActive = isSecondary ? activeSecondaryMenu === item.id : false;
 
-    if (isSecondary) {
-      return (
-        <div key={item.id} className="border-t last:border-b border-gray-10">
+    return (
+      <div key={item.id} className="border-t last:border-b border-gray-10">
+        {hasSubmenu ? (
           <button
-            onClick={() => hasSubmenu && handleDropdownClick(item.id)}
-            className={cn(
-              "font-open-sans text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-warm-2 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3",
-              hasSubmenu && "flex items-center justify-between",
-            )}
+            onClick={() => handleDropdownClick(item.id)}
+            className="font-open-sans text-left group relative flex items-center cursor-pointer justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3"
           >
             <span className="text-gray-warm-60">
               {item.label}
             </span>
-            {hasSubmenu && (
-              <svg
-                className={cn("mx-2 h-4 w-4 text-gray-900", isActive && "rotate-180")}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            )}
-          </button>
-          {hasSubmenu && isActive && (
-            <ul>
-              {item.submenu?.map((subItem) => (
-                <li key={subItem.id} className="border-t border-gray-10">
-                  <a
-                    href={subItem.href}
-                    onClick={() => {
-                      setActiveSecondaryMenu(null);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="block py-2 pl-8 pr-4 font-open-sans text-gray-warm-60  hover:bg-gray-warm-2 focus:outline focus:outline-4 focus:outline-blue-40v"
-                  >
-                    {subItem.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      );
-    }
-
-    return (
-      <div key={item.id} className="border-t last:border-b border-gray-10">
-        <button
-          onClick={() => hasSubmenu && handleDropdownClick(item.id)}
-          className={cn(
-            "font-open-sans text-left group relative flex items-center cursor-pointer justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3",
-            hasSubmenu && "flex items-center justify-between",
-          )}
-        >
-          <span className="text-gray-warm-60">
-            {item.label}
-          </span>
-          {hasSubmenu && (
             <svg
-              className={cn("mx-2 h-4 w-4 text-gray-900", isActive && "rotate-180")}
+              className="mx-2 h-4 w-4 text-gray-900"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -390,24 +360,20 @@ export default function NCIDSNavbar({
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M19 9l-7 7-7-7"
+                d="M9 5l7 7-7 7"
               />
             </svg>
-          )}
-        </button>
-        {hasSubmenu && isActive && (
-          <ul>
-            {item.submenu?.map((subItem) => (
-              <li key={subItem.id} className="border-t border-gray-10">
-                <a
-                  href={subItem.href}
-                  className="block py-2 pl-8 pr-4 font-open-sans text-gray-warm-60  hover:bg-gray-warm-2 focus:outline focus:outline-4 focus:outline-blue-40v"
-                >
-                  {subItem.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          </button>
+        ) : (
+          <a
+            href={item.href}
+            onClick={handleCloseMobileMenu}
+            className="block font-open-sans text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3"
+          >
+            <span className="text-gray-warm-60">
+              {item.label}
+            </span>
+          </a>
         )}
       </div>
     );
@@ -440,7 +406,12 @@ export default function NCIDSNavbar({
           {/* Mobile menu button - Using USWDS Button */}
           <div className="flex items-center lg:hidden">
             <Button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => {
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+                if (!isMobileMenuOpen) {
+                  setMobileMenuStack([]);
+                }
+              }}
               className="bg-cerulean-70 text-white px-5 py-3 text-base leading-4"
             >
               Menu
@@ -474,16 +445,43 @@ export default function NCIDSNavbar({
         <div className="fixed inset-0 z-50 lg:hidden">
           <div
             className="absolute inset-0 bg-gray-400/20"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={handleCloseMobileMenu}
           />
           <div
             ref={mobileMenuRef}
             className="absolute left-0 top-0 h-full w-80 bg-white shadow-xl"
           >
             <div className="p-4">
-              <div className="flex items-center justify-end mb-12">
+              <div className="flex items-center justify-between mb-12">
+                {mobileMenuStack.length > 0 ? (
+                  <button
+                    onClick={handleMobileMenuBack}
+                    className="flex items-center text-gray-900 cursor-pointer focus:outline focus:outline-4 focus:outline-blue-40v"
+                  >
+                    <svg
+                      className="h-5 w-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                    <span className="text-base font-open-sans text-cerulean-70">
+                      {mobileMenuStack.length > 1 
+                        ? mobileMenuStack[mobileMenuStack.length - 2].label
+                        : "Main Menu"}
+                    </span>
+                  </button>
+                ) : (
+                  <div></div>
+                )}
                 <button
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={handleCloseMobileMenu}
                   className="text-gray-900 cursor-pointer focus:outline focus:outline-4 focus:outline-blue-40v"
                 >
                   <svg
@@ -501,8 +499,18 @@ export default function NCIDSNavbar({
                   </svg>
                 </button>
               </div>
+              {mobileMenuStack.length > 0 && (
+                <div className="mb-4">
+                  <h2 className="text-base font-open-sans font-semibold text-cerulean-70 pl-4">
+                    {mobileMenuStack[mobileMenuStack.length - 1].label}
+                  </h2>
+                </div>
+              )}
               <div className="space-y-0">
-                {navItems.map((item) => renderMobileNavItem(item, true))}
+                {(mobileMenuStack.length > 0
+                  ? mobileMenuStack[mobileMenuStack.length - 1].submenu || []
+                  : navItems
+                ).map((item) => renderMobileNavItem(item))}
               </div>
             </div>
           </div>
