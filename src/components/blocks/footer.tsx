@@ -191,11 +191,45 @@ const NewsletterSignup: React.FC<{
   onSignup?: (email: string) => void
 }> = ({ onSignup }) => {
   const [email, setEmail] = React.useState("")
+  const [error, setError] = React.useState("")
+  const [touched, setTouched] = React.useState(false)
+
+  const validateEmail = (emailValue: string) => {
+    if (!emailValue) {
+      return ""
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(emailValue)) {
+      return "Enter a valid email address"
+    }
+    return ""
+  }
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setEmail(value)
+    if (touched) {
+      setError(validateEmail(value))
+    }
+  }
+
+  const handleBlur = () => {
+    setTouched(true)
+    setError(validateEmail(email))
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    const validationError = validateEmail(email)
+    if (validationError) {
+      setError(validationError)
+      setTouched(true)
+      return
+    }
     onSignup?.(email)
     setEmail("")
+    setError("")
+    setTouched(false)
   }
 
   return (
@@ -206,22 +240,34 @@ const NewsletterSignup: React.FC<{
           <h3 className="font-poppins font-bold text-white w-full text-[22.88px] leading-normal">
             Sign up for email updates
           </h3>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-[20px] w-full">
-            <div className="flex flex-col gap-[10px] w-full">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-[20px] w-full" noValidate>
+            <div className={cn(
+              "flex flex-col mb-[10px] w-full",
+              error && "border-l-4 border-cranberry-50v pl-2"
+            )}>
               <label 
                 htmlFor="footer-email-mobile" 
-                className="text-white w-full font-['Open_Sans'] text-base font-normal leading-normal"
+                className="text-white w-full mb-[10px] font-['Open_Sans'] text-base font-normal leading-normal"
               >
                 Enter your email address
               </label>
+              {error && (
+                <div className="bg-cranberry-50v text-white px-2 py-1 font-['Open_Sans'] text-base font-normal leading-normal border-l-4 border-cranberry-50v">
+                  {error}
+                </div>
+              )}
               <Input
                 id="footer-email-mobile"
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleEmailChange}
+                onBlur={handleBlur}
                 placeholder=""
                 required
-                className="w-full bg-white h-[47px]"
+                className={cn(
+                  "w-full bg-white h-[47px]",
+                  error && "mt-0 border-2 border-cranberry-50v"
+                )}
               />
             </div>
             <Button
@@ -239,22 +285,33 @@ const NewsletterSignup: React.FC<{
         <h3 className="text-lg font-bold font-public-sans text-white mb-3">
           Sign up for email updates
         </h3>
-        <p className="text-white font-public-sans text-sm mb-4">
-          Get the latest updates and news delivered to your inbox.
-        </p>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="footer-email-desktop" className="block text-sm font-medium text-white mb-2">
-              Email address
+        <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+          <div className={cn(
+                error && "border-l-4 border-cranberry-50v pl-2"
+              )}>
+            <label 
+              htmlFor="footer-email-desktop" 
+              className={"block text-sm font-medium text-white mb-2"}
+            >
+              Enter your email address
             </label>
+            {error && (
+              <div className="bg--cranberry-50v text-white px-2 py-1 text-sm font-normal leading-normal border-l-4 border-cranberry-50v">
+                {error}
+              </div>
+            )}
             <Input
               id="footer-email-desktop"
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmailChange}
+              onBlur={handleBlur}
               placeholder="Enter your email"
               required
-              className="w-full"
+              className={cn(
+                "w-full",
+                error && "mt-0 border-2 border-cranberry-50v"
+              )}
             />
           </div>
           <Button
