@@ -247,12 +247,12 @@ const NewsletterSignup: React.FC<{
             )}>
               <label 
                 htmlFor="footer-email-mobile" 
-                className="text-white w-full mb-[10px] font-['Open_Sans'] text-base font-normal leading-normal"
+                className="text-white w-full mb-[10px] font-open-sans text-base font-normal leading-normal"
               >
                 Enter your email address
               </label>
               {error && (
-                <div className="bg-cranberry-50v text-white px-2 py-1 font-['Open_Sans'] text-base font-normal leading-normal border-l-4 border-cranberry-50v">
+                <div className="bg-cranberry-50v text-white px-2 py-1 font-open-sans text-base font-normal leading-normal border-l-4 border-cranberry-50v">
                   {error}
                 </div>
               )}
@@ -272,7 +272,7 @@ const NewsletterSignup: React.FC<{
             </div>
             <Button
               type="submit"
-              className="w-full rounded-lg text-gray-90 bg-golden-20 hover:bg-golden-30 px-4 py-[9px] font-['Open_Sans'] text-base font-bold"
+              className="w-full text-gray-90 bg-golden-20 hover:bg-golden-30 px-4 py-[9px] font-['Open_Sans'] text-base font-bold"
             >
               Sign up
             </Button>
@@ -506,7 +506,6 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
           {/* Bottom section with agency info, contact, and social links */}
           {(agencyInfo || contactInfo || socialLinks.length > 0) && (
             <>
-              <Separator />
               <div className="w-full px-4 py-5 lg:px-8 lg:py-8 bg-cerulean-80">
                 <div className="max-w-7xl mx-auto">
                   {/* Mobile layout: vertical stack */}
@@ -597,17 +596,6 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
               </div>
             </>
           )}
-
-          {/* Copyright */}
-          <div className="w-full px-4 py-4 lg:px-8 bg-cerulean-80">
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center text-xs text-white font-public-sans">
-                <p>
-                  © {new Date().getFullYear()} {agencyInfo?.name || "Your Organization"}. All rights reserved.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </footer>
     )
