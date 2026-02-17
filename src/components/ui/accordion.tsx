@@ -3,7 +3,7 @@
 import * as React from "react"
 import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
-import { Icon, IconType } from "@/components/ui/icon"
+import { Icon, IconType } from "@/components/ui/Icon"
 
 // AccordionTrigger - ONLY component with actual variant differences
 const accordionTriggerStyles = "group flex items-center w-full py-4 px-5 bg-gray-5 hover:bg-gray-10 font-bold focus:outline focus:outline-4 focus:outline-blue-40v cursor-pointer text-left gap-3"

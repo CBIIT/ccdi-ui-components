@@ -39,12 +39,16 @@
       "description": "USWDS-compliant alert component with variants for default, success, warning, danger, info, and emergency states. Includes proper ARIA roles and icon integration.",
       "files": [
         {
-          "path": "src/components/ui/alert.tsx",
+          "path": "src/components/ui/Alert/Alert.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/ui/Alert/index.ts",
           "type": "registry:component"
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "http://localhost:4000/registry/icon.json"]
     },
     {
       "name": "icon",
@@ -53,7 +57,11 @@
       "description": "USWDS-compliant icon component with Material Icons integration and proper accessibility features.",
       "files": [
         {
-          "path": "src/components/ui/icon.tsx",
+          "path": "src/components/ui/Icon/index.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/ui/Icon/Icon.tsx",
           "type": "registry:component"
         }
       ],
@@ -507,6 +515,16 @@
 
         },
         {
+          "path": "public/fonts/inter/inter.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/inter/inter.woff2"
+        },
+        {
+          "path": "public/fonts/inter/inter-italic.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/inter/inter-italic.woff2"
+        },
+        {
           "path": "public/fonts/public-sans/public-sans.woff2",
           "type": "registry:file",
           "target": "~/public/fonts/public-sans/public-sans.woff2"
@@ -616,6 +634,11 @@
       "title": "USWDS Global Styles",
       "description": "Complete USWDS design system styles including Tailwind CSS v4 configuration, color tokens, typography system, and spacing. Government-compliant design tokens for accessible federal websites with Section 508 compliance.",
       "files": [
+        {
+          "path": "src/styles/theme.css",
+          "type": "registry:style",
+          "target": "~/src/app/theme.css"
+        },
         {
           "path": "src/styles/globals.css",
           "type": "registry:style",

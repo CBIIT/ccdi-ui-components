@@ -18,7 +18,7 @@ import {
   DropdownMenuSubContent,
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
-import { Icon } from '@/components/ui/icon'
+import { Icon } from '@/components/ui/Icon'
 
 const meta: Meta<typeof DropdownMenu> = {
   title: 'UI/DropdownMenu',

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { SearchIcon } from "@/components/ui/icon";
+import { SearchIcon } from "@/components/ui/Icon";
 
 export interface AutocompleteOption {
   /** Unique value/id for the option */

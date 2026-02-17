@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { UnfoldMoreIcon } from "@/components/ui/icon";
+import { UnfoldMoreIcon } from "@/components/ui/Icon";
 
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   /** Unique identifier for the select element */

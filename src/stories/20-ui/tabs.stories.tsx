@@ -1,7 +1,7 @@
 import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Icon } from '@/components/ui/icon'
+import { Icon } from '@/components/ui/Icon'
 
 const meta: Meta<typeof Tabs> = {
   title: 'UI/Tabs',

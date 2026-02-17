@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { Icon, SearchIcon, HomeIcon, PersonIcon } from '@/components/ui/icon'
+import { Icon, SearchIcon, HomeIcon, PersonIcon } from '@/components/ui/Icon'
 
 describe('Icon', () => {
   describe('Basic rendering', () => {

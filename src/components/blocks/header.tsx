@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-// import { Icon } from "@/components/ui/icon"
+// import { Icon } from "@/components/ui/Icon"
 import { Search } from "@/components/ui/search";
 
 type NavItem = {

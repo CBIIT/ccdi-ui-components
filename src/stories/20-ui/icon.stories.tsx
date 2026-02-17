@@ -15,7 +15,7 @@ import {
   PublicIcon,
   LocationOnIcon,
   SettingsIcon,
-} from "@/components/ui/icon";
+} from "@/components/ui/Icon";
 
 const meta: Meta<typeof Icon> = {
   title: "UI/Icon",

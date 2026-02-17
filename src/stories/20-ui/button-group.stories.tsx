@@ -2,7 +2,7 @@ import * as React from 'react'
 import type { Meta, StoryObj } from "@storybook/react"
 import { Button } from "@/components/ui/button"
 import { ButtonGroup } from "@/components/ui/button-group"
-import { Icon } from "@/components/ui/icon"
+import { Icon } from "@/components/ui/Icon"
 
 const meta = {
   title: "UI/ButtonGroup",

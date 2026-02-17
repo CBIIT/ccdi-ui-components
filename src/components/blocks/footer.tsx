@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
-import { Icon, type IconType } from "@/components/ui/icon"
+import { Icon, type IconType } from "@/components/ui/Icon"
 
 // Types for footer structure
 export interface FooterLink {

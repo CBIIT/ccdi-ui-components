@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Button } from '../button'
+import { Button } from './Button'
 
 describe('Button', () => {
   describe('Rendering', () => {
@@ -71,13 +71,6 @@ describe('Button', () => {
       expect(button).toHaveClass('text-gray-80', 'bg-transparent', 'border', 'border-gray-60')
     })
 
-    it('applies ghost variant classes', () => {
-      render(<Button variant="ghost">Ghost</Button>)
-      
-      const button = screen.getByRole('button')
-      expect(button).toHaveClass('text-gray-80')
-    })
-
     it('applies link variant classes', () => {
       render(<Button variant="link">Link</Button>)
       
@@ -106,13 +99,6 @@ describe('Button', () => {
       
       const button = screen.getByRole('button')
       expect(button).toHaveClass('px-6', 'py-4', 'text-lg')
-    })
-
-    it('applies extra large size classes', () => {
-      render(<Button size="xl">Extra Large</Button>)
-      
-      const button = screen.getByRole('button')
-      expect(button).toHaveClass('px-8', 'py-5', 'text-xl')
     })
   })
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '@/components/ui/button'
-import { Icon } from '@/components/ui/icon'
+import { Button } from '@/components/ui/Button'
+import { Icon } from '@/components/ui/Icon'
 
 const meta = {
   title: 'UI/Button',
@@ -214,7 +214,7 @@ export const Disabled: Story = {
 export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-wrap gap-4">
-      <Button variant="primary">Primary <Icon icon="search" size="xs" /></Button>
+      <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="outline">Outline</Button>
       <Button variant="success">Success</Button>
