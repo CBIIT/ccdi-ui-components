@@ -47,11 +47,24 @@ const buttonVariants = cva(
   }
 )
 
+/**
+ * Props for the `Button` component.
+ */
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & {
+    /**
+     * Renders the button styles on the child element instead of a native `button`.
+     *
+     * @default false
+     */
     asChild?: boolean;
   };
 
+/**
+ * A styled button component with support for visual variants and sizes.
+ *
+ * Use `asChild` to apply button styles to a custom child element.
+ */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
 

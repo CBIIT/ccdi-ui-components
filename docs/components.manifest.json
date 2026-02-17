@@ -1,0 +1,2026 @@
+{
+  "components": [
+    {
+      "name": "Accordion",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Accordion"
+      },
+      "props": [
+        {
+          "name": "defaultValue",
+          "type": "((string | number | readonly string[]) & (string | string[])) | undefined",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"borderless\" | \"bordered\" | undefined",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\"single\" | \"multiple\" | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "AccordionContent",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "AccordionContent"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "AccordionItem",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "AccordionItem"
+      },
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "AccordionTrigger",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "AccordionTrigger"
+      },
+      "props": [
+        {
+          "name": "openIcon",
+          "type": "IconType | undefined",
+          "required": false
+        },
+        {
+          "name": "closedIcon",
+          "type": "IconType | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "Alert",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Alert"
+      },
+      "props": [
+        {
+          "name": "role",
+          "type": "\"alert\" | \"status\" | undefined",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"error\" | \"info\" | \"warning\" | \"default\" | \"success\" | \"emergency\" | null | undefined",
+          "required": false
+        },
+        {
+          "name": "hasIcon",
+          "type": "boolean | null | undefined",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "boolean | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "AlertDescription",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "AlertDescription"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "AlertTitle",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "AlertTitle"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "Autocomplete",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Autocomplete"
+      },
+      "props": [
+        {
+          "name": "id",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Unique identifier for the autocomplete element"
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Name attribute for form submission"
+        },
+        {
+          "name": "placeholder",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Placeholder text"
+        },
+        {
+          "name": "value",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Current input value"
+        },
+        {
+          "name": "onChange",
+          "type": "((value: string) => void) | undefined",
+          "required": false,
+          "description": "Callback when input value changes"
+        },
+        {
+          "name": "onSelect",
+          "type": "((option: AutocompleteOption) => void) | undefined",
+          "required": false,
+          "description": "Callback when an option is selected"
+        },
+        {
+          "name": "onSearch",
+          "type": "((query: string) => Promise<AutocompleteOption[]> | AutocompleteOption[]) | undefined",
+          "required": false,
+          "description": "Callback to fetch suggestions based on input"
+        },
+        {
+          "name": "options",
+          "type": "AutocompleteOption[] | undefined",
+          "required": false,
+          "description": "Array of options to display"
+        },
+        {
+          "name": "loading",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": "Loading state"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": "Disables the autocomplete element"
+        },
+        {
+          "name": "required",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": "Marks the autocomplete as required"
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": "Marks the autocomplete as having an error/invalid state"
+        },
+        {
+          "name": "success",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": "Marks the autocomplete as having a success state"
+        },
+        {
+          "name": "minCharCount",
+          "type": "number | undefined",
+          "required": false,
+          "description": "Minimum characters before showing suggestions (default: 3)"
+        },
+        {
+          "name": "maxOptionsCount",
+          "type": "number | undefined",
+          "required": false,
+          "description": "Maximum number of options to display (default: 10)"
+        },
+        {
+          "name": "minPlaceholderMsg",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Message to show when below minimum character count"
+        },
+        {
+          "name": "highlightMatchingText",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": "Highlight matching text in suggestions"
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Custom className for additional styling"
+        },
+        {
+          "name": "listboxClassName",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Custom className for the listbox"
+        },
+        {
+          "name": "aria-label",
+          "type": "string | undefined",
+          "required": false,
+          "description": "ARIA label for accessibility"
+        },
+        {
+          "name": "aria-labelledby",
+          "type": "string | undefined",
+          "required": false,
+          "description": "ID of element that labels this autocomplete"
+        },
+        {
+          "name": "aria-describedby",
+          "type": "string | undefined",
+          "required": false,
+          "description": "ID of element that describes this autocomplete"
+        }
+      ],
+      "composes": [
+        "SearchIcon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "Avatar",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Avatar"
+      },
+      "props": [
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "AvatarFallback",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "AvatarFallback"
+      },
+      "props": [
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "delay",
+          "type": "number | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "AvatarImage",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "AvatarImage"
+      },
+      "props": [
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "onLoadingStatusChange",
+          "type": "((status: \"idle\" | \"loading\" | \"loaded\" | \"error\") => void) | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "Badge",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Badge"
+      },
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"warning\" | \"default\" | \"success\" | \"secondary\" | \"danger\" | \"outline\" | null | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "Banner",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Banner"
+      },
+      "props": [
+        {
+          "name": "languageToggle",
+          "type": "{ text: string; href: string; label: string; } | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Button"
+      ],
+      "examples": []
+    },
+    {
+      "name": "Breadcrumb",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Breadcrumb"
+      },
+      "props": [
+        {
+          "name": "items",
+          "type": "BreadcrumbItem[]",
+          "required": true
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "type": "boolean | null | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "BreadcrumbLink",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "BreadcrumbLink"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "BreadcrumbList",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "BreadcrumbList"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "BreadcrumbPage",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "BreadcrumbPage"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "BreadcrumbSeparator",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "BreadcrumbSeparator"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "Button",
+      "summary": "Props for the `Button` component.",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Button"
+      },
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"info\" | \"warning\" | \"link\" | \"success\" | \"secondary\" | \"danger\" | \"outline\" | \"primary\" | \"accent-cool\" | \"accent-warm\" | \"base\" | \"outline-inverse\" | \"outline-primary\" | \"outline-secondary\" | null | undefined",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"sm\" | \"lg\" | \"icon\" | null | undefined",
+          "required": false
+        },
+        {
+          "name": "asChild",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "Renders the button styles on the child element instead of a native `button`."
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "ButtonGroup",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ButtonGroup"
+      },
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean | undefined",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\" | null | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "Card",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Card"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "CardContent",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "CardContent"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "CardFooter",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "CardFooter"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "CardGroup",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "CardGroup"
+      },
+      "props": [
+        {
+          "name": "layout",
+          "type": "\"horizontal\" | \"vertical\" | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "CardHeader",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "CardHeader"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "CardItem",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "CardItem"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "CardMedia",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "CardMedia"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "ChartContainer",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ChartContainer"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "ChartLegendContent",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ChartLegendContent"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "ChartStyle",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ChartStyle"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "ChartTooltipContent",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ChartTooltipContent"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "Checkbox",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Checkbox"
+      },
+      "props": [
+        {
+          "name": "onCheckedChange",
+          "type": "((checked: boolean) => void) | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenu",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenu"
+      },
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuCheckboxItem",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuCheckboxItem"
+      },
+      "props": [
+        {
+          "name": "checked",
+          "type": "boolean | undefined",
+          "required": false
+        },
+        {
+          "name": "onCheckedChange",
+          "type": "((checked: boolean) => void) | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuContent",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuContent"
+      },
+      "props": [
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuGroup",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuGroup"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuItem",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuItem"
+      },
+      "props": [
+        {
+          "name": "inset",
+          "type": "boolean | undefined",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"destructive\" | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuLabel",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuLabel"
+      },
+      "props": [
+        {
+          "name": "inset",
+          "type": "boolean | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuPortal",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuPortal"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuRadioGroup",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuRadioGroup"
+      },
+      "props": [
+        {
+          "name": "value",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: string) => void) | undefined",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuRadioItem",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuRadioItem"
+      },
+      "props": [
+        {
+          "name": "value",
+          "type": "string | (readonly string[] & string)",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuSeparator",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuSeparator"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuShortcut",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuShortcut"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuSub",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuSub"
+      },
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuSubContent",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuSubContent"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuSubTrigger",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuSubTrigger"
+      },
+      "props": [
+        {
+          "name": "inset",
+          "type": "boolean | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "ContextMenuTrigger",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "ContextMenuTrigger"
+      },
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined",
+          "required": false
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DialogContent",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DialogContent"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DialogDescription",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DialogDescription"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DialogFooter",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DialogFooter"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DialogHeader",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DialogHeader"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DialogOverlay",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DialogOverlay"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DialogTitle",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DialogTitle"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenu",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenu"
+      },
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean | undefined",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "((open: boolean) => void) | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuCheckboxItem",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuCheckboxItem"
+      },
+      "props": [
+        {
+          "name": "checked",
+          "type": "boolean | undefined",
+          "required": false
+        },
+        {
+          "name": "onCheckedChange",
+          "type": "((checked: boolean) => void) | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuContent",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuContent"
+      },
+      "props": [
+        {
+          "name": "sideOffset",
+          "type": "number | undefined",
+          "required": false
+        },
+        {
+          "name": "align",
+          "type": "\"start\" | \"center\" | \"end\" | undefined",
+          "required": false
+        },
+        {
+          "name": "side",
+          "type": "\"top\" | \"right\" | \"bottom\" | \"left\" | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuGroup",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuGroup"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuItem",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuItem"
+      },
+      "props": [
+        {
+          "name": "inset",
+          "type": "boolean | undefined",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"destructive\" | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuLabel",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuLabel"
+      },
+      "props": [
+        {
+          "name": "inset",
+          "type": "boolean | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuPortal",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuPortal"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuRadioGroup",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuRadioGroup"
+      },
+      "props": [
+        {
+          "name": "value",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: string) => void) | undefined",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuRadioItem",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuRadioItem"
+      },
+      "props": [
+        {
+          "name": "value",
+          "type": "string | (readonly string[] & string)",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuSeparator",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuSeparator"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuShortcut",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuShortcut"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuSub",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuSub"
+      },
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuSubContent",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuSubContent"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuSubTrigger",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuSubTrigger"
+      },
+      "props": [
+        {
+          "name": "inset",
+          "type": "boolean | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "DropdownMenuTrigger",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "DropdownMenuTrigger"
+      },
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "FormControl",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "FormControl"
+      },
+      "props": [],
+      "composes": [
+        "Slot",
+        "Controller",
+        "Label"
+      ],
+      "examples": []
+    },
+    {
+      "name": "FormDescription",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "FormDescription"
+      },
+      "props": [],
+      "composes": [
+        "Slot",
+        "Controller",
+        "Label"
+      ],
+      "examples": []
+    },
+    {
+      "name": "FormField",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "FormField"
+      },
+      "props": [],
+      "composes": [
+        "Slot",
+        "Controller",
+        "Label"
+      ],
+      "examples": []
+    },
+    {
+      "name": "FormItem",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "FormItem"
+      },
+      "props": [],
+      "composes": [
+        "Slot",
+        "Controller",
+        "Label"
+      ],
+      "examples": []
+    },
+    {
+      "name": "FormLabel",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "FormLabel"
+      },
+      "props": [],
+      "composes": [
+        "Slot",
+        "Controller",
+        "Label"
+      ],
+      "examples": []
+    },
+    {
+      "name": "FormMessage",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "FormMessage"
+      },
+      "props": [],
+      "composes": [
+        "Slot",
+        "Controller",
+        "Label"
+      ],
+      "examples": []
+    },
+    {
+      "name": "InPageNavigation",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "InPageNavigation"
+      },
+      "props": [
+        {
+          "name": "items",
+          "type": "InPageNavigationItem[]",
+          "required": true
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "Input",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Input"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "Label",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Label"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "Pagination",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Pagination"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "PaginationContent",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "PaginationContent"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "PaginationEllipsis",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "PaginationEllipsis"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "PaginationItem",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "PaginationItem"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "PaginationLink",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "PaginationLink"
+      },
+      "props": [
+        {
+          "name": "isActive",
+          "type": "boolean | undefined",
+          "required": false
+        },
+        {
+          "name": "isLast",
+          "type": "boolean | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "PaginationNext",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "PaginationNext"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "PaginationPrevious",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "PaginationPrevious"
+      },
+      "props": [],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "RadioGroup",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "RadioGroup"
+      },
+      "props": [
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "defaultValue",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: string) => void) | undefined",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"tiled\" | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "RadioGroupItem",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "RadioGroupItem"
+      },
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "Search",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Search"
+      },
+      "props": [
+        {
+          "name": "label",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "buttonText",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "onSearch",
+          "type": "((value: string) => void) | undefined",
+          "required": false
+        },
+        {
+          "name": "iconOnly",
+          "type": "boolean | undefined",
+          "required": false
+        },
+        {
+          "name": "inputProps",
+          "type": "React.InputHTMLAttributes<HTMLInputElement> | undefined",
+          "required": false
+        },
+        {
+          "name": "buttonProps",
+          "type": "React.ButtonHTMLAttributes<HTMLButtonElement> | undefined",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"large\" | null | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Icon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "SearchExamples",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "SearchExamples"
+      },
+      "props": [],
+      "composes": [
+        "Search"
+      ],
+      "examples": []
+    },
+    {
+      "name": "Select",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Select"
+      },
+      "props": [
+        {
+          "name": "id",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Unique identifier for the select element"
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Name attribute for form submission"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": "Disables the select element"
+        },
+        {
+          "name": "required",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": "Marks the select as required"
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": "Marks the select as having an error/invalid state"
+        },
+        {
+          "name": "success",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": "Marks the select as having a success state"
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Custom className for additional styling"
+        },
+        {
+          "name": "aria-label",
+          "type": "string | undefined",
+          "required": false,
+          "description": "ARIA label for accessibility"
+        },
+        {
+          "name": "aria-labelledby",
+          "type": "string | undefined",
+          "required": false,
+          "description": "ID of element that labels this select"
+        },
+        {
+          "name": "aria-describedby",
+          "type": "string | undefined",
+          "required": false,
+          "description": "ID of element that describes this select"
+        }
+      ],
+      "composes": [
+        "UnfoldMoreIcon"
+      ],
+      "examples": []
+    },
+    {
+      "name": "Separator",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Separator"
+      },
+      "props": [
+        {
+          "name": "decorative",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": "Whether the separator is decorative (true) or semantic (false).\nDecorative separators are ignored by screen readers."
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"sm\" | \"lg\" | null | undefined",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\" | null | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "Skipnav",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Skipnav"
+      },
+      "props": [
+        {
+          "name": "href",
+          "type": "string | undefined",
+          "required": false,
+          "default": "\"#main-content\"",
+          "description": "The href target for the skip navigation link"
+        },
+        {
+          "name": "text",
+          "type": "string | undefined",
+          "required": false,
+          "default": "\"Skip to main content\"",
+          "description": "The text displayed in the skip navigation link"
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "Slider",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Slider"
+      },
+      "props": [
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "defaultValue",
+          "type": "number[] | undefined",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number[] | undefined",
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "number | undefined",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "number | undefined",
+          "required": false
+        },
+        {
+          "name": "step",
+          "type": "number | undefined",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: number[]) => void) | undefined",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "Switch",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Switch"
+      },
+      "props": [
+        {
+          "name": "onCheckedChange",
+          "type": "((checked: boolean) => void) | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "Table",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Table"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "TableBody",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TableBody"
+      },
+      "props": [
+        {
+          "name": "striped",
+          "type": "boolean | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "TableCaption",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TableCaption"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "TableCell",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TableCell"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "TableFooter",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TableFooter"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "TableHead",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TableHead"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "TableHeader",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TableHeader"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "TableRow",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TableRow"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "Tabs",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Tabs"
+      },
+      "props": [
+        {
+          "name": "defaultValue",
+          "type": "string | (readonly string[] & string) | undefined",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string | undefined",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: string) => void) | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "TabsContent",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TabsContent"
+      },
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "TabsList",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TabsList"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "TabsTrigger",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TabsTrigger"
+      },
+      "props": [
+        {
+          "name": "value",
+          "type": "string | (readonly string[] & string)",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "Textarea",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Textarea"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "Tooltip",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "Tooltip"
+      },
+      "props": [
+        {
+          "name": "position",
+          "type": "\"top\" | \"right\" | \"bottom\" | \"left\" | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "TooltipContent",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TooltipContent"
+      },
+      "props": [
+        {
+          "name": "position",
+          "type": "\"top\" | \"right\" | \"bottom\" | \"left\" | null | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "TooltipTrigger",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TooltipTrigger"
+      },
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean | undefined",
+          "required": false
+        }
+      ],
+      "examples": []
+    },
+    {
+      "name": "TreeView",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "TreeView"
+      },
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "USWDSFooter",
+      "import": {
+        "from": "ccdi-ui-components",
+        "named": "USWDSFooter"
+      },
+      "props": [
+        {
+          "name": "navigation",
+          "type": "FooterNavigation | undefined",
+          "required": false
+        },
+        {
+          "name": "agencyInfo",
+          "type": "AgencyInfo | undefined",
+          "required": false
+        },
+        {
+          "name": "contactInfo",
+          "type": "ContactInfo | undefined",
+          "required": false
+        },
+        {
+          "name": "showNewsletter",
+          "type": "boolean | undefined",
+          "required": false
+        },
+        {
+          "name": "onNewsletterSignup",
+          "type": "((email: string) => void) | undefined",
+          "required": false
+        }
+      ],
+      "composes": [
+        "Button",
+        "Input",
+        "Icon"
+      ],
+      "examples": []
+    }
+  ]
+}

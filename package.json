@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "npm run registry:build && npm run storybook:build",
+    "docs:manifest": "node scripts/generate-components-manifest.mjs",
     "storybook:build": "storybook build -o storybook-static",
     "storybook:dev": "storybook dev -p 6006",
     "registry:build": "shadcn build --output registry/",
@@ -48,6 +49,7 @@
     "shadcn": "canary",
     "storybook": "^10.2.8",
     "tailwindcss": "^4.1.18",
+    "ts-morph": "^27.0.2",
     "typescript": "^5",
     "vitest": "^4.0.16"
   }
