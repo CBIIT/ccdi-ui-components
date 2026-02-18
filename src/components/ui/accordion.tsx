@@ -5,10 +5,8 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Icon, IconType } from "@/components/ui/icon"
 
-// AccordionTrigger - ONLY component with actual variant differences
 const accordionTriggerStyles = "group flex items-center w-full py-4 px-5 bg-gray-5 hover:bg-gray-10 font-bold focus:outline focus:outline-4 focus:outline-blue-40v cursor-pointer text-left gap-3"
 
-// AccordionContent - ONLY component with actual variant differences
 const accordionContentVariants = cva("py-6 px-4 [&[hidden]]:p-0", {
   variants: {
     variant: {
@@ -21,8 +19,10 @@ const accordionContentVariants = cva("py-6 px-4 [&[hidden]]:p-0", {
   },
 })
 
+type AccordionVariant = "borderless" | "bordered"
+
 type AccordionContextValue = {
-  variant: "borderless" | "bordered"
+  variant: AccordionVariant
   openItems: string[]
   toggleItem: (id: string) => void
   multiselectable: boolean
@@ -30,7 +30,7 @@ type AccordionContextValue = {
 
 const AccordionContext = React.createContext<AccordionContextValue | null>(null)
 
-const useAccordion = () => {
+const useAccordion = (): AccordionContextValue => {
   const context = React.useContext(AccordionContext)
   if (!context) {
     throw new Error("Accordion components must be used within an Accordion")
@@ -38,14 +38,13 @@ const useAccordion = () => {
   return context
 }
 
-// Context for AccordionItem to pass value to children
 type AccordionItemContextValue = {
   value: string
 }
 
 const AccordionItemContext = React.createContext<AccordionItemContextValue | null>(null)
 
-const useAccordionItem = () => {
+const useAccordionItem = (): AccordionItemContextValue => {
   const context = React.useContext(AccordionItemContext)
   if (!context) {
     throw new Error("AccordionTrigger and AccordionContent must be used within an AccordionItem")
@@ -54,7 +53,7 @@ const useAccordionItem = () => {
 }
 
 type AccordionProps = React.HTMLAttributes<HTMLDivElement> & {
-  variant?: "borderless" | "bordered"
+  variant?: AccordionVariant
   type?: "single" | "multiple"
   defaultValue?: string | string[]
 }
@@ -73,14 +72,12 @@ const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
     const toggleItem = React.useCallback((id: string) => {
       setOpenItems((prev) => {
         if (multiselectable) {
-          // Multiple mode: toggle item in array
           return prev.includes(id) 
             ? prev.filter((item) => item !== id)
             : [...prev, id]
-        } else {
-          // Single mode: always collapsible
-          return prev.includes(id) ? [] : [id]
         }
+
+        return prev.includes(id) ? [] : [id]
       })
     }, [multiselectable])
 
@@ -122,10 +119,11 @@ const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
 AccordionItem.displayName = "AccordionItem"
 
 type AccordionTriggerProps = (React.ButtonHTMLAttributes<HTMLButtonElement>
-& {
-  openIcon?: IconType
-  closedIcon?: IconType
-})
+  & {
+    openIcon?: IconType
+    closedIcon?: IconType
+  })
+
 const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerProps>(
   ({ className, children, openIcon = "remove", closedIcon = "add", ...props }, ref) => {
     const { openItems, toggleItem } = useAccordion()

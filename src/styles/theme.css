@@ -210,7 +210,7 @@
 
   /* Theme Tracking with normalization support */
   --tracking-normal: var(--tracking-normal);
-  /* --spacing: var(--spacing); */
+  --spacing: var(--spacing);
 
   /* Font Size with normalization support */
   --font-size-xs: calc(0.75rem * var(--font-normalization, 1));

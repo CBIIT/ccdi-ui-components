@@ -7,6 +7,8 @@
     "storybook:build": "storybook build -o storybook-static",
     "storybook:dev": "storybook dev -p 6006",
     "registry:build": "shadcn build --output registry/",
+    "registry:serve": "npx serve . -l 4000",
+    "registry:local": "npm run registry:build && npm run registry:serve",
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",

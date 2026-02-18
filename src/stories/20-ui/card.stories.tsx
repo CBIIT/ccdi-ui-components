@@ -34,10 +34,10 @@ export const Default: Story = {
   render: () => (
     <Card className="max-w-sm">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Card Title</h2>
+        <h2 className="font-semibold font-poppins text-xl">Card Title</h2>
       </CardHeader>
       <CardContent>
-        <p className="font-public-sans">
+        <p className="font-open-sans">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
           earum tenetur quo cupiditate, eaque qui officia recusandae.
         </p>
@@ -61,7 +61,7 @@ export const WithImage: Story = {
   render: () => (
     <Card className="max-w-sm">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Card with Image</h2>
+        <h2 className="font-semibold font-poppins text-xl">Card with Image</h2>
       </CardHeader>
       <CardMedia variant="default">
         <img
@@ -71,7 +71,7 @@ export const WithImage: Story = {
         />
       </CardMedia>
       <CardContent>
-        <p className="font-public-sans">
+        <p className="font-open-sans">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
           earum tenetur quo cupiditate, eaque qui officia recusandae.
         </p>
@@ -95,7 +95,7 @@ export const MediaWithHeaderFirst: Story = {
   render: () => (
     <Card className="max-w-sm">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Media with header first</h2>
+        <h2 className="font-semibold font-poppins text-xl">Media with header first</h2>
       </CardHeader>
       <CardMedia variant="first">
         <img
@@ -129,7 +129,7 @@ export const InsetMedia: Story = {
   render: () => (
     <Card className="max-w-sm">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Inset Media</h2>
+        <h2 className="font-semibold font-poppins text-xl">Inset Media</h2>
       </CardHeader>
       <CardMedia variant="inset">
         <img
@@ -139,7 +139,7 @@ export const InsetMedia: Story = {
         />
       </CardMedia>
       <CardContent>
-        <p className="font-public-sans">
+        <p className="font-open-sans">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
           earum tenetur quo cupiditate, eaque qui officia recusandae.
         </p>
@@ -163,7 +163,7 @@ export const ExdentMedia: Story = {
   render: () => (
     <Card className="max-w-sm">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Exdent Media</h2>
+        <h2 className="font-semibold font-poppins text-xl">Exdent Media</h2>
       </CardHeader>
       <CardMedia variant="exdent">
         <img
@@ -173,7 +173,7 @@ export const ExdentMedia: Story = {
         />
       </CardMedia>
       <CardContent>
-        <p className="font-public-sans">
+        <p className="font-open-sans">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
           earum tenetur quo cupiditate, eaque qui officia recusandae.
         </p>
@@ -199,10 +199,10 @@ export const VerticalCardGroup: Story = {
     <CardGroup layout="vertical">
       <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
         <CardHeader>
-          <h2 className="font-bold font-merriweather text-lg">Card 1</h2>
+          <h2 className="font-semibold font-poppins text-xl">Card 1</h2>
         </CardHeader>
         <CardContent>
-          <p className="font-public-sans">
+          <p className="font-open-sans">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
             earum tenetur quo cupiditate, eaque qui officia recusandae.
           </p>
@@ -214,7 +214,7 @@ export const VerticalCardGroup: Story = {
 
       <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
         <CardHeader>
-          <h2 className="font-bold font-merriweather text-lg">Card 2</h2>
+          <h2 className="font-semibold font-poppins text-xl">Card 2</h2>
         </CardHeader>
         <CardMedia variant="default">
           <img
@@ -224,7 +224,7 @@ export const VerticalCardGroup: Story = {
           />
         </CardMedia>
         <CardContent>
-          <p className="font-public-sans">
+          <p className="font-open-sans">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
             earum tenetur quo cupiditate, eaque qui officia recusandae.
           </p>
@@ -236,7 +236,7 @@ export const VerticalCardGroup: Story = {
 
       <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
         <CardHeader>
-          <h2 className="font-bold font-merriweather text-lg">Card 3</h2>
+          <h2 className="font-semibold font-poppins text-xl">Card 3</h2>
         </CardHeader>
         <CardMedia variant="first">
           <img
@@ -246,7 +246,7 @@ export const VerticalCardGroup: Story = {
           />
         </CardMedia>
         <CardContent>
-          <p className="font-public-sans">
+          <p className="font-open-sans">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
             earum tenetur quo cupiditate, eaque qui officia recusandae.
           </p>
@@ -283,10 +283,10 @@ export const HorizontalCard: Story = {
       </CardMedia>
       <div className="flex flex-col grow">
         <CardHeader>
-          <h2 className="font-bold font-merriweather text-lg">Default flag</h2>
+          <h2 className="font-semibold font-poppins text-xl">Default flag</h2>
         </CardHeader>
         <CardContent>
-          <p className="font-public-sans">
+          <p className="font-open-sans">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
         </CardContent>
@@ -312,12 +312,12 @@ export const HorizontalCardMediaRight: Story = {
     <Card className="flex-row max-w-2xl">
       <div className="border-x-2 border-b-2 rounded-b tablet:border-x-0 tablet:rounded-b-none tablet:border-y-2 tablet:border-s-2 tablet:rounded-s border-gray-10 grow">
         <div className="px-6 pt-6 pb-2">
-          <h2 className="font-bold font-merriweather text-lg">
+          <h2 className="font-semibold font-poppins text-xl">
             Flag media right inset
           </h2>
         </div>
         <div className="px-6 py-2 grow">
-          <p className="font-public-sans">
+          <p className="font-open-sans">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
         </div>
@@ -351,10 +351,10 @@ export const AllVerticalVariants: Story = {
       {/* Default */}
       <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
         <CardHeader>
-          <h2 className="font-bold font-merriweather text-lg">Default</h2>
+          <h2 className="font-semibold font-poppins text-xl">Default</h2>
         </CardHeader>
         <CardContent>
-          <p className="font-public-sans">
+          <p className="font-open-sans">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
         </CardContent>
@@ -366,7 +366,7 @@ export const AllVerticalVariants: Story = {
       {/* Image First */}
       <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
         <CardHeader>
-          <h2 className="font-bold font-merriweather text-lg">Image First</h2>
+          <h2 className="font-semibold font-poppins text-xl">Image First</h2>
         </CardHeader>
         <CardMedia variant="default">
           <img
@@ -376,7 +376,7 @@ export const AllVerticalVariants: Story = {
           />
         </CardMedia>
         <CardContent>
-          <p className="font-public-sans">
+          <p className="font-open-sans">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
         </CardContent>
@@ -388,7 +388,7 @@ export const AllVerticalVariants: Story = {
       {/* Header First */}
       <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
         <CardHeader>
-          <h2 className="font-bold font-merriweather text-lg">Header First</h2>
+          <h2 className="font-semibold font-poppins text-xl">Header First</h2>
         </CardHeader>
         <CardMedia variant="first">
           <img
@@ -398,7 +398,7 @@ export const AllVerticalVariants: Story = {
           />
         </CardMedia>
         <CardContent>
-          <p className="font-public-sans">
+          <p className="font-open-sans">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
         </CardContent>
@@ -410,7 +410,7 @@ export const AllVerticalVariants: Story = {
       {/* Inset Media */}
       <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
         <CardHeader>
-          <h2 className="font-bold font-merriweather text-lg">Inset Media</h2>
+          <h2 className="font-semibold font-poppins text-xl">Inset Media</h2>
         </CardHeader>
         <CardMedia variant="inset">
           <img
@@ -420,7 +420,7 @@ export const AllVerticalVariants: Story = {
           />
         </CardMedia>
         <CardContent>
-          <p className="font-public-sans">
+          <p className="font-open-sans">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
         </CardContent>
@@ -432,7 +432,7 @@ export const AllVerticalVariants: Story = {
       {/* Exdent Media */}
       <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
         <CardHeader>
-          <h2 className="font-bold font-merriweather text-lg">Exdent Media</h2>
+          <h2 className="font-semibold font-poppins text-xl">Exdent Media</h2>
         </CardHeader>
         <CardMedia variant="exdent">
           <img
@@ -442,7 +442,7 @@ export const AllVerticalVariants: Story = {
           />
         </CardMedia>
         <CardContent>
-          <p className="font-public-sans">
+          <p className="font-open-sans">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
         </CardContent>
