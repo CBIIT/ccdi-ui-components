@@ -5,7 +5,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Icon, IconType } from "@/components/ui/icon"
 
-const accordionTriggerStyles = "group flex items-center w-full py-4 px-5 bg-gray-5 hover:bg-gray-10 font-bold focus:outline focus:outline-4 focus:outline-blue-40v cursor-pointer text-left gap-3"
+const accordionTriggerStyles = "group flex items-center w-full py-4 px-5 bg-gray-5 hover:bg-gray-10 font-open-sans font-semibold focus:outline focus:outline-4 focus:outline-blue-40v cursor-pointer text-left gap-3"
 
 const accordionContentVariants = cva("py-6 px-4 [&[hidden]]:p-0", {
   variants: {

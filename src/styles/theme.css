@@ -41,13 +41,13 @@
   --sidebar-ring: #a1a1a1;
 
   /* Primary Font Options */
-  --font-sans: Poppins, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-serif: Merriweather, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Poppins", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --font-mono: "Roboto Mono", "SF Mono", Monaco, "Cascadia Code", "Fira Code", Consolas, "Liberation Mono", "Courier New", monospace;
 
  /* Secondary/Alternative Font Options */
- --font-heading: Poppins, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
- --font-body: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+ --font-heading: "Poppins", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+ --font-body: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   --radius: 0.625rem;
 
@@ -110,13 +110,13 @@
   --sidebar-border: #282828;
   --sidebar-ring: #525252;
 
-  --font-sans: Poppins, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-serif: Merriweather, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Poppins", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --font-mono: "Roboto Mono", "SF Mono", Monaco, "Cascadia Code", "Fira Code", Consolas, "Liberation Mono", "Courier New", monospace;
 
  /* Secondary/Alternative Font Options */
- --font-heading: Poppins, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
- --font-body: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+ --font-heading: "Poppins", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+ --font-body: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   --radius: 0.625rem;
 
