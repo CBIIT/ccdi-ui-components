@@ -1,32 +1,32 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Label } from '@/components/ui/label'
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
 
 const meta = {
-  title: 'UI/RadioGroup',
+  title: "UI/RadioGroup",
   component: RadioGroup,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'A radio group component following USWDS design patterns with proper focus states and accessibility.',
+        component:
+          "A radio group component following USWDS design patterns with proper focus states and accessibility.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: { type: 'select' },
-      options: ['default', 'tiled'],
-      description: 'The visual variant of the radio group',
+      control: { type: "select" },
+      options: ["default", "tiled"],
+      description: "The visual variant of the radio group",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Whether the radio group is disabled',
+      control: "boolean",
+      description: "Whether the radio group is disabled",
     },
     onValueChange: {
-      description: 'Callback when the selected value changes',
+      description: "Callback when the selected value changes",
     },
   },
 } satisfies Meta<typeof RadioGroup>
@@ -37,11 +37,7 @@ type Story = StoryObj<typeof meta>
 // Default story
 export const Default: Story = {
   render: (args) => (
-    <RadioGroup
-      defaultValue="option1"
-      onValueChange={(value) => console.log(value)}
-      {...args}
-    >
+    <RadioGroup defaultValue="option1" onValueChange={(value) => console.log(value)} {...args}>
       <RadioGroupItem value="option1">Option 1</RadioGroupItem>
       <RadioGroupItem value="option2">Option 2</RadioGroupItem>
       <RadioGroupItem value="option3">Option 3</RadioGroupItem>
@@ -54,11 +50,7 @@ export const WithLabel: Story = {
   render: (args) => (
     <div className="space-y-3">
       <Label>Choose an option</Label>
-      <RadioGroup
-        defaultValue="option1"
-        onValueChange={(value) => console.log(value)}
-        {...args}
-      >
+      <RadioGroup defaultValue="option1" onValueChange={(value) => console.log(value)} {...args}>
         <RadioGroupItem value="option1">Option 1</RadioGroupItem>
         <RadioGroupItem value="option2">Option 2</RadioGroupItem>
         <RadioGroupItem value="option3">Option 3</RadioGroupItem>
@@ -68,7 +60,7 @@ export const WithLabel: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Radio group with a label for better context.',
+        story: "Radio group with a label for better context.",
       },
     },
   },
@@ -77,16 +69,12 @@ export const WithLabel: Story = {
 // Tiled variant
 export const Tiled: Story = {
   args: {
-    variant: 'tiled',
+    variant: "tiled",
   },
   render: (args) => (
     <div className="space-y-3">
       <Label>Choose your preference</Label>
-      <RadioGroup
-        defaultValue="option1"
-        onValueChange={(value) => console.log(value)}
-        {...args}
-      >
+      <RadioGroup defaultValue="option1" onValueChange={(value) => console.log(value)} {...args}>
         <RadioGroupItem value="option1">Email notifications</RadioGroupItem>
         <RadioGroupItem value="option2">SMS notifications</RadioGroupItem>
         <RadioGroupItem value="option3">No notifications</RadioGroupItem>
@@ -96,7 +84,7 @@ export const Tiled: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tiled variant with background highlighting for better visual separation.',
+        story: "Tiled variant with background highlighting for better visual separation.",
       },
     },
   },
@@ -108,11 +96,7 @@ export const Disabled: Story = {
     disabled: true,
   },
   render: (args) => (
-    <RadioGroup
-      defaultValue="option1"
-      onValueChange={(value) => console.log(value)}
-      {...args}
-    >
+    <RadioGroup defaultValue="option1" onValueChange={(value) => console.log(value)} {...args}>
       <RadioGroupItem value="option1">Option 1 (Disabled)</RadioGroupItem>
       <RadioGroupItem value="option2">Option 2 (Disabled)</RadioGroupItem>
       <RadioGroupItem value="option3">Option 3 (Disabled)</RadioGroupItem>
@@ -121,7 +105,7 @@ export const Disabled: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Radio group in disabled state.',
+        story: "Radio group in disabled state.",
       },
     },
   },
@@ -132,11 +116,7 @@ export const IndividualItemDisabled: Story = {
   render: (args) => (
     <div className="space-y-3">
       <Label>Choose an option</Label>
-      <RadioGroup
-        defaultValue="option1"
-        onValueChange={(value) => console.log(value)}
-        {...args}
-      >
+      <RadioGroup defaultValue="option1" onValueChange={(value) => console.log(value)} {...args}>
         <RadioGroupItem value="option1">Option 1</RadioGroupItem>
         <RadioGroupItem value="option2" disabled>
           Option 2 (Disabled)
@@ -148,7 +128,7 @@ export const IndividualItemDisabled: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Radio group with individual items disabled.',
+        story: "Radio group with individual items disabled.",
       },
     },
   },
@@ -163,7 +143,7 @@ export const FormExample: Story = {
         <RadioGroup
           name="delivery"
           defaultValue="standard"
-          onValueChange={(value) => console.log('Delivery:', value)}
+          onValueChange={(value) => console.log("Delivery:", value)}
         >
           <RadioGroupItem value="standard">Standard (5-7 days)</RadioGroupItem>
           <RadioGroupItem value="express">Express (2-3 days)</RadioGroupItem>
@@ -177,7 +157,7 @@ export const FormExample: Story = {
           name="payment"
           defaultValue="credit"
           variant="tiled"
-          onValueChange={(value) => console.log('Payment:', value)}
+          onValueChange={(value) => console.log("Payment:", value)}
         >
           <RadioGroupItem value="credit">Credit Card</RadioGroupItem>
           <RadioGroupItem value="debit">Debit Card</RadioGroupItem>
@@ -189,9 +169,8 @@ export const FormExample: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Multiple radio groups used in a form context.',
+        story: "Multiple radio groups used in a form context.",
       },
     },
   },
 }
-

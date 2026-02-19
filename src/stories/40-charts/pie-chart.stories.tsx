@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Pie, PieChart, Cell, Legend, LabelList, Sector, Label } from "recharts";
 import type { PieSectorDataItem } from "recharts/types/polar/Pie";
 import {

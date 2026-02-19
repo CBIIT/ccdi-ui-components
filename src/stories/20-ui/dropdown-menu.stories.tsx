@@ -1,6 +1,5 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { useState } from 'react'
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { useState } from "react"
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -16,23 +15,23 @@ import {
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
-} from '@/components/ui/dropdown-menu'
-import { Button } from '@/components/ui/button'
-import { Icon } from '@/components/ui/icon'
+} from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button"
+import { Icon } from "@/components/ui/icon"
 
 const meta: Meta<typeof DropdownMenu> = {
-  title: 'UI/DropdownMenu',
+  title: "UI/DropdownMenu",
   component: DropdownMenu,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
         component:
-          'A dropdown menu component that displays a list of actions or options when triggered. Built with native HTML/CSS following USWDS design guidelines.',
+          "A dropdown menu component that displays a list of actions or options when triggered. Built with native HTML/CSS following USWDS design guidelines.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 }
 
 export default meta
@@ -91,7 +90,7 @@ export const WithShortcuts: Story = {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <Icon icon="delete" size='xs' />
+          <Icon icon="delete" size="xs" />
           Delete
           <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
         </DropdownMenuItem>
@@ -115,10 +114,7 @@ export const WithCheckboxes: Story = {
           <DropdownMenuContent className="w-56">
             <DropdownMenuLabel>Appearance</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuCheckboxItem
-              checked={showStatusBar}
-              onCheckedChange={setShowStatusBar}
-            >
+            <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
               Status Bar
             </DropdownMenuCheckboxItem>
             <DropdownMenuCheckboxItem
@@ -127,10 +123,7 @@ export const WithCheckboxes: Story = {
             >
               Activity Bar
             </DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem
-              checked={showPanel}
-              onCheckedChange={setShowPanel}
-            >
+            <DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
               Panel
             </DropdownMenuCheckboxItem>
           </DropdownMenuContent>
@@ -145,7 +138,7 @@ export const WithCheckboxes: Story = {
 export const WithRadioGroup: Story = {
   render: () => {
     const RadioExample = () => {
-      const [position, setPosition] = useState('bottom')
+      const [position, setPosition] = useState("bottom")
 
       return (
         <DropdownMenu>
@@ -286,7 +279,7 @@ export const ComplexExample: Story = {
     const ComplexDropdown = () => {
       const [showBookmarks, setShowBookmarks] = useState(false)
       const [showFullUrls, setShowFullUrls] = useState(true)
-      const [view, setView] = useState('grid')
+      const [view, setView] = useState("grid")
 
       return (
         <DropdownMenu>
@@ -314,16 +307,10 @@ export const ComplexExample: Story = {
             <DropdownMenuSeparator />
             <DropdownMenuLabel>View Options</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuCheckboxItem
-              checked={showBookmarks}
-              onCheckedChange={setShowBookmarks}
-            >
+            <DropdownMenuCheckboxItem checked={showBookmarks} onCheckedChange={setShowBookmarks}>
               Show Bookmarks Bar
             </DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem
-              checked={showFullUrls}
-              onCheckedChange={setShowFullUrls}
-            >
+            <DropdownMenuCheckboxItem checked={showFullUrls} onCheckedChange={setShowFullUrls}>
               Show Full URLs
             </DropdownMenuCheckboxItem>
             <DropdownMenuSeparator />
@@ -408,18 +395,18 @@ export const ControlledDropdown: Story = {
       return (
         <div className="space-y-4">
           <div className="text-sm text-gray-70">
-            Menu is: <strong>{open ? 'Open' : 'Closed'}</strong>
+            Menu is: <strong>{open ? "Open" : "Closed"}</strong>
           </div>
           <DropdownMenu open={open} onOpenChange={setOpen}>
             <DropdownMenuTrigger asChild>
               <Button variant="outline">Controlled Menu</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
-              <DropdownMenuItem onClick={() => alert('Profile clicked')}>
+              <DropdownMenuItem onClick={() => alert("Profile clicked")}>
                 <Icon icon="account_circle" size="xs" />
                 Profile
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => alert('Settings clicked')}>
+              <DropdownMenuItem onClick={() => alert("Settings clicked")}>
                 <Icon icon="settings" size="xs" />
                 Settings
               </DropdownMenuItem>

@@ -15,15 +15,18 @@ type DropdownMenuProps = {
 
 const DropdownMenu = ({ children, open: controlledOpen, onOpenChange }: DropdownMenuProps) => {
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState(false)
-  
+
   const isOpen = controlledOpen !== undefined ? controlledOpen : uncontrolledOpen
-  const setIsOpen = React.useCallback((value: boolean) => {
-    if (onOpenChange) {
-      onOpenChange(value)
-    } else {
-      setUncontrolledOpen(value)
-    }
-  }, [onOpenChange])
+  const setIsOpen = React.useCallback(
+    (value: boolean) => {
+      if (onOpenChange) {
+        onOpenChange(value)
+      } else {
+        setUncontrolledOpen(value)
+      }
+    },
+    [onOpenChange],
+  )
 
   return (
     <DropdownMenuContext.Provider value={{ isOpen, setIsOpen }}>
@@ -45,7 +48,7 @@ const DropdownMenuContext = React.createContext<DropdownMenuContextType | undefi
 const useDropdownMenu = () => {
   const context = React.useContext(DropdownMenuContext)
   if (!context) {
-    throw new Error('DropdownMenu components must be used within DropdownMenu')
+    throw new Error("DropdownMenu components must be used within DropdownMenu")
   }
   return context
 }
@@ -57,6 +60,8 @@ type DropdownMenuTriggerProps = React.ButtonHTMLAttributes<HTMLButtonElement> & 
   asChild?: boolean
 }
 
+type DropdownMenuTriggerChildProps = React.HTMLAttributes<HTMLElement>
+
 const DropdownMenuTrigger = React.forwardRef<HTMLButtonElement, DropdownMenuTriggerProps>(
   ({ children, asChild, className, ...props }, ref) => {
     const { isOpen, setIsOpen } = useDropdownMenu()
@@ -67,11 +72,11 @@ const DropdownMenuTrigger = React.forwardRef<HTMLButtonElement, DropdownMenuTrig
       props.onClick?.(e)
     }
 
-    if (asChild && React.isValidElement(children)) {
-      return React.cloneElement(children as React.ReactElement<any>, {
+    if (asChild && React.isValidElement<DropdownMenuTriggerChildProps>(children)) {
+      return React.cloneElement(children, {
         onClick: handleClick,
-        'aria-expanded': isOpen,
-        'aria-haspopup': 'true',
+        "aria-expanded": isOpen,
+        "aria-haspopup": "true",
       })
     }
 
@@ -88,7 +93,7 @@ const DropdownMenuTrigger = React.forwardRef<HTMLButtonElement, DropdownMenuTrig
         {children}
       </button>
     )
-  }
+  },
 )
 DropdownMenuTrigger.displayName = "DropdownMenuTrigger"
 
@@ -105,6 +110,18 @@ const DropdownMenuContent = React.forwardRef<HTMLDivElement, DropdownMenuContent
   ({ children, className, sideOffset = 4, align = "start", side = "bottom", ...props }, ref) => {
     const { isOpen, setIsOpen } = useDropdownMenu()
     const contentRef = React.useRef<HTMLDivElement>(null)
+    const setRefs = React.useCallback(
+      (node: HTMLDivElement | null) => {
+        contentRef.current = node
+
+        if (typeof ref === "function") {
+          ref(node)
+        } else if (ref) {
+          ref.current = node
+        }
+      },
+      [ref],
+    )
 
     React.useEffect(() => {
       if (isOpen) {
@@ -115,17 +132,17 @@ const DropdownMenuContent = React.forwardRef<HTMLDivElement, DropdownMenuContent
         }
 
         const handleEscape = (event: KeyboardEvent) => {
-          if (event.key === 'Escape') {
+          if (event.key === "Escape") {
             setIsOpen(false)
           }
         }
 
-        document.addEventListener('mousedown', handleClickOutside)
-        document.addEventListener('keydown', handleEscape)
+        document.addEventListener("mousedown", handleClickOutside)
+        document.addEventListener("keydown", handleEscape)
 
         return () => {
-          document.removeEventListener('mousedown', handleClickOutside)
-          document.removeEventListener('keydown', handleEscape)
+          document.removeEventListener("mousedown", handleClickOutside)
+          document.removeEventListener("keydown", handleEscape)
         }
       }
     }, [isOpen, setIsOpen])
@@ -134,18 +151,21 @@ const DropdownMenuContent = React.forwardRef<HTMLDivElement, DropdownMenuContent
 
     return (
       <div
-        ref={contentRef}
+        ref={setRefs}
         role="menu"
         className={cn(
           "absolute z-50 min-w-[8rem] overflow-hidden rounded border border-gray-30",
           "bg-white shadow-lg",
           "p-1",
           "animate-in fade-in-0 zoom-in-95",
+          align === "start" && "left-0",
+          align === "center" && "left-1/2 -translate-x-1/2",
+          align === "end" && "right-0",
           side === "bottom" && "slide-in-from-top-2",
           side === "top" && "slide-in-from-bottom-2",
           side === "left" && "slide-in-from-right-2",
           side === "right" && "slide-in-from-left-2",
-          className
+          className,
         )}
         style={{
           marginTop: side === "bottom" ? `${sideOffset}px` : undefined,
@@ -156,7 +176,7 @@ const DropdownMenuContent = React.forwardRef<HTMLDivElement, DropdownMenuContent
         {children}
       </div>
     )
-  }
+  },
 )
 DropdownMenuContent.displayName = "DropdownMenuContent"
 
@@ -175,7 +195,7 @@ type DropdownMenuGroupProps = React.HTMLAttributes<HTMLDivElement>
 const DropdownMenuGroup = React.forwardRef<HTMLDivElement, DropdownMenuGroupProps>(
   ({ className, ...props }, ref) => {
     return <div ref={ref} role="group" className={className} {...props} />
-  }
+  },
 )
 DropdownMenuGroup.displayName = "DropdownMenuGroup"
 
@@ -211,10 +231,10 @@ const DropdownMenuItem = React.forwardRef<HTMLButtonElement, DropdownMenuItemPro
           variant === "destructive" && [
             "text-red-60v",
             "focus:bg-red-10 focus:text-red-70v",
-            "hover:bg-red-10 hover:text-red-70v"
+            "hover:bg-red-10 hover:text-red-70v",
           ],
           inset && "pl-8",
-          className
+          className,
         )}
         onClick={handleClick}
         {...props}
@@ -222,7 +242,7 @@ const DropdownMenuItem = React.forwardRef<HTMLButtonElement, DropdownMenuItemPro
         {children}
       </button>
     )
-  }
+  },
 )
 DropdownMenuItem.displayName = "DropdownMenuItem"
 
@@ -247,7 +267,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<HTMLButtonElement, DropdownMen
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
           "disabled:pointer-events-none disabled:opacity-50",
-          className
+          className,
         )}
         onClick={(e) => {
           onCheckedChange?.(!checked)
@@ -261,7 +281,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<HTMLButtonElement, DropdownMen
         {children}
       </button>
     )
-  }
+  },
 )
 DropdownMenuCheckboxItem.displayName = "DropdownMenuCheckboxItem"
 
@@ -274,7 +294,11 @@ type DropdownMenuRadioGroupProps = {
   children: React.ReactNode
 }
 
-const DropdownMenuRadioGroup = ({ value, onValueChange, children }: DropdownMenuRadioGroupProps) => {
+const DropdownMenuRadioGroup = ({
+  value,
+  onValueChange,
+  children,
+}: DropdownMenuRadioGroupProps) => {
   return (
     <RadioGroupContext.Provider value={{ value, onValueChange }}>
       <div role="group">{children}</div>
@@ -292,7 +316,7 @@ const RadioGroupContext = React.createContext<RadioGroupContextType | undefined>
 const useRadioGroup = () => {
   const context = React.useContext(RadioGroupContext)
   if (!context) {
-    throw new Error('DropdownMenuRadioItem must be used within DropdownMenuRadioGroup')
+    throw new Error("DropdownMenuRadioItem must be used within DropdownMenuRadioGroup")
   }
   return context
 }
@@ -320,7 +344,7 @@ const DropdownMenuRadioItem = React.forwardRef<HTMLButtonElement, DropdownMenuRa
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
           "disabled:pointer-events-none disabled:opacity-50",
-          className
+          className,
         )}
         onClick={(e) => {
           onValueChange?.(value)
@@ -329,14 +353,12 @@ const DropdownMenuRadioItem = React.forwardRef<HTMLButtonElement, DropdownMenuRa
         {...props}
       >
         <span className="absolute left-2 flex size-3.5 items-center justify-center">
-          {isChecked && (
-            <div className="size-2 rounded-full bg-blue-60v" />
-          )}
+          {isChecked && <div className="size-2 rounded-full bg-blue-60v" />}
         </span>
         {children}
       </button>
     )
-  }
+  },
 )
 DropdownMenuRadioItem.displayName = "DropdownMenuRadioItem"
 
@@ -355,12 +377,12 @@ const DropdownMenuLabel = React.forwardRef<HTMLDivElement, DropdownMenuLabelProp
         className={cn(
           "px-2 py-1.5 text-sm font-bold font-source-sans text-gray-90",
           inset && "pl-8",
-          className
+          className,
         )}
         {...props}
       />
     )
-  }
+  },
 )
 DropdownMenuLabel.displayName = "DropdownMenuLabel"
 
@@ -371,14 +393,8 @@ type DropdownMenuSeparatorProps = React.HTMLAttributes<HTMLDivElement>
 
 const DropdownMenuSeparator = React.forwardRef<HTMLDivElement, DropdownMenuSeparatorProps>(
   ({ className, ...props }, ref) => {
-    return (
-      <div
-        ref={ref}
-        className={cn("-mx-1 my-1 h-px bg-gray-20", className)}
-        {...props}
-      />
-    )
-  }
+    return <div ref={ref} className={cn("-mx-1 my-1 h-px bg-gray-20", className)} {...props} />
+  },
 )
 DropdownMenuSeparator.displayName = "DropdownMenuSeparator"
 
@@ -392,14 +408,11 @@ const DropdownMenuShortcut = React.forwardRef<HTMLSpanElement, DropdownMenuShort
     return (
       <span
         ref={ref}
-        className={cn(
-          "ml-auto text-sm tracking-widest text-gray-50 font-source-sans",
-          className
-        )}
+        className={cn("ml-auto text-sm tracking-widest text-gray-50 font-source-sans", className)}
         {...props}
       />
     )
-  }
+  },
 )
 DropdownMenuShortcut.displayName = "DropdownMenuShortcut"
 
@@ -413,11 +426,7 @@ type DropdownMenuSubProps = {
 const DropdownMenuSub = ({ children }: DropdownMenuSubProps) => {
   const [isOpen, setIsOpen] = React.useState(false)
 
-  return (
-    <SubMenuContext.Provider value={{ isOpen, setIsOpen }}>
-      {children}
-    </SubMenuContext.Provider>
-  )
+  return <SubMenuContext.Provider value={{ isOpen, setIsOpen }}>{children}</SubMenuContext.Provider>
 }
 
 type SubMenuContextType = {
@@ -430,7 +439,7 @@ const SubMenuContext = React.createContext<SubMenuContextType | undefined>(undef
 const useSubMenu = () => {
   const context = React.useContext(SubMenuContext)
   if (!context) {
-    throw new Error('SubMenu components must be used within DropdownMenuSub')
+    throw new Error("SubMenu components must be used within DropdownMenuSub")
   }
   return context
 }
@@ -456,7 +465,7 @@ const DropdownMenuSubTrigger = React.forwardRef<HTMLButtonElement, DropdownMenuS
           "hover:bg-blue-5 hover:text-blue-70v",
           "data-[state=open]:bg-blue-5 data-[state=open]:text-blue-70v",
           inset && "pl-8",
-          className
+          className,
         )}
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
@@ -466,7 +475,7 @@ const DropdownMenuSubTrigger = React.forwardRef<HTMLButtonElement, DropdownMenuS
         <Icon icon="navigate_next" className="ml-auto size-4" />
       </button>
     )
-  }
+  },
 )
 DropdownMenuSubTrigger.displayName = "DropdownMenuSubTrigger"
 
@@ -489,14 +498,14 @@ const DropdownMenuSubContent = React.forwardRef<HTMLDivElement, DropdownMenuSubC
           "bg-white shadow-lg",
           "p-1",
           "animate-in fade-in-0 zoom-in-95 slide-in-from-left-2",
-          className
+          className,
         )}
         {...props}
       >
         {children}
       </div>
     )
-  }
+  },
 )
 DropdownMenuSubContent.displayName = "DropdownMenuSubContent"
 

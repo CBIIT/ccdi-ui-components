@@ -1,39 +1,38 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { useState, useEffect } from 'react'
-import { Progress } from '@/components/ui/progress'
-import { Button } from '@/components/ui/button'
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { useState, useEffect } from "react"
+import { Progress } from "@/components/ui/progress"
+import { Button } from "@/components/ui/button"
 
 const meta: Meta<typeof Progress> = {
-  title: 'UI/Progress',
+  title: "UI/Progress",
   component: Progress,
   parameters: {
-    layout: 'padded',
+    layout: "padded",
     docs: {
       description: {
         component:
-          'A progress bar component that visually indicates the completion status of a task. Built with native HTML/CSS following USWDS design guidelines.',
+          "A progress bar component that visually indicates the completion status of a task. Built with native HTML/CSS following USWDS design guidelines.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     value: {
-      control: { type: 'range', min: 0, max: 100, step: 1 },
-      description: 'Current progress value',
+      control: { type: "range", min: 0, max: 100, step: 1 },
+      description: "Current progress value",
     },
     max: {
-      control: { type: 'number' },
-      description: 'Maximum value',
+      control: { type: "number" },
+      description: "Maximum value",
     },
     variant: {
-      control: { type: 'select' },
-      options: ['default', 'success', 'warning', 'error'],
-      description: 'Visual style variant',
+      control: { type: "select" },
+      options: ["default", "success", "warning", "error"],
+      description: "Visual style variant",
     },
     label: {
-      control: { type: 'text' },
-      description: 'Custom label text',
+      control: { type: "text" },
+      description: "Custom label text",
     },
   },
 }
@@ -44,7 +43,7 @@ type Story = StoryObj<typeof Progress>
 export const Default: Story = {
   args: {
     value: 60,
-    variant: 'default',
+    variant: "default",
   },
 }
 
@@ -57,25 +56,24 @@ export const WithLabel: Story = {
 export const WithCustomLabel: Story = {
   args: {
     value: 60,
-    label: 'Loading files...',
+    label: "Loading files...",
   },
 }
-
 
 export const Variants: Story = {
   render: () => (
     <div className="w-96 space-y-6">
       <div>
-        <Progress value={60} variant="default" label='Default (Blue)' />
+        <Progress value={60} variant="default" label="Default (Blue)" />
       </div>
       <div>
-        <Progress value={85} variant="success" label='Success (Green)' />
+        <Progress value={85} variant="success" label="Success (Green)" />
       </div>
       <div>
-        <Progress value={45} variant="warning" label='Warning (Orange)' />
+        <Progress value={45} variant="warning" label="Warning (Orange)" />
       </div>
       <div>
-        <Progress value={25} variant="error" label='Error (Red)' />
+        <Progress value={25} variant="error" label="Error (Red)" />
       </div>
     </div>
   ),
@@ -130,4 +128,4 @@ export const Animated: Story = {
 
     return <AnimatedProgress />
   },
-} 
+}

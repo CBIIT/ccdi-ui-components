@@ -1,5 +1,4 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import {
   ContextMenu,
   ContextMenuTrigger,
@@ -15,20 +14,21 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuGroup,
-} from '@/components/ui/context-menu'
+} from "@/components/ui/context-menu"
 
 const meta: Meta<typeof ContextMenu> = {
-  title: 'UI/Context Menu',
+  title: "UI/Context Menu",
   component: ContextMenu,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'A context menu displays a list of actions when a user right-clicks on an element. Built with native HTML/CSS following USWDS design principles.',
+        component:
+          "A context menu displays a list of actions when a user right-clicks on an element. Built with native HTML/CSS following USWDS design principles.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 }
 
 export default meta

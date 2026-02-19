@@ -5,7 +5,8 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Icon, IconType } from "@/components/ui/icon"
 
-const accordionTriggerStyles = "group flex items-center w-full py-4 px-5 bg-gray-5 hover:bg-gray-10 font-open-sans font-semibold focus:outline focus:outline-4 focus:outline-blue-40v cursor-pointer text-left gap-3"
+const accordionTriggerStyles =
+  "group flex items-center w-full py-4 px-5 bg-gray-5 hover:bg-gray-10 font-open-sans font-semibold focus:outline focus:outline-4 focus:outline-blue-40v cursor-pointer text-left gap-3"
 
 const accordionContentVariants = cva("py-6 px-4 [&[hidden]]:p-0", {
   variants: {
@@ -59,9 +60,12 @@ type AccordionProps = React.HTMLAttributes<HTMLDivElement> & {
 }
 
 const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
-  ({ variant = "borderless", className, children, type = "single", defaultValue, ...props }, ref) => {
+  (
+    { variant = "borderless", className, children, type = "single", defaultValue, ...props },
+    ref,
+  ) => {
     const multiselectable = type === "multiple"
-    
+
     const [openItems, setOpenItems] = React.useState<string[]>(() => {
       if (defaultValue) {
         return Array.isArray(defaultValue) ? defaultValue : [defaultValue]
@@ -69,30 +73,27 @@ const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
       return []
     })
 
-    const toggleItem = React.useCallback((id: string) => {
-      setOpenItems((prev) => {
-        if (multiselectable) {
-          return prev.includes(id) 
-            ? prev.filter((item) => item !== id)
-            : [...prev, id]
-        }
+    const toggleItem = React.useCallback(
+      (id: string) => {
+        setOpenItems((prev) => {
+          if (multiselectable) {
+            return prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+          }
 
-        return prev.includes(id) ? [] : [id]
-      })
-    }, [multiselectable])
+          return prev.includes(id) ? [] : [id]
+        })
+      },
+      [multiselectable],
+    )
 
     return (
       <AccordionContext.Provider value={{ variant, openItems, toggleItem, multiselectable }}>
-        <div
-          ref={ref}
-          className={cn("space-y-2", className)}
-          {...props}
-        >
+        <div ref={ref} className={cn("space-y-2", className)} {...props}>
           {children}
         </div>
       </AccordionContext.Provider>
     )
-  }
+  },
 )
 Accordion.displayName = "Accordion"
 
@@ -104,25 +105,19 @@ const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
   ({ className, value, children, ...props }, ref) => {
     return (
       <AccordionItemContext.Provider value={{ value }}>
-        <div
-          ref={ref}
-          className={className}
-          data-value={value}
-          {...props}
-        >
+        <div ref={ref} className={className} data-value={value} {...props}>
           {children}
         </div>
       </AccordionItemContext.Provider>
     )
-  }
+  },
 )
 AccordionItem.displayName = "AccordionItem"
 
-type AccordionTriggerProps = (React.ButtonHTMLAttributes<HTMLButtonElement>
-  & {
-    openIcon?: IconType
-    closedIcon?: IconType
-  })
+type AccordionTriggerProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  openIcon?: IconType
+  closedIcon?: IconType
+}
 
 const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerProps>(
   ({ className, children, openIcon = "remove", closedIcon = "add", ...props }, ref) => {
@@ -153,7 +148,7 @@ const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerPro
         </button>
       </h4>
     )
-  }
+  },
 )
 AccordionTrigger.displayName = "AccordionTrigger"
 
@@ -177,7 +172,7 @@ const AccordionContent = React.forwardRef<HTMLDivElement, AccordionContentProps>
         {children}
       </div>
     )
-  }
+  },
 )
 AccordionContent.displayName = "AccordionContent"
 

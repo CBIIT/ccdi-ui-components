@@ -1,28 +1,28 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Badge } from '@/components/ui/badge'
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Badge } from "@/components/ui/badge"
 
 const meta = {
-  title: 'UI/Badge',
+  title: "UI/Badge",
   component: Badge,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'A small badge component for labels, statuses, and tags following USWDS design guidelines.',
+        component:
+          "A small badge component for labels, statuses, and tags following USWDS design guidelines.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: { type: 'select' },
-      options: ['default', 'secondary', 'success', 'warning', 'danger', 'outline'],
-      description: 'The visual style variant of the badge',
+      control: { type: "select" },
+      options: ["default", "secondary", "success", "warning", "danger", "outline"],
+      description: "The visual style variant of the badge",
     },
     children: {
-      control: 'text',
-      description: 'The content of the badge',
+      control: "text",
+      description: "The content of the badge",
     },
   },
 } satisfies Meta<typeof Badge>
@@ -33,43 +33,43 @@ type Story = StoryObj<typeof meta>
 // Default story
 export const Default: Story = {
   args: {
-    children: 'Badge',
+    children: "Badge",
   },
 }
 
 // Variant stories
 export const Secondary: Story = {
   args: {
-    variant: 'secondary',
-    children: 'Secondary',
+    variant: "secondary",
+    children: "Secondary",
   },
 }
 
 export const Success: Story = {
   args: {
-    variant: 'success',
-    children: 'Success',
+    variant: "success",
+    children: "Success",
   },
 }
 
 export const Warning: Story = {
   args: {
-    variant: 'warning',
-    children: 'Warning',
+    variant: "warning",
+    children: "Warning",
   },
 }
 
 export const Danger: Story = {
   args: {
-    variant: 'danger',
-    children: 'Danger',
+    variant: "danger",
+    children: "Danger",
   },
 }
 
 export const Outline: Story = {
   args: {
-    variant: 'outline',
-    children: 'Outline',
+    variant: "outline",
+    children: "Outline",
   },
 }
 
@@ -88,7 +88,7 @@ export const AllVariants: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'All available badge variants displayed together.',
+        story: "All available badge variants displayed together.",
       },
     },
   },

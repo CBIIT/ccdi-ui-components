@@ -1,5 +1,4 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import {
   Pagination,
   PaginationContent,
@@ -8,20 +7,21 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from '@/components/ui/pagination'
+} from "@/components/ui/pagination"
 
 const meta = {
-  title: 'UI/Pagination',
+  title: "UI/Pagination",
   component: Pagination,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'A pagination component following USWDS design patterns for navigating through multiple pages of content.',
+        component:
+          "A pagination component following USWDS design patterns for navigating through multiple pages of content.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Pagination>
 
 export default meta
@@ -80,7 +80,7 @@ export const WithManyPages: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Pagination with multiple pages visible.',
+        story: "Pagination with multiple pages visible.",
       },
     },
   },
@@ -119,7 +119,7 @@ export const WithEllipsis: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Pagination with ellipsis to indicate skipped pages.',
+        story: "Pagination with ellipsis to indicate skipped pages.",
       },
     },
   },
@@ -157,7 +157,7 @@ export const FirstPage: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Pagination on the first page (no previous button).',
+        story: "Pagination on the first page (no previous button).",
       },
     },
   },
@@ -193,7 +193,7 @@ export const LastPage: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Pagination on the last page (no next button).',
+        story: "Pagination on the last page (no next button).",
       },
     },
   },
@@ -233,7 +233,7 @@ export const MiddlePage: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Pagination in the middle with ellipsis on both sides.',
+        story: "Pagination in the middle with ellipsis on both sides.",
       },
     },
   },
@@ -257,10 +257,16 @@ export const Interactive: Story = {
       if (showEllipsisStart) {
         pages.push(
           <PaginationItem key={1}>
-            <PaginationLink href="#" onClick={(e) => { e.preventDefault(); handlePageChange(1) }}>
+            <PaginationLink
+              href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                handlePageChange(1)
+              }}
+            >
               1
             </PaginationLink>
-          </PaginationItem>
+          </PaginationItem>,
         )
         pages.push(<PaginationEllipsis key="ellipsis-start" />)
       }
@@ -274,11 +280,14 @@ export const Interactive: Story = {
             <PaginationLink
               href="#"
               isActive={i === currentPage}
-              onClick={(e) => { e.preventDefault(); handlePageChange(i) }}
+              onClick={(e) => {
+                e.preventDefault()
+                handlePageChange(i)
+              }}
             >
               {i}
             </PaginationLink>
-          </PaginationItem>
+          </PaginationItem>,
         )
       }
 
@@ -289,11 +298,14 @@ export const Interactive: Story = {
             <PaginationLink
               href="#"
               isLast
-              onClick={(e) => { e.preventDefault(); handlePageChange(totalPages) }}
+              onClick={(e) => {
+                e.preventDefault()
+                handlePageChange(totalPages)
+              }}
             >
               {totalPages}
             </PaginationLink>
-          </PaginationItem>
+          </PaginationItem>,
         )
       }
 
@@ -308,14 +320,20 @@ export const Interactive: Story = {
             {currentPage > 1 && (
               <PaginationPrevious
                 href="#"
-                onClick={(e) => { e.preventDefault(); handlePageChange(currentPage - 1) }}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handlePageChange(currentPage - 1)
+                }}
               />
             )}
             {renderPageNumbers()}
             {currentPage < totalPages && (
               <PaginationNext
                 href="#"
-                onClick={(e) => { e.preventDefault(); handlePageChange(currentPage + 1) }}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handlePageChange(currentPage + 1)
+                }}
               />
             )}
           </PaginationContent>
@@ -326,9 +344,8 @@ export const Interactive: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Interactive pagination example with state management.',
+        story: "Interactive pagination example with state management.",
       },
     },
   },
 }
-

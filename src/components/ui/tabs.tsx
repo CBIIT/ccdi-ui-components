@@ -27,9 +27,9 @@ type TabsProps = React.HTMLAttributes<HTMLDivElement> & {
 const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
   ({ className, defaultValue, value, onValueChange, children, ...props }, ref) => {
     const [internalValue, setInternalValue] = React.useState(defaultValue || "")
-    
+
     const currentValue = value !== undefined ? value : internalValue
-    
+
     const handleValueChange = React.useCallback(
       (newValue: string) => {
         if (value === undefined) {
@@ -37,22 +37,17 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
         }
         onValueChange?.(newValue)
       },
-      [value, onValueChange]
+      [value, onValueChange],
     )
 
     return (
       <TabsContext.Provider value={{ value: currentValue, onValueChange: handleValueChange }}>
-        <div
-          ref={ref}
-          data-slot="tabs"
-          className={cn("flex flex-col", className)}
-          {...props}
-        >
+        <div ref={ref} data-slot="tabs" className={cn("flex flex-col", className)} {...props}>
           {children}
         </div>
       </TabsContext.Provider>
     )
-  }
+  },
 )
 Tabs.displayName = "Tabs"
 
@@ -67,14 +62,14 @@ const TabsList = React.forwardRef<HTMLDivElement, TabsListProps>(
         role="tablist"
         className={cn(
           "inline-flex w-full items-center justify-start gap-0.5 bg-white border-b-4 border-gray-30",
-          className
+          className,
         )}
         {...props}
       >
         {children}
       </div>
     )
-  }
+  },
 )
 TabsList.displayName = "TabsList"
 
@@ -107,7 +102,7 @@ const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>(
             ? "border-blue-60v text-blue-60v bg-gray-5"
             : "text-gray-70 hover:border-gray-30",
           "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-          className
+          className,
         )}
         onClick={() => onValueChange(value)}
         {...props}
@@ -115,7 +110,7 @@ const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>(
         {children}
       </button>
     )
-  }
+  },
 )
 TabsTrigger.displayName = "TabsTrigger"
 
@@ -147,7 +142,7 @@ const TabsContent = React.forwardRef<HTMLDivElement, TabsContentProps>(
         {children}
       </div>
     )
-  }
+  },
 )
 TabsContent.displayName = "TabsContent"
 

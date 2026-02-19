@@ -1,5 +1,4 @@
-import * as React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import {
   Icon,
   IconType,
@@ -15,7 +14,7 @@ import {
   PublicIcon,
   LocationOnIcon,
   SettingsIcon,
-} from "@/components/ui/icon";
+} from "@/components/ui/icon"
 
 const meta: Meta<typeof Icon> = {
   title: "UI/Icon",
@@ -294,24 +293,24 @@ const meta: Meta<typeof Icon> = {
       description: "Additional CSS classes",
     },
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 // Basic Examples
 export const Default: Story = {
   args: {
     icon: "home",
   },
-};
+}
 
 export const WithCustomSize: Story = {
   args: {
     icon: "search",
     size: "xl",
   },
-};
+}
 
 export const WithCustomStyles: Story = {
   args: {
@@ -319,7 +318,7 @@ export const WithCustomStyles: Story = {
     size: "lg",
     className: "text-blue-60 hover:text-blue-800",
   },
-};
+}
 
 // Size Variations
 export const AllSizes: Story = {
@@ -358,12 +357,11 @@ export const AllSizes: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Icon sizes from 2XS (16px) to 2XL (64px), optimized for government interfaces.",
+        story: "Icon sizes from 2XS (16px) to 2XL (64px), optimized for government interfaces.",
       },
     },
   },
-};
+}
 
 // Spinning Icons (Loading States)
 export const SpinningIcons: Story = {
@@ -395,7 +393,7 @@ export const SpinningIcons: Story = {
       },
     },
   },
-};
+}
 
 // Government Contact Card Example
 export const GovernmentContactCard: Story = {
@@ -420,9 +418,7 @@ export const GovernmentContactCard: Story = {
         </div>
         <div className="flex items-center gap-3">
           <LocationOnIcon size="sm" className="text-gray-700" />
-          <span className="text-sm text-gray-700">
-            123 Government Ave, DC 20001
-          </span>
+          <span className="text-sm text-gray-700">123 Government Ave, DC 20001</span>
         </div>
         <div className="flex items-center gap-3">
           <PublicIcon size="sm" className="text-gray-700" />
@@ -432,9 +428,7 @@ export const GovernmentContactCard: Story = {
       <div className="mt-4 pt-4 border-t border-gray-200">
         <div className="flex items-center gap-2">
           <VerifiedIcon size="sm" className="text-gray-700" />
-          <span className="text-xs text-gray-600">
-            Verified Government Agency
-          </span>
+          <span className="text-xs text-gray-600">Verified Government Agency</span>
         </div>
       </div>
     </div>
@@ -442,10 +436,9 @@ export const GovernmentContactCard: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Example usage of USWDS icons in a government contact card component.",
+        story: "Example usage of USWDS icons in a government contact card component.",
       },
     },
     layout: "centered",
   },
-};
+}

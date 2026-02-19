@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CartesianGrid, LabelList, Line, LineChart, XAxis } from "recharts";
 import {
   Card,

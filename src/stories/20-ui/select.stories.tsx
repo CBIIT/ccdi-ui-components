@@ -1,52 +1,53 @@
-import React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Select } from '@/components/ui/select'
-import { Label } from '@/components/ui/label'
+import React from "react"
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { Select } from "@/components/ui/select"
+import { Label } from "@/components/ui/label"
 
 const meta = {
-  title: 'UI/Select',
+  title: "UI/Select",
   component: Select,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'A select dropdown component following USWDS design guidelines with proper focus states, accessibility, and a dropdown icon indicator. Supports required, disabled, and invalid states with full ARIA attributes.',
+        component:
+          "A select dropdown component following USWDS design guidelines with proper focus states, accessibility, and a dropdown icon indicator. Supports required, disabled, and invalid states with full ARIA attributes.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     id: {
-      control: 'text',
-      description: 'Unique identifier for the select element',
+      control: "text",
+      description: "Unique identifier for the select element",
     },
     name: {
-      control: 'text',
-      description: 'Name attribute for form submission',
+      control: "text",
+      description: "Name attribute for form submission",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Whether the select is disabled',
+      control: "boolean",
+      description: "Whether the select is disabled",
     },
     required: {
-      control: 'boolean',
-      description: 'Whether the select is required',
+      control: "boolean",
+      description: "Whether the select is required",
     },
     invalid: {
-      control: 'boolean',
-      description: 'Whether the select has invalid/error state',
+      control: "boolean",
+      description: "Whether the select has invalid/error state",
     },
-    'aria-label': {
-      control: 'text',
-      description: 'ARIA label for accessibility',
+    "aria-label": {
+      control: "text",
+      description: "ARIA label for accessibility",
     },
-    'aria-labelledby': {
-      control: 'text',
-      description: 'ID of element that labels this select',
+    "aria-labelledby": {
+      control: "text",
+      description: "ID of element that labels this select",
     },
-    'aria-describedby': {
-      control: 'text',
-      description: 'ID of element that describes this select',
+    "aria-describedby": {
+      control: "text",
+      description: "ID of element that describes this select",
     },
   },
 } satisfies Meta<typeof Select>
@@ -82,7 +83,7 @@ export const WithLabel: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Select component paired with a label for better accessibility.',
+        story: "Select component paired with a label for better accessibility.",
       },
     },
   },
@@ -101,7 +102,7 @@ export const PreSelected: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Select component with a pre-selected option.',
+        story: "Select component with a pre-selected option.",
       },
     },
   },
@@ -155,7 +156,7 @@ export const WithManyOptions: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Select component with many options to test scrolling behavior.',
+        story: "Select component with many options to test scrolling behavior.",
       },
     },
   },
@@ -175,13 +176,16 @@ export const InvalidState: Story = {
         <option value="option2">Option 2</option>
         <option value="option3">Option 3</option>
       </Select>
-      <p id="select-error" className="text-sm text-red-60v mt-1">This field is required</p>
+      <p id="select-error" className="text-sm text-red-60v mt-1">
+        This field is required
+      </p>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Select component in an invalid/error state with red ring styling and proper ARIA error description.',
+        story:
+          "Select component in an invalid/error state with red ring styling and proper ARIA error description.",
       },
     },
   },
@@ -197,19 +201,19 @@ export const SuccessState: Story = {
     <div className="max-w-sm space-y-2">
       <Label htmlFor="select-success">Select an option</Label>
       <Select id="select-success" {...args}>
-      <option value="">Choose an option</option>
-      <option value="option1">Option 1</option>
-      <option value="option2">Option 2</option>
-      <option value="option3">Option 3</option>
-    </Select>
-    <p className="text-sm text-green-60v mt-1">This field is valid</p>
+        <option value="">Choose an option</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </Select>
+      <p className="text-sm text-green-60v mt-1">This field is valid</p>
     </div>
-
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Select component in a success state with green ring styling and proper ARIA success description.',
+        story:
+          "Select component in a success state with green ring styling and proper ARIA success description.",
       },
     },
   },
@@ -238,7 +242,7 @@ export const RequiredField: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Select component marked as required for form validation.',
+        story: "Select component marked as required for form validation.",
       },
     },
   },
@@ -258,7 +262,8 @@ export const WithAriaLabel: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Select component with ARIA label for accessibility when no visible label is present.',
+        story:
+          "Select component with ARIA label for accessibility when no visible label is present.",
       },
     },
   },

@@ -30,54 +30,58 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
       name,
       id,
     },
-    ref
+    ref,
   ) => {
-    const [internalValue, setInternalValue] = React.useState<number[]>(
-      value || defaultValue
-    )
+    const [internalValue, setInternalValue] = React.useState<number[]>(value || defaultValue)
     const [activeThumbIndex, setActiveThumbIndex] = React.useState<number | null>(null)
     const trackRef = React.useRef<HTMLDivElement>(null)
 
     const currentValue = value !== undefined ? value : internalValue
 
-    const handleValueChange = (index: number, newValue: number) => {
-      const updatedValues = [...currentValue]
-      updatedValues[index] = newValue
-      
-      // Sort values to maintain order for multi-thumb sliders
-      updatedValues.sort((a, b) => a - b)
-      
-      if (value === undefined) {
-        setInternalValue(updatedValues)
-      }
-      
-      onValueChange?.(updatedValues)
-    }
+    const handleValueChange = React.useCallback(
+      (index: number, newValue: number) => {
+        const updatedValues = [...currentValue]
+        updatedValues[index] = newValue
+
+        // Sort values to maintain order for multi-thumb sliders
+        updatedValues.sort((a, b) => a - b)
+
+        if (value === undefined) {
+          setInternalValue(updatedValues)
+        }
+
+        onValueChange?.(updatedValues)
+      },
+      [currentValue, onValueChange, value],
+    )
 
     const getThumbPosition = (val: number) => {
       return ((val - min) / (max - min)) * 100
     }
 
-    const getValueFromPosition = (clientX: number) => {
-      if (!trackRef.current) return min
+    const getValueFromPosition = React.useCallback(
+      (clientX: number) => {
+        if (!trackRef.current) return min
 
-      const rect = trackRef.current.getBoundingClientRect()
-      const percentage = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width))
-      const rawValue = min + percentage * (max - min)
-      
-      // Snap to step
-      const steppedValue = Math.round(rawValue / step) * step
-      return Math.max(min, Math.min(max, steppedValue))
-    }
+        const rect = trackRef.current.getBoundingClientRect()
+        const percentage = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width))
+        const rawValue = min + percentage * (max - min)
+
+        // Snap to step
+        const steppedValue = Math.round(rawValue / step) * step
+        return Math.max(min, Math.min(max, steppedValue))
+      },
+      [max, min, step],
+    )
 
     const handleMouseMove = React.useCallback(
       (e: MouseEvent) => {
         if (activeThumbIndex === null || disabled) return
-        
+
         const newValue = getValueFromPosition(e.clientX)
         handleValueChange(activeThumbIndex, newValue)
       },
-      [activeThumbIndex, disabled, min, max, step]
+      [activeThumbIndex, disabled, getValueFromPosition, handleValueChange],
     )
 
     const handleMouseUp = React.useCallback(() => {
@@ -86,40 +90,60 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
 
     React.useEffect(() => {
       if (activeThumbIndex !== null) {
-        document.addEventListener('mousemove', handleMouseMove)
-        document.addEventListener('mouseup', handleMouseUp)
-        
+        document.addEventListener("mousemove", handleMouseMove)
+        document.addEventListener("mouseup", handleMouseUp)
+
         return () => {
-          document.removeEventListener('mousemove', handleMouseMove)
-          document.removeEventListener('mouseup', handleMouseUp)
+          document.removeEventListener("mousemove", handleMouseMove)
+          document.removeEventListener("mouseup", handleMouseUp)
         }
       }
     }, [activeThumbIndex, handleMouseMove, handleMouseUp])
 
+    const handleTrackValueChange = React.useCallback(
+      (newValue: number) => {
+        let closestIndex = 0
+        let closestDistance = Math.abs(currentValue[0] - newValue)
+
+        currentValue.forEach((val, index) => {
+          const distance = Math.abs(val - newValue)
+          if (distance < closestDistance) {
+            closestDistance = distance
+            closestIndex = index
+          }
+        })
+
+        handleValueChange(closestIndex, newValue)
+      },
+      [currentValue, handleValueChange],
+    )
+
     const handleTrackClick = (e: React.MouseEvent<HTMLDivElement>) => {
       if (disabled) return
-      
+
       // Don't handle clicks on thumbs
       if ((e.target as HTMLElement).closest('[data-slot="slider-thumb"]')) {
         return
       }
 
       const newValue = getValueFromPosition(e.clientX)
-      
-      // Find the closest thumb to move
-      let closestIndex = 0
-      let closestDistance = Math.abs(currentValue[0] - newValue)
-      
-      currentValue.forEach((val, index) => {
-        const distance = Math.abs(val - newValue)
-        if (distance < closestDistance) {
-          closestDistance = distance
-          closestIndex = index
-        }
-      })
-      
-      handleValueChange(closestIndex, newValue)
+      handleTrackValueChange(newValue)
     }
+
+    const handleTrackKeyDown = React.useCallback(
+      (e: React.KeyboardEvent<HTMLDivElement>) => {
+        if (disabled) return
+
+        if (e.key !== "Enter" && e.key !== " ") return
+
+        e.preventDefault()
+        const rect = e.currentTarget.getBoundingClientRect()
+        const centerX = rect.left + rect.width / 2
+        const newValue = getValueFromPosition(centerX)
+        handleTrackValueChange(newValue)
+      },
+      [disabled, getValueFromPosition, handleTrackValueChange],
+    )
 
     return (
       <div
@@ -129,24 +153,27 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
         className={cn(
           "relative flex w-full touch-none select-none items-center mt-2",
           disabled && "opacity-50 cursor-not-allowed",
-          className
+          className,
         )}
       >
         {/* Track */}
         <div
           ref={trackRef}
           data-slot="slider-track"
+          role="button"
+          tabIndex={disabled ? -1 : 0}
+          aria-disabled={disabled}
+          aria-label="Set slider value"
           className={cn(
-            "relative overflow-hidden rounded-full bg-gray-30 h-2 w-full cursor-pointer"
+            "relative overflow-hidden rounded-full bg-gray-30 h-2 w-full cursor-pointer",
           )}
           onClick={handleTrackClick}
+          onKeyDown={handleTrackKeyDown}
         >
           {/* Range - filled portion between min and first thumb for single, or between thumbs for multiple */}
           <div
             data-slot="slider-range"
-            className={cn(
-              "absolute bg-blue-60v h-full left-0 pointer-events-none"
-            )}
+            className={cn("absolute bg-blue-60v h-full left-0 pointer-events-none")}
             style={
               currentValue.length > 1
                 ? {
@@ -165,11 +192,9 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
           <div
             key={index}
             data-slot="slider-thumb-wrapper"
-            className={cn(
-              "absolute top-1/2 -translate-y-1/2 -translate-x-1/2"
-            )}
+            className={cn("absolute top-1/2 -translate-y-1/2 -translate-x-1/2")}
             style={{
-              left: `${getThumbPosition(val)}%`
+              left: `${getThumbPosition(val)}%`,
             }}
           >
             <input
@@ -197,7 +222,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
                 disabled
                   ? "pointer-events-none cursor-not-allowed"
                   : "cursor-grab active:cursor-grabbing",
-                activeThumbIndex === index && "ring-4 ring-blue-60v/60 cursor-grabbing"
+                activeThumbIndex === index && "ring-4 ring-blue-60v/60 cursor-grabbing",
               )}
               tabIndex={disabled ? -1 : 0}
               role="slider"
@@ -215,7 +240,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
               }}
               onKeyDown={(e) => {
                 if (disabled) return
-                
+
                 let newValue = val
                 const stepValue = step || 1
                 const largeStep = (max - min) / 10
@@ -258,7 +283,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
         ))}
       </div>
     )
-  }
+  },
 )
 
 Slider.displayName = "Slider"

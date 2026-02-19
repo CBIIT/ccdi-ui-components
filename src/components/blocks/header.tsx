@@ -1,183 +1,171 @@
-"use client";
+"use client"
 
-import React, { useState, useRef, useEffect } from "react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import React, { useState, useRef, useEffect } from "react"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 // import { Icon } from "@/components/ui/icon"
-import { Search } from "@/components/ui/search";
+import { Search } from "@/components/ui/search"
 
 type NavItem = {
-  id: string;
-  label: string;
-  title?: string;
-  href?: string;
-  hasSubmenu?: boolean;
-  submenu?: NavItem[];
-};
+  id: string
+  label: string
+  title?: string
+  href?: string
+  hasSubmenu?: boolean
+  submenu?: NavItem[]
+}
 
 type NCIDSNavbarProps = {
-  logo?: React.ReactNode;
-  navItems: NavItem[];
-  className?: string;
-};
+  logo?: React.ReactNode
+  navItems: NavItem[]
+  className?: string
+}
 
-export default function NCIDSNavbar({
-  logo,
-  navItems,
-  className,
-}: NCIDSNavbarProps) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [activeSecondaryMenu, setActiveSecondaryMenu] = useState<string | null>(
-    null,
-  );
-  const [isMobile, setIsMobile] = useState(false);
+export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
   // Navigation stack for mobile/tablet menu pages
-  const [mobileMenuStack, setMobileMenuStack] = useState<NavItem[]>([]);
+  const [mobileMenuStack, setMobileMenuStack] = useState<NavItem[]>([])
 
-  const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-  const navButtonRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({});
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const navbarRef = useRef<HTMLDivElement>(null);
-  const navContainerRef = useRef<HTMLDivElement>(null);
-  const navItemRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const navButtonRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({})
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
+  const navbarRef = useRef<HTMLDivElement>(null)
+  const navContainerRef = useRef<HTMLDivElement>(null)
+  const navItemRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
 
   // Handle responsive behavior
   useEffect(() => {
     const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 1024); // lg breakpoint
-    };
+      setIsMobile(window.innerWidth < 1024) // lg breakpoint
+    }
 
-    checkIsMobile();
-    window.addEventListener("resize", checkIsMobile);
-    return () => window.removeEventListener("resize", checkIsMobile);
-  }, []);
+    checkIsMobile()
+    window.addEventListener("resize", checkIsMobile)
+    return () => window.removeEventListener("resize", checkIsMobile)
+  }, [])
 
   // Recalculate dropdown position for full-width
   useEffect(() => {
-    if (!activeDropdown || !navContainerRef.current) return;
+    if (!activeDropdown || !navContainerRef.current) return
 
     const updateDropdownPosition = () => {
-      const dropdownEl = dropdownRefs.current[activeDropdown];
+      const dropdownEl = dropdownRefs.current[activeDropdown]
       if (dropdownEl && navContainerRef.current) {
-        const navContainerRect = navContainerRef.current.getBoundingClientRect();
+        const navContainerRect = navContainerRef.current.getBoundingClientRect()
         // Calculate offset to make dropdown full viewport width
-        const leftOffset = -navContainerRect.left;
-        const rightOffset = -(window.innerWidth - navContainerRect.right);
-        dropdownEl.style.left = `${leftOffset}px`;
-        dropdownEl.style.right = `${rightOffset}px`;
+        const leftOffset = -navContainerRect.left
+        const rightOffset = -(window.innerWidth - navContainerRect.right)
+        dropdownEl.style.left = `${leftOffset}px`
+        dropdownEl.style.right = `${rightOffset}px`
       }
-    };
+    }
 
-    updateDropdownPosition();
-    window.addEventListener("resize", updateDropdownPosition);
-    return () => window.removeEventListener("resize", updateDropdownPosition);
-  }, [activeDropdown]);
+    updateDropdownPosition()
+    window.addEventListener("resize", updateDropdownPosition)
+    return () => window.removeEventListener("resize", updateDropdownPosition)
+  }, [activeDropdown])
 
   // Handle dropdown clicks
   const handleDropdownClick = (itemId: string) => {
     if (isMobile) {
       // For mobile/tablet: navigate to submenu page instead of dropdown
-      const currentItems = mobileMenuStack.length > 0 
-        ? mobileMenuStack[mobileMenuStack.length - 1].submenu || []
-        : navItems;
-      
-      const item = currentItems.find((item) => item.id === itemId);
+      const currentItems =
+        mobileMenuStack.length > 0
+          ? mobileMenuStack[mobileMenuStack.length - 1].submenu || []
+          : navItems
+
+      const item = currentItems.find((item) => item.id === itemId)
       if (item && item.hasSubmenu && item.submenu && item.submenu.length > 0) {
-        setMobileMenuStack([...mobileMenuStack, item]);
+        setMobileMenuStack([...mobileMenuStack, item])
       }
     } else {
       // Desktop: toggle dropdown
       if (activeDropdown === itemId) {
-        setActiveDropdown(null);
+        setActiveDropdown(null)
       } else {
-        setActiveDropdown(itemId);
+        setActiveDropdown(itemId)
       }
     }
-  };
+  }
 
   // Handle mobile menu navigation - go back
   const handleMobileMenuBack = () => {
     if (mobileMenuStack.length > 0) {
-      setMobileMenuStack(mobileMenuStack.slice(0, -1));
+      setMobileMenuStack(mobileMenuStack.slice(0, -1))
     }
-  };
+  }
 
   // Reset mobile menu stack when closing menu
   const handleCloseMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-    setMobileMenuStack([]);
-    setActiveSecondaryMenu(null);
-  };
+    setIsMobileMenuOpen(false)
+    setMobileMenuStack([])
+  }
 
   // Handle outside clicks for dropdowns
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (!isMobile) {
-        const target = event.target as HTMLElement;
+        const target = event.target as HTMLElement
 
         // Don't close if clicking on a navigation button
         const isNavButton = Object.values(navButtonRefs.current).some(
           (ref) => ref && ref.contains(target),
-        );
+        )
         if (isNavButton) {
-          return;
+          return
         }
 
         // Don't close if clicking inside the dropdown
         const isInsideDropdown = Object.values(dropdownRefs.current).some(
           (ref) => ref && ref.contains(target),
-        );
+        )
         if (isInsideDropdown) {
-          return;
+          return
         }
 
         // Close dropdown if clicking outside
-        setActiveDropdown(null);
+        setActiveDropdown(null)
       }
-    };
+    }
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isMobile]);
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [isMobile])
 
   // Handle mobile menu outside clicks
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(event.target as Node)
-      ) {
-        setIsMobileMenuOpen(false);
-        setMobileMenuStack([]);
-        setActiveSecondaryMenu(null);
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false)
+        setMobileMenuStack([])
       }
-    };
+    }
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
 
   const renderDesktopNavItem = (item: NavItem) => {
-    const hasSubmenu =
-      item.hasSubmenu && item.submenu && item.submenu.length > 0;
-    const isActive = activeDropdown === item.id;
+    const hasSubmenu = item.hasSubmenu && item.submenu && item.submenu.length > 0
+    const isActive = activeDropdown === item.id
 
     return (
       <div
         key={item.id}
         ref={(el) => {
-          navItemRefs.current[item.id] = el;
+          navItemRefs.current[item.id] = el
         }}
       >
         {hasSubmenu ? (
           <button
             ref={(el) => {
-              navButtonRefs.current[item.id] = el;
+              navButtonRefs.current[item.id] = el
             }}
             onClick={(e) => {
-              e.stopPropagation();
-              handleDropdownClick(item.id);
+              e.stopPropagation()
+              handleDropdownClick(item.id)
             }}
             className={cn(
               // Base styles
@@ -224,25 +212,25 @@ export default function NCIDSNavbar({
           </a>
         )}
       </div>
-    );
-  };
+    )
+  }
 
   const renderDesktopDropdown = (item: NavItem) => {
     if (!item.hasSubmenu || !item.submenu || activeDropdown !== item.id) {
-      return null;
+      return null
     }
 
     return (
       <div
         ref={(el) => {
-          dropdownRefs.current[item.id] = el;
+          dropdownRefs.current[item.id] = el
           if (el && navContainerRef.current) {
-            const navContainerRect = navContainerRef.current.getBoundingClientRect();
+            const navContainerRect = navContainerRef.current.getBoundingClientRect()
             // Calculate offset to make dropdown full viewport width
-            const leftOffset = -navContainerRect.left;
-            const rightOffset = -(window.innerWidth - navContainerRect.right);
-            el.style.left = `${leftOffset}px`;
-            el.style.right = `${rightOffset}px`;
+            const leftOffset = -navContainerRect.left
+            const rightOffset = -(window.innerWidth - navContainerRect.right)
+            el.style.left = `${leftOffset}px`
+            el.style.right = `${rightOffset}px`
           }
         }}
         className="absolute top-full z-50 bg-cerulean-70 shadow-lg"
@@ -270,10 +258,7 @@ export default function NCIDSNavbar({
                   {subItem.hasSubmenu && (
                     <ul>
                       {subItem.submenu?.map((subItemChild) => (
-                        <li
-                          key={subItemChild.id}
-                          className="my-2 leading-5"
-                        >
+                        <li key={subItemChild.id} className="my-2 leading-5">
                           <a
                             href={subItemChild.href}
                             className="font-open-sans text-base text-white leading-4 font-light hover:underline focus:outline focus:outline-4 focus:outline-blue-40v tracking-wide"
@@ -300,10 +285,7 @@ export default function NCIDSNavbar({
                   {subItem.hasSubmenu && (
                     <ul>
                       {subItem.submenu?.map((subItemChild) => (
-                        <li
-                          key={subItemChild.id}
-                          className="my-2 leading-5"
-                        >
+                        <li key={subItemChild.id} className="my-2 leading-5">
                           <a
                             href={subItemChild.href}
                             className="font-open-sans text-base text-white leading-4 font-light hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
@@ -330,10 +312,7 @@ export default function NCIDSNavbar({
                   {subItem.hasSubmenu && (
                     <ul>
                       {subItem.submenu?.map((subItemChild) => (
-                        <li
-                          key={subItemChild.id}
-                          className="my-2 leading-5"
-                        >
+                        <li key={subItemChild.id} className="my-2 leading-5">
                           <a
                             href={subItemChild.href}
                             className="font-open-sans text-base text-white leading-4 font-light hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
@@ -350,12 +329,11 @@ export default function NCIDSNavbar({
           </div>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   const renderMobileNavItem = (item: NavItem) => {
-    const hasSubmenu =
-      item.hasSubmenu && item.submenu && item.submenu.length > 0;
+    const hasSubmenu = item.hasSubmenu && item.submenu && item.submenu.length > 0
 
     return (
       <div key={item.id} className="border-t last:border-b border-gray-10">
@@ -364,21 +342,14 @@ export default function NCIDSNavbar({
             onClick={() => handleDropdownClick(item.id)}
             className="font-open-sans text-left group relative flex items-center cursor-pointer justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3"
           >
-            <span className="text-gray-warm-60">
-              {item.label}
-            </span>
+            <span className="text-gray-warm-60">{item.label}</span>
             <svg
               className="mx-2 h-4 w-4 text-gray-900"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
         ) : (
@@ -387,14 +358,12 @@ export default function NCIDSNavbar({
             onClick={handleCloseMobileMenu}
             className="block font-open-sans text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3"
           >
-            <span className="text-gray-warm-60">
-              {item.label}
-            </span>
+            <span className="text-gray-warm-60">{item.label}</span>
           </a>
         )}
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <div ref={navbarRef} className={cn("bg-white", className)}>
@@ -424,9 +393,9 @@ export default function NCIDSNavbar({
           <div className="flex items-center lg:hidden">
             <Button
               onClick={() => {
-                setIsMobileMenuOpen(!isMobileMenuOpen);
+                setIsMobileMenuOpen(!isMobileMenuOpen)
                 if (!isMobileMenuOpen) {
-                  setMobileMenuStack([]);
+                  setMobileMenuStack([])
                 }
               }}
               className="bg-cerulean-70 text-white px-5 py-3 text-base leading-4"
@@ -445,10 +414,7 @@ export default function NCIDSNavbar({
       </div>
 
       {/* Navigation - Figma Colors and Layout */}
-      <div
-        ref={navContainerRef}
-        className="hidden lg:block max-w-[87.5rem] mx-auto px-8 relative"
-      >
+      <div ref={navContainerRef} className="hidden lg:block max-w-[87.5rem] mx-auto px-8 relative">
         <div className="flex items-center h-12">
           {/* Desktop Navigation */}
           <div className="flex items-center space-x-0 -mx-4">
@@ -461,9 +427,7 @@ export default function NCIDSNavbar({
             {navItems
               .filter((item) => item.id === activeDropdown)
               .map((item) => (
-                <React.Fragment key={item.id}>
-                  {renderDesktopDropdown(item)}
-                </React.Fragment>
+                <React.Fragment key={item.id}>{renderDesktopDropdown(item)}</React.Fragment>
               ))}
           </>
         )}
@@ -472,14 +436,13 @@ export default function NCIDSNavbar({
       {/* Mobile Navigation Overlay - Figma Style */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div
+          <button
+            type="button"
+            aria-label="Close menu overlay"
             className="absolute inset-0 bg-gray-400/20"
             onClick={handleCloseMobileMenu}
           />
-          <div
-            ref={mobileMenuRef}
-            className="absolute left-0 top-0 h-full w-80 bg-white shadow-xl"
-          >
+          <div ref={mobileMenuRef} className="absolute left-0 top-0 h-full w-80 bg-white shadow-xl">
             <div className="p-4">
               <div className="flex items-center justify-between mb-12">
                 {mobileMenuStack.length > 0 ? (
@@ -501,7 +464,7 @@ export default function NCIDSNavbar({
                       />
                     </svg>
                     <span className="text-base font-open-sans text-cerulean-70">
-                      {mobileMenuStack.length > 1 
+                      {mobileMenuStack.length > 1
                         ? mobileMenuStack[mobileMenuStack.length - 2].label
                         : "Main Menu"}
                     </span>
@@ -513,12 +476,7 @@ export default function NCIDSNavbar({
                   onClick={handleCloseMobileMenu}
                   className="text-gray-900 cursor-pointer focus:outline focus:outline-4 focus:outline-blue-40v"
                 >
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -546,7 +504,7 @@ export default function NCIDSNavbar({
         </div>
       )}
     </div>
-  );
+  )
 }
 
 const LogoNCI = ({ className }: { className?: string }) => {
@@ -575,8 +533,8 @@ const LogoNCI = ({ className }: { className?: string }) => {
         d="M25.3 15.6h3.2v18.8h-3.2zM18.9 15.6v13.7l-8.6-13.7H7.2v18.9h3.1V20.6l8.6 13.9h3.2V15.6zM43.3 15.6v7.8h-8.7v-7.8h-3.2v18.9h3.2v-7.9h8.7v7.9h3.1V15.6z"
       />
     </svg>
-  );
-};
+  )
+}
 
 const LogoNCIMobile = ({ className }: { className?: string }) => {
   return (
@@ -604,5 +562,5 @@ const LogoNCIMobile = ({ className }: { className?: string }) => {
         d="M19.3 11.8h2.4v14.4h-2.4zM14.5 11.8v10.5L8 11.8H5.6v14.3H8V15.6l6.5 10.5h2.4V11.8zM33.1 11.8v6h-6.6v-6h-2.4v14.3h2.4v-6h6.6v6h2.4V11.8z"
       />
     </svg>
-  );
-};
+  )
+}

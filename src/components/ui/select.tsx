@@ -1,30 +1,30 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { cn } from "@/lib/utils";
-import { UnfoldMoreIcon } from "@/components/ui/icon";
+import * as React from "react"
+import { cn } from "@/lib/utils"
+import { UnfoldMoreIcon } from "@/components/ui/icon"
 
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   /** Unique identifier for the select element */
-  id?: string;
+  id?: string
   /** Name attribute for form submission */
-  name?: string;
+  name?: string
   /** Disables the select element */
-  disabled?: boolean;
+  disabled?: boolean
   /** Marks the select as required */
-  required?: boolean;
+  required?: boolean
   /** Marks the select as having an error/invalid state */
-  invalid?: boolean;
+  invalid?: boolean
   /** Marks the select as having a success state */
-  success?: boolean;
+  success?: boolean
   /** Custom className for additional styling */
-  className?: string;
+  className?: string
   /** ARIA label for accessibility */
-  "aria-label"?: string;
+  "aria-label"?: string
   /** ID of element that labels this select */
-  "aria-labelledby"?: string;
+  "aria-labelledby"?: string
   /** ID of element that describes this select */
-  "aria-describedby"?: string;
+  "aria-describedby"?: string
 }
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
@@ -43,7 +43,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <div className="relative flex items-center mt-2">
@@ -69,10 +69,10 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             // Invalid states
             invalid && "ring-4 ring-red-60v border-transparent outline-offset-4",
             // success states
-            success && "ring-4 ring-green-40v border-transparent outline-offset-4", 
+            success && "ring-4 ring-green-40v border-transparent outline-offset-4",
             // Disabled states
             "disabled:text-gray-70 disabled:cursor-not-allowed disabled:bg-gray-20",
-            className
+            className,
           )}
           ref={ref}
           data-invalid={invalid ? "true" : undefined}
@@ -87,10 +87,10 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           <UnfoldMoreIcon size="xs" />
         </div>
       </div>
-    );
-  }
-);
+    )
+  },
+)
 
-Select.displayName = "Select";
+Select.displayName = "Select"
 
-export { Select };
+export { Select }

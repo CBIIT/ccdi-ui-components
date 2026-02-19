@@ -1,34 +1,33 @@
-import * as React from "react"
-import type { Meta, StoryObj } from '@storybook/react'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 
 const meta = {
-  title: 'UI/Input',
+  title: "UI/Input",
   component: Input,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'A form input component with USWDS styling and proper focus states.',
+        component: "A form input component with USWDS styling and proper focus states.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     type: {
-      control: { type: 'select' },
-      options: ['text', 'email', 'password', 'number', 'search', 'tel', 'url'],
-      description: 'The type of input',
+      control: { type: "select" },
+      options: ["text", "email", "password", "number", "search", "tel", "url"],
+      description: "The type of input",
     },
     placeholder: {
-      control: 'text',
-      description: 'Placeholder text',
+      control: "text",
+      description: "Placeholder text",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Whether the input is disabled',
+      control: "boolean",
+      description: "Whether the input is disabled",
     },
   },
 } satisfies Meta<typeof Input>
@@ -39,7 +38,7 @@ type Story = StoryObj<typeof meta>
 // Default story
 export const Default: Story = {
   args: {
-    placeholder: 'Enter text...',
+    placeholder: "Enter text...",
   },
 }
 
@@ -54,7 +53,7 @@ export const WithLabel: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Input component paired with a label for better accessibility.',
+        story: "Input component paired with a label for better accessibility.",
       },
     },
   },
@@ -63,8 +62,8 @@ export const WithLabel: Story = {
 // Email Input
 export const Email: Story = {
   args: {
-    type: 'email',
-    placeholder: 'Enter your email',
+    type: "email",
+    placeholder: "Enter your email",
   },
   render: (args) => (
     <div className="grid w-full max-w-sm items-center">
@@ -77,8 +76,8 @@ export const Email: Story = {
 // Password Input
 export const Password: Story = {
   args: {
-    type: 'password',
-    placeholder: 'Enter your password',
+    type: "password",
+    placeholder: "Enter your password",
   },
   render: (args) => (
     <div className="grid w-full max-w-sm items-center">
@@ -91,8 +90,8 @@ export const Password: Story = {
 // Search Input
 export const Search: Story = {
   args: {
-    type: 'search',
-    placeholder: 'Search...',
+    type: "search",
+    placeholder: "Search...",
   },
   render: (args) => (
     <div className="grid w-full max-w-sm items-center">
@@ -106,15 +105,15 @@ export const Search: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
-    placeholder: 'Disabled input',
-    defaultValue: 'This input is disabled',
+    placeholder: "Disabled input",
+    defaultValue: "This input is disabled",
   },
 }
 
 // With Default Value
 export const WithDefaultValue: Story = {
   args: {
-    defaultValue: 'Default value',
+    defaultValue: "Default value",
   },
   render: (args) => (
     <div className="grid w-full max-w-sm items-center">
@@ -127,8 +126,8 @@ export const WithDefaultValue: Story = {
 // With Error State
 export const WithError: Story = {
   args: {
-    'aria-invalid': true,
-    defaultValue: 'This field has an error.',
+    "aria-invalid": true,
+    defaultValue: "This field has an error.",
   },
   render: (args) => (
     <div className="grid w-full max-w-sm items-center">
@@ -140,7 +139,7 @@ export const WithError: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Textarea with error state indicated by red border and error message.',
+        story: "Textarea with error state indicated by red border and error message.",
       },
     },
   },

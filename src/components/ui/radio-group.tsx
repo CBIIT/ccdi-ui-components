@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { cn } from "@/lib/utils"
 
-const radioGroupVariants = cva("space-y-2");
+const radioGroupVariants = cva("space-y-2")
 
 const radioItemVariants = cva(
   cn(
@@ -28,7 +28,7 @@ const radioItemVariants = cva(
 
     // Before pseudo-element (radio dot)
     "before:size-4 before:rounded-full",
-    "peer-checked:before:bg-blue-60 peer-checked:peer-disabled:before:bg-gray-50"
+    "peer-checked:before:bg-blue-60 peer-checked:peer-disabled:before:bg-gray-50",
   ),
   {
     variants: {
@@ -40,8 +40,8 @@ const radioItemVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
-);
+  },
+)
 
 const radioLabelVariants = cva(
   "pl-3 cursor-pointer block peer-disabled:text-gray-60 peer-disabled:cursor-not-allowed",
@@ -56,28 +56,27 @@ const radioLabelVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
-);
+  },
+)
 
 interface RadioGroupContextValue {
-  name?: string;
-  value?: string;
-  onValueChange?: (value: string) => void;
-  disabled?: boolean;
-  variant?: "default" | "tiled";
+  name?: string
+  value?: string
+  onValueChange?: (value: string) => void
+  disabled?: boolean
+  variant?: "default" | "tiled"
 }
 
-const RadioGroupContext = React.createContext<RadioGroupContextValue>({});
+const RadioGroupContext = React.createContext<RadioGroupContextValue>({})
 
 interface RadioGroupProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof radioGroupVariants> {
-  name?: string;
-  value?: string;
-  defaultValue?: string;
-  onValueChange?: (value: string) => void;
-  disabled?: boolean;
-  variant?: "default" | "tiled";
+  extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof radioGroupVariants> {
+  name?: string
+  value?: string
+  defaultValue?: string
+  onValueChange?: (value: string) => void
+  disabled?: boolean
+  variant?: "default" | "tiled"
 }
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
@@ -93,22 +92,20 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
-    const [internalValue, setInternalValue] = React.useState(
-      defaultValue || ""
-    );
-    const currentValue = value !== undefined ? value : internalValue;
+    const [internalValue, setInternalValue] = React.useState(defaultValue || "")
+    const currentValue = value !== undefined ? value : internalValue
 
     const handleValueChange = React.useCallback(
       (newValue: string) => {
         if (value === undefined) {
-          setInternalValue(newValue);
+          setInternalValue(newValue)
         }
-        onValueChange?.(newValue);
+        onValueChange?.(newValue)
       },
-      [value, onValueChange]
-    );
+      [value, onValueChange],
+    )
 
     const contextValue = React.useMemo(
       () => ({
@@ -118,29 +115,23 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
         disabled,
         variant,
       }),
-      [name, currentValue, handleValueChange, disabled, variant]
-    );
+      [name, currentValue, handleValueChange, disabled, variant],
+    )
 
     return (
       <RadioGroupContext.Provider value={contextValue}>
-        <div
-          ref={ref}
-          className={cn(radioGroupVariants(), className)}
-          role="radiogroup"
-          {...props}
-        >
+        <div ref={ref} className={cn(radioGroupVariants(), className)} role="radiogroup" {...props}>
           {children}
         </div>
       </RadioGroupContext.Provider>
-    );
-  }
-);
-RadioGroup.displayName = "RadioGroup";
+    )
+  },
+)
+RadioGroup.displayName = "RadioGroup"
 
-interface RadioGroupItemProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  value: string;
-  children?: React.ReactNode;
+interface RadioGroupItemProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  value: string
+  children?: React.ReactNode
 }
 
 const RadioGroupItem = React.forwardRef<HTMLInputElement, RadioGroupItemProps>(
@@ -151,19 +142,18 @@ const RadioGroupItem = React.forwardRef<HTMLInputElement, RadioGroupItemProps>(
       onValueChange,
       disabled: groupDisabled,
       variant,
-    } = React.useContext(RadioGroupContext);
-    const disabled = itemDisabled || groupDisabled;
-    const checked = groupValue === value;
-    const id = React.useId();
+    } = React.useContext(RadioGroupContext)
+    const disabled = itemDisabled || groupDisabled
+    const checked = groupValue === value
+    const id = React.useId()
 
     const handleChange = () => {
       if (!disabled && onValueChange) {
-        onValueChange(value);
+        onValueChange(value)
       }
-    };
+    }
 
-    const labelClasses =
-      variant === "tiled" ? "flex relative z-0 px-3 py-4" : "flex";
+    const labelClasses = variant === "tiled" ? "flex relative z-0 px-3 py-4" : "flex"
 
     return (
       <label htmlFor={id} className={cn(labelClasses)}>
@@ -180,13 +170,11 @@ const RadioGroupItem = React.forwardRef<HTMLInputElement, RadioGroupItemProps>(
           {...props}
         />
         <div className={cn(radioItemVariants({ variant }), className)} />
-        {children && (
-          <div className={cn(radioLabelVariants({ variant }))}>{children}</div>
-        )}
+        {children && <div className={cn(radioLabelVariants({ variant }))}>{children}</div>}
       </label>
-    );
-  }
-);
-RadioGroupItem.displayName = "RadioGroupItem";
+    )
+  },
+)
+RadioGroupItem.displayName = "RadioGroupItem"
 
-export { RadioGroup, RadioGroupItem };
+export { RadioGroup, RadioGroupItem }

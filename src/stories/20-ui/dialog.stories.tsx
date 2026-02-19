@@ -1,5 +1,4 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import {
   Dialog,
   DialogContent,
@@ -9,23 +8,24 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogClose,
-} from '@/components/ui/dialog'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+} from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 const meta = {
-  title: 'UI/Dialog',
+  title: "UI/Dialog",
   component: Dialog,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'A dialog (modal) component following USWDS design patterns for displaying content in an overlay.',
+        component:
+          "A dialog (modal) component following USWDS design patterns for displaying content in an overlay.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Dialog>
 
 export default meta
@@ -80,7 +80,7 @@ export const WithFooter: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Dialog with footer containing action buttons.',
+        story: "Dialog with footer containing action buttons.",
       },
     },
   },
@@ -126,7 +126,7 @@ export const WithForm: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Dialog containing a form with input fields.',
+        story: "Dialog containing a form with input fields.",
       },
     },
   },
@@ -143,8 +143,8 @@ export const AlertDialog: Story = {
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>
           <DialogDescription>
-            This action cannot be undone. This will permanently delete your account
-            and remove your data from our servers.
+            This action cannot be undone. This will permanently delete your account and remove your
+            data from our servers.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
@@ -163,7 +163,7 @@ export const AlertDialog: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Dialog used as an alert with a destructive action.',
+        story: "Dialog used as an alert with a destructive action.",
       },
     },
   },
@@ -180,9 +180,9 @@ export const Information: Story = {
         <DialogHeader>
           <DialogTitle>About This Feature</DialogTitle>
           <DialogDescription>
-            This feature allows you to manage your preferences and settings. You can
-            customize various aspects of your experience, including notifications,
-            display options, and privacy settings.
+            This feature allows you to manage your preferences and settings. You can customize
+            various aspects of your experience, including notifications, display options, and
+            privacy settings.
           </DialogDescription>
         </DialogHeader>
         <div className="py-4">
@@ -203,7 +203,7 @@ export const Information: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Dialog used to display information with a single dismiss button.',
+        story: "Dialog used to display information with a single dismiss button.",
       },
     },
   },
@@ -219,35 +219,32 @@ export const LongContent: Story = {
       <DialogContent className="max-h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Terms and Conditions</DialogTitle>
-          <DialogDescription>
-            Please read our terms and conditions carefully.
-          </DialogDescription>
+          <DialogDescription>Please read our terms and conditions carefully.</DialogDescription>
         </DialogHeader>
         <div className="py-4 space-y-4 text-sm">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
           <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            officia deserunt mollit anim id est laborum.
           </p>
           <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-            veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+            architecto beatae vitae dicta sunt explicabo.
           </p>
           <p>
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-            sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
           </p>
           <p>
-            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-            adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et
-            dolore magnam aliquam quaerat voluptatem.
+            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+            velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
+            aliquam quaerat voluptatem.
           </p>
         </div>
         <DialogFooter>
@@ -266,7 +263,7 @@ export const LongContent: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Dialog with long scrollable content.',
+        story: "Dialog with long scrollable content.",
       },
     },
   },

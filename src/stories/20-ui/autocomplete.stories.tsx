@@ -1,13 +1,12 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react';
-import { Autocomplete, AutocompleteOption } from '@/components/ui/autocomplete';
-import { useState } from 'react';
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Autocomplete, AutocompleteOption } from "@/components/ui/autocomplete"
+import { useState } from "react"
 
 const meta: Meta<typeof Autocomplete> = {
-  title: 'UI/Autocomplete',
+  title: "UI/Autocomplete",
   component: Autocomplete,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
         component: `
@@ -36,96 +35,94 @@ Use autocomplete functionality when providing users with a search opportunity ac
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     value: {
-      control: 'text',
-      description: 'Current input value',
+      control: "text",
+      description: "Current input value",
     },
     placeholder: {
-      control: 'text',
-      description: 'Placeholder text for the input',
+      control: "text",
+      description: "Placeholder text for the input",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Whether the autocomplete is disabled',
+      control: "boolean",
+      description: "Whether the autocomplete is disabled",
     },
     invalid: {
-      control: 'boolean',
-      description: 'Whether the autocomplete has an error state',
+      control: "boolean",
+      description: "Whether the autocomplete has an error state",
     },
     success: {
-      control: 'boolean',
-      description: 'Whether the autocomplete has a success state',
+      control: "boolean",
+      description: "Whether the autocomplete has a success state",
     },
     minCharCount: {
-      control: { type: 'number', min: 1, max: 10 },
-      description: 'Minimum characters before showing suggestions',
+      control: { type: "number", min: 1, max: 10 },
+      description: "Minimum characters before showing suggestions",
     },
     maxOptionsCount: {
-      control: { type: 'number', min: 1, max: 20 },
-      description: 'Maximum number of options to display',
+      control: { type: "number", min: 1, max: 20 },
+      description: "Maximum number of options to display",
     },
     highlightMatchingText: {
-      control: 'boolean',
-      description: 'Whether to highlight matching text in suggestions',
+      control: "boolean",
+      description: "Whether to highlight matching text in suggestions",
     },
     loading: {
-      control: 'boolean',
-      description: 'Whether to show loading state',
+      control: "boolean",
+      description: "Whether to show loading state",
     },
     minPlaceholderMsg: {
-      control: 'text',
-      description: 'Message shown when below minimum character count',
+      control: "text",
+      description: "Message shown when below minimum character count",
     },
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 // Sample data for stories
 const sampleOptions: AutocompleteOption[] = [
-  { value: 'breast-cancer', label: 'Breast Cancer' },
-  { value: 'lung-cancer', label: 'Lung Cancer' },
-  { value: 'colon-cancer', label: 'Colon Cancer' },
-  { value: 'prostate-cancer', label: 'Prostate Cancer' },
-  { value: 'skin-cancer', label: 'Skin Cancer' },
-  { value: 'brain-cancer', label: 'Brain Cancer' },
-  { value: 'pancreatic-cancer', label: 'Pancreatic Cancer' },
-  { value: 'ovarian-cancer', label: 'Ovarian Cancer' },
-  { value: 'kidney-cancer', label: 'Kidney Cancer' },
-  { value: 'liver-cancer', label: 'Liver Cancer' },
-  { value: 'cancer-research', label: 'Cancer Research' },
-  { value: 'cancer-treatment', label: 'Cancer Treatment' },
-  { value: 'cancer-prevention', label: 'Cancer Prevention' },
-  { value: 'cancer-screening', label: 'Cancer Screening' },
-  { value: 'clinical-trials', label: 'Clinical Trials' },
-];
+  { value: "breast-cancer", label: "Breast Cancer" },
+  { value: "lung-cancer", label: "Lung Cancer" },
+  { value: "colon-cancer", label: "Colon Cancer" },
+  { value: "prostate-cancer", label: "Prostate Cancer" },
+  { value: "skin-cancer", label: "Skin Cancer" },
+  { value: "brain-cancer", label: "Brain Cancer" },
+  { value: "pancreatic-cancer", label: "Pancreatic Cancer" },
+  { value: "ovarian-cancer", label: "Ovarian Cancer" },
+  { value: "kidney-cancer", label: "Kidney Cancer" },
+  { value: "liver-cancer", label: "Liver Cancer" },
+  { value: "cancer-research", label: "Cancer Research" },
+  { value: "cancer-treatment", label: "Cancer Treatment" },
+  { value: "cancer-prevention", label: "Cancer Prevention" },
+  { value: "cancer-screening", label: "Cancer Screening" },
+  { value: "clinical-trials", label: "Clinical Trials" },
+]
 
 // Mock search function with async delay
 const mockSearch = async (query: string): Promise<AutocompleteOption[]> => {
   // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 300));
-  
-  return sampleOptions.filter(option =>
-    option.label.toLowerCase().includes(query.toLowerCase())
-  );
-};
+  await new Promise((resolve) => setTimeout(resolve, 300))
+
+  return sampleOptions.filter((option) => option.label.toLowerCase().includes(query.toLowerCase()))
+}
 
 // Default story
 export const Default: Story = {
   args: {
-    placeholder: 'Search for cancer information...',
+    placeholder: "Search for cancer information...",
     options: sampleOptions,
   },
-};
+}
 
 // With search function
 export const WithAsyncSearch: Story = {
   render: (args) => {
-    const [value, setValue] = useState('');
-    
+    const [value, setValue] = useState("")
+
     return (
       <div className="w-96">
         <label htmlFor="async-search" className="block text-sm font-medium text-gray-90 mb-1">
@@ -140,16 +137,16 @@ export const WithAsyncSearch: Story = {
           placeholder="Type to search (try 'cancer')..."
         />
       </div>
-    );
+    )
   },
   parameters: {
     docs: {
       description: {
-        story: 'Autocomplete with asynchronous search function that simulates API calls.',
+        story: "Autocomplete with asynchronous search function that simulates API calls.",
       },
     },
   },
-};
+}
 
 // States
 export const States: Story = {
@@ -159,13 +156,9 @@ export const States: Story = {
         <label htmlFor="default-state" className="block text-sm font-medium text-gray-90 mb-1">
           Default
         </label>
-        <Autocomplete
-          id="default-state"
-          placeholder="Default state"
-          options={sampleOptions}
-        />
+        <Autocomplete id="default-state" placeholder="Default state" options={sampleOptions} />
       </div>
-      
+
       <div>
         <label htmlFor="success-state" className="block text-sm font-medium text-gray-90 mb-1">
           Success
@@ -177,7 +170,7 @@ export const States: Story = {
           options={sampleOptions}
         />
       </div>
-      
+
       <div>
         <label htmlFor="invalid-state" className="block text-sm font-medium text-gray-90 mb-1">
           Invalid
@@ -190,7 +183,7 @@ export const States: Story = {
         />
         <p className="text-sm text-red-60v mt-1">Please enter a valid search term.</p>
       </div>
-      
+
       <div>
         <label htmlFor="disabled-state" className="block text-sm font-medium text-gray-90 mb-1">
           Disabled
@@ -207,23 +200,25 @@ export const States: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Different visual states of the autocomplete component.',
+        story: "Different visual states of the autocomplete component.",
       },
     },
   },
-};
+}
 
 // With form integration
 export const FormIntegration: Story = {
   render: () => {
-    const [searchValue, setSearchValue] = useState('');
-    const [selectedOption, setSelectedOption] = useState<AutocompleteOption | null>(null);
-    
+    const [searchValue, setSearchValue] = useState("")
+    const [selectedOption, setSelectedOption] = useState<AutocompleteOption | null>(null)
+
     const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
-      alert(`Form submitted with search: "${searchValue}", selected: "${selectedOption?.label || 'None'}"`);
-    };
-    
+      e.preventDefault()
+      alert(
+        `Form submitted with search: "${searchValue}", selected: "${selectedOption?.label || "None"}"`,
+      )
+    }
+
     return (
       <form onSubmit={handleSubmit} className="w-96 space-y-4">
         <div>
@@ -245,7 +240,7 @@ export const FormIntegration: Story = {
             Start typing to see suggestions
           </p>
         </div>
-        
+
         {selectedOption && (
           <div className="p-3 bg-green-10 border border-green-40 rounded">
             <p className="text-sm text-green-70">
@@ -253,7 +248,7 @@ export const FormIntegration: Story = {
             </p>
           </div>
         )}
-        
+
         <button
           type="submit"
           className="bg-blue-60v text-white px-4 py-2 rounded hover:bg-blue-70v focus:outline-none focus:ring-2 focus:ring-blue-40v"
@@ -261,22 +256,22 @@ export const FormIntegration: Story = {
           Submit Search
         </button>
       </form>
-    );
+    )
   },
   parameters: {
     docs: {
       description: {
-        story: 'Autocomplete integrated within a form with validation and submission handling.',
+        story: "Autocomplete integrated within a form with validation and submission handling.",
       },
     },
   },
-};
+}
 
 // Custom configuration
 export const CustomConfiguration: Story = {
   render: () => {
-    const [value, setValue] = useState('');
-    
+    const [value, setValue] = useState("")
+
     return (
       <div className="w-96 space-y-6">
         <div>
@@ -293,7 +288,7 @@ export const CustomConfiguration: Story = {
             minPlaceholderMsg="Please enter at least 5 characters to see suggestions"
           />
         </div>
-        
+
         <div>
           <label htmlFor="max-options" className="block text-sm font-medium text-gray-90 mb-1">
             Maximum 3 options
@@ -305,7 +300,7 @@ export const CustomConfiguration: Story = {
             maxOptionsCount={3}
           />
         </div>
-        
+
         <div>
           <label htmlFor="no-highlight" className="block text-sm font-medium text-gray-90 mb-1">
             No text highlighting
@@ -318,32 +313,33 @@ export const CustomConfiguration: Story = {
           />
         </div>
       </div>
-    );
+    )
   },
   parameters: {
     docs: {
       description: {
-        story: 'Autocomplete with various configuration options including character limits and highlighting.',
+        story:
+          "Autocomplete with various configuration options including character limits and highlighting.",
       },
     },
   },
-};
+}
 
 // Loading state
 export const LoadingState: Story = {
   render: () => {
-    const [value, setValue] = useState('');
-    const [loading, setLoading] = useState(false);
-    
+    const [value, setValue] = useState("")
+    const [loading, setLoading] = useState(false)
+
     const simulateSlowSearch = async (query: string) => {
-      setLoading(true);
-      await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
-      setLoading(false);
-      return sampleOptions.filter(option =>
-        option.label.toLowerCase().includes(query.toLowerCase())
-      );
-    };
-    
+      setLoading(true)
+      await new Promise((resolve) => setTimeout(resolve, 2000)) // 2 second delay
+      setLoading(false)
+      return sampleOptions.filter((option) =>
+        option.label.toLowerCase().includes(query.toLowerCase()),
+      )
+    }
+
     return (
       <div className="w-96">
         <label htmlFor="loading-search" className="block text-sm font-medium text-gray-90 mb-1">
@@ -358,16 +354,16 @@ export const LoadingState: Story = {
           placeholder="Type to see loading state..."
         />
       </div>
-    );
+    )
   },
   parameters: {
     docs: {
       description: {
-        story: 'Autocomplete showing loading state during async operations.',
+        story: "Autocomplete showing loading state during async operations.",
       },
     },
   },
-};
+}
 
 // Empty state
 export const EmptyState: Story = {
@@ -376,21 +372,17 @@ export const EmptyState: Story = {
       <label htmlFor="empty-search" className="block text-sm font-medium text-gray-90 mb-1">
         No results available
       </label>
-      <Autocomplete
-        id="empty-search"
-        placeholder="No suggestions will be found..."
-        options={[]}
-      />
+      <Autocomplete id="empty-search" placeholder="No suggestions will be found..." options={[]} />
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Autocomplete with no available options, showing empty state.',
+        story: "Autocomplete with no available options, showing empty state.",
       },
     },
   },
-};
+}
 
 // Accessibility demo
 export const AccessibilityFeatures: Story = {
@@ -406,7 +398,7 @@ export const AccessibilityFeatures: Story = {
           <li>• Support for aria-labelledby and aria-describedby</li>
         </ul>
       </div>
-      
+
       <div>
         <label htmlFor="a11y-demo" className="block text-sm font-medium text-gray-90 mb-1">
           Try keyboard navigation
@@ -426,8 +418,9 @@ export const AccessibilityFeatures: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstration of accessibility features including keyboard navigation and screen reader support.',
+        story:
+          "Demonstration of accessibility features including keyboard navigation and screen reader support.",
       },
     },
   },
-};
+}
