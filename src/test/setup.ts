@@ -1,11 +1,11 @@
-import '@testing-library/jest-dom'
-import { afterEach } from 'vitest';
-import { cleanup } from '@testing-library/react';
+import "@testing-library/jest-dom"
+import { afterEach } from "vitest"
+import { cleanup } from "@testing-library/react"
 
 // Cleanup after each test
 afterEach(() => {
-  cleanup();
-});
+  cleanup()
+})
 
 // // Mock CSS imports
 // Object.defineProperty(window, 'matchMedia', {

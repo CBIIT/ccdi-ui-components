@@ -16,7 +16,14 @@ import tseslint from "typescript-eslint";
 export default defineConfig([
   // Ignore patterns (relative to project root)
   {
-    ignores: ["storybook-static/**", "registry/**", "dist/**", "node_modules/**, *.min.js"],
+    ignores: ["storybook-static/**", "registry/**", "dist/**", "node_modules/**", "*.min.js", "*.mjs", "coverage/**"],
+  },
+
+  // Global settings used by plugins across all matching file configs
+  {
+    settings: {
+      react: { version: "detect" },
+    },
   },
 
   // Base JS recommended
@@ -63,16 +70,24 @@ export default defineConfig([
       // Common React tweaks (optional)
       "react/prop-types": "off", // if you use TS or prefer not using prop-types
     },
-    // React settings (important for some rules to work correctly)
+    // Resolver settings
     settings: {
-      react: { version: "detect" },
       "import/resolver": {
+        node: true,
         typescript: {
           project: "./tsconfig.json"
         }
       }
     },
   },
+
+  // // Tooling config files may use package export paths not handled by import/no-unresolved
+  // {
+  //   files: ["eslint.config.{js,mjs,cjs,ts,mts,cts}"],
+  //   rules: {
+  //     "import/no-unresolved": "off",
+  //   },
+  // },
 
   // Prettier should be last to override other formatting rules
   eslintConfigPrettier,
