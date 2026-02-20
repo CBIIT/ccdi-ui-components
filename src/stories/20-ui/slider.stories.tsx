@@ -1,3 +1,4 @@
+import {useState} from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Slider } from "@/components/ui/slider"
 import { Label } from "@/components/ui/label"
@@ -22,13 +23,13 @@ type Story = StoryObj<typeof meta>
 
 // Simple slider with default value
 export const Default: Story = {
-  render: (args) => {
-    const [value, setValue] = React.useState([33])
+  render: function Render(args) {
+    const [value, setValue] = useState([33])
 
     return (
       <div className="w-96 p-6">
         <div className="mb-4">
-          <Slider {...args} defaultValue={[33]} max={100} step={1} onValueChange={setValue} />
+          <Slider {...args} value={value} defaultValue={[33]} max={100} step={1} onValueChange={setValue} />
         </div>
       </div>
     )
@@ -37,8 +38,8 @@ export const Default: Story = {
 
 // Range slider with two thumbs
 export const RangeSlider: Story = {
-  render: () => {
-    const [value, setValue] = React.useState([25, 75])
+  render: function Render() {
+    const [value, setValue] = useState([25, 75])
 
     return (
       <div className="w-96 p-6">
@@ -46,7 +47,7 @@ export const RangeSlider: Story = {
           <Label htmlFor="range-slider">
             Price Range ${value[0]} - ${value[1]}
           </Label>
-          <Slider defaultValue={[25, 75]} max={100} step={1} onValueChange={setValue} />
+          <Slider value={value}  defaultValue={[25, 75]} max={100} step={1} onValueChange={setValue} />
         </div>
       </div>
     )

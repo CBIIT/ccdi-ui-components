@@ -1,25 +1,12 @@
-import * as React from "react";
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Label,
-  LabelList,
-  PolarGrid,
-  PolarRadiusAxis,
-  RadialBar,
-  RadialBarChart,
-} from "recharts";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Label, LabelList, PolarGrid, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/charts/chart";
+} from "@/components/charts/chart"
 
 const meta = {
   title: "Charts/Radial Chart",
@@ -34,12 +21,12 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-} satisfies Meta;
+} satisfies Meta
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
-RadialBarChart.displayName = "RadialBarChart";
+RadialBarChart.displayName = "RadialBarChart"
 
 // Default usage radial chart
 export const Default: Story = {
@@ -119,16 +106,14 @@ export const Default: Story = {
       },
     },
   },
-};
+}
 
 // Browser usage radial chart
 export const WithLabel: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Radial Chart - Label
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Radial Chart - Label</h2>
         <p className="text-sm text-muted-foreground">January - June 2024</p>
       </CardHeader>
       <CardContent className="pb-0">
@@ -210,16 +195,14 @@ export const WithLabel: Story = {
       },
     },
   },
-};
+}
 
 // Browser usage radial chart
 export const ChartRadialGrid: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Radial Chart - Grid
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Radial Chart - Grid</h2>
         <p className="text-sm text-muted-foreground">January - June 2024</p>
       </CardHeader>
       <CardContent className="pb-0">
@@ -276,7 +259,7 @@ export const ChartRadialGrid: Story = {
               content={<ChartTooltipContent hideLabel nameKey="browser" />}
             />
             <PolarGrid gridType="circle" />
-            <RadialBar dataKey="visitors"/>
+            <RadialBar dataKey="visitors" />
           </RadialBarChart>
         </ChartContainer>
       </CardContent>
@@ -295,12 +278,9 @@ export const ChartRadialGrid: Story = {
       },
     },
   },
-};
+}
 
-
-const chartData = [
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-];
+const chartData = [{ browser: "safari", visitors: 200, fill: "var(--color-safari)" }]
 
 const chartConfig = {
   visitors: {
@@ -310,22 +290,17 @@ const chartConfig = {
     label: "Safari",
     color: "var(--color-blue-60v)",
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export const ChartRadialText: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Radial Chart - Text
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Radial Chart - Text</h2>
         <p className="text-sm text-muted-foreground">January - June 2024</p>
       </CardHeader>
       <CardContent className="pb-0">
-        <ChartContainer
-          config={chartConfig}
-          className="mx-auto aspect-square max-h-[300px]"
-        >
+        <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[300px]">
           <RadialBarChart
             {...args}
             data={chartData}
@@ -360,17 +335,13 @@ export const ChartRadialText: Story = {
                         >
                           {chartData[0].visitors.toLocaleString()}
                         </tspan>
-                        <tspan
-                          x={viewBox.cx}
-                          y={(viewBox.cy || 0) + 24}
-                          className="fill-gray-700"
-                        >
+                        <tspan x={viewBox.cx} y={(viewBox.cy || 0) + 24} className="fill-gray-700">
                           Visitors
                         </tspan>
                       </text>
-                    );
+                    )
                   }
-                  return null;
+                  return null
                 }}
               />
             </PolarRadiusAxis>
@@ -387,8 +358,7 @@ export const ChartRadialText: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Radial Chart - Text — single-series radial chart with centered summary text.",
+        story: "Radial Chart - Text — single-series radial chart with centered summary text.",
       },
       source: {
         code: `
@@ -505,4 +475,4 @@ export default ChartRadialText;
       },
     },
   },
-};
+}

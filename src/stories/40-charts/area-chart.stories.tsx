@@ -1,12 +1,6 @@
-import * as React from "react";
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import {
   ChartConfig,
   ChartContainer,
@@ -14,7 +8,7 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/charts/chart";
+} from "@/components/charts/chart"
 
 const meta = {
   title: "Charts/Area Chart",
@@ -29,15 +23,15 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-} satisfies Meta;
+} satisfies Meta
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
-AreaChart.displayName = "AreaChart";
+AreaChart.displayName = "AreaChart"
 
 // Format month abbreviation
-const formatMonthTick = (value: string) => value.slice(0, 3);
+const formatMonthTick = (value: string) => value.slice(0, 3)
 
 // Default area chart with smooth curve
 export const Default: Story = {
@@ -45,9 +39,7 @@ export const Default: Story = {
     <Card className="max-w-xl">
       <CardHeader>
         <h2 className="font-bold font-merriweather text-lg">Area Chart</h2>
-        <p className="text-sm text-muted-foreground">
-          Monthly visitor trend with smooth curve
-        </p>
+        <p className="text-sm text-muted-foreground">Monthly visitor trend with smooth curve</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -81,10 +73,7 @@ export const Default: Story = {
               tickMargin={8}
               tickFormatter={formatMonthTick}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Area
               dataKey="desktop"
               type="natural"
@@ -105,21 +94,18 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "A basic area chart with smooth (natural) curve showing desktop visitors over time.",
+        story: "A basic area chart with smooth (natural) curve showing desktop visitors over time.",
       },
     },
   },
-};
+}
 
 // Linear area chart
 export const Linear: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Area Chart - Linear
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Area Chart - Linear</h2>
         <p className="text-sm text-muted-foreground">
           Monthly visitor trend with linear interpolation
         </p>
@@ -156,10 +142,7 @@ export const Linear: Story = {
               tickMargin={8}
               tickFormatter={formatMonthTick}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Area
               dataKey="desktop"
               type="linear"
@@ -185,16 +168,14 @@ export const Linear: Story = {
       },
     },
   },
-};
+}
 
 // Step area chart
 export const Step: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Area Chart - Step
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Area Chart - Step</h2>
         <p className="text-sm text-muted-foreground">
           Monthly visitor trend with step interpolation
         </p>
@@ -231,10 +212,7 @@ export const Step: Story = {
               tickMargin={8}
               tickFormatter={formatMonthTick}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Area
               dataKey="desktop"
               type="step"
@@ -260,16 +238,14 @@ export const Step: Story = {
       },
     },
   },
-};
+}
 
 // Stacked area chart
 export const Stacked: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Area Chart - Stacked
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Area Chart - Stacked</h2>
         <p className="text-sm text-muted-foreground">
           Multiple data series stacked to show total and composition
         </p>
@@ -345,16 +321,14 @@ export const Stacked: Story = {
       },
     },
   },
-};
+}
 
 // Area chart with legend
 export const WithLegend: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Area Chart - Stacked
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Area Chart - Stacked</h2>
         <p className="text-sm text-muted-foreground">
           Multiple data series stacked to show total and composition
         </p>
@@ -431,7 +405,7 @@ export const WithLegend: Story = {
       },
     },
   },
-};
+}
 
 // Stacked expanded area chart
 export const StackedExpanded: Story = {
@@ -439,9 +413,7 @@ export const StackedExpanded: Story = {
     return (
       <Card className="max-w-xl">
         <CardHeader>
-          <h2 className="font-bold font-merriweather text-lg">
-            Area Chart - Stacked Expanded
-          </h2>
+          <h2 className="font-bold font-merriweather text-lg">Area Chart - Stacked Expanded</h2>
           <p className="text-sm text-muted-foreground">
             Showing visitor proportions for the last 6 months
           </p>
@@ -491,10 +463,7 @@ export const StackedExpanded: Story = {
                 tickMargin={8}
                 tickFormatter={formatMonthTick}
               />
-              <ChartTooltip
-                cursor={false}
-                content={<ChartTooltipContent indicator="line" />}
-              />
+              <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
               <Area
                 dataKey="other"
                 type="natural"
@@ -528,7 +497,7 @@ export const StackedExpanded: Story = {
           </div>
         </CardFooter>
       </Card>
-    );
+    )
   },
   parameters: {
     docs: {
@@ -538,16 +507,14 @@ export const StackedExpanded: Story = {
       },
     },
   },
-};
+}
 
 // Gradient area chart
 export const Gradient: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Area Chart - Gradient
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Area Chart - Gradient</h2>
         <p className="text-sm text-muted-foreground">
           Comparing desktop and mobile visitors with gradient fill
         </p>
@@ -591,28 +558,12 @@ export const Gradient: Story = {
             <ChartTooltip content={<ChartTooltipContent />} />
             <defs>
               <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="var(--color-desktop)"
-                  stopOpacity={0.8}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="var(--color-desktop)"
-                  stopOpacity={0.1}
-                />
+                <stop offset="5%" stopColor="var(--color-desktop)" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="var(--color-desktop)" stopOpacity={0.1} />
               </linearGradient>
               <linearGradient id="fillMobile" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="var(--color-mobile)"
-                  stopOpacity={0.8}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="var(--color-mobile)"
-                  stopOpacity={0.1}
-                />
+                <stop offset="5%" stopColor="var(--color-mobile)" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="var(--color-mobile)" stopOpacity={0.1} />
               </linearGradient>
             </defs>
             <Area
@@ -649,19 +600,16 @@ export const Gradient: Story = {
       },
     },
   },
-};
-
+}
 
 // Axes area chart
 export const Axes: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Area Chart - Axes
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Area Chart - Axes</h2>
         <p className="text-sm text-muted-foreground">
-            Multiple data series stacked to show total and composition
+          Multiple data series stacked to show total and composition
         </p>
       </CardHeader>
       <CardContent>
@@ -700,12 +648,7 @@ export const Axes: Story = {
               tickMargin={8}
               tickFormatter={formatMonthTick}
             />
-            <YAxis
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              tickCount={3}
-            />
+            <YAxis tickLine={false} axisLine={false} tickMargin={8} tickCount={3} />
             <ChartTooltip content={<ChartTooltipContent />} />
             <Area
               dataKey="mobile"
@@ -741,4 +684,4 @@ export const Axes: Story = {
       },
     },
   },
-};
+}

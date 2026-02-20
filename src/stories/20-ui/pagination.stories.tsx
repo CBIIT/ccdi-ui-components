@@ -1,3 +1,4 @@
+import { useState } from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import {
   Pagination,
@@ -241,8 +242,8 @@ export const MiddlePage: Story = {
 
 // Interactive example
 export const Interactive: Story = {
-  render: () => {
-    const [currentPage, setCurrentPage] = React.useState(1)
+  render: function Render() {
+    const [currentPage, setCurrentPage] = useState(1)
     const totalPages = 10
 
     const handlePageChange = (page: number) => {

@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import NCIDSNavbar from "@/components/blocks/header";
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import NCIDSNavbar from "@/components/blocks/header"
 
 const meta = {
   title: "Blocks/Header",
@@ -28,10 +28,10 @@ const meta = {
       description: "Additional CSS classes",
     },
   },
-} satisfies Meta<typeof NCIDSNavbar>;
+} satisfies Meta<typeof NCIDSNavbar>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
@@ -393,7 +393,7 @@ export const Default: Story = {
                 href: "#",
               },
               {
-                  id: "fourth-section-submenu-7",
+                id: "fourth-section-submenu-7",
                 label: "Navigationlink",
                 href: "#",
               },
@@ -539,7 +539,7 @@ export const Default: Story = {
                 href: "#",
               },
               {
-                  id: "fifth-section-submenu-7",
+                id: "fifth-section-submenu-7",
                 label: "Navigationlink",
                 href: "#",
               },
@@ -628,4 +628,4 @@ export const Default: Story = {
       },
     ],
   },
-};
+}

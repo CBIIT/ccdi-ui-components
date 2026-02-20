@@ -33,7 +33,7 @@ export const Default: Story = {
         <div className="space-y-4">
           <h3 className="text-lg font-bold text-gray-900">Account Information</h3>
           <p className="text-gray-700">
-            Make changes to your account here. Click save when you're done.
+            Make changes to your account here. Click save when you&apos;re done.
           </p>
         </div>
       </TabsContent>
@@ -41,7 +41,7 @@ export const Default: Story = {
         <div className="space-y-4">
           <h3 className="text-lg font-bold text-gray-900">Password</h3>
           <p className="text-gray-700">
-            Change your password here. After saving, you'll be logged out.
+            Change your password here. After saving, you&apos;ll be logged out.
           </p>
         </div>
       </TabsContent>
@@ -97,49 +97,4 @@ export const WithIcons: Story = {
       </TabsContent>
     </Tabs>
   ),
-}
-
-// Controlled tabs with state
-export const ControlledTabs: Story = {
-  render: () => {
-    const [activeTab, setActiveTab] = React.useState("overview")
-
-    return (
-      <div className="w-[550px] space-y-4">
-        <div className="bg-blue-10 border border-blue-30 rounded p-4">
-          <p className="text-sm text-gray-900">
-            Current tab: <strong>{activeTab}</strong>
-          </p>
-        </div>
-
-        <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList>
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="details">Details</TabsTrigger>
-            <TabsTrigger value="history">History</TabsTrigger>
-          </TabsList>
-          <TabsContent value="overview">
-            <div className="space-y-3">
-              <h3 className="text-lg font-bold text-gray-900">Overview</h3>
-              <p className="text-gray-700">
-                This is a controlled tab component. The active tab state is managed externally.
-              </p>
-            </div>
-          </TabsContent>
-          <TabsContent value="details">
-            <div className="space-y-3">
-              <h3 className="text-lg font-bold text-gray-900">Details</h3>
-              <p className="text-gray-700">View detailed information about the selected item.</p>
-            </div>
-          </TabsContent>
-          <TabsContent value="history">
-            <div className="space-y-3">
-              <h3 className="text-lg font-bold text-gray-900">History</h3>
-              <p className="text-gray-700">Review the historical data and activity logs.</p>
-            </div>
-          </TabsContent>
-        </Tabs>
-      </div>
-    )
-  },
 }

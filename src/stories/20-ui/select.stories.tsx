@@ -1,4 +1,3 @@
-import React from "react"
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Select } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"

@@ -1,21 +1,6 @@
-import * as React from "react";
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Cell,
-  LabelList,
-  Rectangle,
-  XAxis,
-  YAxis,
-} from "recharts";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Bar, BarChart, CartesianGrid, Cell, LabelList, Rectangle, XAxis, YAxis } from "recharts"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import {
   ChartConfig,
   ChartContainer,
@@ -23,7 +8,7 @@ import {
   ChartTooltipContent,
   ChartLegend,
   ChartLegendContent,
-} from "@/components/charts/chart";
+} from "@/components/charts/chart"
 
 const meta = {
   title: "Charts/Bar Chart",
@@ -38,12 +23,12 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-} satisfies Meta;
+} satisfies Meta
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
-BarChart.displayName = "BarChart";
+BarChart.displayName = "BarChart"
 
 // Default bar chart
 export const Default: Story = {
@@ -51,9 +36,7 @@ export const Default: Story = {
     <Card className="max-w-xl">
       <CardHeader>
         <h2 className="font-bold font-merriweather text-lg">Bar Chart</h2>
-        <p className="text-sm text-muted-foreground">
-          A simple bar chart example
-        </p>
+        <p className="text-sm text-muted-foreground">A simple bar chart example</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -86,10 +69,7 @@ export const Default: Story = {
               axisLine={false}
               tickFormatter={(value) => value.slice(0, 3)}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
           </BarChart>
         </ChartContainer>
@@ -108,19 +88,15 @@ export const Default: Story = {
       },
     },
   },
-};
+}
 
 // Horizontal bar chart
 export const Horizontal: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Bar Chart - Horizontal
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          Comparing desktop visitors over 6 months
-        </p>
+        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Horizontal</h2>
+        <p className="text-sm text-muted-foreground">Comparing desktop visitors over 6 months</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -158,10 +134,7 @@ export const Horizontal: Story = {
               tickFormatter={(value) => value.slice(0, 3)}
             />
             <XAxis type="number" hide />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
           </BarChart>
         </ChartContainer>
@@ -181,19 +154,15 @@ export const Horizontal: Story = {
       },
     },
   },
-};
+}
 
 // Multi-series bar chart
 export const Multiple: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Bar Chart - Multiple
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          Comparing desktop and mobile visitors
-        </p>
+        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Multiple</h2>
+        <p className="text-sm text-muted-foreground">Comparing desktop and mobile visitors</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -251,16 +220,14 @@ export const Multiple: Story = {
       },
     },
   },
-};
+}
 
 // Multi-series bar chart
 export const Stacked: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Bar Chart - Stacked
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Stacked</h2>
         <p className="text-sm text-muted-foreground">
           Stacked bar chart comparing desktop and mobile visitors
         </p>
@@ -302,18 +269,8 @@ export const Stacked: Story = {
             />
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
             <ChartLegend content={<ChartLegendContent />} />
-            <Bar
-              dataKey="desktop"
-              stackId="a"
-              fill="var(--color-desktop)"
-              radius={[0, 0, 4, 4]}
-            />
-            <Bar
-              dataKey="mobile"
-              stackId="a"
-              fill="var(--color-mobile)"
-              radius={[4, 4, 0, 0]}
-            />
+            <Bar dataKey="desktop" stackId="a" fill="var(--color-desktop)" radius={[0, 0, 4, 4]} />
+            <Bar dataKey="mobile" stackId="a" fill="var(--color-mobile)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ChartContainer>
       </CardContent>
@@ -331,19 +288,15 @@ export const Stacked: Story = {
       },
     },
   },
-};
+}
 
 // Bar chart with labels
 export const Labels: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Bar Chart - Labels
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          A simple bar chart example with labels
-        </p>
+        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Labels</h2>
+        <p className="text-sm text-muted-foreground">A simple bar chart example with labels</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -376,17 +329,9 @@ export const Labels: Story = {
               axisLine={false}
               tickFormatter={(value) => value.slice(0, 3)}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4}>
-              <LabelList
-                position="top"
-                offset={8}
-                fontSize={12}
-                fill="var(--color-gray-90)"
-              />
+              <LabelList position="top" offset={8} fontSize={12} fill="var(--color-gray-90)" />
             </Bar>
           </BarChart>
         </ChartContainer>
@@ -401,21 +346,18 @@ export const Labels: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "A basic bar chart showing desktop visitors over 6 months with labels on each bar.",
+        story: "A basic bar chart showing desktop visitors over 6 months with labels on each bar.",
       },
     },
   },
-};
+}
 
 // Horizontal bar chart
 export const CustomLabels: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Bar Chart - Custom Labels
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Custom Labels</h2>
         <p className="text-sm text-muted-foreground">
           A basic bar chart example with custom labels
         </p>
@@ -460,10 +402,7 @@ export const CustomLabels: Story = {
               hide
             />
             <XAxis type="number" hide />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4}>
               <LabelList
                 dataKey="month"
@@ -498,19 +437,15 @@ export const CustomLabels: Story = {
       },
     },
   },
-};
+}
 
 // Mixed bar chart with different colors
 export const Mixed: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Bar Chart - Mixed
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          A mixed bar chart with different colors
-        </p>
+        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Mixed</h2>
+        <p className="text-sm text-muted-foreground">A mixed bar chart with different colors</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -569,10 +504,7 @@ export const Mixed: Story = {
               axisLine={false}
             />
             <XAxis dataKey="visitors" type="number" hide />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Bar dataKey="visitors" radius={4} />
           </BarChart>
         </ChartContainer>
@@ -592,7 +524,7 @@ export const Mixed: Story = {
       },
     },
   },
-};
+}
 
 const chartBrowserConfig = {
   visitors: {
@@ -618,7 +550,7 @@ const chartBrowserConfig = {
     label: "Other",
     color: "var(--color-gray-50)",
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 const chartBrowserData = [
   { browser: "chrome", visitors: 187, fill: "var(--color-chrome)" },
@@ -626,16 +558,14 @@ const chartBrowserData = [
   { browser: "firefox", visitors: 275, fill: "var(--color-firefox)" },
   { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
   { browser: "other", visitors: 90, fill: "var(--color-other)" },
-];
+]
 
 // Bar chart with custom active bar
 export const CustomActiveBars: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Bar Chart - Custom Active Bars
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Custom Active Bars</h2>
         <p className="text-sm text-muted-foreground">
           A mixed bar chart with different colors and custom active bar
         </p>
@@ -657,14 +587,10 @@ export const CustomActiveBars: Story = {
               tickMargin={10}
               axisLine={false}
               tickFormatter={(value) =>
-                chartBrowserConfig[value as keyof typeof chartBrowserConfig]
-                  ?.label
+                chartBrowserConfig[value as keyof typeof chartBrowserConfig]?.label
               }
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Bar
               dataKey="visitors"
               strokeWidth={2}
@@ -679,7 +605,7 @@ export const CustomActiveBars: Story = {
                     strokeDasharray={4}
                     strokeDashoffset={4}
                   />
-                );
+                )
               }}
             />
           </BarChart>
@@ -822,16 +748,14 @@ export default ChartBarActive;`.trim(),
       },
     },
   },
-};
+}
 
 // Negative bar chart
 export const Negative: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Bar Chart - Negative
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Negative</h2>
         <p className="text-sm text-muted-foreground">January - June 2024</p>
       </CardHeader>
       <CardContent>
@@ -869,12 +793,7 @@ export const Negative: Story = {
               content={<ChartTooltipContent hideLabel hideIndicator />}
             />
             <Bar dataKey="visitors">
-              <LabelList
-                position="top"
-                dataKey="month"
-                fillOpacity={1}
-                fontSize={12}
-              />
+              <LabelList position="top" dataKey="month" fillOpacity={1} fontSize={12} />
               {[
                 { month: "January", visitors: 186 },
                 { month: "February", visitors: 205 },
@@ -886,11 +805,7 @@ export const Negative: Story = {
                 <Cell
                   key={item.month}
                   radius={4}
-                  fill={
-                    item.visitors > 0
-                      ? "var(--color-blue-60v)"
-                      : "var(--color-cyan-30v)"
-                  }
+                  fill={item.visitors > 0 ? "var(--color-blue-60v)" : "var(--color-cyan-30v)"}
                 />
               ))}
             </Bar>
@@ -912,4 +827,4 @@ export const Negative: Story = {
       },
     },
   },
-};
+}

@@ -1,12 +1,6 @@
-import * as React from "react";
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import {
   ChartConfig,
   ChartContainer,
@@ -14,7 +8,7 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/charts/chart";
+} from "@/components/charts/chart"
 
 const meta = {
   title: "Charts/Radar Chart",
@@ -29,12 +23,12 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-} satisfies Meta;
+} satisfies Meta
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
-RadarChart.displayName = "RadarChart";
+RadarChart.displayName = "RadarChart"
 
 // Default radar chart
 export const Default: Story = {
@@ -73,11 +67,7 @@ export const Default: Story = {
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
             <PolarAngleAxis dataKey="month" />
             <PolarGrid />
-            <Radar
-              dataKey="desktop"
-              fill="var(--color-desktop)"
-              fillOpacity={0.6}
-            />
+            <Radar dataKey="desktop" fill="var(--color-desktop)" fillOpacity={0.6} />
           </RadarChart>
         </ChartContainer>
       </CardContent>
@@ -91,21 +81,18 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "Radar Chart — performance metrics across multiple categories (filled area).",
+        story: "Radar Chart — performance metrics across multiple categories (filled area).",
       },
     },
   },
-};
+}
 
 // Radar chart with dots
 export const ChartRadarDots: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Radar Chart - Dots
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Dots</h2>
         <p className="text-sm text-muted-foreground">
           Performance metrics with visible data points
         </p>
@@ -163,19 +150,15 @@ export const ChartRadarDots: Story = {
       },
     },
   },
-};
+}
 
 // Radar chart with lines only
 export const ChartRadarLinesOnly: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Radar Chart - Lines Only
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          Performance metrics with outline only
-        </p>
+        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Lines Only</h2>
+        <p className="text-sm text-muted-foreground">Performance metrics with outline only</p>
       </CardHeader>
       <CardContent className="pb-0">
         <ChartContainer
@@ -204,10 +187,7 @@ export const ChartRadarLinesOnly: Story = {
               { month: "June", desktop: 174, mobile: 204 },
             ]}
           >
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent indicator="line" />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
             <PolarAngleAxis dataKey="month" />
             <PolarGrid radialLines={false} />
             <Radar
@@ -242,19 +222,15 @@ export const ChartRadarLinesOnly: Story = {
       },
     },
   },
-};
+}
 
 // Radar chart - Multiple
 export const ChartRadarMultiple: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Radar Chart - Multiple
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          Performance metrics with outline only
-        </p>
+        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Multiple</h2>
+        <p className="text-sm text-muted-foreground">Performance metrics with outline only</p>
       </CardHeader>
       <CardContent className="pb-0">
         <ChartContainer
@@ -283,22 +259,11 @@ export const ChartRadarMultiple: Story = {
               { month: "June", desktop: 214, mobile: 140 },
             ]}
           >
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent indicator="line" />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
             <PolarAngleAxis dataKey="month" />
             <PolarGrid />
-            <Radar
-              dataKey="desktop"
-              fill="var(--color-desktop)"
-              fillOpacity={0.6}
-            />
-            <Radar
-              dataKey="mobile"
-              fill="var(--color-mobile)"
-              fillOpacity={0.9}
-            />
+            <Radar dataKey="desktop" fill="var(--color-desktop)" fillOpacity={0.6} />
+            <Radar dataKey="mobile" fill="var(--color-mobile)" fillOpacity={0.9} />
           </RadarChart>
         </ChartContainer>
       </CardContent>
@@ -317,19 +282,15 @@ export const ChartRadarMultiple: Story = {
       },
     },
   },
-};
+}
 
 // Radar chart - Multiple
 export const ChartRadarLegend: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Radar Chart - Legend
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          Performance metrics with outline only
-        </p>
+        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Legend</h2>
+        <p className="text-sm text-muted-foreground">Performance metrics with outline only</p>
       </CardHeader>
       <CardContent className="pb-0">
         <ChartContainer
@@ -358,23 +319,12 @@ export const ChartRadarLegend: Story = {
               { month: "June", desktop: 214, mobile: 140 },
             ]}
           >
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent indicator="line" />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
             <ChartLegend content={<ChartLegendContent />} />
             <PolarAngleAxis dataKey="month" />
             <PolarGrid />
-            <Radar
-              dataKey="desktop"
-              fill="var(--color-desktop)"
-              fillOpacity={0.6}
-            />
-            <Radar
-              dataKey="mobile"
-              fill="var(--color-mobile)"
-              fillOpacity={0.9}
-            />
+            <Radar dataKey="desktop" fill="var(--color-desktop)" fillOpacity={0.6} />
+            <Radar dataKey="mobile" fill="var(--color-mobile)" fillOpacity={0.9} />
           </RadarChart>
         </ChartContainer>
       </CardContent>
@@ -393,16 +343,14 @@ export const ChartRadarLegend: Story = {
       },
     },
   },
-};
+}
 
 // Default radar chart
 export const ChartRadarGridCustom: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Radar Chart - Custom Grid
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Custom Grid</h2>
         <p className="text-sm text-muted-foreground">
           Performance metrics across multiple categories
         </p>
@@ -430,21 +378,10 @@ export const ChartRadarGridCustom: Story = {
               { month: "June", desktop: 214 },
             ]}
           >
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <PolarAngleAxis dataKey="month" />
-            <PolarGrid
-              radialLines={false}
-              polarRadius={[130]}
-              strokeWidth={1}
-            />
-            <Radar
-              dataKey="desktop"
-              fill="var(--color-desktop)"
-              fillOpacity={0.6}
-            />
+            <PolarGrid radialLines={false} polarRadius={[130]} strokeWidth={1} />
+            <Radar dataKey="desktop" fill="var(--color-desktop)" fillOpacity={0.6} />
           </RadarChart>
         </ChartContainer>
       </CardContent>
@@ -463,16 +400,14 @@ export const ChartRadarGridCustom: Story = {
       },
     },
   },
-};
+}
 
 // Radar chart without grid
 export const ChartRadarGridNone: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Radar Chart - Grid None
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Grid None</h2>
         <p className="text-sm text-muted-foreground">
           Performance metrics across multiple categories
         </p>
@@ -500,10 +435,7 @@ export const ChartRadarGridNone: Story = {
               { month: "June", desktop: 214 },
             ]}
           >
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <PolarAngleAxis dataKey="month" />
             <Radar
               dataKey="desktop"
@@ -532,16 +464,14 @@ export const ChartRadarGridNone: Story = {
       },
     },
   },
-};
+}
 
 // Radar chart with grid circle
 export const ChartRadarGridCircle: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Radar Chart - Grid Circle
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Grid Circle</h2>
         <p className="text-sm text-muted-foreground">
           Performance metrics across multiple categories
         </p>
@@ -569,10 +499,7 @@ export const ChartRadarGridCircle: Story = {
               { month: "June", desktop: 214 },
             ]}
           >
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <PolarGrid gridType="circle" />
             <PolarAngleAxis dataKey="month" />
             <Radar
@@ -602,7 +529,7 @@ export const ChartRadarGridCircle: Story = {
       },
     },
   },
-};
+}
 
 // Radar chart with grid circle no lines
 export const ChartRadarGridCircleNoLines: Story = {
@@ -639,10 +566,7 @@ export const ChartRadarGridCircleNoLines: Story = {
               { month: "June", desktop: 214 },
             ]}
           >
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <PolarGrid gridType="circle" radialLines={false} />
             <PolarAngleAxis dataKey="month" />
             <Radar
@@ -672,7 +596,7 @@ export const ChartRadarGridCircleNoLines: Story = {
       },
     },
   },
-};
+}
 
 // Radar chart with grid circle no lines
 export const ChartRadarGridCircleFill: Story = {
@@ -710,16 +634,9 @@ export const ChartRadarGridCircleFill: Story = {
             ]}
           >
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-            <PolarGrid
-              className="fill-(--color-desktop) opacity-10"
-              gridType="circle"
-            />
+            <PolarGrid className="fill-(--color-desktop) opacity-10" gridType="circle" />
             <PolarAngleAxis dataKey="month" />
-            <Radar
-              dataKey="desktop"
-              fill="var(--color-desktop)"
-              fillOpacity={0.6}
-            />
+            <Radar dataKey="desktop" fill="var(--color-desktop)" fillOpacity={0.6} />
           </RadarChart>
         </ChartContainer>
       </CardContent>
@@ -738,7 +655,7 @@ export const ChartRadarGridCircleFill: Story = {
       },
     },
   },
-};
+}
 
 // Radar chart with grid circle no lines
 export const ChartRadarGridFill: Story = {
@@ -775,17 +692,10 @@ export const ChartRadarGridFill: Story = {
               { month: "June", desktop: 214 },
             ]}
           >
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <PolarGrid className="fill-(--color-desktop) opacity-10" />
             <PolarAngleAxis dataKey="month" />
-            <Radar
-              dataKey="desktop"
-              fill="var(--color-desktop)"
-              fillOpacity={0.6}
-            />
+            <Radar dataKey="desktop" fill="var(--color-desktop)" fillOpacity={0.6} />
           </RadarChart>
         </ChartContainer>
       </CardContent>
@@ -804,4 +714,4 @@ export const ChartRadarGridFill: Story = {
       },
     },
   },
-};
+}

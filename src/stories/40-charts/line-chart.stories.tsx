@@ -1,18 +1,12 @@
-import * as React from "react";
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CartesianGrid, LabelList, Line, LineChart, XAxis } from "recharts";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { CartesianGrid, LabelList, Line, LineChart, XAxis } from "recharts"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/charts/chart";
+} from "@/components/charts/chart"
 
 const meta = {
   title: "Charts/Line Chart",
@@ -27,15 +21,15 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-} satisfies Meta;
+} satisfies Meta
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
-LineChart.displayName = "LineChart";
+LineChart.displayName = "LineChart"
 
 // Format month abbreviation
-const formatMonthTick = (value: string) => value.slice(0, 3);
+const formatMonthTick = (value: string) => value.slice(0, 3)
 
 // Default line chart with smooth curve
 export const Default: Story = {
@@ -43,9 +37,7 @@ export const Default: Story = {
     <Card className="max-w-xl">
       <CardHeader>
         <h2 className="font-bold font-merriweather text-lg">Line Chart</h2>
-        <p className="text-sm text-muted-foreground">
-          Monthly visitor trend with smooth curve
-        </p>
+        <p className="text-sm text-muted-foreground">Monthly visitor trend with smooth curve</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -79,10 +71,7 @@ export const Default: Story = {
               tickMargin={8}
               tickFormatter={formatMonthTick}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Line
               dataKey="desktop"
               type="natural"
@@ -108,16 +97,14 @@ export const Default: Story = {
       },
     },
   },
-};
+}
 
 // Linear line chart
 export const Linear: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Line Chart - Linear
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Line Chart - Linear</h2>
         <p className="text-sm text-muted-foreground">
           Monthly visitor trend with linear interpolation
         </p>
@@ -154,10 +141,7 @@ export const Linear: Story = {
               tickMargin={8}
               tickFormatter={formatMonthTick}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Line
               dataKey="desktop"
               type="linear"
@@ -188,16 +172,14 @@ export const Linear: Story = {
       },
     },
   },
-};
+}
 
 // Step line chart
 export const Step: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Line Chart - Step
-        </h2>
+        <h2 className="font-bold font-merriweather text-lg">Line Chart - Step</h2>
         <p className="text-sm text-muted-foreground">
           Monthly visitor trend with step interpolation
         </p>
@@ -234,10 +216,7 @@ export const Step: Story = {
               tickMargin={8}
               tickFormatter={formatMonthTick}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Line
               dataKey="desktop"
               type="step"
@@ -263,19 +242,15 @@ export const Step: Story = {
       },
     },
   },
-};
+}
 
 // Multiple line chart
 export const Multiple: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Line Chart - Multiple
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          Comparing desktop and mobile visitor trends
-        </p>
+        <h2 className="font-bold font-merriweather text-lg">Line Chart - Multiple</h2>
+        <p className="text-sm text-muted-foreground">Comparing desktop and mobile visitor trends</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -346,19 +321,15 @@ export const Multiple: Story = {
       },
     },
   },
-};
+}
 
 // Line chart with dots
 export const WithDots: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Line Chart - Dots
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          Monthly visitor trend with smooth curve
-        </p>
+        <h2 className="font-bold font-merriweather text-lg">Line Chart - Dots</h2>
+        <p className="text-sm text-muted-foreground">Monthly visitor trend with smooth curve</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -392,10 +363,7 @@ export const WithDots: Story = {
               tickMargin={8}
               tickFormatter={formatMonthTick}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Line
               dataKey="desktop"
               type="natural"
@@ -426,19 +394,15 @@ export const WithDots: Story = {
       },
     },
   },
-};
+}
 
 // Line chart with dots
 export const WithLabel: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
-          Line Chart - Label
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          Monthly visitor trend with smooth curve
-        </p>
+        <h2 className="font-bold font-merriweather text-lg">Line Chart - Label</h2>
+        <p className="text-sm text-muted-foreground">Monthly visitor trend with smooth curve</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -472,10 +436,7 @@ export const WithLabel: Story = {
               tickMargin={8}
               tickFormatter={formatMonthTick}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent indicator="line" />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
             <Line
               dataKey="desktop"
               type="natural"
@@ -508,4 +469,4 @@ export const WithLabel: Story = {
       },
     },
   },
-};
+}

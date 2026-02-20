@@ -136,7 +136,7 @@ export const IndividualItemDisabled: Story = {
 
 // Form Example
 export const FormExample: Story = {
-  render: (args) => (
+  render: () => (
     <form className="space-y-6 w-full max-w-md">
       <div className="space-y-3">
         <Label>Delivery method</Label>

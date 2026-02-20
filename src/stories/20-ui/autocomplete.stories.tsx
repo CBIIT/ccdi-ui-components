@@ -120,7 +120,7 @@ export const Default: Story = {
 
 // With search function
 export const WithAsyncSearch: Story = {
-  render: (args) => {
+  render: function Render(args) {
     const [value, setValue] = useState("")
 
     return (
@@ -208,7 +208,7 @@ export const States: Story = {
 
 // With form integration
 export const FormIntegration: Story = {
-  render: () => {
+  render: function Render() {
     const [searchValue, setSearchValue] = useState("")
     const [selectedOption, setSelectedOption] = useState<AutocompleteOption | null>(null)
 
@@ -269,7 +269,7 @@ export const FormIntegration: Story = {
 
 // Custom configuration
 export const CustomConfiguration: Story = {
-  render: () => {
+  render: function Render() {
     const [value, setValue] = useState("")
 
     return (
@@ -327,7 +327,7 @@ export const CustomConfiguration: Story = {
 
 // Loading state
 export const LoadingState: Story = {
-  render: () => {
+  render: function Render() {
     const [value, setValue] = useState("")
     const [loading, setLoading] = useState(false)
 

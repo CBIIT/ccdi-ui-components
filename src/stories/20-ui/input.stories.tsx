@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 
 const meta = {
   title: "UI/Input",
@@ -139,7 +138,7 @@ export const WithError: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Textarea with error state indicated by red border and error message.",
+        story: "Input component with error state indicated by red border and error message.",
       },
     },
   },

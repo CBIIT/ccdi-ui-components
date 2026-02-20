@@ -1,13 +1,8 @@
-import * as React from "react";
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Pie, PieChart, Cell, Legend, LabelList, Sector, Label } from "recharts";
-import type { PieSectorDataItem } from "recharts/types/polar/Pie";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { useState } from "react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Pie, PieChart, LabelList, Sector, Label } from "recharts"
+import type { PieSectorDataItem } from "recharts/types/polar/Pie"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import {
   ChartConfig,
   ChartContainer,
@@ -15,7 +10,7 @@ import {
   ChartTooltipContent,
   ChartLegend,
   ChartLegendContent,
-} from "@/components/charts/chart";
+} from "@/components/charts/chart"
 
 const meta = {
   title: "Charts/Pie Chart",
@@ -30,12 +25,12 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-} satisfies Meta;
+} satisfies Meta
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
-PieChart.displayName = "PieChart";
+PieChart.displayName = "PieChart"
 
 // Default pie chart
 export const Default: Story = {
@@ -43,9 +38,7 @@ export const Default: Story = {
     <Card className="max-w-xl">
       <CardHeader>
         <h2 className="font-bold font-merriweather text-lg">Pie Chart</h2>
-        <p className="text-sm text-muted-foreground">
-          Browser usage distribution
-        </p>
+        <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -75,10 +68,7 @@ export const Default: Story = {
           }
         >
           <PieChart {...args}>
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Pie
               data={[
                 {
@@ -120,7 +110,7 @@ export const Default: Story = {
       },
     },
   },
-};
+}
 
 // with labels
 export const WithLabels: Story = {
@@ -128,9 +118,7 @@ export const WithLabels: Story = {
     <Card className="max-w-xl">
       <CardHeader>
         <h2 className="font-bold font-merriweather text-lg">Pie Chart</h2>
-        <p className="text-sm text-muted-foreground">
-          Browser usage distribution
-        </p>
+        <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -164,10 +152,7 @@ export const WithLabels: Story = {
           className="[&_.recharts-pie-label-text]:fill-gray-900"
         >
           <PieChart {...args}>
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Pie
               data={[
                 {
@@ -210,7 +195,7 @@ export const WithLabels: Story = {
       },
     },
   },
-};
+}
 
 // without lines
 export const CustomLabel: Story = {
@@ -218,9 +203,7 @@ export const CustomLabel: Story = {
     <Card className="max-w-xl">
       <CardHeader>
         <h2 className="font-bold font-merriweather text-lg">Pie Chart - Custom Label</h2>
-        <p className="text-sm text-muted-foreground">
-          Browser usage distribution
-        </p>
+        <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -301,7 +284,7 @@ export const CustomLabel: Story = {
       },
     },
   },
-};
+}
 
 // with LabelList
 export const WithLabelList: Story = {
@@ -309,9 +292,7 @@ export const WithLabelList: Story = {
     <Card className="max-w-xl">
       <CardHeader>
         <h2 className="font-bold font-merriweather text-lg">Pie Chart - Label List</h2>
-        <p className="text-sm text-muted-foreground">
-          Browser usage distribution
-        </p>
+        <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -371,12 +352,7 @@ export const WithLabelList: Story = {
               dataKey="visitors"
               innerRadius={0}
             >
-              <LabelList
-                dataKey="browser"
-                stroke="none"
-                fontSize={12}
-                fill="var(--color-white)"
-              />
+              <LabelList dataKey="browser" stroke="none" fontSize={12} fill="var(--color-white)" />
             </Pie>
           </PieChart>
         </ChartContainer>
@@ -395,8 +371,7 @@ export const WithLabelList: Story = {
       },
     },
   },
-};
-
+}
 
 // Pie chart with legend
 export const WithLegend: Story = {
@@ -404,9 +379,7 @@ export const WithLegend: Story = {
     <Card className="max-w-xl">
       <CardHeader>
         <h2 className="font-bold font-merriweather text-lg">Pie Chart - Legend</h2>
-        <p className="text-sm text-muted-foreground">
-          Browser usage distribution
-        </p>
+        <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -478,7 +451,7 @@ export const WithLegend: Story = {
       },
     },
   },
-};
+}
 
 // Donut chart
 export const Donut: Story = {
@@ -486,9 +459,7 @@ export const Donut: Story = {
     <Card className="max-w-xl">
       <CardHeader>
         <h2 className="font-bold font-merriweather text-lg">Pie Chart - Donut</h2>
-        <p className="text-sm text-muted-foreground">
-          Browser usage distribution
-        </p>
+        <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -547,13 +518,11 @@ export const Donut: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "A donut chart (pie chart with inner radius) showing budget allocation.",
+        story: "A donut chart (pie chart with inner radius) showing budget allocation.",
       },
     },
   },
-};
-
+}
 
 // Donut chart with active segment
 export const DonutActive: Story = {
@@ -561,9 +530,7 @@ export const DonutActive: Story = {
     <Card className="max-w-xl">
       <CardHeader>
         <h2 className="font-bold font-merriweather text-lg">Pie Chart - Donut Active</h2>
-        <p className="text-sm text-muted-foreground">
-          Browser usage distribution
-        </p>
+        <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -608,7 +575,7 @@ export const DonutActive: Story = {
               dataKey="visitors"
               nameKey="browser"
               innerRadius={70}
-              activeShape={<Sector outerRadius={130}/>}
+              activeShape={<Sector outerRadius={130} />}
             />
           </PieChart>
         </ChartContainer>
@@ -623,67 +590,59 @@ export const DonutActive: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          "A pie chart with active segment showing browser usage distribution.",
+        story: "A pie chart with active segment showing browser usage distribution.",
       },
     },
   },
-};
+}
 
 // Interactive donut chart
 export const DonutInteractive: Story = {
-  render: (args) => {
+  render: function Render(args) {
     const chartBrowserData = [
       { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
       { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
       { browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
       { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
       { browser: "other", visitors: 90, fill: "var(--color-other)" },
-    ];
+    ]
 
     const chartBrowserConfig = {
-        visitors: {
-          label: "Visitors",
-        },
-        chrome: {
-          label: "Chrome",
-          color: "var(--color-blue-60v)",
-        },
-        safari: {
-          label: "Safari",
-          color: "var(--color-cyan-30v)",
-        },
-        firefox: {
-          label: "Firefox",
-          color: "var(--color-orange-40v)",
-        },
-        edge: {
-          label: "Edge",
-          color: "var(--color-green-cool-40v)",
-        },
-        other: {
-          label: "Other",
-          color: "var(--color-gray-30)",
-        },
-    } satisfies ChartConfig;
+      visitors: {
+        label: "Visitors",
+      },
+      chrome: {
+        label: "Chrome",
+        color: "var(--color-blue-60v)",
+      },
+      safari: {
+        label: "Safari",
+        color: "var(--color-cyan-30v)",
+      },
+      firefox: {
+        label: "Firefox",
+        color: "var(--color-orange-40v)",
+      },
+      edge: {
+        label: "Edge",
+        color: "var(--color-green-cool-40v)",
+      },
+      other: {
+        label: "Other",
+        color: "var(--color-gray-30)",
+      },
+    } satisfies ChartConfig
 
-    const id = "pie-interactive";
-    const [activeIndex, setActiveIndex] = React.useState<number | undefined>(undefined);
-    const total = React.useMemo(
-      () => chartBrowserData.reduce((sum, item) => sum + item.visitors, 0),
-      []
-    );
+    const id = "pie-interactive"
+    const [activeIndex, setActiveIndex] = useState<number | undefined>(undefined)
+    const total = chartBrowserData.reduce((sum, item) => sum + item.visitors, 0)
 
     return (
       <Card data-chart={id} className="flex flex-col max-w-xl">
         <CardHeader className="flex-row items-start space-y-0 pb-0">
           <div className="grid gap-1">
-            <h2 className="font-bold font-merriweather text-lg">
-              Pie Chart - Interactive
-            </h2>
-            <p className="text-sm text-muted-foreground">
-                Browser usage distribution
-            </p>
+            <h2 className="font-bold font-merriweather text-lg">Pie Chart - Interactive</h2>
+            <p className="text-sm text-muted-foreground">Browser usage distribution</p>
           </div>
         </CardHeader>
         <CardContent className="flex flex-1 justify-center pb-0">
@@ -702,13 +661,14 @@ export const DonutInteractive: Story = {
                 activeIndex={activeIndex}
                 onMouseEnter={(_, index) => setActiveIndex(index)}
                 onMouseLeave={() => setActiveIndex(undefined)}
-                activeShape={({
-                  outerRadius = 0,
-                  ...props
-                }: PieSectorDataItem) => (
+                activeShape={({ outerRadius = 0, ...props }: PieSectorDataItem) => (
                   <g>
                     <Sector {...props} outerRadius={outerRadius} />
-                    <Sector {...props} outerRadius={outerRadius + 8} innerRadius={outerRadius + 5} />
+                    <Sector
+                      {...props}
+                      outerRadius={outerRadius + 8}
+                      innerRadius={outerRadius + 5}
+                    />
                   </g>
                 )}
               >
@@ -716,9 +676,7 @@ export const DonutInteractive: Story = {
                   content={({ viewBox }) => {
                     if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                       const displayValue =
-                        activeIndex !== undefined
-                          ? chartBrowserData[activeIndex].visitors
-                          : total;
+                        activeIndex !== undefined ? chartBrowserData[activeIndex].visitors : total
                       return (
                         <text
                           x={viewBox.cx}
@@ -741,9 +699,9 @@ export const DonutInteractive: Story = {
                             Visitors
                           </tspan>
                         </text>
-                      );
+                      )
                     }
-                    return null;
+                    return null
                   }}
                 />
               </Pie>
@@ -756,7 +714,7 @@ export const DonutInteractive: Story = {
           </div>
         </CardFooter>
       </Card>
-    );
+    )
   },
   parameters: {
     docs: {
@@ -766,4 +724,4 @@ export const DonutInteractive: Story = {
       },
     },
   },
-};
+}

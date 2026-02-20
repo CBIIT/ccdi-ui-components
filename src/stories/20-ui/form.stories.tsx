@@ -18,6 +18,7 @@ import { Label } from "@/components/ui/label"
 const meta = {
   title: "UI/Form",
   component: Form,
+  args: {} as unknown as React.ComponentProps<typeof Form>,
   parameters: {
     layout: "centered",
     docs: {
@@ -35,8 +36,7 @@ type Story = StoryObj<typeof meta>
 
 // Simple Form
 export const SimpleForm: Story = {
-  args: {} as any,
-  render: () => {
+  render: function Render() {
     type FormValues = {
       username: string
     }
@@ -85,8 +85,7 @@ export const SimpleForm: Story = {
 
 // Contact Form
 export const ContactForm: Story = {
-  args: {} as any,
-  render: () => {
+  render: function Render() {
     type FormValues = {
       name: string
       email: string
@@ -175,8 +174,7 @@ export const ContactForm: Story = {
 
 // Registration Form
 export const RegistrationForm: Story = {
-  args: {} as any,
-  render: () => {
+  render: function Render() {
     type FormValues = {
       firstName: string
       lastName: string
@@ -240,7 +238,7 @@ export const RegistrationForm: Story = {
                 <FormControl>
                   <Input type="email" placeholder="john.doe@example.com" {...field} />
                 </FormControl>
-                <FormDescription>We'll never share your email with anyone else.</FormDescription>
+                <FormDescription>We&apos;ll never share your email with anyone else.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -283,8 +281,7 @@ export const RegistrationForm: Story = {
 
 // Form with Validation
 export const WithValidation: Story = {
-  args: {} as any,
-  render: () => {
+  render: function Render() {
     type FormValues = {
       username: string
       password: string
@@ -366,8 +363,7 @@ export const WithValidation: Story = {
 
 // Checkbox Form
 export const CheckboxForm: Story = {
-  args: {} as any,
-  render: () => {
+  render: function Render() {
     type FormValues = {
       terms: boolean
     }
@@ -420,8 +416,7 @@ export const CheckboxForm: Story = {
 
 // Radio Group Form
 export const RadioGroupForm: Story = {
-  args: {} as any,
-  render: () => {
+  render: function Render() {
     type FormValues = {
       favoriteColor: string
     }

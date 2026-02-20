@@ -113,7 +113,7 @@ export const CustomTargetAndText: Story = {
           helping users navigate to specific sections that matter most to them.
         </p>
         <p>
-          Whether you're building a government website, a complex web application, or a
+          Whether you&apos;re building a government website, a complex web application, or a
           content-heavy site, skip navigation links are an essential accessibility feature that
           benefits all users.
         </p>
