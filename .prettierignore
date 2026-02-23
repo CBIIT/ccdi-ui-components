@@ -1,5 +1,21 @@
-node_modules
-storybook-static
-registry
-coverage
-dist
+# Dependencies
+node_modules/
+
+# Build and generated artifacts
+storybook-static/
+registry/
+coverage/
+dist/
+
+# Compiled/minified files
+*.min.js
+*.mjs
+
+# Documentation
+*.md
+*.mdx
+
+# Project metadata and automation
+.github/
+.agents/
+

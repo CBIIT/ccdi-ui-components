@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Breadcrumb } from "@/components/ui/breadcrumb"
 
 const meta = {

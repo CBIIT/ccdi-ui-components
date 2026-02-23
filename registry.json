@@ -34,7 +34,7 @@
     },
     {
       "name": "alert",
-      "type": "registry:component", 
+      "type": "registry:component",
       "title": "Alert",
       "description": "USWDS-compliant alert component with variants for default, success, warning, danger, info, and emergency states. Includes proper ARIA roles and icon integration.",
       "files": [
@@ -44,12 +44,15 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
     },
     {
       "name": "icon",
       "type": "registry:component",
-      "title": "Icon", 
+      "title": "Icon",
       "description": "USWDS-compliant icon component with Material Icons integration and proper accessibility features.",
       "files": [
         {
@@ -67,7 +70,7 @@
       "description": "USWDS-compliant badge component for status indicators and labels with proper color contrast and accessibility.",
       "files": [
         {
-          "path": "src/components/ui/badge.tsx", 
+          "path": "src/components/ui/badge.tsx",
           "type": "registry:component"
         }
       ],
@@ -86,7 +89,10 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
     },
     {
       "name": "breadcrumb",
@@ -100,7 +106,10 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
     },
     {
       "name": "input",
@@ -118,7 +127,7 @@
     },
     {
       "name": "label",
-      "type": "registry:component", 
+      "type": "registry:component",
       "title": "Label",
       "description": "USWDS-compliant label component with proper form association and accessibility features.",
       "files": [
@@ -170,7 +179,10 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
     },
     {
       "name": "accordion",
@@ -184,7 +196,10 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
     },
     {
       "name": "card",
@@ -212,7 +227,10 @@
         }
       ],
       "dependencies": ["@radix-ui/react-dialog", "clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
     },
     {
       "name": "form",
@@ -240,7 +258,10 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
     },
     {
       "name": "radio-group",
@@ -268,7 +289,10 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
     },
     {
       "name": "autocomplete",
@@ -282,7 +306,10 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
     },
     {
       "name": "chart",
@@ -338,7 +365,10 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
     },
     {
       "name": "dropdown-menu",
@@ -352,7 +382,10 @@
         }
       ],
       "dependencies": ["class-variance-authority", "clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
     },
     {
       "name": "progress",
@@ -450,7 +483,11 @@
         }
       ],
       "dependencies": ["clsx"],
-      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json", "https://cbiit.github.io/ccdi-ui-components/r/button.json", "https://cbiit.github.io/ccdi-ui-components/r/search.json"]
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/button.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/search.json"
+      ]
     },
     {
       "name": "footer",
@@ -468,7 +505,7 @@
     },
     {
       "name": "in-page-navigation",
-      "type": "registry:block", 
+      "type": "registry:block",
       "title": "In-Page Navigation",
       "description": "USWDS-compliant in-page navigation component for section jumping and content organization.",
       "files": [
@@ -504,7 +541,6 @@
           "path": "src/styles/fonts.css",
           "type": "registry:style",
           "target": "~/src/app/fonts.css"
-
         },
         {
           "path": "public/fonts/public-sans/public-sans.woff2",

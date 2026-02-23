@@ -238,7 +238,9 @@ export const RegistrationForm: Story = {
                 <FormControl>
                   <Input type="email" placeholder="john.doe@example.com" {...field} />
                 </FormControl>
-                <FormDescription>We&apos;ll never share your email with anyone else.</FormDescription>
+                <FormDescription>
+                  We&apos;ll never share your email with anyone else.
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}

@@ -389,9 +389,11 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
                 <div className="px-3 py-2 text-gray-70 text-sm">{minPlaceholderMsg}</div>
               )}
 
-            {!combinedLoading && suggestions.length === 0 && internalValue.length >= minCharCount && (
-              <div className="px-3 py-2 text-gray-70 text-sm">No suggestions found</div>
-            )}
+            {!combinedLoading &&
+              suggestions.length === 0 &&
+              internalValue.length >= minCharCount && (
+                <div className="px-3 py-2 text-gray-70 text-sm">No suggestions found</div>
+              )}
 
             {!combinedLoading &&
               suggestions.map((option, index) => (
