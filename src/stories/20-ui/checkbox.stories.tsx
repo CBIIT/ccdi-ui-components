@@ -1,28 +1,28 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Label } from '@/components/ui/label'
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Label } from "@/components/ui/label"
 
 const meta = {
-  title: 'UI/Checkbox',
+  title: "UI/Checkbox",
   component: Checkbox,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'A checkbox component following USWDS design patterns with proper focus states and accessibility.',
+        component:
+          "A checkbox component following USWDS design patterns with proper focus states and accessibility.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     disabled: {
-      control: 'boolean',
-      description: 'Whether the checkbox is disabled',
+      control: "boolean",
+      description: "Whether the checkbox is disabled",
     },
     checked: {
-      control: 'boolean',
-      description: 'Whether the checkbox is checked',
+      control: "boolean",
+      description: "Whether the checkbox is checked",
     },
   },
 } satisfies Meta<typeof Checkbox>
@@ -36,14 +36,14 @@ export const Default: Story = {
     <div className="flex items-center space-x-2">
       <Checkbox id="default" {...args} />
       <Label htmlFor="default" className="cursor-pointer">
-        Checkbox 
+        Checkbox
       </Label>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Checkbox with an associated label for better usability.',
+        story: "Checkbox with an associated label for better usability.",
       },
     },
   },
@@ -65,7 +65,7 @@ export const Checked: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Checkbox in checked state.',
+        story: "Checkbox in checked state.",
       },
     },
   },
@@ -87,7 +87,7 @@ export const Disabled: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Checkbox in disabled state.',
+        story: "Checkbox in disabled state.",
       },
     },
   },
@@ -110,7 +110,7 @@ export const DisabledChecked: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Checkbox that is both disabled and checked.',
+        story: "Checkbox that is both disabled and checked.",
       },
     },
   },
@@ -143,7 +143,7 @@ export const MultipleCheckboxes: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Multiple checkboxes in a group.',
+        story: "Multiple checkboxes in a group.",
       },
     },
   },

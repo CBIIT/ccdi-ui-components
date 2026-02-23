@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
-import { Icon } from "./icon";
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { cn } from "@/lib/utils"
+import { Icon } from "./icon"
 
 const searchInputVariants = cva(
   cn(
@@ -14,7 +14,7 @@ const searchInputVariants = cva(
     // Focus states
     "focus:outline focus:outline-offset-0 focus:outline-4 focus:outline-blue-40",
     // Invalid states
-    "data-[invalid]:ring-4 data-[invalid]:ring-red-60 data-[invalid]:border-transparent data-[invalid]:outline-offset-4"
+    "data-[invalid]:ring-4 data-[invalid]:ring-red-60 data-[invalid]:border-transparent data-[invalid]:outline-offset-4",
   ),
   {
     variants: {
@@ -26,8 +26,8 @@ const searchInputVariants = cva(
     defaultVariants: {
       size: "default",
     },
-  }
-);
+  },
+)
 
 const searchButtonVariants = cva(
   "rounded-r font-open-sans font-semibold leading-none flex items-center justify-center text-white bg-cerulean-50 hover:bg-cerulean-70 active:bg-cerulean-80 focus:outline focus:outline-4 focus:outline-offset-4 focus:outline-blue-40",
@@ -46,18 +46,19 @@ const searchButtonVariants = cva(
       size: "default",
       iconOnly: false,
     },
-  }
-);
+  },
+)
 
 export interface SearchProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size">,
+  extends
+    Omit<React.InputHTMLAttributes<HTMLInputElement>, "size">,
     VariantProps<typeof searchInputVariants> {
-  label?: string;
-  buttonText?: string;
-  onSearch?: (value: string) => void;
-  iconOnly?: boolean;
-  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
-  buttonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  label?: string
+  buttonText?: string
+  onSearch?: (value: string) => void
+  iconOnly?: boolean
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>
+  buttonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>
 }
 
 const Search = React.forwardRef<HTMLInputElement, SearchProps>(
@@ -73,33 +74,33 @@ const Search = React.forwardRef<HTMLInputElement, SearchProps>(
       buttonProps,
       ...props
     },
-    ref
+    ref,
   ) => {
-    const [searchValue, setSearchValue] = React.useState("");
+    const [searchValue, setSearchValue] = React.useState("")
 
     const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
-      onSearch?.(searchValue);
-    };
+      e.preventDefault()
+      onSearch?.(searchValue)
+    }
 
     const handleButtonClick = () => {
-      onSearch?.(searchValue);
-    };
+      onSearch?.(searchValue)
+    }
 
     // Extract className from inputProps and buttonProps, then merge with variants
-    const { className: inputClassName, ...restInputProps } = inputProps || {};
-    const { className: buttonClassName, ...restButtonProps } = buttonProps || {};
+    const { className: inputClassName, ...restInputProps } = inputProps || {}
+    const { className: buttonClassName, ...restButtonProps } = buttonProps || {}
 
     const inputClasses = cn(
-      searchInputVariants({ size }), 
+      searchInputVariants({ size }),
       className, // Base className prop
-      inputClassName // className from inputProps
-    );
+      inputClassName, // className from inputProps
+    )
 
     const buttonClasses = cn(
       searchButtonVariants({ size, iconOnly }),
-      buttonClassName // className from buttonProps
-    );
+      buttonClassName, // className from buttonProps
+    )
 
     return (
       <div>
@@ -125,19 +126,15 @@ const Search = React.forwardRef<HTMLInputElement, SearchProps>(
               aria-label={iconOnly ? "search" : undefined}
               {...restButtonProps} // Spread without className
             >
-              {iconOnly ? (
-                <Icon icon="search" size="sm" className="size-6" />
-              ) : (
-                buttonText
-              )}
+              {iconOnly ? <Icon icon="search" size="sm" className="size-6" /> : buttonText}
             </button>
           </div>
         </form>
       </div>
-    );
-  }
-);
+    )
+  },
+)
 
-Search.displayName = "Search";
+Search.displayName = "Search"
 
-export { Search, searchInputVariants, searchButtonVariants };
+export { Search, searchInputVariants, searchButtonVariants }

@@ -1,16 +1,16 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import { cn } from '@/lib/utils'
+import * as React from "react"
+import { cn } from "@/lib/utils"
 
 const getPaddingClass = (depth: number): string => {
   const paddingMap: Record<number, string> = {
-    0: 'pl-4',
-    1: 'pl-8',
-    2: 'pl-12',
-    3: 'pl-16',
+    0: "pl-4",
+    1: "pl-8",
+    2: "pl-12",
+    3: "pl-16",
   }
-  return paddingMap[depth] || 'pl-16'
+  return paddingMap[depth] || "pl-16"
 }
 
 interface TreeDataItem {
@@ -50,13 +50,13 @@ const TreeView = React.forwardRef<HTMLDivElement, TreeProps>(
       defaultNodeIcon,
       className,
       onDocumentDrag,
-      ariaLabel = 'Tree navigation',
+      ariaLabel = "Tree navigation",
       ...props
     },
-    ref
+    ref,
   ) => {
     const [selectedItemId, setSelectedItemId] = React.useState<string | undefined>(
-      initialSelectedItemId
+      initialSelectedItemId,
     )
 
     const [draggedItem, setDraggedItem] = React.useState<TreeDataItem | null>(null)
@@ -68,7 +68,7 @@ const TreeView = React.forwardRef<HTMLDivElement, TreeProps>(
           onSelectChange(item)
         }
       },
-      [onSelectChange]
+      [onSelectChange],
     )
 
     const handleDragStart = React.useCallback((item: TreeDataItem) => {
@@ -82,7 +82,7 @@ const TreeView = React.forwardRef<HTMLDivElement, TreeProps>(
         }
         setDraggedItem(null)
       },
-      [draggedItem, onDocumentDrag]
+      [draggedItem, onDocumentDrag],
     )
 
     const expandedItemIds = React.useMemo(() => {
@@ -113,7 +113,7 @@ const TreeView = React.forwardRef<HTMLDivElement, TreeProps>(
     }, [data, expandAll, initialSelectedItemId])
 
     return (
-      <nav aria-label={ariaLabel} className={cn('overflow-hidden relative', className)} ref={ref}>
+      <nav aria-label={ariaLabel} className={cn("overflow-hidden relative", className)} ref={ref}>
         <TreeItem
           data={data}
           selectedItemId={selectedItemId}
@@ -128,11 +128,11 @@ const TreeView = React.forwardRef<HTMLDivElement, TreeProps>(
         />
       </nav>
     )
-  }
+  },
 )
-TreeView.displayName = 'TreeView'
+TreeView.displayName = "TreeView"
 
-type TreeItemProps = Omit<TreeProps, 'data'> & {
+type TreeItemProps = Omit<TreeProps, "data"> & {
   data: TreeDataItem[] | TreeDataItem
   selectedItemId?: string
   handleSelectChange: (item: TreeDataItem | undefined) => void
@@ -230,7 +230,7 @@ const TreeNode = ({
       e.preventDefault()
       return
     }
-    e.dataTransfer.setData('text/plain', item.id)
+    e.dataTransfer.setData("text/plain", item.id)
     handleDragStart?.(item)
   }
 
@@ -256,13 +256,13 @@ const TreeNode = ({
       <button
         type="button"
         className={cn(
-          'block relative py-2 px-4 text-gray-60 hover:text-blue-60v hover:bg-gray-5 w-full text-left',
+          "block relative py-2 px-4 text-gray-60 hover:text-blue-60v hover:bg-gray-5 w-full text-left",
           getPaddingClass(depth),
-          'focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40v',
-          'aria-[current]:text-blue-60v aria-[current]:font-bold',
-          'aria-[current=page]:after:block aria-[current=page]:after:absolute aria-[current=page]:after:bg-blue-60v',
-          'aria-[current=page]:after:inset-y-1 aria-[current=page]:after:left-0 aria-[current=page]:after:w-1 aria-[current=page]:after:rounded-full',
-          isDragOver && 'bg-blue-10'
+          "focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40v",
+          "aria-[current]:text-blue-60v aria-[current]:font-bold",
+          "aria-[current=page]:after:block aria-[current=page]:after:absolute aria-[current=page]:after:bg-blue-60v",
+          "aria-[current=page]:after:inset-y-1 aria-[current=page]:after:left-0 aria-[current=page]:after:w-1 aria-[current=page]:after:rounded-full",
+          isDragOver && "bg-blue-10",
         )}
         onClick={(e) => {
           e.preventDefault()
@@ -276,7 +276,7 @@ const TreeNode = ({
         onDragLeave={onDragLeave}
         onDrop={onDrop}
         aria-expanded={isOpen}
-        aria-current={selectedItemId === item.id ? 'page' : undefined}
+        aria-current={selectedItemId === item.id ? "page" : undefined}
       >
         <div className="flex items-center gap-2">
           <ChevronIcon isOpen={isOpen} />
@@ -336,7 +336,7 @@ const TreeLeaf = React.forwardRef<
       depth = 0,
       ...props
     },
-    ref
+    ref,
   ) => {
     const [isDragOver, setIsDragOver] = React.useState(false)
 
@@ -345,17 +345,12 @@ const TreeLeaf = React.forwardRef<
         e.preventDefault()
         return
       }
-      e.dataTransfer.setData('text/plain', item.id)
+      e.dataTransfer.setData("text/plain", item.id)
       handleDragStart?.(item)
     }
 
     const onDragOver = (e: React.DragEvent) => {
-      if (
-        item.droppable !== false &&
-        !item.disabled &&
-        draggedItem &&
-        draggedItem.id !== item.id
-      ) {
+      if (item.droppable !== false && !item.disabled && draggedItem && draggedItem.id !== item.id) {
         e.preventDefault()
         setIsDragOver(true)
       }
@@ -375,17 +370,17 @@ const TreeLeaf = React.forwardRef<
     return (
       <a
         ref={ref}
-        href={item.href || '#'}
+        href={item.href || "#"}
         className={cn(
-          'block relative py-2 px-4 text-gray-60 hover:text-blue-60v hover:bg-gray-5 no-underline',
+          "block relative py-2 px-4 text-gray-60 hover:text-blue-60v hover:bg-gray-5 no-underline",
           getPaddingClass(depth),
-          'focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40v',
-          'aria-[current]:text-blue-60v aria-[current]:font-bold',
-          'aria-[current=page]:after:block aria-[current=page]:after:absolute aria-[current=page]:after:bg-blue-60v',
-          'aria-[current=page]:after:inset-y-1 aria-[current=page]:after:left-0 aria-[current=page]:after:w-1 aria-[current=page]:after:rounded-full',
+          "focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40v",
+          "aria-[current]:text-blue-60v aria-[current]:font-bold",
+          "aria-[current=page]:after:block aria-[current=page]:after:absolute aria-[current=page]:after:bg-blue-60v",
+          "aria-[current=page]:after:inset-y-1 aria-[current=page]:after:left-0 aria-[current=page]:after:w-1 aria-[current=page]:after:rounded-full",
           className,
-          isDragOver && 'bg-blue-10',
-          item.disabled && 'opacity-50 cursor-not-allowed pointer-events-none'
+          isDragOver && "bg-blue-10",
+          item.disabled && "opacity-50 cursor-not-allowed pointer-events-none",
         )}
         onClick={(e) => {
           if (item.disabled) {
@@ -409,7 +404,7 @@ const TreeLeaf = React.forwardRef<
         role="treeitem"
         aria-selected={selectedItemId === item.id}
         aria-disabled={item.disabled}
-        aria-current={selectedItemId === item.id ? 'page' : undefined}
+        aria-current={selectedItemId === item.id ? "page" : undefined}
         {...props}
       >
         <div className="flex items-center gap-2">
@@ -421,9 +416,9 @@ const TreeLeaf = React.forwardRef<
         </div>
       </a>
     )
-  }
+  },
 )
-TreeLeaf.displayName = 'TreeLeaf'
+TreeLeaf.displayName = "TreeLeaf"
 
 const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
   <svg
@@ -436,10 +431,7 @@ const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className={cn(
-      'h-4 w-4 shrink-0 transition-transform duration-200',
-      isOpen && 'rotate-90'
-    )}
+    className={cn("h-4 w-4 shrink-0 transition-transform duration-200", isOpen && "rotate-90")}
   >
     <polyline points="9 18 15 12 9 6" />
   </svg>
@@ -467,8 +459,14 @@ const TreeIcon = ({
   return Icon ? <Icon className="h-4 w-4 shrink-0" /> : null
 }
 
-const TreeActions = ({ children, isSelected }: { children: React.ReactNode; isSelected: boolean }) => {
-  return <div className={cn(isSelected ? 'block' : 'hidden', 'group-hover:block')}>{children}</div>
+const TreeActions = ({
+  children,
+  isSelected,
+}: {
+  children: React.ReactNode
+  isSelected: boolean
+}) => {
+  return <div className={cn(isSelected ? "block" : "hidden", "group-hover:block")}>{children}</div>
 }
 
 export { TreeView, type TreeDataItem }

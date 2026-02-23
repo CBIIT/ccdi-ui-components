@@ -1,6 +1,5 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { useForm } from 'react-hook-form'
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { useForm } from "react-hook-form"
 import {
   Form,
   FormControl,
@@ -9,25 +8,27 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Label } from '@/components/ui/label'
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
 
 const meta = {
-  title: 'UI/Form',
+  title: "UI/Form",
   component: Form,
+  args: {} as unknown as React.ComponentProps<typeof Form>,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'Form components built on top of react-hook-form with USWDS styling. Provides accessible form controls with validation.',
+        component:
+          "Form components built on top of react-hook-form with USWDS styling. Provides accessible form controls with validation.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Form>
 
 export default meta
@@ -35,15 +36,14 @@ type Story = StoryObj<typeof meta>
 
 // Simple Form
 export const SimpleForm: Story = {
-  args: {} as any,
-  render: () => {
+  render: function Render() {
     type FormValues = {
       username: string
     }
 
     const form = useForm<FormValues>({
       defaultValues: {
-        username: '',
+        username: "",
       },
     })
 
@@ -64,9 +64,7 @@ export const SimpleForm: Story = {
                 <FormControl>
                   <Input placeholder="Enter username" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
+                <FormDescription>This is your public display name.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -79,7 +77,7 @@ export const SimpleForm: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'A simple form with a single input field.',
+        story: "A simple form with a single input field.",
       },
     },
   },
@@ -87,8 +85,7 @@ export const SimpleForm: Story = {
 
 // Contact Form
 export const ContactForm: Story = {
-  args: {} as any,
-  render: () => {
+  render: function Render() {
     type FormValues = {
       name: string
       email: string
@@ -97,15 +94,17 @@ export const ContactForm: Story = {
 
     const form = useForm<FormValues>({
       defaultValues: {
-        name: '',
-        email: '',
-        message: '',
+        name: "",
+        email: "",
+        message: "",
       },
     })
 
     function onSubmit(values: FormValues) {
       console.log(values)
-      alert(`Form submitted!\nName: ${values.name}\nEmail: ${values.email}\nMessage: ${values.message}`)
+      alert(
+        `Form submitted!\nName: ${values.name}\nEmail: ${values.email}\nMessage: ${values.message}`,
+      )
     }
 
     return (
@@ -148,9 +147,7 @@ export const ContactForm: Story = {
                 <FormControl>
                   <Input placeholder="Your message..." {...field} />
                 </FormControl>
-                <FormDescription>
-                  Enter your message here.
-                </FormDescription>
+                <FormDescription>Enter your message here.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -169,7 +166,7 @@ export const ContactForm: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'A contact form with multiple fields.',
+        story: "A contact form with multiple fields.",
       },
     },
   },
@@ -177,8 +174,7 @@ export const ContactForm: Story = {
 
 // Registration Form
 export const RegistrationForm: Story = {
-  args: {} as any,
-  render: () => {
+  render: function Render() {
     type FormValues = {
       firstName: string
       lastName: string
@@ -188,16 +184,16 @@ export const RegistrationForm: Story = {
 
     const form = useForm<FormValues>({
       defaultValues: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
       },
     })
 
     function onSubmit(values: FormValues) {
       console.log(values)
-      alert('Registration form submitted! Check console for values.')
+      alert("Registration form submitted! Check console for values.")
     }
 
     return (
@@ -243,7 +239,7 @@ export const RegistrationForm: Story = {
                   <Input type="email" placeholder="john.doe@example.com" {...field} />
                 </FormControl>
                 <FormDescription>
-                  We'll never share your email with anyone else.
+                  We&apos;ll never share your email with anyone else.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -265,7 +261,9 @@ export const RegistrationForm: Story = {
           />
 
           <div className="flex gap-2">
-            <Button type="submit" variant="primary">Register</Button>
+            <Button type="submit" variant="primary">
+              Register
+            </Button>
             <Button type="button" variant="outline" onClick={() => form.reset()}>
               Cancel
             </Button>
@@ -277,7 +275,7 @@ export const RegistrationForm: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'A registration form with multiple fields in a two-column layout.',
+        story: "A registration form with multiple fields in a two-column layout.",
       },
     },
   },
@@ -285,8 +283,7 @@ export const RegistrationForm: Story = {
 
 // Form with Validation
 export const WithValidation: Story = {
-  args: {} as any,
-  render: () => {
+  render: function Render() {
     type FormValues = {
       username: string
       password: string
@@ -294,14 +291,14 @@ export const WithValidation: Story = {
 
     const form = useForm<FormValues>({
       defaultValues: {
-        username: '',
-        password: '',
+        username: "",
+        password: "",
       },
     })
 
     function onSubmit(values: FormValues) {
       console.log(values)
-      alert('Form is valid!')
+      alert("Form is valid!")
     }
 
     return (
@@ -311,10 +308,10 @@ export const WithValidation: Story = {
             control={form.control}
             name="username"
             rules={{
-              required: 'Username is required',
+              required: "Username is required",
               minLength: {
                 value: 5,
-                message: 'Username must be at least 5 characters long',
+                message: "Username must be at least 5 characters long",
               },
             }}
             render={({ field }) => (
@@ -323,9 +320,7 @@ export const WithValidation: Story = {
                 <FormControl>
                   <Input placeholder="Enter username" {...field} />
                 </FormControl>
-                <FormDescription>
-                  Username must be at least 5 characters long.
-                </FormDescription>
+                <FormDescription>Username must be at least 5 characters long.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -335,10 +330,10 @@ export const WithValidation: Story = {
             control={form.control}
             name="password"
             rules={{
-              required: 'Password is required',
+              required: "Password is required",
               minLength: {
                 value: 8,
-                message: 'Password must be at least 8 characters long',
+                message: "Password must be at least 8 characters long",
               },
             }}
             render={({ field }) => (
@@ -347,9 +342,7 @@ export const WithValidation: Story = {
                 <FormControl>
                   <Input type="password" placeholder="Enter password" {...field} />
                 </FormControl>
-                <FormDescription>
-                  Password must be at least 8 characters long.
-                </FormDescription>
+                <FormDescription>Password must be at least 8 characters long.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -363,7 +356,8 @@ export const WithValidation: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'A form with validation rules using react-hook-form. Try submitting with empty fields or values that are too short to see validation in action.',
+        story:
+          "A form with validation rules using react-hook-form. Try submitting with empty fields or values that are too short to see validation in action.",
       },
     },
   },
@@ -371,8 +365,7 @@ export const WithValidation: Story = {
 
 // Checkbox Form
 export const CheckboxForm: Story = {
-  args: {} as any,
-  render: () => {
+  render: function Render() {
     type FormValues = {
       terms: boolean
     }
@@ -385,7 +378,7 @@ export const CheckboxForm: Story = {
 
     function onSubmit(values: FormValues) {
       console.log(values)
-      alert('Checkbox form submitted!')
+      alert("Checkbox form submitted!")
     }
 
     return (
@@ -397,12 +390,11 @@ export const CheckboxForm: Story = {
             render={({ field }) => (
               <FormItem className="flex flex-row items-center justify-between rounded-lg border border-input bg-background px-3 py-2 shadow-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 h-10">
                 <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="terms"
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                  <label htmlFor="terms" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                  <Checkbox id="terms" checked={field.value} onCheckedChange={field.onChange} />
+                  <label
+                    htmlFor="terms"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
                     I accept the terms and conditions
                   </label>
                 </div>
@@ -418,7 +410,7 @@ export const CheckboxForm: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'A form with a checkbox input.',
+        story: "A form with a checkbox input.",
       },
     },
   },
@@ -426,15 +418,14 @@ export const CheckboxForm: Story = {
 
 // Radio Group Form
 export const RadioGroupForm: Story = {
-  args: {} as any,
-  render: () => {
+  render: function Render() {
     type FormValues = {
       favoriteColor: string
     }
 
     const form = useForm<FormValues>({
       defaultValues: {
-        favoriteColor: '',
+        favoriteColor: "",
       },
     })
 
@@ -486,9 +477,8 @@ export const RadioGroupForm: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'A form with a radio group input.',
+        story: "A form with a radio group input.",
       },
     },
   },
 }
-

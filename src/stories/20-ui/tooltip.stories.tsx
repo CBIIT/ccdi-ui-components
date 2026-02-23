@@ -1,25 +1,25 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip'
-import { Button } from '@/components/ui/button'
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip"
+import { Button } from "@/components/ui/button"
 
 const meta = {
-  title: 'UI/Tooltip',
+  title: "UI/Tooltip",
   component: Tooltip,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'A tooltip is a short descriptive message that appears when a user hovers or focuses on an element.',
+        component:
+          "A tooltip is a short descriptive message that appears when a user hovers or focuses on an element.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     position: {
-      control: { type: 'select' },
-      options: ['top', 'right', 'bottom', 'left'],
-      description: 'The position of the tooltip relative to the trigger element',
+      control: { type: "select" },
+      options: ["top", "right", "bottom", "left"],
+      description: "The position of the tooltip relative to the trigger element",
     },
   },
 } satisfies Meta<typeof Tooltip>
@@ -30,7 +30,7 @@ type Story = StoryObj<typeof meta>
 // Default story
 export const Default: Story = {
   args: {
-    position: 'top',
+    position: "top",
   },
   render: (args) => (
     <Tooltip {...args}>
@@ -45,7 +45,7 @@ export const Default: Story = {
 // Position stories
 export const Top: Story = {
   args: {
-    position: 'top',
+    position: "top",
   },
   render: (args) => (
     <Tooltip {...args}>
@@ -59,7 +59,7 @@ export const Top: Story = {
 
 export const Right: Story = {
   args: {
-    position: 'right',
+    position: "right",
   },
   render: (args) => (
     <Tooltip {...args}>
@@ -73,7 +73,7 @@ export const Right: Story = {
 
 export const Bottom: Story = {
   args: {
-    position: 'bottom',
+    position: "bottom",
   },
   render: (args) => (
     <Tooltip {...args}>
@@ -87,7 +87,7 @@ export const Bottom: Story = {
 
 export const Left: Story = {
   args: {
-    position: 'left',
+    position: "left",
   },
   render: (args) => (
     <Tooltip {...args}>
@@ -135,7 +135,8 @@ export const AllPositions: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'All available tooltip positions displayed together, matching the USWDS design system example.',
+        story:
+          "All available tooltip positions displayed together, matching the USWDS design system example.",
       },
     },
   },
@@ -144,7 +145,7 @@ export const AllPositions: Story = {
 // Longer content
 export const LongerContent: Story = {
   args: {
-    position: 'top',
+    position: "top",
   },
   render: (args) => (
     <Tooltip {...args}>
@@ -192,7 +193,7 @@ export const WithDifferentButtonVariants: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tooltips can be used with different button variants.',
+        story: "Tooltips can be used with different button variants.",
       },
     },
   },
@@ -202,7 +203,9 @@ export const WithDifferentButtonVariants: Story = {
 export const KeyboardNavigation: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
-      <p className="text-sm text-gray-70">Use Tab to focus on the buttons and see the tooltips appear:</p>
+      <p className="text-sm text-gray-70">
+        Use Tab to focus on the buttons and see the tooltips appear:
+      </p>
       <div className="flex gap-4">
         <Tooltip position="top">
           <TooltipTrigger asChild>
@@ -230,9 +233,9 @@ export const KeyboardNavigation: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tooltips are accessible via keyboard navigation. Use Tab to focus on elements and tooltips will appear on focus.',
+        story:
+          "Tooltips are accessible via keyboard navigation. Use Tab to focus on elements and tooltips will appear on focus.",
       },
     },
   },
 }
-

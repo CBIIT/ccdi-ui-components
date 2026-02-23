@@ -1,38 +1,38 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '@/components/ui/button'
-import { Icon } from '@/components/ui/icon'
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Button } from "@/components/ui/button"
+import { Icon } from "@/components/ui/icon"
 
 const meta = {
-  title: 'UI/Button',
+  title: "UI/Button",
   component: Button,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'A versatile button component with multiple variants and sizes following USWDS design guidelines.',
+        component:
+          "A versatile button component with multiple variants and sizes following USWDS design guidelines.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: { type: 'select' },
-      options: ['primary', 'secondary', 'outline', 'success', 'warning', 'danger', 'ghost', 'link'],
-      description: 'The visual style variant of the button',
+      control: { type: "select" },
+      options: ["primary", "secondary", "outline", "success", "warning", "danger", "ghost", "link"],
+      description: "The visual style variant of the button",
     },
     size: {
-      control: { type: 'select' },
-      options: ['sm', 'default', 'lg', 'icon'],
-      description: 'The size of the button',
+      control: { type: "select" },
+      options: ["sm", "default", "lg", "icon"],
+      description: "The size of the button",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Whether the button is disabled',
+      control: "boolean",
+      description: "Whether the button is disabled",
     },
     children: {
-      control: 'text',
-      description: 'The content of the button',
+      control: "text",
+      description: "The content of the button",
     },
   },
 } satisfies Meta<typeof Button>
@@ -43,110 +43,110 @@ type Story = StoryObj<typeof meta>
 // Default story
 export const Default: Story = {
   args: {
-    children: 'Button',
+    children: "Button",
   },
 }
 
 // Variant stories
 export const Primary: Story = {
   args: {
-    variant: 'primary',
-    children: 'Primary',
+    variant: "primary",
+    children: "Primary",
   },
 }
 
 export const Secondary: Story = {
   args: {
-    variant: 'secondary',
-    children: 'Secondary',
+    variant: "secondary",
+    children: "Secondary",
   },
 }
 
 export const AccentCool: Story = {
   args: {
-    variant: 'accent-cool',
-    children: 'Accent Cool',
+    variant: "accent-cool",
+    children: "Accent Cool",
   },
 }
 
 export const AccentWarm: Story = {
   args: {
-    variant: 'accent-warm',
-    children: 'Accent Warm',
+    variant: "accent-warm",
+    children: "Accent Warm",
   },
 }
 
 export const Base: Story = {
   args: {
-    variant: 'base',
-    children: 'Base',
+    variant: "base",
+    children: "Base",
   },
 }
 
 export const Outline: Story = {
   args: {
-    variant: 'outline',
-    children: 'Outline',
+    variant: "outline",
+    children: "Outline",
   },
 }
 
 export const OutlineInverse: Story = {
   args: {
-    variant: 'outline-inverse',
-    children: 'Outline Inverse',
+    variant: "outline-inverse",
+    children: "Outline Inverse",
   },
-   globals: {
+  globals: {
     // 👇 Override background value for this story
-    backgrounds: { value: 'dark' },
+    backgrounds: { value: "dark" },
   },
 }
 
 export const Success: Story = {
   args: {
-    variant: 'success',
-    children: 'Success',
+    variant: "success",
+    children: "Success",
   },
 }
 
 export const Warning: Story = {
   args: {
-    variant: 'warning',
-    children: 'Warning',
+    variant: "warning",
+    children: "Warning",
   },
 }
 
 export const Danger: Story = {
   args: {
-    variant: 'danger',
-    children: 'Danger',
+    variant: "danger",
+    children: "Danger",
   },
 }
 
 export const Link: Story = {
   args: {
-    variant: 'link',
-    children: 'Link',
+    variant: "link",
+    children: "Link",
   },
 }
 
 // Size stories
 export const Small: Story = {
   args: {
-    size: 'sm',
-    children: 'Small Button',
+    size: "sm",
+    children: "Small Button",
   },
 }
 
 export const Large: Story = {
   args: {
-    size: 'lg',
-    children: 'Large Button',
+    size: "lg",
+    children: "Large Button",
   },
 }
 
 export const AsChildLink: Story = {
   args: {
-    variant: 'primary',
+    variant: "primary",
   },
   render: (args) => (
     <Button asChild {...args}>
@@ -156,7 +156,8 @@ export const AsChildLink: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Use asChild to render the child element (e.g. an anchor) instead of a button, while applying button styles.',
+        story:
+          "Use asChild to render the child element (e.g. an anchor) instead of a button, while applying button styles.",
       },
     },
   },
@@ -164,9 +165,9 @@ export const AsChildLink: Story = {
 
 export const IconButton: Story = {
   args: {
-    size: 'icon',
-    variant: 'primary',
-    'aria-label': 'Search',
+    size: "icon",
+    variant: "primary",
+    "aria-label": "Search",
   },
   render: (args) => (
     <Button {...args}>
@@ -176,16 +177,16 @@ export const IconButton: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Icon-only button with fixed square dimensions. Always include an aria-label for accessibility.',
+        story:
+          "Icon-only button with fixed square dimensions. Always include an aria-label for accessibility.",
       },
     },
   },
 }
 
-
 export const WithIcon: Story = {
   args: {
-    variant: 'primary',
+    variant: "primary",
   },
   render: (args) => (
     <Button {...args}>
@@ -196,7 +197,7 @@ export const WithIcon: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Button with an icon, demonstrating how to include icons alongside text.',
+        story: "Button with an icon, demonstrating how to include icons alongside text.",
       },
     },
   },
@@ -206,7 +207,7 @@ export const WithIcon: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
-    children: 'Disabled Button',
+    children: "Disabled Button",
   },
 }
 
@@ -214,7 +215,9 @@ export const Disabled: Story = {
 export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-wrap gap-4">
-      <Button variant="primary">Primary <Icon icon="search" size="xs" /></Button>
+      <Button variant="primary">
+        Primary <Icon icon="search" size="xs" />
+      </Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="outline">Outline</Button>
       <Button variant="success">Success</Button>
@@ -226,7 +229,7 @@ export const AllVariants: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'All available button variants displayed together.',
+        story: "All available button variants displayed together.",
       },
     },
   },

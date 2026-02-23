@@ -1,7 +1,7 @@
-import * as React from "react";
-import { cn } from "@/lib/utils";
+import * as React from "react"
+import { cn } from "@/lib/utils"
 
-type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
@@ -16,14 +16,14 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           "disabled:cursor-not-allowed disabled:text-gray-70 disabled:bg-gray-20",
           // Error states
           "aria-[invalid=true]:border-red-60v aria-[invalid=true]:border-4",
-          className
+          className,
         )}
         ref={ref}
         {...props}
       />
-    );
-  }
-);
-Input.displayName = "Input";
+    )
+  },
+)
+Input.displayName = "Input"
 
-export { Input };
+export { Input }

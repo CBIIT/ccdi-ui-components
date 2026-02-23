@@ -1,5 +1,4 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Button } from "@/components/ui/button"
 import { ButtonGroup } from "@/components/ui/button-group"
 import { Icon } from "@/components/ui/icon"
@@ -26,7 +25,6 @@ export const Default: Story = {
   ),
 }
 
-
 export const Vertical: Story = {
   render: () => (
     <ButtonGroup orientation="vertical" className="h-fit">
@@ -42,7 +40,6 @@ export const Vertical: Story = {
     </ButtonGroup>
   ),
 }
-
 
 export const MixedVariants: Story = {
   render: () => (

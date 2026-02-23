@@ -1,34 +1,34 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
 
 const meta = {
-  title: 'UI/Alert',
+  title: "UI/Alert",
   component: Alert,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'Alert component for displaying important messages with different severity levels, following USWDS design guidelines.',
+        component:
+          "Alert component for displaying important messages with different severity levels, following USWDS design guidelines.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: { type: 'select' },
-      options: ['default', 'success', 'warning', 'error', 'info', 'emergency'],
-      description: 'The visual style variant of the alert',
+      control: { type: "select" },
+      options: ["default", "success", "warning", "error", "info", "emergency"],
+      description: "The visual style variant of the alert",
     },
     icon: {
-      control: 'boolean',
-      description: 'Whether to show the status icon',
+      control: "boolean",
+      description: "Whether to show the status icon",
       defaultValue: true,
     },
     role: {
-      control: { type: 'select' },
-      options: ['alert', 'status'],
-      description: 'ARIA role for accessibility',
+      control: { type: "select" },
+      options: ["alert", "status"],
+      description: "ARIA role for accessibility",
     },
   },
 } satisfies Meta<typeof Alert>
@@ -39,20 +39,24 @@ type Story = StoryObj<typeof meta>
 // Default story
 export const Default: Story = {
   args: {
-    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing consectetur adipiscing elit, sed do eiusmod.',
+    children:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing consectetur adipiscing elit, sed do eiusmod.",
   },
 }
 
 // Variant stories
 export const Success: Story = {
   args: {
-    variant: 'success',
+    variant: "success",
   },
   render: (args) => (
     <Alert {...args}>
       <AlertTitle>Success!</AlertTitle>
       <AlertDescription>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">consectetur adipiscing</a> elit, sed do eiusmod.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing <a href="/">consectetur adipiscing</a>{" "}
+          elit, sed do eiusmod.
+        </p>
       </AlertDescription>
     </Alert>
   ),
@@ -60,13 +64,16 @@ export const Success: Story = {
 
 export const Warning: Story = {
   args: {
-    variant: 'warning',
+    variant: "warning",
   },
   render: (args) => (
     <Alert {...args}>
       <AlertTitle>Warning</AlertTitle>
       <AlertDescription>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">consectetur adipiscing</a> elit, sed do eiusmod.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing <a href="/">consectetur adipiscing</a>{" "}
+          elit, sed do eiusmod.
+        </p>
       </AlertDescription>
     </Alert>
   ),
@@ -74,13 +81,16 @@ export const Warning: Story = {
 
 export const Danger: Story = {
   args: {
-    variant: 'error',
+    variant: "error",
   },
   render: (args) => (
     <Alert {...args}>
       <AlertTitle>Error</AlertTitle>
       <AlertDescription>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">consectetur adipiscing</a> elit, sed do eiusmod.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing <a href="/">consectetur adipiscing</a>{" "}
+          elit, sed do eiusmod.
+        </p>
       </AlertDescription>
     </Alert>
   ),
@@ -88,13 +98,16 @@ export const Danger: Story = {
 
 export const Info: Story = {
   args: {
-    variant: 'info',
+    variant: "info",
   },
   render: (args) => (
     <Alert {...args}>
       <AlertTitle>Information</AlertTitle>
       <AlertDescription>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">consectetur adipiscing</a> elit, sed do eiusmod.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing <a href="/">consectetur adipiscing</a>{" "}
+          elit, sed do eiusmod.
+        </p>
       </AlertDescription>
     </Alert>
   ),
@@ -102,13 +115,16 @@ export const Info: Story = {
 
 export const Emergency: Story = {
   args: {
-    variant: 'emergency',
+    variant: "emergency",
   },
   render: (args) => (
     <Alert {...args}>
       <AlertTitle>Emergency Alert</AlertTitle>
       <AlertDescription>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">consectetur adipiscing</a> elit, sed do eiusmod.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing <a href="/">consectetur adipiscing</a>{" "}
+          elit, sed do eiusmod.
+        </p>
       </AlertDescription>
     </Alert>
   ),
@@ -117,14 +133,17 @@ export const Emergency: Story = {
 // Without Icon
 export const WithoutIcon: Story = {
   args: {
-    variant: 'success',
+    variant: "success",
     icon: false,
   },
   render: (args) => (
     <Alert {...args}>
       <AlertTitle>Success (No Icon)</AlertTitle>
       <AlertDescription>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">consectetur adipiscing</a> elit, sed do eiusmod.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing <a href="/">consectetur adipiscing</a>{" "}
+          elit, sed do eiusmod.
+        </p>
       </AlertDescription>
     </Alert>
   ),
@@ -133,8 +152,8 @@ export const WithoutIcon: Story = {
 // Simple text only
 export const SimpleText: Story = {
   args: {
-    variant: 'info',
-    children: 'This is a simple alert without title and description components.',
+    variant: "info",
+    children: "This is a simple alert without title and description components.",
   },
 }
 
@@ -158,7 +177,7 @@ export const FormValidation: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Example of using alerts for form validation feedback.',
+        story: "Example of using alerts for form validation feedback.",
       },
     },
   },
@@ -170,8 +189,8 @@ export const SystemMaintenance: Story = {
       <Alert variant="warning">
         <AlertTitle>Scheduled Maintenance</AlertTitle>
         <AlertDescription>
-          The system will be undergoing maintenance on Sunday, March 15th from 2:00 AM to 6:00 AM EST. 
-          During this time, some features may be unavailable.
+          The system will be undergoing maintenance on Sunday, March 15th from 2:00 AM to 6:00 AM
+          EST. During this time, some features may be unavailable.
         </AlertDescription>
       </Alert>
     </div>
@@ -179,7 +198,7 @@ export const SystemMaintenance: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Example of using alerts for system notifications.',
+        story: "Example of using alerts for system notifications.",
       },
     },
   },

@@ -1,20 +1,20 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Icon } from '@/components/ui/icon'
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Icon } from "@/components/ui/icon"
 
 const meta: Meta<typeof Tabs> = {
-  title: 'UI/Tabs',
+  title: "UI/Tabs",
   component: Tabs,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'A tabs component for organizing content into separate views, following U.S. Web Design System guidelines.',
+        component:
+          "A tabs component for organizing content into separate views, following U.S. Web Design System guidelines.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 }
 
 export default meta
@@ -33,7 +33,7 @@ export const Default: Story = {
         <div className="space-y-4">
           <h3 className="text-lg font-bold text-gray-900">Account Information</h3>
           <p className="text-gray-700">
-            Make changes to your account here. Click save when you're done.
+            Make changes to your account here. Click save when you&apos;re done.
           </p>
         </div>
       </TabsContent>
@@ -41,16 +41,14 @@ export const Default: Story = {
         <div className="space-y-4">
           <h3 className="text-lg font-bold text-gray-900">Password</h3>
           <p className="text-gray-700">
-            Change your password here. After saving, you'll be logged out.
+            Change your password here. After saving, you&apos;ll be logged out.
           </p>
         </div>
       </TabsContent>
       <TabsContent value="settings">
         <div className="space-y-4">
           <h3 className="text-lg font-bold text-gray-900">Settings</h3>
-          <p className="text-gray-700">
-            Manage your application settings and preferences.
-          </p>
+          <p className="text-gray-700">Manage your application settings and preferences.</p>
         </div>
       </TabsContent>
     </Tabs>
@@ -86,9 +84,7 @@ export const WithIcons: Story = {
       <TabsContent value="notifications">
         <div className="space-y-4">
           <h3 className="text-lg font-bold text-gray-900">Notification Preferences</h3>
-          <p className="text-gray-700">
-            Manage how and when you receive notifications.
-          </p>
+          <p className="text-gray-700">Manage how and when you receive notifications.</p>
         </div>
       </TabsContent>
       <TabsContent value="security">
@@ -101,53 +97,4 @@ export const WithIcons: Story = {
       </TabsContent>
     </Tabs>
   ),
-}
-
-// Controlled tabs with state
-export const ControlledTabs: Story = {
-  render: () => {
-    const [activeTab, setActiveTab] = React.useState("overview")
-    
-    return (
-      <div className="w-[550px] space-y-4">
-        <div className="bg-blue-10 border border-blue-30 rounded p-4">
-          <p className="text-sm text-gray-900">
-            Current tab: <strong>{activeTab}</strong>
-          </p>
-        </div>
-        
-        <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList>
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="details">Details</TabsTrigger>
-            <TabsTrigger value="history">History</TabsTrigger>
-          </TabsList>
-          <TabsContent value="overview">
-            <div className="space-y-3">
-              <h3 className="text-lg font-bold text-gray-900">Overview</h3>
-              <p className="text-gray-700">
-                This is a controlled tab component. The active tab state is managed externally.
-              </p>
-            </div>
-          </TabsContent>
-          <TabsContent value="details">
-            <div className="space-y-3">
-              <h3 className="text-lg font-bold text-gray-900">Details</h3>
-              <p className="text-gray-700">
-                View detailed information about the selected item.
-              </p>
-            </div>
-          </TabsContent>
-          <TabsContent value="history">
-            <div className="space-y-3">
-              <h3 className="text-lg font-bold text-gray-900">History</h3>
-              <p className="text-gray-700">
-                Review the historical data and activity logs.
-              </p>
-            </div>
-          </TabsContent>
-        </Tabs>
-      </div>
-    )
-  },
 }

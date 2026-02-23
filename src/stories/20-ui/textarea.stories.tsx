@@ -1,32 +1,31 @@
-import * as React from "react"
-import type { Meta, StoryObj } from '@storybook/react'
-import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
 
 const meta = {
-  title: 'UI/Textarea',
+  title: "UI/Textarea",
   component: Textarea,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'A form textarea component with USWDS styling and proper focus states.',
+        component: "A form textarea component with USWDS styling and proper focus states.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     placeholder: {
-      control: 'text',
-      description: 'Placeholder text',
+      control: "text",
+      description: "Placeholder text",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Whether the textarea is disabled',
+      control: "boolean",
+      description: "Whether the textarea is disabled",
     },
     rows: {
-      control: 'number',
-      description: 'Number of visible text lines',
+      control: "number",
+      description: "Number of visible text lines",
     },
   },
 } satisfies Meta<typeof Textarea>
@@ -37,7 +36,7 @@ type Story = StoryObj<typeof meta>
 // Default story
 export const Default: Story = {
   args: {
-    placeholder: 'Enter text...',
+    placeholder: "Enter text...",
   },
 }
 
@@ -52,7 +51,7 @@ export const WithLabel: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Textarea component paired with a label for better accessibility.',
+        story: "Textarea component paired with a label for better accessibility.",
       },
     },
   },
@@ -62,17 +61,16 @@ export const WithLabel: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
-    placeholder: 'Disabled textarea',
-    defaultValue: 'This textarea is disabled and cannot be edited.',
+    placeholder: "Disabled textarea",
+    defaultValue: "This textarea is disabled and cannot be edited.",
   },
 }
-
 
 // With Error State
 export const WithError: Story = {
   args: {
-    'aria-invalid': true,
-    defaultValue: 'This field has an error.',
+    "aria-invalid": true,
+    defaultValue: "This field has an error.",
   },
   render: (args) => (
     <div className="grid w-full max-w-sm items-center">
@@ -84,7 +82,7 @@ export const WithError: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Textarea with error state indicated by red border and error message.',
+        story: "Textarea with error state indicated by red border and error message.",
       },
     },
   },

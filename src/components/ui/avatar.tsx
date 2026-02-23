@@ -10,10 +10,7 @@ const Avatar = ({ className, children, ...props }: AvatarProps) => {
   return (
     <div
       data-slot="avatar"
-      className={cn(
-        "relative flex size-8 shrink-0 overflow-hidden rounded-full",
-        className
-      )}
+      className={cn("relative flex size-8 shrink-0 overflow-hidden rounded-full", className)}
       {...props}
     >
       {children}
@@ -26,14 +23,16 @@ type AvatarImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   onLoadingStatusChange?: (status: "idle" | "loading" | "loaded" | "error") => void
 }
 
-const AvatarImage = ({ 
-  className, 
+const AvatarImage = ({
+  className,
   src,
   alt = "",
   onLoadingStatusChange,
-  ...props 
+  ...props
 }: AvatarImageProps) => {
-  const [imageStatus, setImageStatus] = React.useState<"idle" | "loading" | "loaded" | "error">("idle")
+  const [imageStatus, setImageStatus] = React.useState<"idle" | "loading" | "loaded" | "error">(
+    "idle",
+  )
 
   React.useEffect(() => {
     if (!src) {
@@ -45,12 +44,12 @@ const AvatarImage = ({
 
     const img = new Image()
     img.src = src
-    
+
     img.onload = () => {
       setImageStatus("loaded")
       onLoadingStatusChange?.("loaded")
     }
-    
+
     img.onerror = () => {
       setImageStatus("error")
       onLoadingStatusChange?.("error")
@@ -82,12 +81,7 @@ type AvatarFallbackProps = React.HTMLAttributes<HTMLDivElement> & {
   delay?: number
 }
 
-const AvatarFallback = ({ 
-  className, 
-  children,
-  delay = 0,
-  ...props 
-}: AvatarFallbackProps) => {
+const AvatarFallback = ({ className, children, delay = 0, ...props }: AvatarFallbackProps) => {
   const [canRender, setCanRender] = React.useState(delay === 0)
 
   React.useEffect(() => {
@@ -104,10 +98,7 @@ const AvatarFallback = ({
   return (
     <div
       data-slot="avatar-fallback"
-      className={cn(
-        "bg-gray-5 flex size-full items-center justify-center rounded-full",
-        className
-      )}
+      className={cn("bg-gray-5 flex size-full items-center justify-center rounded-full", className)}
       {...props}
     >
       {children}

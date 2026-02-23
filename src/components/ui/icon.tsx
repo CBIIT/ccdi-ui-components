@@ -1,32 +1,29 @@
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { cn } from "@/lib/utils"
 
 // Define icon variants using class-variance-authority
-const iconVariants = cva(
-  "inline-block text-current shrink-0",
-  {
-    variants: {
-      size: {
-        "2xs": "h-4 w-4",
-        xs: "h-5 w-5",
-        sm: "h-6 w-6",
-        default: "h-8 w-8", // Updated default size
-        lg: "h-10 w-10",
-        xl: "h-12 w-12",
-        "2xl": "h-16 w-16"
-      },
-      spin: {
-        true: "animate-spin",
-        false: ""
-      }
+const iconVariants = cva("inline-block text-current shrink-0", {
+  variants: {
+    size: {
+      "2xs": "h-4 w-4",
+      xs: "h-5 w-5",
+      sm: "h-6 w-6",
+      default: "h-8 w-8", // Updated default size
+      lg: "h-10 w-10",
+      xl: "h-12 w-12",
+      "2xl": "h-16 w-16",
     },
-    defaultVariants: {
-      size: "default",
-      spin: false
-    }
-  }
-);
+    spin: {
+      true: "animate-spin",
+      false: "",
+    },
+  },
+  defaultVariants: {
+    size: "default",
+    spin: false,
+  },
+})
 
 // Define all available icon names - organized by category
 export type IconType =
@@ -40,7 +37,7 @@ export type IconType =
   | "menu"
   | "search"
   | "launch"
-  
+
   // ============================================
   // ARROWS & DIRECTIONAL (16)
   // ============================================
@@ -60,7 +57,7 @@ export type IconType =
   | "navigate_next"
   | "unfold_less"
   | "unfold_more"
-  
+
   // ============================================
   // USER & ACCOUNT (10)
   // ============================================
@@ -74,7 +71,7 @@ export type IconType =
   | "people"
   | "person"
   | "verified_user"
-  
+
   // ============================================
   // COMMUNICATION (13)
   // ============================================
@@ -91,7 +88,7 @@ export type IconType =
   | "rss_feed"
   | "send"
   | "support_agent"
-  
+
   // ============================================
   // DOCUMENTS & FILES (12)
   // ============================================
@@ -107,7 +104,7 @@ export type IconType =
   | "push_pin"
   | "topic"
   | "upload_file"
-  
+
   // ============================================
   // CALENDAR & TIME (8)
   // ============================================
@@ -119,7 +116,7 @@ export type IconType =
   | "schedule"
   | "timer"
   | "update"
-  
+
   // ============================================
   // ACTIONS & EDITING (20)
   // ============================================
@@ -143,7 +140,7 @@ export type IconType =
   | "remove_circle"
   | "save_alt"
   | "undo"
-  
+
   // ============================================
   // STATUS & ALERTS (12)
   // ============================================
@@ -159,7 +156,7 @@ export type IconType =
   | "notifications_off"
   | "priority_high"
   | "warning"
-  
+
   // ============================================
   // SECURITY & PRIVACY (9)
   // ============================================
@@ -172,7 +169,7 @@ export type IconType =
   | "shield"
   | "verified"
   | "visibility"
-  
+
   // ============================================
   // GOVERNMENT & CIVIC (5)
   // ============================================
@@ -181,7 +178,7 @@ export type IconType =
   | "military_tech"
   | "public"
   | "report"
-  
+
   // ============================================
   // LOCATION & MAPS (5)
   // ============================================
@@ -190,7 +187,7 @@ export type IconType =
   | "map"
   | "my_location"
   | "near_me"
-  
+
   // ============================================
   // TRANSPORTATION (7)
   // ============================================
@@ -201,7 +198,7 @@ export type IconType =
   | "directions_walk"
   | "flight"
   | "local_taxi"
-  
+
   // ============================================
   // PLACES & BUILDINGS (16)
   // ============================================
@@ -221,7 +218,7 @@ export type IconType =
   | "park"
   | "restaurant"
   | "store"
-  
+
   // ============================================
   // SOCIAL MEDIA (7)
   // ============================================
@@ -233,7 +230,7 @@ export type IconType =
   | "twitter"
   | "x_logo"
   | "youtube"
-  
+
   // ============================================
   // MEDIA & CONTENT (9)
   // ============================================
@@ -256,7 +253,7 @@ export type IconType =
   | "severe_weather"
   | "snow"
   | "tornado"
-  
+
   // ============================================
   // HEALTH & MEDICAL (11)
   // ============================================
@@ -271,14 +268,14 @@ export type IconType =
   | "social_distance"
   | "wash"
   | "hearing"
-  
+
   // ============================================
   // SHOPPING & COMMERCE (3)
   // ============================================
   | "attach_money"
   | "credit_card"
   | "shopping_basket"
-  
+
   // ============================================
   // TECHNOLOGY & DEVICES (5)
   // ============================================
@@ -287,7 +284,7 @@ export type IconType =
   | "code"
   | "keyboard"
   | "wifi"
-  
+
   // ============================================
   // UTILITIES & TOOLS (19)
   // ============================================
@@ -310,7 +307,7 @@ export type IconType =
   | "settings"
   | "share"
   | "support"
-  
+
   // ============================================
   // SENTIMENT & EMOJI (7)
   // ============================================
@@ -321,7 +318,7 @@ export type IconType =
   | "sentiment_satisfied_alt"
   | "sentiment_very_dissatisfied"
   | "pets"
-  
+
   // ============================================
   // FORMATTING & EDITOR (5)
   // ============================================
@@ -330,7 +327,7 @@ export type IconType =
   | "spellcheck"
   | "text_fields"
   | "translate"
-  
+
   // ============================================
   // TOGGLE & SELECTION (10)
   // ============================================
@@ -344,7 +341,7 @@ export type IconType =
   | "thumb_up_alt"
   | "toggle_off"
   | "toggle_on"
-  
+
   // ============================================
   // LIFESTYLE & ACTIVITIES (10)
   // ============================================
@@ -358,7 +355,7 @@ export type IconType =
   | "lightbulb"
   | "lightbulb_outline"
   | "science"
-  
+
   // ============================================
   // MISCELLANEOUS (9)
   // ============================================
@@ -370,14 +367,13 @@ export type IconType =
   | "work"
   | "zoom_in"
   | "zoom_out"
-  | "zoom_out_map";
+  | "zoom_out_map"
 
 // Icon component props
 export interface IconProps
-  extends React.SVGProps<SVGSVGElement>,
-    VariantProps<typeof iconVariants> {
-  icon: IconType;
-  className?: string;
+  extends React.SVGProps<SVGSVGElement>, VariantProps<typeof iconVariants> {
+  icon: IconType
+  className?: string
 }
 
 // Individual icon SVG paths and elements - USWDS Icons organized by categories
@@ -580,7 +576,7 @@ const iconPaths: Record<IconType, React.ReactNode> = {
   ),
   comment: (
     <>
-      <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4zM18 14H6v-2h12zm0-3H6V9h12zm0-3H6V6h12z"></path>    
+      <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4zM18 14H6v-2h12zm0-3H6V9h12zm0-3H6V6h12z"></path>
     </>
   ),
   contact_page: (
@@ -1165,7 +1161,10 @@ const iconPaths: Record<IconType, React.ReactNode> = {
   ),
   github: (
     <>
-      <path fill-rule="evenodd" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7C6.73 19.91 6.14 18 6.14 18A2.7 2.7 0 0 0 5 16.5c-.91-.62.07-.61.07-.61a2.13 2.13 0 0 1 1.53 1 2.14 2.14 0 0 0 2.91.83 2.16 2.16 0 0 1 .63-1.34c-2.14-.21-4.52-1.07-4.52-4.9a3.9 3.9 0 0 1 1-2.69 3.57 3.57 0 0 1 .1-2.64s.84-.27 2.75 1a9.63 9.63 0 0 1 5 0c1.91-1.29 2.75-1 2.75-1a3.57 3.57 0 0 1 .1 2.64 3.9 3.9 0 0 1 1 2.69c0 3.84-2.34 4.68-4.57 4.93a2.4 2.4 0 0 1 .68 1.85v2.75c0 .33.18.58.69.48A10 10 0 0 0 12 2"></path>
+      <path
+        fillRule="evenodd"
+        d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7C6.73 19.91 6.14 18 6.14 18A2.7 2.7 0 0 0 5 16.5c-.91-.62.07-.61.07-.61a2.13 2.13 0 0 1 1.53 1 2.14 2.14 0 0 0 2.91.83 2.16 2.16 0 0 1 .63-1.34c-2.14-.21-4.52-1.07-4.52-4.9a3.9 3.9 0 0 1 1-2.69 3.57 3.57 0 0 1 .1-2.64s.84-.27 2.75 1a9.63 9.63 0 0 1 5 0c1.91-1.29 2.75-1 2.75-1a3.57 3.57 0 0 1 .1 2.64 3.9 3.9 0 0 1 1 2.69c0 3.84-2.34 4.68-4.57 4.93a2.4 2.4 0 0 1 .68 1.85v2.75c0 .33.18.58.69.48A10 10 0 0 0 12 2"
+      ></path>
     </>
   ),
   instagram: (
@@ -1180,7 +1179,10 @@ const iconPaths: Record<IconType, React.ReactNode> = {
   ),
   twitter: (
     <>
-      <path fill-rule="evenodd" d="M19.912 7.925v.527A11.56 11.56 0 0 1 8.265 20.098 11.44 11.44 0 0 1 2 18.265q.493.026.985 0a8.13 8.13 0 0 0 5.093-1.698 4.09 4.09 0 0 1-3.786-2.852c.255.062.518.091.781.085.36-.002.72-.047 1.07-.136a4.11 4.11 0 0 1-3.21-4.024c.566.32 1.202.494 1.851.51a4.126 4.126 0 0 1-1.34-5.518 11.61 11.61 0 0 0 8.488 4.295 4.4 4.4 0 0 1-.119-.934 4.09 4.09 0 0 1 4.092-4.092 4.04 4.04 0 0 1 3.005 1.29 7.9 7.9 0 0 0 2.53-1c-.3.953-.94 1.763-1.8 2.274A7.7 7.7 0 0 0 22 5.803a8.5 8.5 0 0 1-2.088 2.122"></path>
+      <path
+        fillRule="evenodd"
+        d="M19.912 7.925v.527A11.56 11.56 0 0 1 8.265 20.098 11.44 11.44 0 0 1 2 18.265q.493.026.985 0a8.13 8.13 0 0 0 5.093-1.698 4.09 4.09 0 0 1-3.786-2.852c.255.062.518.091.781.085.36-.002.72-.047 1.07-.136a4.11 4.11 0 0 1-3.21-4.024c.566.32 1.202.494 1.851.51a4.126 4.126 0 0 1-1.34-5.518 11.61 11.61 0 0 0 8.488 4.295 4.4 4.4 0 0 1-.119-.934 4.09 4.09 0 0 1 4.092-4.092 4.04 4.04 0 0 1 3.005 1.29 7.9 7.9 0 0 0 2.53-1c-.3.953-.94 1.763-1.8 2.274A7.7 7.7 0 0 0 22 5.803a8.5 8.5 0 0 1-2.088 2.122"
+      ></path>
     </>
   ),
   x_logo: (
@@ -1190,7 +1192,7 @@ const iconPaths: Record<IconType, React.ReactNode> = {
   ),
   youtube: (
     <>
-   <path d="M19.816 5.389a2.47 2.47 0 0 1 1.766 1.746c.291 1.598.43 3.22.417 4.843a26 26 0 0 1-.417 4.794 2.47 2.47 0 0 1-1.766 1.795c-2.593.318-5.204.46-7.816.429a58 58 0 0 1-7.816-.429 2.47 2.47 0 0 1-1.766-1.746 26 26 0 0 1-.417-4.843 26 26 0 0 1 .417-4.793 2.47 2.47 0 0 1 1.766-1.796c2.594-.3 5.205-.427 7.816-.379a58 58 0 0 1 7.816.379M9.95 9.046v5.864l5.233-2.932z"></path>
+      <path d="M19.816 5.389a2.47 2.47 0 0 1 1.766 1.746c.291 1.598.43 3.22.417 4.843a26 26 0 0 1-.417 4.794 2.47 2.47 0 0 1-1.766 1.795c-2.593.318-5.204.46-7.816.429a58 58 0 0 1-7.816-.429 2.47 2.47 0 0 1-1.766-1.746 26 26 0 0 1-.417-4.843 26 26 0 0 1 .417-4.793 2.47 2.47 0 0 1 1.766-1.796c2.594-.3 5.205-.427 7.816-.379a58 58 0 0 1 7.816.379M9.95 9.046v5.864l5.233-2.932z"></path>
     </>
   ),
 
@@ -1657,7 +1659,7 @@ const iconPaths: Record<IconType, React.ReactNode> = {
   camping: (
     <>
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="m12 5 8 13h2v2H2v-2h2l8-13zm.05 8-2.69 5h5.38l-2.69-5zM5.5 3l-.018.024A2.5 2.5 0 0 0 7.498 7 2.5 2.5 0 1 1 5.5 3z"
       ></path>
     </>
@@ -1736,7 +1738,7 @@ const iconPaths: Record<IconType, React.ReactNode> = {
       <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7V9z"></path>
     </>
   ),
-};
+}
 
 // Main Icon component
 const Icon = React.forwardRef<SVGSVGElement, IconProps>(
@@ -1752,11 +1754,11 @@ const Icon = React.forwardRef<SVGSVGElement, IconProps>(
       >
         {iconPaths[icon]}
       </svg>
-    );
-  }
-);
+    )
+  },
+)
 
-Icon.displayName = "Icon";
+Icon.displayName = "Icon"
 
 // ============================================
 // INDIVIDUAL ICON COMPONENTS
@@ -1765,782 +1767,564 @@ Icon.displayName = "Icon";
 // NAVIGATION & CORE (7)
 export const AccessibilityNewIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="accessibility_new" {...props} />
-);
+)
 export const AccessibleForwardIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="accessible_forward" {...props} />
-);
-export const CloseIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="close" {...props} />
-);
-export const HomeIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="home" {...props} />
-);
-export const MenuIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="menu" {...props} />
-);
-export const SearchIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="search" {...props} />
-);
-export const LaunchIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="launch" {...props} />
-);
+)
+export const CloseIcon = (props: Omit<IconProps, "icon">) => <Icon icon="close" {...props} />
+export const HomeIcon = (props: Omit<IconProps, "icon">) => <Icon icon="home" {...props} />
+export const MenuIcon = (props: Omit<IconProps, "icon">) => <Icon icon="menu" {...props} />
+export const SearchIcon = (props: Omit<IconProps, "icon">) => <Icon icon="search" {...props} />
+export const LaunchIcon = (props: Omit<IconProps, "icon">) => <Icon icon="launch" {...props} />
 
 // ARROWS & DIRECTIONAL (16)
 export const ArrowBackIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="arrow_back" {...props} />
-);
+)
 export const ArrowDownwardIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="arrow_downward" {...props} />
-);
+)
 export const ArrowDropDownIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="arrow_drop_down" {...props} />
-);
+)
 export const ArrowDropUpIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="arrow_drop_up" {...props} />
-);
+)
 export const ArrowForwardIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="arrow_forward" {...props} />
-);
+)
 export const ArrowUpwardIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="arrow_upward" {...props} />
-);
+)
 export const ExpandLessIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="expand_less" {...props} />
-);
+)
 export const ExpandMoreIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="expand_more" {...props} />
-);
+)
 export const FirstPageIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="first_page" {...props} />
-);
-export const LastPageIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="last_page" {...props} />
-);
+)
+export const LastPageIcon = (props: Omit<IconProps, "icon">) => <Icon icon="last_page" {...props} />
 export const NavigateBeforeIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="navigate_before" {...props} />
-);
+)
 export const NavigateFarBeforeIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="navigate_far_before" {...props} />
-);
+)
 export const NavigateFarNextIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="navigate_far_next" {...props} />
-);
+)
 export const NavigateNextIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="navigate_next" {...props} />
-);
+)
 export const UnfoldLessIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="unfold_less" {...props} />
-);
+)
 export const UnfoldMoreIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="unfold_more" {...props} />
-);
+)
 
 // USER & ACCOUNT (10)
 export const AccountBalanceIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="account_balance" {...props} />
-);
+)
 export const AccountBoxIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="account_box" {...props} />
-);
+)
 export const AccountCircleIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="account_circle" {...props} />
-);
-export const GroupAddIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="group_add" {...props} />
-);
-export const GroupsIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="groups" {...props} />
-);
-export const LoginIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="login" {...props} />
-);
-export const LogoutIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="logout" {...props} />
-);
-export const PeopleIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="people" {...props} />
-);
-export const PersonIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="person" {...props} />
-);
+)
+export const GroupAddIcon = (props: Omit<IconProps, "icon">) => <Icon icon="group_add" {...props} />
+export const GroupsIcon = (props: Omit<IconProps, "icon">) => <Icon icon="groups" {...props} />
+export const LoginIcon = (props: Omit<IconProps, "icon">) => <Icon icon="login" {...props} />
+export const LogoutIcon = (props: Omit<IconProps, "icon">) => <Icon icon="logout" {...props} />
+export const PeopleIcon = (props: Omit<IconProps, "icon">) => <Icon icon="people" {...props} />
+export const PersonIcon = (props: Omit<IconProps, "icon">) => <Icon icon="person" {...props} />
 export const VerifiedUserIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="verified_user" {...props} />
-);
+)
 
 // COMMUNICATION (13)
 export const AlternateEmailIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="alternate_email" {...props} />
-);
+)
 export const AnnouncementIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="announcement" {...props} />
-);
-export const ChatIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="chat" {...props} />
-);
-export const CommentIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="comment" {...props} />
-);
+)
+export const ChatIcon = (props: Omit<IconProps, "icon">) => <Icon icon="chat" {...props} />
+export const CommentIcon = (props: Omit<IconProps, "icon">) => <Icon icon="comment" {...props} />
 export const ContactPageIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="contact_page" {...props} />
-);
-export const FaxIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="fax" {...props} />
-);
-export const ForumIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="forum" {...props} />
-);
-export const MailIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="mail" {...props} />
-);
+)
+export const FaxIcon = (props: Omit<IconProps, "icon">) => <Icon icon="fax" {...props} />
+export const ForumIcon = (props: Omit<IconProps, "icon">) => <Icon icon="forum" {...props} />
+export const MailIcon = (props: Omit<IconProps, "icon">) => <Icon icon="mail" {...props} />
 export const MailOutlineIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="mail_outline" {...props} />
-);
-export const PhoneIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="phone" {...props} />
-);
-export const RssFeedIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="rss_feed" {...props} />
-);
-export const SendIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="send" {...props} />
-);
+)
+export const PhoneIcon = (props: Omit<IconProps, "icon">) => <Icon icon="phone" {...props} />
+export const RssFeedIcon = (props: Omit<IconProps, "icon">) => <Icon icon="rss_feed" {...props} />
+export const SendIcon = (props: Omit<IconProps, "icon">) => <Icon icon="send" {...props} />
 export const SupportAgentIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="support_agent" {...props} />
-);
+)
 
 // DOCUMENTS & FILES (12)
 export const AttachFileIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="attach_file" {...props} />
-);
-export const BookmarkIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="bookmark" {...props} />
-);
+)
+export const BookmarkIcon = (props: Omit<IconProps, "icon">) => <Icon icon="bookmark" {...props} />
 export const ContentCopyIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="content_copy" {...props} />
-);
+)
 export const FileDownloadIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="file_download" {...props} />
-);
+)
 export const FilePresentIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="file_present" {...props} />
-);
+)
 export const FileUploadIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="file_upload" {...props} />
-);
-export const FolderIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="folder" {...props} />
-);
+)
+export const FolderIcon = (props: Omit<IconProps, "icon">) => <Icon icon="folder" {...props} />
 export const FolderOpenIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="folder_open" {...props} />
-);
-export const LabelIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="label" {...props} />
-);
-export const PushPinIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="push_pin" {...props} />
-);
-export const TopicIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="topic" {...props} />
-);
+)
+export const LabelIcon = (props: Omit<IconProps, "icon">) => <Icon icon="label" {...props} />
+export const PushPinIcon = (props: Omit<IconProps, "icon">) => <Icon icon="push_pin" {...props} />
+export const TopicIcon = (props: Omit<IconProps, "icon">) => <Icon icon="topic" {...props} />
 export const UploadFileIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="upload_file" {...props} />
-);
+)
 
 // CALENDAR & TIME (8)
-export const AlarmIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="alarm" {...props} />
-);
+export const AlarmIcon = (props: Omit<IconProps, "icon">) => <Icon icon="alarm" {...props} />
 export const CalendarTodayIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="calendar_today" {...props} />
-);
-export const EventIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="event" {...props} />
-);
-export const HistoryIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="history" {...props} />
-);
+)
+export const EventIcon = (props: Omit<IconProps, "icon">) => <Icon icon="event" {...props} />
+export const HistoryIcon = (props: Omit<IconProps, "icon">) => <Icon icon="history" {...props} />
 export const HourglassEmptyIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="hourglass_empty" {...props} />
-);
-export const ScheduleIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="schedule" {...props} />
-);
-export const TimerIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="timer" {...props} />
-);
-export const UpdateIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="update" {...props} />
-);
+)
+export const ScheduleIcon = (props: Omit<IconProps, "icon">) => <Icon icon="schedule" {...props} />
+export const TimerIcon = (props: Omit<IconProps, "icon">) => <Icon icon="timer" {...props} />
+export const UpdateIcon = (props: Omit<IconProps, "icon">) => <Icon icon="update" {...props} />
 
 // ACTIONS & EDITING (20)
-export const AddIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="add" {...props} />
-);
+export const AddIcon = (props: Omit<IconProps, "icon">) => <Icon icon="add" {...props} />
 export const AddCircleIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="add_circle" {...props} />
-);
+)
 export const AddCircleOutlineIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="add_circle_outline" {...props} />
-);
+)
 export const AutorenewIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="autorenew" {...props} />
-);
-export const CancelIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="cancel" {...props} />
-);
-export const CheckIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="check" {...props} />
-);
+)
+export const CancelIcon = (props: Omit<IconProps, "icon">) => <Icon icon="cancel" {...props} />
+export const CheckIcon = (props: Omit<IconProps, "icon">) => <Icon icon="check" {...props} />
 export const CheckBoxOutlineBlankIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="check_box_outline_blank" {...props} />
-);
+)
 export const CheckCircleIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="check_circle" {...props} />
-);
+)
 export const CheckCircleOutlineIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="check_circle_outline" {...props} />
-);
-export const DeleteIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="delete" {...props} />
-);
+)
+export const DeleteIcon = (props: Omit<IconProps, "icon">) => <Icon icon="delete" {...props} />
 export const DoNotDisturbIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="do_not_disturb" {...props} />
-);
+)
 export const DoNotTouchIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="do_not_touch" {...props} />
-);
+)
 export const DragHandleIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="drag_handle" {...props} />
-);
-export const EditIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="edit" {...props} />
-);
+)
+export const EditIcon = (props: Omit<IconProps, "icon">) => <Icon icon="edit" {...props} />
 export const HighlightOffIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="highlight_off" {...props} />
-);
-export const LoopIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="loop" {...props} />
-);
-export const RemoveIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="remove" {...props} />
-);
+)
+export const LoopIcon = (props: Omit<IconProps, "icon">) => <Icon icon="loop" {...props} />
+export const RemoveIcon = (props: Omit<IconProps, "icon">) => <Icon icon="remove" {...props} />
 export const RemoveCircleIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="remove_circle" {...props} />
-);
-export const SaveAltIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="save_alt" {...props} />
-);
-export const UndoIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="undo" {...props} />
-);
+)
+export const SaveAltIcon = (props: Omit<IconProps, "icon">) => <Icon icon="save_alt" {...props} />
+export const UndoIcon = (props: Omit<IconProps, "icon">) => <Icon icon="undo" {...props} />
 
 // STATUS & ALERTS (12)
-export const ErrorIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="error" {...props} />
-);
+export const ErrorIcon = (props: Omit<IconProps, "icon">) => <Icon icon="error" {...props} />
 export const ErrorOutlineIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="error_outline" {...props} />
-);
-export const HelpIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="help" {...props} />
-);
+)
+export const HelpIcon = (props: Omit<IconProps, "icon">) => <Icon icon="help" {...props} />
 export const HelpOutlineIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="help_outline" {...props} />
-);
-export const InfoIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="info" {...props} />
-);
+)
+export const InfoIcon = (props: Omit<IconProps, "icon">) => <Icon icon="info" {...props} />
 export const InfoOutlineIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="info_outline" {...props} />
-);
+)
 export const NotificationsIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="notifications" {...props} />
-);
+)
 export const NotificationsActiveIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="notifications_active" {...props} />
-);
+)
 export const NotificationsNoneIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="notifications_none" {...props} />
-);
+)
 export const NotificationsOffIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="notifications_off" {...props} />
-);
+)
 export const PriorityHighIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="priority_high" {...props} />
-);
-export const WarningIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="warning" {...props} />
-);
+)
+export const WarningIcon = (props: Omit<IconProps, "icon">) => <Icon icon="warning" {...props} />
 
 // SECURITY & PRIVACY (9)
 export const FingerprintIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="fingerprint" {...props} />
-);
+)
 export const IdentificationIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="identification" {...props} />
-);
-export const LockIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="lock" {...props} />
-);
-export const LockOpenIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="lock_open" {...props} />
-);
+)
+export const LockIcon = (props: Omit<IconProps, "icon">) => <Icon icon="lock" {...props} />
+export const LockOpenIcon = (props: Omit<IconProps, "icon">) => <Icon icon="lock_open" {...props} />
 export const LockOutlineIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="lock_outline" {...props} />
-);
-export const SecurityIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="security" {...props} />
-);
-export const ShieldIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="shield" {...props} />
-);
-export const VerifiedIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="verified" {...props} />
-);
+)
+export const SecurityIcon = (props: Omit<IconProps, "icon">) => <Icon icon="security" {...props} />
+export const ShieldIcon = (props: Omit<IconProps, "icon">) => <Icon icon="shield" {...props} />
+export const VerifiedIcon = (props: Omit<IconProps, "icon">) => <Icon icon="verified" {...props} />
 export const VisibilityIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="visibility" {...props} />
-);
+)
 
 // GOVERNMENT & CIVIC (5)
-export const FlagIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="flag" {...props} />
-);
+export const FlagIcon = (props: Omit<IconProps, "icon">) => <Icon icon="flag" {...props} />
 export const LocalPoliceIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="local_police" {...props} />
-);
+)
 export const MilitaryTechIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="military_tech" {...props} />
-);
-export const PublicIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="public" {...props} />
-);
-export const ReportIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="report" {...props} />
-);
+)
+export const PublicIcon = (props: Omit<IconProps, "icon">) => <Icon icon="public" {...props} />
+export const ReportIcon = (props: Omit<IconProps, "icon">) => <Icon icon="report" {...props} />
 
 // LOCATION & MAPS (5)
 export const LocationCityIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="location_city" {...props} />
-);
+)
 export const LocationOnIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="location_on" {...props} />
-);
-export const MapIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="map" {...props} />
-);
+)
+export const MapIcon = (props: Omit<IconProps, "icon">) => <Icon icon="map" {...props} />
 export const MyLocationIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="my_location" {...props} />
-);
-export const NearMeIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="near_me" {...props} />
-);
+)
+export const NearMeIcon = (props: Omit<IconProps, "icon">) => <Icon icon="near_me" {...props} />
 
 // TRANSPORTATION (7)
 export const DirectionsIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="directions" {...props} />
-);
+)
 export const DirectionsBikeIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="directions_bike" {...props} />
-);
+)
 export const DirectionsBusIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="directions_bus" {...props} />
-);
+)
 export const DirectionsCarIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="directions_car" {...props} />
-);
+)
 export const DirectionsWalkIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="directions_walk" {...props} />
-);
-export const FlightIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="flight" {...props} />
-);
+)
+export const FlightIcon = (props: Omit<IconProps, "icon">) => <Icon icon="flight" {...props} />
 export const LocalTaxiIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="local_taxi" {...props} />
-);
+)
 
 // PLACES & BUILDINGS (16)
-export const DeckIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="deck" {...props} />
-);
-export const HospitalIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="hospital" {...props} />
-);
-export const HotelIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="hotel" {...props} />
-);
+export const DeckIcon = (props: Omit<IconProps, "icon">) => <Icon icon="deck" {...props} />
+export const HospitalIcon = (props: Omit<IconProps, "icon">) => <Icon icon="hospital" {...props} />
+export const HotelIcon = (props: Omit<IconProps, "icon">) => <Icon icon="hotel" {...props} />
 export const LocalCafeIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="local_cafe" {...props} />
-);
+)
 export const LocalFireDepartmentIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="local_fire_department" {...props} />
-);
+)
 export const LocalGasStationIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="local_gas_station" {...props} />
-);
+)
 export const LocalGroceryStoreIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="local_grocery_store" {...props} />
-);
+)
 export const LocalHospitalIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="local_hospital" {...props} />
-);
+)
 export const LocalLaundryServiceIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="local_laundry_service" {...props} />
-);
+)
 export const LocalLibraryIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="local_library" {...props} />
-);
+)
 export const LocalOfferIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="local_offer" {...props} />
-);
+)
 export const LocalParkingIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="local_parking" {...props} />
-);
+)
 export const LocalPharmacyIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="local_pharmacy" {...props} />
-);
-export const ParkIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="park" {...props} />
-);
+)
+export const ParkIcon = (props: Omit<IconProps, "icon">) => <Icon icon="park" {...props} />
 export const RestaurantIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="restaurant" {...props} />
-);
-export const StoreIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="store" {...props} />
-);
+)
+export const StoreIcon = (props: Omit<IconProps, "icon">) => <Icon icon="store" {...props} />
 
 // SOCIAL MEDIA (7)
-export const FacebookIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="facebook" {...props} />
-);
-export const FlickrIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="flickr" {...props} />
-);
-export const GithubIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="github" {...props} />
-);
+export const FacebookIcon = (props: Omit<IconProps, "icon">) => <Icon icon="facebook" {...props} />
+export const FlickrIcon = (props: Omit<IconProps, "icon">) => <Icon icon="flickr" {...props} />
+export const GithubIcon = (props: Omit<IconProps, "icon">) => <Icon icon="github" {...props} />
 export const InstagramIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="instagram" {...props} />
-);
-export const LinkedinIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="linkedin" {...props} />
-);
-export const TwitterIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="twitter" {...props} />
-);
-export const XLogoIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="x_logo" {...props} />
-);
-export const YoutubeIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="youtube" {...props} />
-);
+)
+export const LinkedinIcon = (props: Omit<IconProps, "icon">) => <Icon icon="linkedin" {...props} />
+export const TwitterIcon = (props: Omit<IconProps, "icon">) => <Icon icon="twitter" {...props} />
+export const XLogoIcon = (props: Omit<IconProps, "icon">) => <Icon icon="x_logo" {...props} />
+export const YoutubeIcon = (props: Omit<IconProps, "icon">) => <Icon icon="youtube" {...props} />
 
 // MEDIA & CONTENT (9)
 export const ClosedCaptionIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="closed_caption" {...props} />
-);
+)
 export const FastForwardIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="fast_forward" {...props} />
-);
+)
 export const FastRewindIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="fast_rewind" {...props} />
-);
-export const GridViewIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="grid_view" {...props} />
-);
-export const ImageIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="image" {...props} />
-);
-export const ListIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="list" {...props} />
-);
+)
+export const GridViewIcon = (props: Omit<IconProps, "icon">) => <Icon icon="grid_view" {...props} />
+export const ImageIcon = (props: Omit<IconProps, "icon">) => <Icon icon="image" {...props} />
+export const ListIcon = (props: Omit<IconProps, "icon">) => <Icon icon="list" {...props} />
 export const PhotoCameraIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="photo_camera" {...props} />
-);
+)
 export const VisibilityOffIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="visibility_off" {...props} />
-);
+)
 export const VolumeOffIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="volume_off" {...props} />
-);
+)
 
 // WEATHER & NATURAL DISASTERS (6)
-export const FloodingIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="flooding" {...props} />
-);
+export const FloodingIcon = (props: Omit<IconProps, "icon">) => <Icon icon="flooding" {...props} />
 export const HurricaneIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="hurricane" {...props} />
-);
-export const RainIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="rain" {...props} />
-);
+)
+export const RainIcon = (props: Omit<IconProps, "icon">) => <Icon icon="rain" {...props} />
 export const SevereWeatherIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="severe_weather" {...props} />
-);
-export const SnowIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="snow" {...props} />
-);
-export const TornadoIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="tornado" {...props} />
-);
+)
+export const SnowIcon = (props: Omit<IconProps, "icon">) => <Icon icon="snow" {...props} />
+export const TornadoIcon = (props: Omit<IconProps, "icon">) => <Icon icon="tornado" {...props} />
 
 // HEALTH & MEDICAL (11)
 export const CleanHandsIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="clean_hands" {...props} />
-);
+)
 export const ConnectWithoutContactIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="connect_without_contact" {...props} />
-);
+)
 export const CoronavirusIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="coronavirus" {...props} />
-);
-export const MasksIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="masks" {...props} />
-);
+)
+export const MasksIcon = (props: Omit<IconProps, "icon">) => <Icon icon="masks" {...props} />
 export const MedicalServicesIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="medical_services" {...props} />
-);
+)
 export const ReduceCapacityIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="reduce_capacity" {...props} />
-);
+)
 export const SanitizerIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="sanitizer" {...props} />
-);
-export const SoapIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="soap" {...props} />
-);
+)
+export const SoapIcon = (props: Omit<IconProps, "icon">) => <Icon icon="soap" {...props} />
 export const SocialDistanceIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="social_distance" {...props} />
-);
-export const WashIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="wash" {...props} />
-);
-export const HearingIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="hearing" {...props} />
-);
+)
+export const WashIcon = (props: Omit<IconProps, "icon">) => <Icon icon="wash" {...props} />
+export const HearingIcon = (props: Omit<IconProps, "icon">) => <Icon icon="hearing" {...props} />
 
 // SHOPPING & COMMERCE (3)
 export const AttachMoneyIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="attach_money" {...props} />
-);
+)
 export const CreditCardIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="credit_card" {...props} />
-);
+)
 export const ShoppingBasketIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="shopping_basket" {...props} />
-);
+)
 
 // TECHNOLOGY & DEVICES (5)
-export const ApiIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="api" {...props} />
-);
-export const CloudIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="cloud" {...props} />
-);
-export const CodeIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="code" {...props} />
-);
-export const KeyboardIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="keyboard" {...props} />
-);
-export const WifiIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="wifi" {...props} />
-);
+export const ApiIcon = (props: Omit<IconProps, "icon">) => <Icon icon="api" {...props} />
+export const CloudIcon = (props: Omit<IconProps, "icon">) => <Icon icon="cloud" {...props} />
+export const CodeIcon = (props: Omit<IconProps, "icon">) => <Icon icon="code" {...props} />
+export const KeyboardIcon = (props: Omit<IconProps, "icon">) => <Icon icon="keyboard" {...props} />
+export const WifiIcon = (props: Omit<IconProps, "icon">) => <Icon icon="wifi" {...props} />
 
 // UTILITIES & TOOLS (19)
 export const AssessmentIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="assessment" {...props} />
-);
-export const BuildIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="build" {...props} />
-);
+)
+export const BuildIcon = (props: Omit<IconProps, "icon">) => <Icon icon="build" {...props} />
 export const BugReportIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="bug_report" {...props} />
-);
+)
 export const ConstructionIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="construction" {...props} />
-);
+)
 export const ConstructionWorkerIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="construction_worker" {...props} />
-);
+)
 export const DeviceThermostatIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="device_thermostat" {...props} />
-);
-export const EcoIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="eco" {...props} />
-);
+)
+export const EcoIcon = (props: Omit<IconProps, "icon">) => <Icon icon="eco" {...props} />
 export const ElectricalServicesIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="electrical_services" {...props} />
-);
+)
 export const FilterAltIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="filter_alt" {...props} />
-);
+)
 export const FilterListIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="filter_list" {...props} />
-);
-export const InsightsIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="insights" {...props} />
-);
-export const LinkIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="link" {...props} />
-);
-export const LinkOffIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="link_off" {...props} />
-);
+)
+export const InsightsIcon = (props: Omit<IconProps, "icon">) => <Icon icon="insights" {...props} />
+export const LinkIcon = (props: Omit<IconProps, "icon">) => <Icon icon="link" {...props} />
+export const LinkOffIcon = (props: Omit<IconProps, "icon">) => <Icon icon="link_off" {...props} />
 export const MoreHorizIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="more_horiz" {...props} />
-);
-export const MoreVertIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="more_vert" {...props} />
-);
-export const PrintIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="print" {...props} />
-);
-export const SettingsIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="settings" {...props} />
-);
-export const ShareIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="share" {...props} />
-);
-export const SupportIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="support" {...props} />
-);
+)
+export const MoreVertIcon = (props: Omit<IconProps, "icon">) => <Icon icon="more_vert" {...props} />
+export const PrintIcon = (props: Omit<IconProps, "icon">) => <Icon icon="print" {...props} />
+export const SettingsIcon = (props: Omit<IconProps, "icon">) => <Icon icon="settings" {...props} />
+export const ShareIcon = (props: Omit<IconProps, "icon">) => <Icon icon="share" {...props} />
+export const SupportIcon = (props: Omit<IconProps, "icon">) => <Icon icon="support" {...props} />
 
 // SENTIMENT & EMOJI (7)
 export const EmojiEventsIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="emoji_events" {...props} />
-);
+)
 export const SentimentDissatisfiedIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="sentiment_dissatisfied" {...props} />
-);
+)
 export const SentimentNeutralIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="sentiment_neutral" {...props} />
-);
+)
 export const SentimentSatisfiedIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="sentiment_satisfied" {...props} />
-);
+)
 export const SentimentSatisfiedAltIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="sentiment_satisfied_alt" {...props} />
-);
+)
 export const SentimentVeryDissatisfiedIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="sentiment_very_dissatisfied" {...props} />
-);
-export const PetsIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="pets" {...props} />
-);
+)
+export const PetsIcon = (props: Omit<IconProps, "icon">) => <Icon icon="pets" {...props} />
 
 // FORMATTING & EDITOR (5)
 export const FormatQuoteIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="format_quote" {...props} />
-);
+)
 export const FormatSizeIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="format_size" {...props} />
-);
+)
 export const SpellcheckIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="spellcheck" {...props} />
-);
+)
 export const TextFieldsIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="text_fields" {...props} />
-);
+)
 export const TranslateIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="translate" {...props} />
-);
+)
 
 // TOGGLE & SELECTION (10)
-export const FavoriteIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="favorite" {...props} />
-);
+export const FavoriteIcon = (props: Omit<IconProps, "icon">) => <Icon icon="favorite" {...props} />
 export const FavoriteBorderIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="favorite_border" {...props} />
-);
+)
 export const RadioButtonUncheckedIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="radio_button_unchecked" {...props} />
-);
-export const StarIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="star" {...props} />
-);
-export const StarHalfIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="star_half" {...props} />
-);
+)
+export const StarIcon = (props: Omit<IconProps, "icon">) => <Icon icon="star" {...props} />
+export const StarHalfIcon = (props: Omit<IconProps, "icon">) => <Icon icon="star_half" {...props} />
 export const StarOutlineIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="star_outline" {...props} />
-);
+)
 export const ThumbDownAltIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="thumb_down_alt" {...props} />
-);
+)
 export const ThumbUpAltIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="thumb_up_alt" {...props} />
-);
+)
 export const ToggleOffIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="toggle_off" {...props} />
-);
-export const ToggleOnIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="toggle_on" {...props} />
-);
+)
+export const ToggleOnIcon = (props: Omit<IconProps, "icon">) => <Icon icon="toggle_on" {...props} />
 
 // LIFESTYLE & ACTIVITIES (10)
-export const BackpackIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="backpack" {...props} />
-);
-export const BathtubIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="bathtub" {...props} />
-);
-export const BeddingIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="bedding" {...props} />
-);
-export const CampaignIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="campaign" {...props} />
-);
-export const CampingIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="camping" {...props} />
-);
+export const BackpackIcon = (props: Omit<IconProps, "icon">) => <Icon icon="backpack" {...props} />
+export const BathtubIcon = (props: Omit<IconProps, "icon">) => <Icon icon="bathtub" {...props} />
+export const BeddingIcon = (props: Omit<IconProps, "icon">) => <Icon icon="bedding" {...props} />
+export const CampaignIcon = (props: Omit<IconProps, "icon">) => <Icon icon="campaign" {...props} />
+export const CampingIcon = (props: Omit<IconProps, "icon">) => <Icon icon="camping" {...props} />
 export const CheckroomIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="checkroom" {...props} />
-);
-export const ClothesIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="clothes" {...props} />
-);
+)
+export const ClothesIcon = (props: Omit<IconProps, "icon">) => <Icon icon="clothes" {...props} />
 export const LightbulbIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="lightbulb" {...props} />
-);
+)
 export const LightbulbOutlineIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="lightbulb_outline" {...props} />
-);
-export const ScienceIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="science" {...props} />
-);
+)
+export const ScienceIcon = (props: Omit<IconProps, "icon">) => <Icon icon="science" {...props} />
 
 // MISCELLANEOUS (9)
-export const LanguageIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="language" {...props} />
-);
+export const LanguageIcon = (props: Omit<IconProps, "icon">) => <Icon icon="language" {...props} />
 export const SafetyDividerIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="safety_divider" {...props} />
-);
+)
 export const SortArrowIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="sort_arrow" {...props} />
-);
+)
 export const TrendingDownIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="trending_down" {...props} />
-);
+)
 export const TrendingUpIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="trending_up" {...props} />
-);
-export const WorkIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="work" {...props} />
-);
-export const ZoomInIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="zoom_in" {...props} />
-);
-export const ZoomOutIcon = (props: Omit<IconProps, "icon">) => (
-  <Icon icon="zoom_out" {...props} />
-);
+)
+export const WorkIcon = (props: Omit<IconProps, "icon">) => <Icon icon="work" {...props} />
+export const ZoomInIcon = (props: Omit<IconProps, "icon">) => <Icon icon="zoom_in" {...props} />
+export const ZoomOutIcon = (props: Omit<IconProps, "icon">) => <Icon icon="zoom_out" {...props} />
 export const ZoomOutMapIcon = (props: Omit<IconProps, "icon">) => (
   <Icon icon="zoom_out_map" {...props} />
-);
+)
 
 // Legacy aliases for backward compatibility
-export const UserIcon = PersonIcon;
-export const DocumentIcon = FilePresentIcon;
-export const CalendarIcon = CalendarTodayIcon;
+export const UserIcon = PersonIcon
+export const DocumentIcon = FilePresentIcon
+export const CalendarIcon = CalendarTodayIcon
 
-export { Icon, iconVariants };
+export { Icon, iconVariants }

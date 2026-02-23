@@ -9,9 +9,9 @@ describe("ButtonGroup", () => {
       <ButtonGroup>
         <Button variant="outline">Button 1</Button>
         <Button variant="outline">Button 2</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     )
-    
+
     const group = container.querySelector('[role="group"]')
     expect(group).toBeInTheDocument()
     expect(screen.getByText("Button 1")).toBeInTheDocument()
@@ -23,9 +23,9 @@ describe("ButtonGroup", () => {
       <ButtonGroup>
         <Button variant="outline">Button 1</Button>
         <Button variant="outline">Button 2</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     )
-    
+
     const group = container.querySelector('[role="group"]')
     expect(group).toHaveClass("flex-row")
   })
@@ -35,9 +35,9 @@ describe("ButtonGroup", () => {
       <ButtonGroup orientation="vertical">
         <Button variant="outline">Button 1</Button>
         <Button variant="outline">Button 2</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     )
-    
+
     const group = container.querySelector('[role="group"]')
     expect(group).toHaveClass("flex-col")
   })
@@ -53,9 +53,9 @@ describe("ButtonGroup", () => {
           <Button variant="outline">Button 3</Button>
           <Button variant="outline">Button 4</Button>
         </ButtonGroup>
-      </ButtonGroup>
+      </ButtonGroup>,
     )
-    
+
     const groups = container.querySelectorAll('[role="group"]')
     expect(groups.length).toBe(3) // 1 parent + 2 nested
   })
@@ -66,9 +66,9 @@ describe("ButtonGroup", () => {
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>
         <Button variant="outline">Outline</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     )
-    
+
     expect(screen.getByText("Primary")).toBeInTheDocument()
     expect(screen.getByText("Secondary")).toBeInTheDocument()
     expect(screen.getByText("Outline")).toBeInTheDocument()
@@ -77,12 +77,16 @@ describe("ButtonGroup", () => {
   it("works with different button sizes", () => {
     render(
       <ButtonGroup>
-        <Button variant="outline" size="sm">Small</Button>
+        <Button variant="outline" size="sm">
+          Small
+        </Button>
         <Button variant="outline">Default</Button>
-        <Button variant="outline" size="lg">Large</Button>
-      </ButtonGroup>
+        <Button variant="outline" size="lg">
+          Large
+        </Button>
+      </ButtonGroup>,
     )
-    
+
     expect(screen.getByText("Small")).toBeInTheDocument()
     expect(screen.getByText("Default")).toBeInTheDocument()
     expect(screen.getByText("Large")).toBeInTheDocument()
@@ -92,10 +96,12 @@ describe("ButtonGroup", () => {
     render(
       <ButtonGroup>
         <Button variant="outline">Enabled</Button>
-        <Button variant="outline" disabled>Disabled</Button>
-      </ButtonGroup>
+        <Button variant="outline" disabled>
+          Disabled
+        </Button>
+      </ButtonGroup>,
     )
-    
+
     expect(screen.getByText("Enabled")).not.toBeDisabled()
     expect(screen.getByText("Disabled")).toBeDisabled()
   })
@@ -104,9 +110,9 @@ describe("ButtonGroup", () => {
     const { container } = render(
       <ButtonGroup className="custom-class">
         <Button variant="outline">Button</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     )
-    
+
     const group = container.querySelector('[role="group"]')
     expect(group).toHaveClass("custom-class")
   })

@@ -1,5 +1,4 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import {
   Card,
   CardGroup,
@@ -8,22 +7,22 @@ import {
   CardContent,
   CardFooter,
   CardMedia,
-} from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 const meta = {
-  title: 'UI/Card',
+  title: "UI/Card",
   component: Card,
   parameters: {
-    layout: 'padded',
+    layout: "padded",
     docs: {
       description: {
         component:
-          'Cards contain content and actions about a single subject. Follows USWDS design guidelines with proper semantic structure and accessibility.',
+          "Cards contain content and actions about a single subject. Follows USWDS design guidelines with proper semantic structure and accessibility.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Card>
 
 export default meta
@@ -38,8 +37,8 @@ export const Default: Story = {
       </CardHeader>
       <CardContent>
         <p className="font-open-sans">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          earum tenetur quo cupiditate, eaque qui officia recusandae.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo
+          cupiditate, eaque qui officia recusandae.
         </p>
       </CardContent>
       <CardFooter>
@@ -50,7 +49,7 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'A basic card with header, content, and footer sections.',
+        story: "A basic card with header, content, and footer sections.",
       },
     },
   },
@@ -72,8 +71,8 @@ export const WithImage: Story = {
       </CardMedia>
       <CardContent>
         <p className="font-open-sans">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          earum tenetur quo cupiditate, eaque qui officia recusandae.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo
+          cupiditate, eaque qui officia recusandae.
         </p>
       </CardContent>
       <CardFooter>
@@ -84,7 +83,7 @@ export const WithImage: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Card with an image positioned at the top.',
+        story: "Card with an image positioned at the top.",
       },
     },
   },
@@ -106,8 +105,8 @@ export const MediaWithHeaderFirst: Story = {
       </CardMedia>
       <CardContent>
         <p className="font-public-sans">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          earum tenetur quo cupiditate, eaque qui officia recusandae.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo
+          cupiditate, eaque qui officia recusandae.
         </p>
       </CardContent>
       <CardFooter>
@@ -118,7 +117,7 @@ export const MediaWithHeaderFirst: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Card with header displayed before the media.',
+        story: "Card with header displayed before the media.",
       },
     },
   },
@@ -140,8 +139,8 @@ export const InsetMedia: Story = {
       </CardMedia>
       <CardContent>
         <p className="font-open-sans">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          earum tenetur quo cupiditate, eaque qui officia recusandae.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo
+          cupiditate, eaque qui officia recusandae.
         </p>
       </CardContent>
       <CardFooter>
@@ -152,7 +151,7 @@ export const InsetMedia: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Card with media inset from the edges with padding.',
+        story: "Card with media inset from the edges with padding.",
       },
     },
   },
@@ -174,8 +173,8 @@ export const ExdentMedia: Story = {
       </CardMedia>
       <CardContent>
         <p className="font-open-sans">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          earum tenetur quo cupiditate, eaque qui officia recusandae.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo
+          cupiditate, eaque qui officia recusandae.
         </p>
       </CardContent>
       <CardFooter>
@@ -186,8 +185,7 @@ export const ExdentMedia: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          'Card with media extending beyond the card borders (no side borders on media).',
+        story: "Card with media extending beyond the card borders (no side borders on media).",
       },
     },
   },
@@ -203,8 +201,8 @@ export const VerticalCardGroup: Story = {
         </CardHeader>
         <CardContent>
           <p className="font-open-sans">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-            earum tenetur quo cupiditate, eaque qui officia recusandae.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo
+            cupiditate, eaque qui officia recusandae.
           </p>
         </CardContent>
         <CardFooter>
@@ -225,8 +223,8 @@ export const VerticalCardGroup: Story = {
         </CardMedia>
         <CardContent>
           <p className="font-open-sans">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-            earum tenetur quo cupiditate, eaque qui officia recusandae.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo
+            cupiditate, eaque qui officia recusandae.
           </p>
         </CardContent>
         <CardFooter>
@@ -247,8 +245,8 @@ export const VerticalCardGroup: Story = {
         </CardMedia>
         <CardContent>
           <p className="font-open-sans">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-            earum tenetur quo cupiditate, eaque qui officia recusandae.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo
+            cupiditate, eaque qui officia recusandae.
           </p>
         </CardContent>
         <CardFooter>
@@ -261,7 +259,7 @@ export const VerticalCardGroup: Story = {
     docs: {
       description: {
         story:
-          'Multiple cards in a responsive grid layout. Uses semantic ul/li structure for accessibility.',
+          "Multiple cards in a responsive grid layout. Uses semantic ul/li structure for accessibility.",
       },
     },
   },
@@ -271,10 +269,7 @@ export const VerticalCardGroup: Story = {
 export const HorizontalCard: Story = {
   render: () => (
     <Card className="flex-col tablet:flex-row max-w-2xl">
-      <CardMedia 
-        variant="first" 
-        className="tablet:w-60 tablet:shrink-0 tablet:order-first"
-      >
+      <CardMedia variant="first" className="tablet:w-60 tablet:shrink-0 tablet:order-first">
         <img
           className="w-full h-full object-cover"
           src="https://placehold.co/640x360"
@@ -286,9 +281,7 @@ export const HorizontalCard: Story = {
           <h2 className="font-semibold font-poppins text-xl">Default flag</h2>
         </CardHeader>
         <CardContent>
-          <p className="font-open-sans">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
+          <p className="font-open-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </CardContent>
         <CardFooter>
           <Button>Visit Florida Keys</Button>
@@ -300,7 +293,7 @@ export const HorizontalCard: Story = {
     docs: {
       description: {
         story:
-          'Horizontal card layout (flag pattern) with media on the side. Responsive - stacks vertically on mobile.',
+          "Horizontal card layout (flag pattern) with media on the side. Responsive - stacks vertically on mobile.",
       },
     },
   },
@@ -312,14 +305,10 @@ export const HorizontalCardMediaRight: Story = {
     <Card className="flex-row max-w-2xl">
       <div className="border-x-2 border-b-2 rounded-b tablet:border-x-0 tablet:rounded-b-none tablet:border-y-2 tablet:border-s-2 tablet:rounded-s border-gray-10 grow">
         <div className="px-6 pt-6 pb-2">
-          <h2 className="font-semibold font-poppins text-xl">
-            Flag media right inset
-          </h2>
+          <h2 className="font-semibold font-poppins text-xl">Flag media right inset</h2>
         </div>
         <div className="px-6 py-2 grow">
-          <p className="font-open-sans">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
+          <p className="font-open-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
         <div className="px-6 pb-6 pt-2">
           <Button>Visit Florida Keys</Button>
@@ -337,8 +326,7 @@ export const HorizontalCardMediaRight: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          'Horizontal card with media positioned on the right side with inset padding.',
+        story: "Horizontal card with media positioned on the right side with inset padding.",
       },
     },
   },
@@ -354,9 +342,7 @@ export const AllVerticalVariants: Story = {
           <h2 className="font-semibold font-poppins text-xl">Default</h2>
         </CardHeader>
         <CardContent>
-          <p className="font-open-sans">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
+          <p className="font-open-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </CardContent>
         <CardFooter>
           <Button>Action</Button>
@@ -376,9 +362,7 @@ export const AllVerticalVariants: Story = {
           />
         </CardMedia>
         <CardContent>
-          <p className="font-open-sans">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
+          <p className="font-open-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </CardContent>
         <CardFooter>
           <Button>Action</Button>
@@ -398,9 +382,7 @@ export const AllVerticalVariants: Story = {
           />
         </CardMedia>
         <CardContent>
-          <p className="font-open-sans">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
+          <p className="font-open-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </CardContent>
         <CardFooter>
           <Button>Action</Button>
@@ -420,9 +402,7 @@ export const AllVerticalVariants: Story = {
           />
         </CardMedia>
         <CardContent>
-          <p className="font-open-sans">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
+          <p className="font-open-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </CardContent>
         <CardFooter>
           <Button>Action</Button>
@@ -442,9 +422,7 @@ export const AllVerticalVariants: Story = {
           />
         </CardMedia>
         <CardContent>
-          <p className="font-open-sans">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
+          <p className="font-open-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </CardContent>
         <CardFooter>
           <Button>Action</Button>
@@ -455,7 +433,7 @@ export const AllVerticalVariants: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'All vertical card variants displayed in a responsive grid.',
+        story: "All vertical card variants displayed in a responsive grid.",
       },
     },
   },

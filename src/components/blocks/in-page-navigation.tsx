@@ -1,4 +1,3 @@
-import * as React from "react"
 import { cn } from "@/lib/utils"
 
 export type InPageNavigationItem = {
@@ -16,9 +15,9 @@ export interface InPageNavigationProps {
 
 function NavigationList({ items }: { items: InPageNavigationItem[] }) {
   return (
-    <ul className={cn("border-b border-b-gray-10 [&_a]:pl-4 [&_ul_a]:pl-8 [&_ul_ul_a]:pl-12")}> 
+    <ul className={cn("border-b border-b-gray-10 [&_a]:pl-4 [&_ul_a]:pl-8 [&_ul_ul_a]:pl-12")}>
       {items.map((item, index) => (
-        <li key={`${item.href}-${index}`} className={cn("border-t border-t-gray-10")}> 
+        <li key={`${item.href}-${index}`} className={cn("border-t border-t-gray-10")}>
           <a
             href={item.href}
             className={cn(
@@ -26,7 +25,7 @@ function NavigationList({ items }: { items: InPageNavigationItem[] }) {
               "focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40v",
               "aria-[current=page]:text-blue-60v aria-[current=page]:font-bold",
               "aria-[current=page]:after:block aria-[current=page]:after:absolute aria-[current=page]:after:bg-blue-60v",
-              "aria-[current=page]:after:inset-y-1 aria-[current=page]:after:left-0 aria-[current=page]:after:w-1 aria-[current=page]:after:rounded-full"
+              "aria-[current=page]:after:inset-y-1 aria-[current=page]:after:left-0 aria-[current=page]:after:w-1 aria-[current=page]:after:rounded-full",
             )}
             aria-current={item.isActive ? "page" : undefined}
           >
@@ -42,7 +41,11 @@ function NavigationList({ items }: { items: InPageNavigationItem[] }) {
   )
 }
 
-export function InPageNavigation({ items, ariaLabel = "Side navigation", className }: InPageNavigationProps) {
+export function InPageNavigation({
+  items,
+  ariaLabel = "Side navigation",
+  className,
+}: InPageNavigationProps) {
   return (
     <nav aria-label={ariaLabel} className={cn(className)}>
       <NavigationList items={items} />
@@ -53,5 +56,3 @@ export function InPageNavigation({ items, ariaLabel = "Side navigation", classNa
 InPageNavigation.displayName = "InPageNavigation"
 
 export default InPageNavigation
-
-
