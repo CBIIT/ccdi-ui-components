@@ -220,7 +220,9 @@ const DesktopNavigation: React.FC<{
   <div className="hidden lg:grid lg:grid-cols-3 gap-8">
     {sections.map((section, index) => (
       <div key={index}>
-        <h3 className="font-semibold font-open-sans text-white mb-4 text-base leading-5">{section.title}</h3>
+        <h3 className="font-semibold font-open-sans text-white mb-4 text-base leading-5">
+          {section.title}
+        </h3>
         <ul className="space-y-3">
           {section.links.map((link, linkIndex) => (
             <li key={linkIndex}>

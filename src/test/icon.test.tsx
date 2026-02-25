@@ -11,7 +11,14 @@ describe("Icon", () => {
     expect(icon).toHaveAttribute("viewBox", "0 0 24 24")
     expect(icon).toHaveAttribute("role", "img")
     expect(icon).toHaveAttribute("aria-hidden", "true")
-    expect(icon).toHaveClass("h-8", "w-8", "inline-block", "shrink-0", "stroke-none", "fill-current")
+    expect(icon).toHaveClass(
+      "h-8",
+      "w-8",
+      "inline-block",
+      "shrink-0",
+      "stroke-none",
+      "fill-current",
+    )
   })
 
   it.each([
