@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 const buttonVariants = cva(
   cn(
     // Base layout and appearance
-    "relative rounded font-semibold font-open-sans leading-none cursor-pointer inline-flex items-center justify-center gap-1",
+    "rounded font-semibold font-open-sans relative inline-flex cursor-pointer items-center justify-center gap-1 leading-none",
 
     // Focus states
     "focus:outline focus:outline-4 focus:outline-offset-4 focus:outline-blue-40v",
@@ -21,26 +21,26 @@ const buttonVariants = cva(
         primary: "text-white bg-cerulean-50 hover:bg-cerulean-70 active:bg-cerulean-80",
         secondary: "text-white bg-teal-50 hover:bg-teal-70 active:bg-teal-80",
         "accent-cool": "text-white bg-navy-50 hover:bg-navy-70 active:bg-navy-80",
-        "accent-warm": "text-gray-90 bg-golden-20 hover:bg-golden-30 active:bg-golden-40",
+        "accent-warm": "bg-golden-20 text-gray-90 hover:bg-golden-30 active:bg-golden-40",
         base: "text-white bg-gray-cool-50 hover:bg-gray-cool-60 active:bg-gray-cool-70",
         outline:
-          "text-cerulean-50 bg-transparent border-2 border-cerulean-50 hover:text-cerulean-70 hover:border-cerulean-70 active:text-cerulean-80 active:border-cerulean-80 disabled:border-gray-20 disabled:text-gray-50 disabled:bg-transparent",
+          "border-2 border-cerulean-50 bg-transparent text-cerulean-50 hover:border-cerulean-70 hover:text-cerulean-70 active:border-cerulean-80 active:text-cerulean-80 disabled:border-gray-20 disabled:bg-transparent disabled:text-gray-50",
         "outline-inverse":
-          "text-gray-cool-10 bg-transparent border-2 border-gray-cool-10 hover:text-gray-5 hover:border-gray-5 active:text-white active:border-white disabled:border-gray-40 disabled:text-gray-50 disabled:bg-transparent",
+          "active:text-white active:border-white border-2 border-gray-cool-10 bg-transparent text-gray-cool-10 hover:border-gray-5 hover:text-gray-5 disabled:border-gray-40 disabled:bg-transparent disabled:text-gray-50",
         "outline-primary":
-          "text-cerulean-50 bg-transparent border-2 border-cerulean-50 hover:text-cerulean-70 hover:border-cerulean-70 active:text-cerulean-80 active:border-cerulean-80 disabled:border-gray-20 disabled:text-gray-50 disabled:bg-transparent",
+          "border-2 border-cerulean-50 bg-transparent text-cerulean-50 hover:border-cerulean-70 hover:text-cerulean-70 active:border-cerulean-80 active:text-cerulean-80 disabled:border-gray-20 disabled:bg-transparent disabled:text-gray-50",
         "outline-secondary":
-          "text-teal-50 bg-transparent border-2 border-teal-50 hover:text-teal-70 hover:border-teal-70 active:text-teal-80 active:border-teal-80 disabled:border-gray-20 disabled:text-gray-50 disabled:bg-transparent",
+          "border-2 border-teal-50 bg-transparent text-teal-50 hover:border-teal-70 hover:text-teal-70 active:border-teal-80 active:text-teal-80 disabled:border-gray-20 disabled:bg-transparent disabled:text-gray-50",
         info: "text-white bg-navy-50 hover:bg-navy-70 active:bg-navy-80",
         success: "text-white bg-green-cool-50v hover:bg-green-cool-60v active:bg-green-cool-70v",
-        warning: "text-gray-90 bg-golden-20 hover:bg-golden-30 active:bg-golden-40",
+        warning: "bg-golden-20 text-gray-90 hover:bg-golden-30 active:bg-golden-40",
         danger: "text-white bg-red-60v hover:bg-red-warm-70v active:bg-red-warm-80v",
-        link: "text-blue-60v underline underline-offset-2 hover:text-blue-warm-70v !p-0 font-normal rounded-none disabled:text-gray-50 disabled:bg-transparent ",
+        link: "font-normal rounded-none !p-0 text-blue-60v underline underline-offset-2 hover:text-blue-warm-70v disabled:bg-transparent disabled:text-gray-50",
       },
       size: {
-        sm: "p-2 text-sm leading-3.5",
+        sm: "text-sm p-2 leading-3.5",
         default: "px-5 py-3",
-        lg: "px-6 py-4 text-xl",
+        lg: "text-xl px-6 py-4",
         icon: "size-9",
       },
     },

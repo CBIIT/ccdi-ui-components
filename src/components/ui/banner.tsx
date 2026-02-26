@@ -21,12 +21,12 @@ const Banner = React.forwardRef<HTMLElement, BannerProps>(
         className={cn("bg-gray-5", className)}
         {...props}
       >
-        <div className="py-2 px-4 lg:px-8">
+        <div className="lg:px-8 px-4 py-2">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-center justify-between gap-4 min-h-7">
+            <div className="flex min-h-7 items-center justify-between gap-4">
               <div className="flex items-center gap-2">
                 {/* Flag */}
-                <div className="pt-0.5 md:pt-0 shrink-0 w-4">
+                <div className="md:pt-0 w-4 shrink-0 pt-0.5">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64">
                     <path
                       fill="#DB3E1F"

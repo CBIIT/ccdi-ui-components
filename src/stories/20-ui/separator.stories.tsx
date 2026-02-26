@@ -129,15 +129,15 @@ export const AllSizes: Story = {
   render: () => (
     <div className="w-64 space-y-6">
       <div>
-        <div className="text-xs text-gray-60 mb-2">Small</div>
+        <div className="text-xs mb-2 text-gray-60">Small</div>
         <Separator size="sm" />
       </div>
       <div>
-        <div className="text-xs text-gray-60 mb-2">Default</div>
+        <div className="text-xs mb-2 text-gray-60">Default</div>
         <Separator size="default" />
       </div>
       <div>
-        <div className="text-xs text-gray-60 mb-2">Large</div>
+        <div className="text-xs mb-2 text-gray-60">Large</div>
         <Separator size="lg" />
       </div>
     </div>
@@ -156,7 +156,7 @@ export const OrientationComparison: Story = {
   render: () => (
     <div className="space-y-8">
       <div>
-        <div className="text-sm text-gray-70 mb-4">Horizontal Separator</div>
+        <div className="text-sm mb-4 text-gray-70">Horizontal Separator</div>
         <div className="w-64 space-y-4">
           <div className="text-xs text-gray-60">Content above</div>
           <Separator orientation="horizontal" />
@@ -165,7 +165,7 @@ export const OrientationComparison: Story = {
       </div>
 
       <div>
-        <div className="text-sm text-gray-70 mb-4">Vertical Separator</div>
+        <div className="text-sm mb-4 text-gray-70">Vertical Separator</div>
         <div className="flex h-16 items-center space-x-4">
           <div className="text-xs text-gray-60">Left</div>
           <Separator orientation="vertical" />
@@ -186,9 +186,9 @@ export const OrientationComparison: Story = {
 // Usage in card-like layout
 export const InCardLayout: Story = {
   render: () => (
-    <div className="max-w-sm mx-auto bg-white border border-gray-30 rounded-lg p-6">
-      <h3 className="text-lg font-bold text-gray-90 mb-2">Card Title</h3>
-      <p className="text-sm text-gray-70 mb-4">
+    <div className="max-w-sm bg-white mx-auto rounded-lg border border-gray-30 p-6">
+      <h3 className="text-lg font-bold mb-2 text-gray-90">Card Title</h3>
+      <p className="text-sm mb-4 text-gray-70">
         Some descriptive text content that explains the card.
       </p>
 
@@ -201,7 +201,7 @@ export const InCardLayout: Story = {
 
       <Separator className="my-4" />
 
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <span className="text-sm text-gray-60">Footer content</span>
         <button className="text-sm text-blue-60 hover:text-blue-70">Action</button>
       </div>

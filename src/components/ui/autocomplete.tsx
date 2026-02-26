@@ -305,7 +305,7 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
         />
 
         {/* Input wrapper */}
-        <div className="relative flex items-center mt-2">
+        <div className="relative mt-2 flex items-center">
           <input
             ref={React.useMemo(() => {
               return (node: HTMLInputElement | null) => {
@@ -340,19 +340,19 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
             autoComplete="off"
             className={cn(
               // Base styling
-              "flex w-full font-public-sans text-gray-90",
+              "font-public-sans flex w-full text-gray-90",
               // Size and spacing
               "h-12 px-3 py-2 pr-10",
               // Background and border
-              "bg-white border border-gray-60 rounded-none",
+              "bg-white rounded-none border border-gray-60",
               // Focus states
-              "focus-visible:outline focus-visible:outline-4 focus-visible:outline-blue-40 focus-visible:border-blue-60",
+              "focus-visible:border-blue-60 focus-visible:outline focus-visible:outline-4 focus-visible:outline-blue-40",
               // Invalid states
-              invalid && "aria-[invalid=true]:border-red-60v aria-[invalid=true]:border-4",
+              invalid && "aria-[invalid=true]:border-4 aria-[invalid=true]:border-red-60v",
               // Success states
-              success && "border-green-50 border-4",
+              success && "border-4 border-green-50",
               // Disabled states
-              "disabled:cursor-not-allowed disabled:text-gray-70 disabled:bg-gray-20",
+              "disabled:cursor-not-allowed disabled:bg-gray-20 disabled:text-gray-70",
               className,
             )}
             onChange={(e) => handleInputChange(e.target.value)}
@@ -361,7 +361,7 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
           />
 
           {/* Search icon */}
-          <div className="absolute right-3 pointer-events-none">
+          <div className="pointer-events-none absolute right-3">
             <SearchIcon size="xs" className={cn("text-gray-60", disabled && "text-gray-50")} />
           </div>
         </div>
@@ -374,25 +374,25 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
             role="listbox"
             aria-label="Search suggestions"
             className={cn(
-              "absolute z-50 w-full mt-1 bg-white border border-gray-60 rounded-none shadow-lg max-h-60 overflow-auto",
+              "bg-white absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-none border border-gray-60 shadow-lg",
               listboxClassName,
             )}
           >
             {combinedLoading && (
-              <div className="px-3 py-2 text-gray-70 text-sm">Loading suggestions...</div>
+              <div className="text-sm px-3 py-2 text-gray-70">Loading suggestions...</div>
             )}
 
             {!combinedLoading &&
               internalValue.length > 0 &&
               internalValue.length < minCharCount &&
               minPlaceholderMsg && (
-                <div className="px-3 py-2 text-gray-70 text-sm">{minPlaceholderMsg}</div>
+                <div className="text-sm px-3 py-2 text-gray-70">{minPlaceholderMsg}</div>
               )}
 
             {!combinedLoading &&
               suggestions.length === 0 &&
               internalValue.length >= minCharCount && (
-                <div className="px-3 py-2 text-gray-70 text-sm">No suggestions found</div>
+                <div className="text-sm px-3 py-2 text-gray-70">No suggestions found</div>
               )}
 
             {!combinedLoading &&
@@ -407,7 +407,7 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
                   aria-selected={activeIndex === index}
                   tabIndex={activeIndex === index ? 0 : -1}
                   className={cn(
-                    "px-3 py-2 cursor-pointer text-gray-90 font-public-sans",
+                    "font-public-sans cursor-pointer px-3 py-2 text-gray-90",
                     "hover:bg-blue-10 focus:bg-blue-10",
                     activeIndex === index && "bg-blue-10",
                   )}

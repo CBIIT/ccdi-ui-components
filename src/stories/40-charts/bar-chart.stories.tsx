@@ -74,8 +74,8 @@ export const Default: Story = {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
@@ -139,8 +139,8 @@ export const Horizontal: Story = {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Horizontal layout for easier label reading
         </div>
       </CardFooter>
@@ -206,8 +206,8 @@ export const Multiple: Story = {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Comparing desktop and mobile visitors
         </div>
       </CardFooter>
@@ -274,8 +274,8 @@ export const Stacked: Story = {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Comparing desktop and mobile visitors
         </div>
       </CardFooter>
@@ -336,8 +336,8 @@ export const Labels: Story = {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
@@ -422,8 +422,8 @@ export const CustomLabels: Story = {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           A basic bar chart example with custom labels
         </div>
       </CardFooter>
@@ -509,8 +509,8 @@ export const Mixed: Story = {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
@@ -611,8 +611,8 @@ export const CustomActiveBars: Story = {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
@@ -812,8 +812,8 @@ export const Negative: Story = {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing positive and negative values with different colors
         </div>
       </CardFooter>

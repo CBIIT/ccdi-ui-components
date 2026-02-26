@@ -6,7 +6,7 @@ const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableE
     <div className="relative w-full overflow-auto">
       <table
         ref={ref}
-        className={cn("border-separate border-spacing-0 w-full font-public-sans", className)}
+        className={cn("font-public-sans w-full border-separate border-spacing-0", className)}
         {...props}
       />
     </div>
@@ -21,7 +21,7 @@ const TableHeader = React.forwardRef<
   <thead
     ref={ref}
     className={cn(
-      "[&_tr_th]:bg-gray-10 [&_tr_th]:text-left [&_tr_th]:border [&_tr_th]:border-black [&_tr_th:not(:first-child)]:border-l-0 [&_tr_th]:px-4 [&_tr_th]:py-2",
+      "[&_tr_th]:border-black [&_tr_th]:border [&_tr_th]:bg-gray-10 [&_tr_th]:px-4 [&_tr_th]:py-2 [&_tr_th]:text-left [&_tr_th:not(:first-child)]:border-l-0",
       className,
     )}
     {...props}
@@ -38,9 +38,9 @@ const TableBody = React.forwardRef<HTMLTableSectionElement, TableBodyProps>(
     <tbody
       ref={ref}
       className={cn(
-        "[&_tr_td]:text-left [&_tr_td]:border [&_tr_td]:border-black [&_tr_td:not(:first-child)]:border-l-0 [&_tr_td]:border-t-0 [&_tr_td]:px-4 [&_tr_td]:py-2",
+        "[&_tr_td]:border-black [&_tr_td]:border [&_tr_td]:border-t-0 [&_tr_td]:px-4 [&_tr_td]:py-2 [&_tr_td]:text-left [&_tr_td:not(:first-child)]:border-l-0",
         striped
-          ? "[&_tr:nth-child(even)_td]:bg-gray-5 [&_tr:nth-child(odd)_td]:bg-white"
+          ? "[&_tr:nth-child(odd)_td]:bg-white [&_tr:nth-child(even)_td]:bg-gray-5"
           : "[&_tr_td]:bg-white",
         className,
       )}
@@ -56,7 +56,7 @@ const TableFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tfoot
     ref={ref}
-    className={cn("border-t border-gray-30 bg-gray-5 font-bold [&>tr]:last:border-b-0", className)}
+    className={cn("font-bold border-t border-gray-30 bg-gray-5 [&>tr]:last:border-b-0", className)}
     {...props}
   />
 ))
@@ -83,7 +83,7 @@ const TableCaption = React.forwardRef<
   HTMLTableCaptionElement,
   React.HTMLAttributes<HTMLTableCaptionElement>
 >(({ className, ...props }, ref) => (
-  <caption ref={ref} className={cn("mb-3 text-left font-bold", className)} {...props} />
+  <caption ref={ref} className={cn("font-bold mb-3 text-left", className)} {...props} />
 ))
 TableCaption.displayName = "TableCaption"
 

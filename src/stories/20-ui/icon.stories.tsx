@@ -399,8 +399,8 @@ export const SpinningIcons: Story = {
 export const GovernmentContactCard: Story = {
   args: { icon: "person" },
   render: () => (
-    <div className="bg-white border border-gray-200 rounded-lg p-6 max-w-sm shadow-sm">
-      <div className="flex items-center gap-3 mb-4">
+    <div className="bg-white border-gray-200 max-w-sm rounded-lg border p-6 shadow-sm">
+      <div className="mb-4 flex items-center gap-3">
         <PersonIcon size="lg" className="text-gray-800" />
         <div>
           <h3 className="font-semibold text-gray-900">Contact Information</h3>
@@ -425,7 +425,7 @@ export const GovernmentContactCard: Story = {
           <span className="text-sm text-gray-700">www.agency.gov</span>
         </div>
       </div>
-      <div className="mt-4 pt-4 border-t border-gray-200">
+      <div className="border-gray-200 mt-4 border-t pt-4">
         <div className="flex items-center gap-2">
           <VerifiedIcon size="sm" className="text-gray-700" />
           <span className="text-xs text-gray-600">Verified Government Agency</span>

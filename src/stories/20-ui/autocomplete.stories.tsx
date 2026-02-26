@@ -125,7 +125,7 @@ export const WithAsyncSearch: Story = {
 
     return (
       <div className="w-96">
-        <label htmlFor="async-search" className="block text-sm font-medium text-gray-90 mb-1">
+        <label htmlFor="async-search" className="text-sm font-medium mb-1 block text-gray-90">
           Search with async results
         </label>
         <Autocomplete
@@ -151,16 +151,16 @@ export const WithAsyncSearch: Story = {
 // States
 export const States: Story = {
   render: () => (
-    <div className="space-y-6 w-96">
+    <div className="w-96 space-y-6">
       <div>
-        <label htmlFor="default-state" className="block text-sm font-medium text-gray-90 mb-1">
+        <label htmlFor="default-state" className="text-sm font-medium mb-1 block text-gray-90">
           Default
         </label>
         <Autocomplete id="default-state" placeholder="Default state" options={sampleOptions} />
       </div>
 
       <div>
-        <label htmlFor="success-state" className="block text-sm font-medium text-gray-90 mb-1">
+        <label htmlFor="success-state" className="text-sm font-medium mb-1 block text-gray-90">
           Success
         </label>
         <Autocomplete
@@ -172,7 +172,7 @@ export const States: Story = {
       </div>
 
       <div>
-        <label htmlFor="invalid-state" className="block text-sm font-medium text-gray-90 mb-1">
+        <label htmlFor="invalid-state" className="text-sm font-medium mb-1 block text-gray-90">
           Invalid
         </label>
         <Autocomplete
@@ -181,11 +181,11 @@ export const States: Story = {
           invalid={true}
           options={sampleOptions}
         />
-        <p className="text-sm text-red-60v mt-1">Please enter a valid search term.</p>
+        <p className="text-sm mt-1 text-red-60v">Please enter a valid search term.</p>
       </div>
 
       <div>
-        <label htmlFor="disabled-state" className="block text-sm font-medium text-gray-90 mb-1">
+        <label htmlFor="disabled-state" className="text-sm font-medium mb-1 block text-gray-90">
           Disabled
         </label>
         <Autocomplete
@@ -222,7 +222,7 @@ export const FormIntegration: Story = {
     return (
       <form onSubmit={handleSubmit} className="w-96 space-y-4">
         <div>
-          <label htmlFor="search-form" className="block text-sm font-medium text-gray-90 mb-1">
+          <label htmlFor="search-form" className="text-sm font-medium mb-1 block text-gray-90">
             Search for information <span className="text-red-60v">*</span>
           </label>
           <Autocomplete
@@ -236,13 +236,13 @@ export const FormIntegration: Story = {
             options={sampleOptions}
             aria-describedby="search-help"
           />
-          <p id="search-help" className="text-sm text-gray-70 mt-1">
+          <p id="search-help" className="text-sm mt-1 text-gray-70">
             Start typing to see suggestions
           </p>
         </div>
 
         {selectedOption && (
-          <div className="p-3 bg-green-10 border border-green-40 rounded">
+          <div className="rounded border border-green-40 bg-green-10 p-3">
             <p className="text-sm text-green-70">
               Selected: <strong>{selectedOption.label}</strong>
             </p>
@@ -251,7 +251,7 @@ export const FormIntegration: Story = {
 
         <button
           type="submit"
-          className="bg-blue-60v text-white px-4 py-2 rounded hover:bg-blue-70v focus:outline-none focus:ring-2 focus:ring-blue-40v"
+          className="text-white rounded bg-blue-60v px-4 py-2 hover:bg-blue-70v focus:ring-2 focus:ring-blue-40v focus:outline-none"
         >
           Submit Search
         </button>
@@ -275,7 +275,7 @@ export const CustomConfiguration: Story = {
     return (
       <div className="w-96 space-y-6">
         <div>
-          <label htmlFor="min-chars" className="block text-sm font-medium text-gray-90 mb-1">
+          <label htmlFor="min-chars" className="text-sm font-medium mb-1 block text-gray-90">
             Minimum 5 characters
           </label>
           <Autocomplete
@@ -290,7 +290,7 @@ export const CustomConfiguration: Story = {
         </div>
 
         <div>
-          <label htmlFor="max-options" className="block text-sm font-medium text-gray-90 mb-1">
+          <label htmlFor="max-options" className="text-sm font-medium mb-1 block text-gray-90">
             Maximum 3 options
           </label>
           <Autocomplete
@@ -302,7 +302,7 @@ export const CustomConfiguration: Story = {
         </div>
 
         <div>
-          <label htmlFor="no-highlight" className="block text-sm font-medium text-gray-90 mb-1">
+          <label htmlFor="no-highlight" className="text-sm font-medium mb-1 block text-gray-90">
             No text highlighting
           </label>
           <Autocomplete
@@ -342,7 +342,7 @@ export const LoadingState: Story = {
 
     return (
       <div className="w-96">
-        <label htmlFor="loading-search" className="block text-sm font-medium text-gray-90 mb-1">
+        <label htmlFor="loading-search" className="text-sm font-medium mb-1 block text-gray-90">
           Slow search (2 second delay)
         </label>
         <Autocomplete
@@ -369,7 +369,7 @@ export const LoadingState: Story = {
 export const EmptyState: Story = {
   render: () => (
     <div className="w-96">
-      <label htmlFor="empty-search" className="block text-sm font-medium text-gray-90 mb-1">
+      <label htmlFor="empty-search" className="text-sm font-medium mb-1 block text-gray-90">
         No results available
       </label>
       <Autocomplete id="empty-search" placeholder="No suggestions will be found..." options={[]} />
@@ -388,9 +388,9 @@ export const EmptyState: Story = {
 export const AccessibilityFeatures: Story = {
   render: () => (
     <div className="w-96 space-y-4">
-      <div className="p-4 bg-blue-10 border border-blue-40 rounded">
-        <h3 className="font-medium text-blue-90 mb-2">Accessibility Features</h3>
-        <ul className="text-sm text-blue-80 space-y-1">
+      <div className="rounded border border-blue-40 bg-blue-10 p-4">
+        <h3 className="font-medium mb-2 text-blue-90">Accessibility Features</h3>
+        <ul className="text-sm space-y-1 text-blue-80">
           <li>• Screen reader announcements for suggestions count</li>
           <li>• Full keyboard navigation (Arrow keys, Enter, Escape)</li>
           <li>• Proper ARIA attributes (combobox, listbox, activedescendant)</li>
@@ -400,7 +400,7 @@ export const AccessibilityFeatures: Story = {
       </div>
 
       <div>
-        <label htmlFor="a11y-demo" className="block text-sm font-medium text-gray-90 mb-1">
+        <label htmlFor="a11y-demo" className="text-sm font-medium mb-1 block text-gray-90">
           Try keyboard navigation
         </label>
         <Autocomplete
@@ -409,7 +409,7 @@ export const AccessibilityFeatures: Story = {
           options={sampleOptions}
           aria-describedby="a11y-instructions"
         />
-        <p id="a11y-instructions" className="text-sm text-gray-70 mt-1">
+        <p id="a11y-instructions" className="text-sm mt-1 text-gray-70">
           Type to see suggestions, then use ↑/↓ arrows to navigate, Enter to select, Esc to close
         </p>
       </div>

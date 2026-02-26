@@ -98,7 +98,7 @@ const AvatarFallback = ({ className, children, delay = 0, ...props }: AvatarFall
   return (
     <div
       data-slot="avatar-fallback"
-      className={cn("bg-gray-5 flex size-full items-center justify-center rounded-full", className)}
+      className={cn("flex size-full items-center justify-center rounded-full bg-gray-5", className)}
       {...props}
     >
       {children}

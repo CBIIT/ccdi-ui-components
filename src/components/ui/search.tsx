@@ -8,19 +8,19 @@ import { Icon } from "./icon"
 const searchInputVariants = cva(
   cn(
     // Layout classes
-    "w-full md:min-w-75 lg:min-w-55 border border-r-0 border-gray-60",
+    "md:min-w-75 lg:min-w-55 w-full border border-r-0 border-gray-60",
     // Font classes
     "font-open-sans text-gray-90 placeholder:text-gray-50",
     // Focus states
-    "focus:outline focus:outline-offset-0 focus:outline-4 focus:outline-blue-40",
+    "focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40",
     // Invalid states
-    "data-[invalid]:ring-4 data-[invalid]:ring-red-60 data-[invalid]:border-transparent data-[invalid]:outline-offset-4",
+    "data-[invalid]:border-transparent data-[invalid]:ring-4 data-[invalid]:ring-red-60 data-[invalid]:outline-offset-4",
   ),
   {
     variants: {
       size: {
-        default: "p-2 h-8 text-base",
-        large: "p-2 h-10 text-xl",
+        default: "text-base h-8 p-2",
+        large: "text-xl h-10 p-2",
       },
     },
     defaultVariants: {
@@ -30,12 +30,12 @@ const searchInputVariants = cva(
 )
 
 const searchButtonVariants = cva(
-  "rounded-r font-open-sans font-semibold leading-none flex items-center justify-center text-white bg-cerulean-50 hover:bg-cerulean-70 active:bg-cerulean-80 focus:outline focus:outline-4 focus:outline-offset-4 focus:outline-blue-40",
+  "rounded-r font-open-sans font-semibold text-white flex items-center justify-center bg-cerulean-50 leading-none hover:bg-cerulean-70 focus:outline focus:outline-4 focus:outline-offset-4 focus:outline-blue-40 active:bg-cerulean-80",
   {
     variants: {
       size: {
-        default: "px-4 h-8 text-base",
-        large: "px-8 h-10 text-xl",
+        default: "text-base h-8 px-4",
+        large: "text-xl h-10 px-8",
       },
       iconOnly: {
         true: "px-3",

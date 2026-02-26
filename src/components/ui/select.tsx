@@ -46,7 +46,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     ref,
   ) => {
     return (
-      <div className="relative flex items-center mt-2">
+      <div className="relative mt-2 flex items-center">
         <select
           id={id}
           name={name}
@@ -58,20 +58,20 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           aria-invalid={invalid ? "true" : undefined}
           className={cn(
             // Base styling
-            "peer opacity-100 appearance-none w-full",
+            "peer w-full appearance-none opacity-100",
             "font-public-sans text-base text-gray-90",
             // Size and spacing
             "p-2 pr-8",
             // Background and border
-            "bg-white border border-gray-60 rounded-none",
+            "bg-white rounded-none border border-gray-60",
             // Focus states
-            "focus:outline focus:outline-offset-0 focus:outline-4 focus:outline-blue-40v",
+            "focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40v",
             // Invalid states
-            invalid && "ring-4 ring-red-60v border-transparent outline-offset-4",
+            invalid && "border-transparent ring-4 ring-red-60v outline-offset-4",
             // success states
-            success && "ring-4 ring-green-40v border-transparent outline-offset-4",
+            success && "border-transparent ring-4 ring-green-40v outline-offset-4",
             // Disabled states
-            "disabled:text-gray-70 disabled:cursor-not-allowed disabled:bg-gray-20",
+            "disabled:cursor-not-allowed disabled:bg-gray-20 disabled:text-gray-70",
             className,
           )}
           ref={ref}
@@ -82,7 +82,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         </select>
         <div
           aria-hidden="true"
-          className="select-none pointer-events-none h-full absolute right-0 whitespace-nowrap px-2 flex items-center text-gray-90 peer-disabled:text-gray-70"
+          className="pointer-events-none absolute right-0 flex h-full items-center px-2 whitespace-nowrap text-gray-90 select-none peer-disabled:text-gray-70"
         >
           <UnfoldMoreIcon size="xs" />
         </div>

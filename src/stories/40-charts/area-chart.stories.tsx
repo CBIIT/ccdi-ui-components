@@ -84,8 +84,8 @@ export const Default: Story = {
           </AreaChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
@@ -153,8 +153,8 @@ export const Linear: Story = {
           </AreaChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Linear interpolation connects data points with straight lines
         </div>
       </CardFooter>
@@ -223,8 +223,8 @@ export const Step: Story = {
           </AreaChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Step interpolation creates a staircase effect between data points
         </div>
       </CardFooter>
@@ -306,8 +306,8 @@ export const Stacked: Story = {
           </AreaChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Comparing desktop and mobile visitors with cumulative view
         </div>
       </CardFooter>
@@ -390,8 +390,8 @@ export const WithLegend: Story = {
           </AreaChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Comparing desktop and mobile visitors with cumulative view
         </div>
       </CardFooter>
@@ -491,8 +491,8 @@ export const StackedExpanded: Story = {
             </AreaChart>
           </ChartContainer>
         </CardContent>
-        <CardFooter className="flex-col items-start gap-2 text-sm">
-          <div className="text-muted-foreground leading-none">
+        <CardFooter className="text-sm flex-col items-start gap-2">
+          <div className="leading-none text-muted-foreground">
             Showing proportion of visitors by device type over the last 6 months
           </div>
         </CardFooter>
@@ -585,8 +585,8 @@ export const Gradient: Story = {
           </AreaChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Comparing desktop and mobile visitors with cumulative view
         </div>
       </CardFooter>
@@ -669,8 +669,8 @@ export const Axes: Story = {
           </AreaChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Comparing desktop and mobile visitors with cumulative view
         </div>
       </CardFooter>

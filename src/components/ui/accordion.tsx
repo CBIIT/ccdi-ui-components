@@ -5,14 +5,11 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Icon, IconType } from "@/components/ui/icon"
 
-const accordionTriggerStyles =
-  "group flex items-center w-full py-4 px-5 bg-gray-5 hover:bg-gray-10 font-open-sans font-semibold focus:outline focus:outline-4 focus:outline-blue-40v cursor-pointer text-left gap-3"
-
-const accordionContentVariants = cva("py-6 px-4 [&[hidden]]:p-0", {
+const accordionContentVariants = cva("px-4 py-6 [&[hidden]]:p-0", {
   variants: {
     variant: {
       borderless: "",
-      bordered: "border-b-4 border-x-4 border-gray-5",
+      bordered: "border-x-4 border-b-4 border-gray-5",
     },
   },
   defaultVariants: {
@@ -133,12 +130,15 @@ const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerPro
           type="button"
           aria-expanded={isOpen}
           aria-controls={`accordion-content-${value}`}
-          className={cn(accordionTriggerStyles, className)}
+          className={cn(
+            "group font-open-sans font-semibold flex w-full cursor-pointer items-center gap-3 bg-gray-5 px-5 py-4 text-left hover:bg-gray-10 focus:outline focus:outline-4 focus:outline-blue-40v",
+            className,
+          )}
           onClick={() => toggleItem(value)}
           {...props}
         >
           {children}
-          <div className="h-full flex items-center ml-auto shrink-0">
+          <div className="ml-auto flex h-full shrink-0 items-center">
             {isOpen ? (
               <Icon icon={openIcon} size="sm" className="size-6" />
             ) : (

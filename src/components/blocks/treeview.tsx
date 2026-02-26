@@ -113,7 +113,7 @@ const TreeView = React.forwardRef<HTMLDivElement, TreeProps>(
     }, [data, expandAll, initialSelectedItemId])
 
     return (
-      <nav aria-label={ariaLabel} className={cn("overflow-hidden relative", className)} ref={ref}>
+      <nav aria-label={ariaLabel} className={cn("relative overflow-hidden", className)} ref={ref}>
         <TreeItem
           data={data}
           selectedItemId={selectedItemId}
@@ -256,11 +256,11 @@ const TreeNode = ({
       <button
         type="button"
         className={cn(
-          "block relative py-2 px-4 text-gray-60 hover:text-blue-60v hover:bg-gray-5 w-full text-left",
+          "relative block w-full px-4 py-2 text-left text-gray-60 hover:bg-gray-5 hover:text-blue-60v",
           getPaddingClass(depth),
           "focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40v",
-          "aria-[current]:text-blue-60v aria-[current]:font-bold",
-          "aria-[current=page]:after:block aria-[current=page]:after:absolute aria-[current=page]:after:bg-blue-60v",
+          "aria-[current]:font-bold aria-[current]:text-blue-60v",
+          "aria-[current=page]:after:absolute aria-[current=page]:after:block aria-[current=page]:after:bg-blue-60v",
           "aria-[current=page]:after:inset-y-1 aria-[current=page]:after:left-0 aria-[current=page]:after:w-1 aria-[current=page]:after:rounded-full",
           isDragOver && "bg-blue-10",
         )}
@@ -286,7 +286,7 @@ const TreeNode = ({
             isOpen={isOpen}
             default={defaultNodeIcon}
           />
-          <span className="text-sm truncate flex-1">{item.name}</span>
+          <span className="text-sm flex-1 truncate">{item.name}</span>
           <TreeActions isSelected={selectedItemId === item.id}>{item.actions}</TreeActions>
         </div>
       </button>
@@ -372,15 +372,15 @@ const TreeLeaf = React.forwardRef<
         ref={ref}
         href={item.href || "#"}
         className={cn(
-          "block relative py-2 px-4 text-gray-60 hover:text-blue-60v hover:bg-gray-5 no-underline",
+          "relative block px-4 py-2 text-gray-60 no-underline hover:bg-gray-5 hover:text-blue-60v",
           getPaddingClass(depth),
           "focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40v",
-          "aria-[current]:text-blue-60v aria-[current]:font-bold",
-          "aria-[current=page]:after:block aria-[current=page]:after:absolute aria-[current=page]:after:bg-blue-60v",
+          "aria-[current]:font-bold aria-[current]:text-blue-60v",
+          "aria-[current=page]:after:absolute aria-[current=page]:after:block aria-[current=page]:after:bg-blue-60v",
           "aria-[current=page]:after:inset-y-1 aria-[current=page]:after:left-0 aria-[current=page]:after:w-1 aria-[current=page]:after:rounded-full",
           className,
           isDragOver && "bg-blue-10",
-          item.disabled && "opacity-50 cursor-not-allowed pointer-events-none",
+          item.disabled && "pointer-events-none cursor-not-allowed opacity-50",
         )}
         onClick={(e) => {
           if (item.disabled) {
@@ -409,7 +409,7 @@ const TreeLeaf = React.forwardRef<
       >
         <div className="flex items-center gap-2">
           <TreeIcon item={item} isSelected={selectedItemId === item.id} default={defaultLeafIcon} />
-          <span className="text-sm truncate flex-1">{item.name}</span>
+          <span className="text-sm flex-1 truncate">{item.name}</span>
           <TreeActions isSelected={selectedItemId === item.id && !item.disabled}>
             {item.actions}
           </TreeActions>

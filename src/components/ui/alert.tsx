@@ -3,15 +3,15 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Icon } from "@/components/ui/icon"
 
-const alertVariants = cva("relative p-4 border-l-8 font-public-sans [&_a]:underline", {
+const alertVariants = cva("font-public-sans relative border-l-8 p-4 [&_a]:underline", {
   variants: {
     variant: {
-      default: "bg-cyan-5 border-l-cyan-30 text-gray-90 [&_a]:text-blue-60v",
-      success: "bg-green-cool-5 border-l-green-cool-40v text-gray-90 [&_a]:text-blue-60v",
-      warning: "bg-yellow-5 border-l-gold-20v text-gray-90 [&_a]:text-blue-60v",
-      error: "bg-red-warm-10 border-l-red-warm-50v text-gray-90 [&_a]:text-blue-60v",
-      info: "bg-cyan-5 border-l-cyan-30v text-gray-90 [&_a]:text-blue-60v",
-      emergency: "bg-red-warm-60v border-l-red-warm-60v text-white [&_a]:!text-gray-10",
+      default: "border-l-cyan-30 bg-cyan-5 text-gray-90 [&_a]:text-blue-60v",
+      success: "border-l-green-cool-40v bg-green-cool-5 text-gray-90 [&_a]:text-blue-60v",
+      warning: "border-l-gold-20v bg-yellow-5 text-gray-90 [&_a]:text-blue-60v",
+      error: "border-l-red-warm-50v bg-red-warm-10 text-gray-90 [&_a]:text-blue-60v",
+      info: "border-l-cyan-30v bg-cyan-5 text-gray-90 [&_a]:text-blue-60v",
+      emergency: "text-white border-l-red-warm-60v bg-red-warm-60v [&_a]:!text-gray-10",
     },
     hasIcon: {
       true: "px-16",
@@ -53,7 +53,7 @@ const Alert = ({ className, variant, role = "alert", icon = true, ...props }: Al
       {...props}
     >
       {icon && (
-        <div className="absolute left-6 top-3">
+        <div className="absolute top-3 left-6">
           <Icon icon={iconName} className="size-8" />
         </div>
       )}
@@ -67,7 +67,7 @@ const AlertTitle = ({
   children,
   ...props
 }: React.HTMLAttributes<HTMLHeadingElement>) => (
-  <h4 className={cn("text-2xl font-bold mb-2 leading-none font-public-sans", className)} {...props}>
+  <h4 className={cn("text-2xl font-bold font-public-sans mb-2 leading-none", className)} {...props}>
     {children}
   </h4>
 )

@@ -54,7 +54,7 @@ export const SimpleForm: Story = {
 
     return (
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-[350px]">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-[350px] space-y-6">
           <FormField
             control={form.control}
             name="username"
@@ -109,7 +109,7 @@ export const ContactForm: Story = {
 
     return (
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-[450px]">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-[450px] space-y-6">
           <FormField
             control={form.control}
             name="name"
@@ -198,7 +198,7 @@ export const RegistrationForm: Story = {
 
     return (
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-[500px]">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-[500px] space-y-6">
           <div className="grid grid-cols-2 gap-4">
             <FormField
               control={form.control}
@@ -303,7 +303,7 @@ export const WithValidation: Story = {
 
     return (
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-[400px]">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-[400px] space-y-6">
           <FormField
             control={form.control}
             name="username"
@@ -383,12 +383,12 @@ export const CheckboxForm: Story = {
 
     return (
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-[350px]">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-[350px] space-y-6">
           <FormField
             control={form.control}
             name="terms"
             render={({ field }) => (
-              <FormItem className="flex flex-row items-center justify-between rounded-lg border border-input bg-background px-3 py-2 shadow-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 h-10">
+              <FormItem className="file:text-sm file:font-medium flex h-10 flex-row items-center justify-between rounded-lg border border-input bg-background px-3 py-2 shadow-sm ring-offset-background file:border-0 file:bg-transparent placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50">
                 <div className="flex items-center space-x-2">
                   <Checkbox id="terms" checked={field.value} onCheckedChange={field.onChange} />
                   <label
@@ -436,7 +436,7 @@ export const RadioGroupForm: Story = {
 
     return (
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-[350px]">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-[350px] space-y-6">
           <FormField
             control={form.control}
             name="favoriteColor"

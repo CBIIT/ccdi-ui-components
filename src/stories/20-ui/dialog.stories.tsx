@@ -65,7 +65,7 @@ export const WithFooter: Story = {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <div className="flex gap-2 justify-end">
+          <div className="flex justify-end gap-2">
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
@@ -111,7 +111,7 @@ export const WithForm: Story = {
           </div>
         </div>
         <DialogFooter>
-          <div className="flex gap-2 justify-end">
+          <div className="flex justify-end gap-2">
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
@@ -148,7 +148,7 @@ export const AlertDialog: Story = {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <div className="flex gap-2 justify-end">
+          <div className="flex justify-end gap-2">
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
@@ -191,7 +191,7 @@ export const Information: Story = {
           </p>
         </div>
         <DialogFooter>
-          <div className="flex gap-2 justify-end">
+          <div className="flex justify-end gap-2">
             <DialogClose asChild>
               <Button variant="primary">Got it</Button>
             </DialogClose>
@@ -221,7 +221,7 @@ export const LongContent: Story = {
           <DialogTitle>Terms and Conditions</DialogTitle>
           <DialogDescription>Please read our terms and conditions carefully.</DialogDescription>
         </DialogHeader>
-        <div className="py-4 space-y-4 text-sm">
+        <div className="text-sm space-y-4 py-4">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -248,7 +248,7 @@ export const LongContent: Story = {
           </p>
         </div>
         <DialogFooter>
-          <div className="flex gap-2 justify-end">
+          <div className="flex justify-end gap-2">
             <DialogClose asChild>
               <Button variant="outline">Decline</Button>
             </DialogClose>

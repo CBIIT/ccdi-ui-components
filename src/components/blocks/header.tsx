@@ -169,13 +169,13 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
             }}
             className={cn(
               // Base styles
-              "relative flex items-center px-4 py-4 text-base font-semibold whitespace-nowrap leading-4",
+              "text-base font-semibold relative flex items-center px-4 py-4 leading-4 whitespace-nowrap",
 
-              isActive ? "bg-cerulean-70 text-white" : "text-gray-cool-60",
+              isActive ? "text-white bg-cerulean-70" : "text-gray-cool-60",
               // Hover styles
               !isActive && "hover:text-cerulean-50",
               !isActive &&
-                "hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-4 hover:after:right-4 hover:after:h-1 hover:after:bg-cerulean-50 hover:after:rounded-none hover:after:block",
+                "hover:after:absolute hover:after:right-4 hover:after:bottom-0 hover:after:left-4 hover:after:block hover:after:h-1 hover:after:rounded-none hover:after:bg-cerulean-50 hover:after:content-['']",
               // Focus styles
               "focus:outline focus:outline-4 focus:outline-blue-40v",
             )}
@@ -200,10 +200,10 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
             href={item.href}
             className={cn(
               // Base styles
-              "relative block px-4 py-4 text-base font-semibold whitespace-nowrap text-gray-cool-60 leading-4",
+              "text-base font-semibold relative block px-4 py-4 leading-4 whitespace-nowrap text-gray-cool-60",
               // Hover styles
               "hover:text-cerulean-50",
-              "hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-4 hover:after:right-4 hover:after:h-1 hover:after:bg-cerulean-50 hover:after:rounded-none hover:after:block",
+              "hover:after:absolute hover:after:right-4 hover:after:bottom-0 hover:after:left-4 hover:after:block hover:after:h-1 hover:after:rounded-none hover:after:bg-cerulean-50 hover:after:content-['']",
               // Focus styles
               "focus:outline focus:outline-4 focus:outline-blue-40v",
             )}
@@ -235,8 +235,8 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
         }}
         className="absolute top-full z-50 bg-cerulean-70 shadow-lg"
       >
-        <div className="max-w-[87.5rem] mx-auto flex gap-2 px-8 py-8 grid grid-cols-4">
-          <div className="flex flex-col col-span-1">
+        <div className="mx-auto flex grid max-w-[87.5rem] grid-cols-4 gap-2 px-8 py-8">
+          <div className="col-span-1 flex flex-col">
             <a
               href={item.href}
               className="text-white text-xl font-semibold hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
@@ -244,8 +244,8 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
               {item.title || item.label}
             </a>
           </div>
-          <div className="flex gap-8 col-span-3 grid grid-flow-col grid-rows-[auto_auto_auto]">
-            <div className="flex flex-col items-start grid grid-cols-3">
+          <div className="col-span-3 flex grid grid-flow-col grid-rows-[auto_auto_auto] gap-8">
+            <div className="flex grid grid-cols-3 flex-col items-start">
               {item.submenu?.slice(0, 3).map((subItem) => (
                 <div key={subItem.id} className="px-4">
                   <a
@@ -261,7 +261,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
                         <li key={subItemChild.id} className="my-2 leading-5">
                           <a
                             href={subItemChild.href}
-                            className="font-open-sans text-base text-white leading-4 font-light hover:underline focus:outline focus:outline-4 focus:outline-blue-40v tracking-wide"
+                            className="font-open-sans text-base text-white font-light leading-4 tracking-wide hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
                           >
                             {subItemChild.label}
                           </a>
@@ -272,7 +272,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
                 </div>
               ))}
             </div>
-            <div className="flex flex-col items-start grid grid-cols-3">
+            <div className="flex grid grid-cols-3 flex-col items-start">
               {item.submenu?.slice(3, 6).map((subItem) => (
                 <div key={subItem.id} className="px-4">
                   <a
@@ -288,7 +288,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
                         <li key={subItemChild.id} className="my-2 leading-5">
                           <a
                             href={subItemChild.href}
-                            className="font-open-sans text-base text-white leading-4 font-light hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                            className="font-open-sans text-base text-white font-light leading-4 hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
                           >
                             {subItemChild.label}
                           </a>
@@ -299,7 +299,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
                 </div>
               ))}
             </div>
-            <div className="flex flex-col items-start grid grid-cols-3">
+            <div className="flex grid grid-cols-3 flex-col items-start">
               {item.submenu?.slice(6).map((subItem) => (
                 <div key={subItem.id} className="px-4">
                   <a
@@ -315,7 +315,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
                         <li key={subItemChild.id} className="my-2 leading-5">
                           <a
                             href={subItemChild.href}
-                            className="font-open-sans text-base text-white leading-4 font-light hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                            className="font-open-sans text-base text-white font-light leading-4 hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
                           >
                             {subItemChild.label}
                           </a>
@@ -336,15 +336,15 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
     const hasSubmenu = item.hasSubmenu && item.submenu && item.submenu.length > 0
 
     return (
-      <div key={item.id} className="border-t last:border-b border-gray-10">
+      <div key={item.id} className="border-t border-gray-10 last:border-b">
         {hasSubmenu ? (
           <button
             onClick={() => handleDropdownClick(item.id)}
-            className="font-open-sans text-left group relative flex items-center cursor-pointer justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3"
+            className="font-open-sans group relative flex w-full cursor-pointer items-center justify-between gap-3 py-3 pl-4 text-left leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v"
           >
             <span className="text-gray-warm-60">{item.label}</span>
             <svg
-              className="mx-2 h-4 w-4 text-gray-900"
+              className="text-gray-900 mx-2 h-4 w-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -356,7 +356,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
           <a
             href={item.href}
             onClick={handleCloseMobileMenu}
-            className="block font-open-sans text-left group relative flex items-center justify-between w-full py-3 pl-4 leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v gap-3"
+            className="font-open-sans group relative block flex w-full items-center justify-between gap-3 py-3 pl-4 text-left leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v"
           >
             <span className="text-gray-warm-60">{item.label}</span>
           </a>
@@ -368,7 +368,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
   return (
     <div ref={navbarRef} className={cn("bg-white", className)}>
       {/* Main Header - Figma Layout */}
-      <div className="max-w-[87.5rem] mx-auto px-4 py-8 lg:px-8 pb-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div className="lg:px-8 lg:flex-row lg:items-center lg:justify-between mx-auto flex max-w-[87.5rem] flex-col gap-4 px-4 py-8 pb-4">
         {/* Logo */}
         <div className="h-auto w-full">
           <a
@@ -379,18 +379,18 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
             {logo || (
               <>
                 {/* Desktop logo - visible on large screens (≥1024px) */}
-                <LogoNCI className="hidden h-[3.125rem] max-h-[3.125rem] lg:block" />
+                <LogoNCI className="lg:block hidden h-[3.125rem] max-h-[3.125rem]" />
                 {/* Mobile logo - visible on small screens (<1024px) */}
-                <LogoNCIMobile className="h-[2.375rem] max-h-[2.375rem] lg:hidden" />
+                <LogoNCIMobile className="lg:hidden h-[2.375rem] max-h-[2.375rem]" />
               </>
             )}
           </a>
         </div>
 
         {/* Search Bar - Using USWDS Search Component */}
-        <div className="flex flex-row items-center gap-6 w-full justify-start lg:justify-end">
+        <div className="lg:justify-end flex w-full flex-row items-center justify-start gap-6">
           {/* Mobile menu button - Using USWDS Button */}
-          <div className="flex items-center lg:hidden">
+          <div className="lg:hidden flex items-center">
             <Button
               onClick={() => {
                 setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -398,7 +398,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
                   setMobileMenuStack([])
                 }
               }}
-              className="bg-cerulean-70 text-white px-5 py-3 text-base leading-4"
+              className="text-white text-base bg-cerulean-70 px-5 py-3 leading-4"
             >
               Menu
             </Button>
@@ -414,10 +414,10 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
       </div>
 
       {/* Navigation - Figma Colors and Layout */}
-      <div ref={navContainerRef} className="hidden lg:block max-w-[87.5rem] mx-auto px-8 relative">
-        <div className="flex items-center h-12">
+      <div ref={navContainerRef} className="lg:block relative mx-auto hidden max-w-[87.5rem] px-8">
+        <div className="flex h-12 items-center">
           {/* Desktop Navigation */}
-          <div className="flex items-center space-x-0 -mx-4">
+          <div className="-mx-4 flex items-center space-x-0">
             {navItems.map((item) => renderDesktopNavItem(item))}
           </div>
         </div>
@@ -435,23 +435,23 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
 
       {/* Mobile Navigation Overlay - Figma Style */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
+        <div className="lg:hidden fixed inset-0 z-50">
           <button
             type="button"
             aria-label="Close menu overlay"
-            className="absolute inset-0 bg-gray-400/20"
+            className="bg-gray-400/20 absolute inset-0"
             onClick={handleCloseMobileMenu}
           />
-          <div ref={mobileMenuRef} className="absolute left-0 top-0 h-full w-80 bg-white shadow-xl">
+          <div ref={mobileMenuRef} className="bg-white absolute top-0 left-0 h-full w-80 shadow-xl">
             <div className="p-4">
-              <div className="flex items-center justify-between mb-12">
+              <div className="mb-12 flex items-center justify-between">
                 {mobileMenuStack.length > 0 ? (
                   <button
                     onClick={handleMobileMenuBack}
-                    className="flex items-center text-gray-900 cursor-pointer focus:outline focus:outline-4 focus:outline-blue-40v"
+                    className="text-gray-900 flex cursor-pointer items-center focus:outline focus:outline-4 focus:outline-blue-40v"
                   >
                     <svg
-                      className="h-5 w-5 mr-2"
+                      className="mr-2 h-5 w-5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -488,7 +488,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
               </div>
               {mobileMenuStack.length > 0 && (
                 <div className="mb-4">
-                  <h2 className="text-base font-open-sans font-semibold text-cerulean-70 pl-4">
+                  <h2 className="text-base font-open-sans font-semibold pl-4 text-cerulean-70">
                     {mobileMenuStack[mobileMenuStack.length - 1].label}
                   </h2>
                 </div>

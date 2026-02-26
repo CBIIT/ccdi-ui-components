@@ -49,7 +49,7 @@ const Breadcrumb = React.forwardRef<HTMLElement, BreadcrumbProps>(
               return (
                 <BreadcrumbItem
                   key={index}
-                  className="inline sr-only sm:not-sr-only"
+                  className="sm:not-sr-only sr-only inline"
                   wrap={wrapValue}
                 >
                   <BreadcrumbPage>{item.label}</BreadcrumbPage>
@@ -62,7 +62,7 @@ const Breadcrumb = React.forwardRef<HTMLElement, BreadcrumbProps>(
               return (
                 <BreadcrumbItem key={index} className="inline-flex" wrap={wrapValue}>
                   {/* Put the back icon and label in the same inline-flex so they center vertically on mobile */}
-                  <span aria-hidden="true" className="sm:hidden inline-flex items-center mr-2">
+                  <span aria-hidden="true" className="sm:hidden mr-2 inline-flex items-center">
                     <Icon icon="navigate_before" size="2xl" className="text-gray-50" />
                   </span>
                   <BreadcrumbLink href={item.href}>{item.label}</BreadcrumbLink>
@@ -75,7 +75,7 @@ const Breadcrumb = React.forwardRef<HTMLElement, BreadcrumbProps>(
             return (
               <BreadcrumbItem
                 key={index}
-                className="inline-flex sr-only sm:not-sr-only"
+                className="sm:not-sr-only sr-only inline-flex"
                 wrap={wrapValue}
               >
                 <BreadcrumbLink href={item.href}>{item.label}</BreadcrumbLink>
@@ -96,7 +96,7 @@ const BreadcrumbList = React.forwardRef<
 >(({ className, wrap, ...props }, ref) => (
   <ol
     ref={ref}
-    className={cn("list-none p-2 -mx-1 block", wrap ? "" : "truncate", className)}
+    className={cn("-mx-1 block list-none p-2", wrap ? "" : "truncate", className)}
     {...props}
   />
 ))
@@ -118,8 +118,8 @@ const BreadcrumbLink = React.forwardRef<
     ref={ref}
     className={cn(
       // Make the anchor an inline-flex container so any icon + text center vertically
-      "inline-flex items-center gap-1 text-sm text-cerulean-60v visited:text-violet-70v hover:text-cerulean-70v",
-      "focus:outline focus:outline-4 focus:outline-blue-40v underline",
+      "text-sm inline-flex items-center gap-1 text-cerulean-60v visited:text-violet-70v hover:text-cerulean-70v",
+      "underline focus:outline focus:outline-4 focus:outline-blue-40v",
       className,
     )}
     {...props}
@@ -136,7 +136,7 @@ const BreadcrumbPage = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HT
       role="link"
       aria-disabled="true"
       aria-current="page"
-      className={cn("gap-1 text-sm text-gray-90", className)}
+      className={cn("text-sm gap-1 text-gray-90", className)}
       {...props}
     />
   ),
@@ -150,7 +150,7 @@ const BreadcrumbSeparator = React.forwardRef<
   <span
     ref={ref}
     aria-hidden="true"
-    className={cn("hidden sm:inline-flex items-center", className)}
+    className={cn("sm:inline-flex hidden items-center", className)}
     {...props}
   >
     <Icon icon="navigate_next" size="2xs" className="text-gray-50" />

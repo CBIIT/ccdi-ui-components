@@ -102,7 +102,7 @@ export const Left: Story = {
 // All Positions showcase - matching USWDS example
 export const AllPositions: Story = {
   render: () => (
-    <div className="size-full flex flex-col gap-8 items-center justify-center p-20">
+    <div className="flex size-full flex-col items-center justify-center gap-8 p-20">
       <Tooltip position="top">
         <TooltipTrigger asChild>
           <Button>Show on top</Button>

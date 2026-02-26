@@ -137,7 +137,7 @@ const ContextMenuContent = React.forwardRef<HTMLDivElement, ContextMenuContentPr
       <div
         ref={setContentRef}
         className={cn(
-          "fixed z-50 min-w-[12rem] rounded border border-gray-30",
+          "rounded fixed z-50 min-w-[12rem] border border-gray-30",
           "bg-white shadow-lg",
           "p-1",
           "animate-in fade-in-0 zoom-in-95",
@@ -170,7 +170,7 @@ const ContextMenuItem = React.forwardRef<HTMLButtonElement, ContextMenuItemProps
       <button
         ref={ref}
         className={cn(
-          "relative flex w-full cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5",
+          "rounded relative flex w-full cursor-pointer items-center gap-2 px-2 py-1.5 select-none",
           "text-sm font-source-sans outline-hidden",
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
@@ -208,7 +208,7 @@ const ContextMenuCheckboxItem = React.forwardRef<HTMLButtonElement, ContextMenuC
         role="menuitemcheckbox"
         aria-checked={checked}
         className={cn(
-          "relative flex w-full cursor-pointer select-none items-center gap-2 rounded py-1.5 pr-2 pl-8",
+          "rounded relative flex w-full cursor-pointer items-center gap-2 py-1.5 pr-2 pl-8 select-none",
           "text-sm font-source-sans outline-hidden",
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
@@ -281,7 +281,7 @@ const ContextMenuRadioItem = React.forwardRef<HTMLButtonElement, ContextMenuRadi
         role="menuitemradio"
         aria-checked={isChecked}
         className={cn(
-          "relative flex w-full cursor-pointer select-none items-center gap-2 rounded py-1.5 pr-2 pl-8",
+          "rounded relative flex w-full cursor-pointer items-center gap-2 py-1.5 pr-2 pl-8 select-none",
           "text-sm font-source-sans outline-hidden",
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
@@ -317,7 +317,7 @@ const ContextMenuLabel = React.forwardRef<HTMLDivElement, ContextMenuLabelProps>
       <div
         ref={ref}
         className={cn(
-          "px-2 py-1.5 text-sm font-bold font-source-sans text-gray-90",
+          "text-sm font-bold font-source-sans px-2 py-1.5 text-gray-90",
           inset && "pl-8",
           className,
         )}
@@ -350,7 +350,7 @@ const ContextMenuShortcut = React.forwardRef<HTMLSpanElement, ContextMenuShortcu
     return (
       <span
         ref={ref}
-        className={cn("ml-auto text-xs tracking-widest text-gray-50 font-source-sans", className)}
+        className={cn("text-xs font-source-sans ml-auto tracking-widest text-gray-50", className)}
         {...props}
       />
     )
@@ -401,7 +401,7 @@ const ContextMenuSubTrigger = React.forwardRef<HTMLButtonElement, ContextMenuSub
       <button
         ref={ref}
         className={cn(
-          "relative flex w-full cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5",
+          "rounded relative flex w-full cursor-pointer items-center gap-2 px-2 py-1.5 select-none",
           "text-sm font-source-sans outline-hidden",
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
@@ -436,7 +436,7 @@ const ContextMenuSubContent = React.forwardRef<HTMLDivElement, ContextMenuSubCon
       <div
         ref={ref}
         className={cn(
-          "absolute left-full top-0 z-50 ml-1 min-w-[8rem] rounded border border-gray-30",
+          "rounded absolute top-0 left-full z-50 ml-1 min-w-[8rem] border border-gray-30",
           "bg-white shadow-lg",
           "p-1",
           "animate-in fade-in-0 zoom-in-95 slide-in-from-left-2",
