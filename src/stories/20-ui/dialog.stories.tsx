@@ -137,7 +137,7 @@ export const AlertDialog: Story = {
   render: () => (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="danger">Delete Account</Button>
+        <Button variant="destructive">Delete Account</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -153,7 +153,7 @@ export const AlertDialog: Story = {
               <Button variant="outline">Cancel</Button>
             </DialogClose>
             <DialogClose asChild>
-              <Button variant="danger">Delete Account</Button>
+              <Button variant="destructive">Delete Account</Button>
             </DialogClose>
           </div>
         </DialogFooter>

@@ -18,7 +18,18 @@ const meta = {
   argTypes: {
     variant: {
       control: { type: "select" },
-      options: ["primary", "secondary", "outline", "success", "warning", "danger", "ghost", "link"],
+      options: [
+        "default",
+        "primary",
+        "secondary",
+        "accent",
+        "outline",
+        "success",
+        "warning",
+        "destructive",
+        "ghost",
+        "link",
+      ],
       description: "The visual style variant of the button",
     },
     size: {
@@ -62,17 +73,10 @@ export const Secondary: Story = {
   },
 }
 
-export const AccentCool: Story = {
+export const Accent: Story = {
   args: {
-    variant: "accent-cool",
-    children: "Accent Cool",
-  },
-}
-
-export const AccentWarm: Story = {
-  args: {
-    variant: "accent-warm",
-    children: "Accent Warm",
+    variant: "accent",
+    children: "Accent",
   },
 }
 
@@ -115,10 +119,10 @@ export const Warning: Story = {
   },
 }
 
-export const Danger: Story = {
+export const Destructive: Story = {
   args: {
-    variant: "danger",
-    children: "Danger",
+    variant: "destructive",
+    children: "Destructive",
   },
 }
 
@@ -222,7 +226,7 @@ export const AllVariants: Story = {
       <Button variant="outline">Outline</Button>
       <Button variant="success">Success</Button>
       <Button variant="warning">Warning</Button>
-      <Button variant="danger">Danger</Button>
+      <Button variant="destructive">Destructive</Button>
       <Button variant="link">Link</Button>
     </div>
   ),

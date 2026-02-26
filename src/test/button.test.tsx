@@ -9,14 +9,14 @@ describe("Button", () => {
 
     const button = screen.getByRole("button", { name: /test button/i })
     expect(button).toBeInTheDocument()
-    expect(button).toHaveClass("text-white", "bg-cerulean-50", "px-5", "py-3")
+    expect(button).toHaveClass("bg-primary", "text-primary-foreground", "px-5", "py-3")
     expect(button).toHaveClass("inline-flex", "items-center", "justify-center", "rounded")
   })
 
   it.each([
-    ["secondary", "bg-teal-50", "text-white"],
+    ["secondary", "bg-secondary", "text-secondary-foreground"],
     ["success", "bg-green-cool-50v", "text-white"],
-    ["danger", "bg-red-60v", "text-white"],
+    ["destructive", "bg-destructive", "text-destructive-foreground"],
     ["outline", "bg-transparent", "border-2"],
     ["link", "underline", "!p-0"],
   ] as const)("applies %s variant classes", (variant, classA, classB) => {
@@ -44,13 +44,13 @@ describe("Button", () => {
 
   it("merges custom className with variant and size", () => {
     render(
-      <Button variant="danger" size="sm" className="custom-button" data-testid="button">
+      <Button variant="destructive" size="sm" className="custom-button" data-testid="button">
         Custom
       </Button>,
     )
 
     const button = screen.getByTestId("button")
-    expect(button).toHaveClass("bg-red-60v", "p-2", "custom-button")
+    expect(button).toHaveClass("bg-destructive", "p-2", "custom-button")
   })
 
   it("handles disabled state and blocks click", async () => {
@@ -121,6 +121,6 @@ describe("Button", () => {
 
     expect(slottedElement.tagName).toBe("SPAN")
     expect(slottedElement).toHaveAttribute("data-slot", "button")
-    expect(slottedElement).toHaveClass("bg-cerulean-50", "text-white")
+    expect(slottedElement).toHaveClass("bg-primary", "text-primary-foreground")
   })
 })
