@@ -175,7 +175,7 @@ export const IconButton: Story = {
   },
   render: (args) => (
     <Button {...args}>
-      <Icon icon="search" size="sm" />
+      <Icon icon="search" />
     </Button>
   ),
   parameters: {

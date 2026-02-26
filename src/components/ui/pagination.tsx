@@ -68,7 +68,7 @@ const PaginationPrevious = ({
       )}
       {...props}
     >
-      <Icon icon="navigate_before" size="xs" className="size-4 align-middle" aria-hidden="true" />
+      <Icon icon="navigate_before" className="size-4 align-middle" aria-hidden="true" />
       Previous
     </PaginationLink>
   </PaginationItem>
@@ -86,7 +86,7 @@ const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof Pag
       {...props}
     >
       Next
-      <Icon icon="navigate_next" size="xs" className="size-4 align-middle" aria-hidden="true" />
+      <Icon icon="navigate_next" className="size-4 align-middle" aria-hidden="true" />
     </PaginationLink>
   </PaginationItem>
 )

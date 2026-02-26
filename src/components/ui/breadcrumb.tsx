@@ -153,7 +153,7 @@ const BreadcrumbSeparator = React.forwardRef<
     className={cn("sm:inline-flex hidden items-center", className)}
     {...props}
   >
-    <Icon icon="navigate_next" size="2xs" className="text-gray-50" />
+    <Icon icon="navigate_next" className="size-4 text-gray-50" />
   </span>
 ))
 BreadcrumbSeparator.displayName = "BreadcrumbSeparator"

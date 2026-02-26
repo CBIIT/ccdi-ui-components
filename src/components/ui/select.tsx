@@ -84,7 +84,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           aria-hidden="true"
           className="pointer-events-none absolute right-0 flex h-full items-center px-2 whitespace-nowrap text-gray-90 select-none peer-disabled:text-gray-70"
         >
-          <UnfoldMoreIcon size="xs" />
+          <UnfoldMoreIcon className="size-4" />
         </div>
       </div>
     )

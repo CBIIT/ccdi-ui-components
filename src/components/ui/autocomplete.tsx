@@ -362,7 +362,7 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
 
           {/* Search icon */}
           <div className="pointer-events-none absolute right-3">
-            <SearchIcon size="xs" className={cn("text-gray-60", disabled && "text-gray-50")} />
+            <SearchIcon className={cn("size-6 text-gray-60", disabled && "text-gray-50")} />
           </div>
         </div>
 

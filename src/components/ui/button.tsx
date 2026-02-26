@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
   [
-    "rounded font-semibold relative inline-flex cursor-pointer items-center justify-center gap-1 border-2 border-transparent font-sans leading-none",
+    "rounded font-semibold relative inline-flex cursor-pointer items-center justify-center gap-1 border-2 border-transparent font-sans leading-none [&_svg:not([class*='size-'])]:size-6",
 
     // Focus states
     "focus:outline focus:outline-4 focus:outline-offset-4 focus:outline-ring",

@@ -183,7 +183,7 @@ const MobileAccordion: React.FC<{
                   )}
                 >
                   {/* <Icon icon="expand_more" className="size-6 text-white" /> */}
-                  <Icon icon="expand_less" size="sm" className="text-white" />
+                  <Icon icon="expand_less" className="text-white size-6" />
                 </div>
                 <span className="font-bold text-white text-base font-['Open_Sans'] leading-4">
                   {section.title}
