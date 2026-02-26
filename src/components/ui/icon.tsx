@@ -1732,11 +1732,11 @@ const iconPaths: Record<IconType, React.ReactNode> = {
 
 // Main Icon component
 const Icon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ className, size, spin, icon, ...props }, ref) => {
+  ({ className, spin, icon, ...props }, ref) => {
     return (
       <svg
         ref={ref}
-        className={cn("fill-current stroke-none", iconVariants({ size, spin }), className)}
+        className={cn("fill-current stroke-none", iconVariants({ spin }), className)}
         viewBox="0 0 24 24"
         role="img"
         aria-hidden="true"

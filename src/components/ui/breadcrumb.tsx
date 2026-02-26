@@ -63,7 +63,7 @@ const Breadcrumb = React.forwardRef<HTMLElement, BreadcrumbProps>(
                 <BreadcrumbItem key={index} className="inline-flex" wrap={wrapValue}>
                   {/* Put the back icon and label in the same inline-flex so they center vertically on mobile */}
                   <span aria-hidden="true" className="sm:hidden mr-2 inline-flex items-center">
-                    <Icon icon="navigate_before" size="2xl" className="text-gray-50" />
+                    <Icon icon="navigate_before" className="size-4 text-gray-50" />
                   </span>
                   <BreadcrumbLink href={item.href}>{item.label}</BreadcrumbLink>
                   <BreadcrumbSeparator />
