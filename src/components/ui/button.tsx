@@ -1,10 +1,10 @@
 import * as React from "react"
+import * as Slot from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  cn(
-    // Base layout and appearance
+  [
     "rounded font-semibold font-open-sans relative inline-flex cursor-pointer items-center justify-center gap-1 leading-none",
 
     // Focus states
@@ -14,7 +14,7 @@ const buttonVariants = cva(
     // Disabled states
     "aria-disabled:cursor-not-allowed aria-disabled:bg-gray-20 aria-disabled:text-gray-70",
     "disabled:cursor-not-allowed disabled:bg-gray-20 disabled:text-gray-70",
-  ),
+  ],
   {
     variants: {
       variant: {
@@ -51,31 +51,29 @@ const buttonVariants = cva(
   },
 )
 
-export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+export type ButtonProps = React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
   }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const isAsChildProperlyUsed = asChild && React.isValidElement(props.children)
+function Button({
+  className,
+  variant = "primary",
+  size = "default",
+  asChild = false,
+  ...props
+}: ButtonProps) {
+  const Comp = asChild ? Slot.Root : "button"
 
-    if (isAsChildProperlyUsed) {
-      const child = React.Children.only(props.children) as React.ReactElement<
-        React.HTMLAttributes<HTMLElement>
-      >
-      return React.cloneElement(child, {
-        className: cn(buttonVariants({ variant, size }), child.props.className, className),
-        ref,
-        ...props,
-      } as React.HTMLAttributes<HTMLElement>)
-    }
-
-    return (
-      <button className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
-    )
-  },
-)
-Button.displayName = "Button"
+  return (
+    <Comp
+      data-slot="button"
+      data-variant={variant}
+      data-size={size}
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    />
+  )
+}
 
 export { Button, buttonVariants }

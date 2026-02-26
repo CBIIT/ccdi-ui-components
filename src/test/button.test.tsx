@@ -117,11 +117,10 @@ describe("Button", () => {
       </Button>,
     )
 
-    const innerTextNode = screen.getByText("Docs")
-    const wrapper = innerTextNode.parentElement
+    const slottedElement = screen.getByText("Docs")
 
-    expect(wrapper).not.toBeNull()
-    expect(wrapper?.tagName).toBe("SPAN")
-    expect(wrapper).toHaveClass("bg-cerulean-50", "text-white")
+    expect(slottedElement.tagName).toBe("SPAN")
+    expect(slottedElement).toHaveAttribute("data-slot", "button")
+    expect(slottedElement).toHaveClass("bg-cerulean-50", "text-white")
   })
 })
