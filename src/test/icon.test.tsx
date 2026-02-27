@@ -11,13 +11,7 @@ describe("Icon", () => {
     expect(icon).toHaveAttribute("viewBox", "0 0 24 24")
     expect(icon).toHaveAttribute("role", "img")
     expect(icon).toHaveAttribute("aria-hidden", "true")
-    expect(icon).toHaveClass(
-      "size-6",
-      "inline-block",
-      "shrink-0",
-      "stroke-none",
-      "fill-current",
-    )
+    expect(icon).toHaveClass("size-6", "inline-block", "shrink-0", "stroke-none", "fill-current")
   })
 
   it("applies spin and merges custom classes", () => {
