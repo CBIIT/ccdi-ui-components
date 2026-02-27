@@ -101,7 +101,7 @@ const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>(
           isActive
             ? "border-blue-60v bg-gray-5 text-blue-60v"
             : "text-gray-70 hover:border-gray-30",
-          "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+          "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-6",
           className,
         )}
         onClick={() => onValueChange(value)}

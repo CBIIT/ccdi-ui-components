@@ -61,15 +61,15 @@ export const WithIcons: Story = {
     <Tabs defaultValue="profile" className="w-[500px]">
       <TabsList>
         <TabsTrigger value="profile">
-          <Icon icon="person" size="lg" />
+          <Icon icon="person" />
           Profile
         </TabsTrigger>
         <TabsTrigger value="notifications">
-          <Icon icon="notifications" size="sm" />
+          <Icon icon="notifications" />
           Notifications
         </TabsTrigger>
         <TabsTrigger value="security">
-          <Icon icon="lock" size="sm" />
+          <Icon icon="lock" />
           Security
         </TabsTrigger>
       </TabsList>

@@ -195,7 +195,7 @@ export const WithIcon: Story = {
   render: (args) => (
     <Button {...args}>
       Primary
-      <Icon icon="navigate_next" size="xs" />
+      <Icon icon="navigate_next" />
     </Button>
   ),
   parameters: {
@@ -220,7 +220,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-wrap gap-4">
       <Button variant="primary">
-        Primary <Icon icon="search" size="xs" />
+        Primary <Icon icon="search" />
       </Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="outline">Outline</Button>
