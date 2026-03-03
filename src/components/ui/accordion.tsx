@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, useCallback } from "react"
+import * as React from "react"
 import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Icon, IconType } from "@/components/ui/icon"
@@ -24,10 +24,10 @@ type AccordionContextValue = {
   multiselectable: boolean
 }
 
-const AccordionContext = createContext<AccordionContextValue | null>(null)
+const AccordionContext = React.createContext<AccordionContextValue | null>(null)
 
 function useAccordion(): AccordionContextValue {
-  const context = useContext(AccordionContext)
+  const context = React.useContext(AccordionContext)
   if (!context) {
     throw new Error("Accordion components must be used within an Accordion")
   }
@@ -38,10 +38,10 @@ type AccordionItemContextValue = {
   value: string
 }
 
-const AccordionItemContext = createContext<AccordionItemContextValue | null>(null)
+const AccordionItemContext = React.createContext<AccordionItemContextValue | null>(null)
 
 function useAccordionItem(): AccordionItemContextValue {
-  const context = useContext(AccordionItemContext)
+  const context = React.useContext(AccordionItemContext)
   if (!context) {
     throw new Error("AccordionTrigger and AccordionContent must be used within an AccordionItem")
   }
@@ -65,14 +65,14 @@ function Accordion({
 }: AccordionProps) {
   const multiselectable = type === "multiple"
 
-  const [openItems, setOpenItems] = useState<string[]>(() => {
+  const [openItems, setOpenItems] = React.useState<string[]>(() => {
     if (defaultValue) {
       return Array.isArray(defaultValue) ? defaultValue : [defaultValue]
     }
     return []
   })
 
-  const toggleItem = useCallback(
+  const toggleItem = React.useCallback(
     (id: string) => {
       setOpenItems((prev) => {
         if (multiselectable) {
