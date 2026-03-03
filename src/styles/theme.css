@@ -221,13 +221,13 @@
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
 
-  /* Theme Radius with normalization support */
+  /* Theme Radius */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* Theme Shadow with normalization support */
+  /* Theme Shadow */
   --shadow-x: var(--shadow-x);
   --shadow-y: var(--shadow-y);
   --shadow-blur: var(--shadow-blur);
@@ -243,12 +243,19 @@
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
 
-  /* Theme Tracking with normalization support */
-  --tracking-normal: var(--tracking-normal);
+  /* Theme Spacing */
   --spacing: var(--spacing);
 
+  /* Theme Tracking */
+  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+  --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+  --tracking-normal: var(--tracking-normal);
+  --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+  --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+  --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+
   /* Font Size with normalization support */
-  --font-size-xs: calc(0.75rem * var(--font-normalization, 1));
+  /* --font-size-xs: calc(0.75rem * var(--font-normalization, 1));
   --font-size-sm: calc(0.875rem * var(--font-normalization, 1));
   --font-size-base: calc(1rem * var(--font-normalization, 1));
   --font-size-lg: calc(1.125rem * var(--font-normalization, 1));
@@ -260,10 +267,10 @@
   --font-size-6xl: calc(3.75rem * var(--font-normalization, 1));
   --font-size-7xl: calc(4.5rem * var(--font-normalization, 1));
   --font-size-8xl: calc(6rem * var(--font-normalization, 1));
-  --font-size-9xl: calc(8rem * var(--font-normalization, 1));
+  --font-size-9xl: calc(8rem * var(--font-normalization, 1)); */
 
-  /* Line heights */
-  --line-height-xs: calc(1rem * var(--font-normalization, 1));
+  /* Line heights with normalization support */
+  /* --line-height-xs: calc(1rem * var(--font-normalization, 1));
   --line-height-sm: calc(1.25rem * var(--font-normalization, 1));
   --line-height-base: calc(1.5rem * var(--font-normalization, 1));
   --line-height-lg: calc(1.75rem * var(--font-normalization, 1));
@@ -275,7 +282,7 @@
   --line-height-6xl: calc(1 * var(--font-normalization, 1));
   --line-height-7xl: calc(1 * var(--font-normalization, 1));
   --line-height-8xl: calc(1 * var(--font-normalization, 1));
-  --line-height-9xl: calc(1 * var(--font-normalization, 1));
+  --line-height-9xl: calc(1 * var(--font-normalization, 1)); */
 
   /* Font families */
   --font-family-merriweather: Merriweather, Georgia, Cambria, "Times New Roman", Times, serif;
@@ -301,12 +308,27 @@
   --font-family-poppins:
     Poppins, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 
-  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
-  --tracking-tight: calc(var(--tracking-normal) - 0.025em);
-  --tracking-normal: var(--tracking-normal);
-  --tracking-wide: calc(var(--tracking-normal) + 0.025em);
-  --tracking-wider: calc(var(--tracking-normal) + 0.05em);
-  --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+  /* Responsive breakpoints */
+  /* --breakpoint-card: 160px;
+  --breakpoint-card-lg: 240px;
+  --breakpoint-mobile: 320px;
+  --breakpoint-mobile-lg: 480px;
+  --breakpoint-tablet: 640px;
+  --breakpoint-tablet-lg: 880px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-desktop-lg: 1200px;
+  --breakpoint-widescreen: 1400px; */
+
+  /* Container sizes */
+  /* --size-card: 160px;
+  --size-card-lg: 240px;
+  --size-mobile: 320px;
+  --size-mobile-lg: 480px;
+  --size-tablet: 640px;
+  --size-tablet-lg: 880px;
+  --size-desktop: 1024px;
+  --size-desktop-lg: 1200px;
+  --size-widescreen: 1400px; */
 
   /* USWDS Color Palette */
   --color-red-cool-5: #f8eff1;
@@ -868,28 +890,6 @@
   --color-gray-warm-70: #454540;
   --color-gray-warm-80: #2e2e2a;
   --color-gray-warm-90: #171716;
-
-  /* Responsive breakpoints */
-  --breakpoint-card: 160px;
-  --breakpoint-card-lg: 240px;
-  --breakpoint-mobile: 320px;
-  --breakpoint-mobile-lg: 480px;
-  --breakpoint-tablet: 640px;
-  --breakpoint-tablet-lg: 880px;
-  --breakpoint-desktop: 1024px;
-  --breakpoint-desktop-lg: 1200px;
-  --breakpoint-widescreen: 1400px;
-
-  /* Container sizes */
-  --size-card: 160px;
-  --size-card-lg: 240px;
-  --size-mobile: 320px;
-  --size-mobile-lg: 480px;
-  --size-tablet: 640px;
-  --size-tablet-lg: 880px;
-  --size-desktop: 1024px;
-  --size-desktop-lg: 1200px;
-  --size-widescreen: 1400px;
 }
 
 /* Import Tailwind v4 compatible plugins via CSS */
@@ -947,52 +947,3 @@
   --font-normalization: 1;
   font-family: var(--font-family-poppins);
 }
-
-/* Custom variants */
-/* @custom-variant thumb {
-  @media {
-    &::-webkit-slider-thumb, &::-moz-range-thumb, &::-ms-thumb {
-      @content;
-    }
-  }
-}
-
-@custom-variant track {
-  @media {
-    &::-webkit-slider-runnable-track, &::-moz-range-track, &::-ms-track {
-      @content;
-    }
-  }
-}
-
-@custom-variant valid {
-  @media {
-    &[data-valid] {
-      @content;
-    }
-  }
-}
-
-@custom-variant invalid {
-  @media {
-    &[data-invalid] {
-      @content;
-    }
-  }
-}
-
-@custom-variant forced-colors {
-  @media (forced-colors: active) {
-    @content;
-  }
-} */
-
-/* Hidden until found utility */
-/* @utility {
-  .\[hidden\=until-found\] {
-    @supports (content-visibility: hidden) {
-      display: inherit;
-      content-visibility: hidden;
-    }
-  }
-} */

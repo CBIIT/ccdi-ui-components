@@ -59,7 +59,7 @@ const PaginationPrevious = ({
   className,
   ...props
 }: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationItem className="hidden h-10 min-w-10 tablet:inline-flex">
+  <PaginationItem className="sm:inline-flex hidden h-10 min-w-10">
     <PaginationLink
       aria-label="Go to previous page"
       className={cn(
@@ -76,7 +76,7 @@ const PaginationPrevious = ({
 PaginationPrevious.displayName = "PaginationPrevious"
 
 const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationItem className="hidden h-10 min-w-10 tablet:inline-flex">
+  <PaginationItem className="sm:inline-flex hidden h-10 min-w-10">
     <PaginationLink
       aria-label="Go to next page"
       className={cn(

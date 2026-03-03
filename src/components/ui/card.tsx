@@ -7,8 +7,8 @@ const cardVariants = cva("bg-white flex flex-col", {
     variant: {
       default: "rounded border-x-2 border-t-2 border-b-2 border-gray-10",
       vertical:
-        "rounded col-span-6 border-x-2 border-t-2 border-b-2 border-gray-10 tablet:col-span-3 desktop:col-span-2",
-      horizontal: "col-span-2 desktop:col-span-1",
+        "rounded sm:col-span-3 lg:col-span-2 col-span-6 border-x-2 border-t-2 border-b-2 border-gray-10",
+      horizontal: "lg:col-span-1 col-span-2",
     },
   },
   defaultVariants: {
