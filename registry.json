@@ -178,7 +178,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": ["clsx"],
+      "dependencies": ["@radix-ui/react-checkbox", "clsx"],
       "registryDependencies": [
         "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
         "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
@@ -518,6 +518,51 @@
       "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
+      "name": "all",
+      "type": "registry:component",
+      "title": "All CCDI Components",
+      "description": "Installs all CCDI registry components, blocks, chart foundation, and styles.",
+      "files": [],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/button.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/button-group.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/alert.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/badge.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/banner.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/breadcrumb.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/input.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/label.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/select.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/separator.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/checkbox.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/accordion.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/card.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/dialog.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/form.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/pagination.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/radio-group.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/search.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/autocomplete.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/chart.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/table.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/tooltip.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/context-menu.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/dropdown-menu.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/progress.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/avatar.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/textarea.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/slider.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/switch.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/tabs.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/header.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/footer.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/in-page-navigation.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json"
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "title": "Utility Functions",
@@ -540,7 +585,7 @@
         {
           "path": "src/styles/fonts.css",
           "type": "registry:style",
-          "target": "~/src/app/fonts.css"
+          "target": "~/app/fonts.css"
         },
         {
           "path": "public/fonts/public-sans/public-sans.woff2",
@@ -655,7 +700,12 @@
         {
           "path": "src/styles/globals.css",
           "type": "registry:style",
-          "target": "~/src/app/globals.css"
+          "target": "~/app/globals.css"
+        },
+        {
+          "path": "src/styles/theme.css",
+          "type": "registry:style",
+          "target": "~/app/theme.css"
         }
       ],
       "dependencies": ["tailwindcss"],
