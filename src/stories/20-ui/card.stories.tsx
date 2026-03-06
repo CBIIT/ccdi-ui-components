@@ -66,7 +66,7 @@ export const WithImage: Story = {
         <img
           src="https://placehold.co/640x360"
           alt="Placeholder"
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
         />
       </CardMedia>
       <CardContent>
@@ -100,7 +100,7 @@ export const MediaWithHeaderFirst: Story = {
         <img
           src="https://placehold.co/640x360"
           alt="Placeholder"
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
         />
       </CardMedia>
       <CardContent>
@@ -134,7 +134,7 @@ export const InsetMedia: Story = {
         <img
           src="https://placehold.co/640x360"
           alt="Placeholder"
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
         />
       </CardMedia>
       <CardContent>
@@ -168,7 +168,7 @@ export const ExdentMedia: Story = {
         <img
           src="https://placehold.co/640x360"
           alt="Placeholder"
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
         />
       </CardMedia>
       <CardContent>
@@ -195,7 +195,7 @@ export const ExdentMedia: Story = {
 export const VerticalCardGroup: Story = {
   render: () => (
     <CardGroup layout="vertical">
-      <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
+      <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
           <h2 className="font-semibold font-poppins text-xl">Card 1</h2>
         </CardHeader>
@@ -210,7 +210,7 @@ export const VerticalCardGroup: Story = {
         </CardFooter>
       </CardItem>
 
-      <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
+      <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
           <h2 className="font-semibold font-poppins text-xl">Card 2</h2>
         </CardHeader>
@@ -218,7 +218,7 @@ export const VerticalCardGroup: Story = {
           <img
             src="https://placehold.co/640x360"
             alt="Placeholder"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         </CardMedia>
         <CardContent>
@@ -232,7 +232,7 @@ export const VerticalCardGroup: Story = {
         </CardFooter>
       </CardItem>
 
-      <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
+      <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
           <h2 className="font-semibold font-poppins text-xl">Card 3</h2>
         </CardHeader>
@@ -240,7 +240,7 @@ export const VerticalCardGroup: Story = {
           <img
             src="https://placehold.co/640x360"
             alt="Placeholder"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         </CardMedia>
         <CardContent>
@@ -268,15 +268,15 @@ export const VerticalCardGroup: Story = {
 // Horizontal card layout
 export const HorizontalCard: Story = {
   render: () => (
-    <Card className="flex-col tablet:flex-row max-w-2xl">
-      <CardMedia variant="first" className="tablet:w-60 tablet:shrink-0 tablet:order-first">
+    <Card className="max-w-2xl sm:flex-row flex-col">
+      <CardMedia variant="first" className="sm:order-first sm:w-60 sm:shrink-0">
         <img
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
           src="https://placehold.co/640x360"
           alt="Placeholder"
         />
       </CardMedia>
-      <div className="flex flex-col grow">
+      <div className="flex grow flex-col">
         <CardHeader>
           <h2 className="font-semibold font-poppins text-xl">Default flag</h2>
         </CardHeader>
@@ -302,21 +302,21 @@ export const HorizontalCard: Story = {
 // Horizontal card with media on right
 export const HorizontalCardMediaRight: Story = {
   render: () => (
-    <Card className="flex-row max-w-2xl">
-      <div className="border-x-2 border-b-2 rounded-b tablet:border-x-0 tablet:rounded-b-none tablet:border-y-2 tablet:border-s-2 tablet:rounded-s border-gray-10 grow">
+    <Card className="max-w-2xl flex-row">
+      <div className="rounded-b sm:rounded-s sm:rounded-b-none sm:border-x-0 sm:border-y-2 sm:border-s-2 grow border-x-2 border-b-2 border-gray-10">
         <div className="px-6 pt-6 pb-2">
           <h2 className="font-semibold font-poppins text-xl">Flag media right inset</h2>
         </div>
-        <div className="px-6 py-2 grow">
+        <div className="grow px-6 py-2">
           <p className="font-open-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
-        <div className="px-6 pb-6 pt-2">
+        <div className="px-6 pt-2 pb-6">
           <Button>Visit Florida Keys</Button>
         </div>
       </div>
-      <div className="border-x-2 border-t-2 rounded-t tablet:border-x-0 tablet:rounded-none tablet:border-y-2 tablet:border-e-2 border-gray-10 tablet:rounded-e overflow-hidden shrink-0 -order-1 tablet:order-1">
+      <div className="rounded-t sm:rounded-e sm:order-1 sm:rounded-none sm:border-x-0 sm:border-y-2 sm:border-e-2 -order-1 shrink-0 overflow-hidden border-x-2 border-t-2 border-gray-10">
         <img
-          className="aspect-video tablet:aspect-auto size-full tablet:w-60 object-cover p-6 pb-0 tablet:pb-6 tablet:pl-0"
+          className="aspect-video sm:aspect-auto sm:w-60 sm:pb-6 sm:pl-0 size-full object-cover p-6 pb-0"
           src="https://placehold.co/640x360"
           alt="Placeholder"
         />
@@ -337,7 +337,7 @@ export const AllVerticalVariants: Story = {
   render: () => (
     <CardGroup layout="vertical">
       {/* Default */}
-      <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
+      <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
           <h2 className="font-semibold font-poppins text-xl">Default</h2>
         </CardHeader>
@@ -350,7 +350,7 @@ export const AllVerticalVariants: Story = {
       </CardItem>
 
       {/* Image First */}
-      <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
+      <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
           <h2 className="font-semibold font-poppins text-xl">Image First</h2>
         </CardHeader>
@@ -358,7 +358,7 @@ export const AllVerticalVariants: Story = {
           <img
             src="https://placehold.co/640x360"
             alt="Placeholder"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         </CardMedia>
         <CardContent>
@@ -370,7 +370,7 @@ export const AllVerticalVariants: Story = {
       </CardItem>
 
       {/* Header First */}
-      <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
+      <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
           <h2 className="font-semibold font-poppins text-xl">Header First</h2>
         </CardHeader>
@@ -378,7 +378,7 @@ export const AllVerticalVariants: Story = {
           <img
             src="https://placehold.co/640x360"
             alt="Placeholder"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         </CardMedia>
         <CardContent>
@@ -390,7 +390,7 @@ export const AllVerticalVariants: Story = {
       </CardItem>
 
       {/* Inset Media */}
-      <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
+      <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
           <h2 className="font-semibold font-poppins text-xl">Inset Media</h2>
         </CardHeader>
@@ -398,7 +398,7 @@ export const AllVerticalVariants: Story = {
           <img
             src="https://placehold.co/640x360"
             alt="Placeholder"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         </CardMedia>
         <CardContent>
@@ -410,7 +410,7 @@ export const AllVerticalVariants: Story = {
       </CardItem>
 
       {/* Exdent Media */}
-      <CardItem className="bg-white flex flex-col col-span-6 tablet:col-span-3 desktop:col-span-2">
+      <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
           <h2 className="font-semibold font-poppins text-xl">Exdent Media</h2>
         </CardHeader>
@@ -418,7 +418,7 @@ export const AllVerticalVariants: Story = {
           <img
             src="https://placehold.co/640x360"
             alt="Placeholder"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         </CardMedia>
         <CardContent>

@@ -43,7 +43,7 @@ export const Default: Story = {
 // With Label
 export const WithLabel: Story = {
   render: (args) => (
-    <div className="grid w-full max-w-sm items-center">
+    <div className="max-w-sm grid w-full items-center">
       <Label htmlFor="textarea-with-label">Description</Label>
       <Textarea id="textarea-with-label" placeholder="Enter your description" {...args} />
     </div>
@@ -73,10 +73,10 @@ export const WithError: Story = {
     defaultValue: "This field has an error.",
   },
   render: (args) => (
-    <div className="grid w-full max-w-sm items-center">
+    <div className="max-w-sm grid w-full items-center">
       <Label htmlFor="error-textarea">Description</Label>
       <Textarea id="error-textarea" {...args} />
-      <p className="text-sm text-red-60v mt-1">This field is required.</p>
+      <p className="text-sm mt-1 text-red-60v">This field is required.</p>
     </div>
   ),
   parameters: {

@@ -71,8 +71,8 @@ export const Default: Story = {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Performance metrics across different categories
         </div>
       </CardFooter>
@@ -135,8 +135,8 @@ export const ChartRadarDots: Story = {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Data points highlighted with visible dots
         </div>
       </CardFooter>
@@ -207,8 +207,8 @@ export const ChartRadarLinesOnly: Story = {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Outline only view for cleaner visualization
         </div>
       </CardFooter>
@@ -267,8 +267,8 @@ export const ChartRadarMultiple: Story = {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Outline only view for cleaner visualization
         </div>
       </CardFooter>
@@ -328,8 +328,8 @@ export const ChartRadarLegend: Story = {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Outline only view for cleaner visualization
         </div>
       </CardFooter>
@@ -385,8 +385,8 @@ export const ChartRadarGridCustom: Story = {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Performance metrics across different categories
         </div>
       </CardFooter>
@@ -449,8 +449,8 @@ export const ChartRadarGridNone: Story = {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Performance metrics across different categories
         </div>
       </CardFooter>
@@ -514,8 +514,8 @@ export const ChartRadarGridCircle: Story = {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Performance metrics across different categories
         </div>
       </CardFooter>
@@ -581,8 +581,8 @@ export const ChartRadarGridCircleNoLines: Story = {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Performance metrics across different categories
         </div>
       </CardFooter>
@@ -640,8 +640,8 @@ export const ChartRadarGridCircleFill: Story = {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Performance metrics across different categories
         </div>
       </CardFooter>
@@ -699,8 +699,8 @@ export const ChartRadarGridFill: Story = {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Performance metrics across different categories
         </div>
       </CardFooter>

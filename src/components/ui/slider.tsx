@@ -151,8 +151,8 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
         data-slot="slider"
         data-disabled={disabled ? "true" : undefined}
         className={cn(
-          "relative flex w-full touch-none select-none items-center mt-2",
-          disabled && "opacity-50 cursor-not-allowed",
+          "relative mt-2 flex w-full touch-none items-center select-none",
+          disabled && "cursor-not-allowed opacity-50",
           className,
         )}
       >
@@ -165,7 +165,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
           aria-disabled={disabled}
           aria-label="Set slider value"
           className={cn(
-            "relative overflow-hidden rounded-full bg-gray-30 h-2 w-full cursor-pointer",
+            "relative h-2 w-full cursor-pointer overflow-hidden rounded-full bg-gray-30",
           )}
           onClick={handleTrackClick}
           onKeyDown={handleTrackKeyDown}
@@ -173,7 +173,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
           {/* Range - filled portion between min and first thumb for single, or between thumbs for multiple */}
           <div
             data-slot="slider-range"
-            className={cn("absolute bg-blue-60v h-full left-0 pointer-events-none")}
+            className={cn("pointer-events-none absolute left-0 h-full bg-blue-60v")}
             style={
               currentValue.length > 1
                 ? {
@@ -192,7 +192,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
           <div
             key={index}
             data-slot="slider-thumb-wrapper"
-            className={cn("absolute top-1/2 -translate-y-1/2 -translate-x-1/2")}
+            className={cn("absolute top-1/2 -translate-x-1/2 -translate-y-1/2")}
             style={{
               left: `${getThumbPosition(val)}%`,
             }}
@@ -216,13 +216,13 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
             <div
               data-slot="slider-thumb"
               className={cn(
-                "block h-4 w-4 shrink-0 rounded-full border-2 border-blue-60v bg-white shadow-md transition-shadow",
+                "bg-white block h-4 w-4 shrink-0 rounded-full border-2 border-blue-60v shadow-md transition-shadow",
                 "hover:ring-4 hover:ring-blue-60v/30",
                 "focus-visible:ring-4 focus-visible:ring-blue-60v/60 focus-visible:outline-none",
                 disabled
                   ? "pointer-events-none cursor-not-allowed"
                   : "cursor-grab active:cursor-grabbing",
-                activeThumbIndex === index && "ring-4 ring-blue-60v/60 cursor-grabbing",
+                activeThumbIndex === index && "cursor-grabbing ring-4 ring-blue-60v/60",
               )}
               tabIndex={disabled ? -1 : 0}
               role="slider"

@@ -61,7 +61,7 @@ const TabsList = React.forwardRef<HTMLDivElement, TabsListProps>(
         data-slot="tabs-list"
         role="tablist"
         className={cn(
-          "inline-flex w-full items-center justify-start gap-0.5 bg-white border-b-4 border-gray-30",
+          "bg-white inline-flex w-full items-center justify-start gap-0.5 border-b-4 border-gray-30",
           className,
         )}
         {...props}
@@ -93,15 +93,15 @@ const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>(
         data-slot="tabs-trigger"
         data-state={isActive ? "active" : "inactive"}
         className={cn(
-          "inline-flex items-center justify-center gap-1.5 px-4 py-3 text-base font-medium whitespace-nowrap transition-all",
+          "text-base font-medium inline-flex items-center justify-center gap-1.5 px-4 py-3 whitespace-nowrap transition-all",
           "border-t-4 border-transparent",
           "hover:bg-gray-5 hover:text-blue-60v",
-          "focus:outline focus:outline-4 focus:outline-blue-40v focus:z-10",
-          "disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed",
+          "focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v",
+          "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
           isActive
-            ? "border-blue-60v text-blue-60v bg-gray-5"
+            ? "border-blue-60v bg-gray-5 text-blue-60v"
             : "text-gray-70 hover:border-gray-30",
-          "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+          "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-6",
           className,
         )}
         onClick={() => onValueChange(value)}
@@ -136,7 +136,7 @@ const TabsContent = React.forwardRef<HTMLDivElement, TabsContentProps>(
         data-slot="tabs-content"
         data-state={isActive ? "active" : "inactive"}
         tabIndex={0}
-        className={cn("flex-1 outline-none py-6 px-4 border-4 border-gray-5", className)}
+        className={cn("flex-1 border-4 border-gray-5 px-4 py-6 outline-none", className)}
         {...props}
       >
         {children}

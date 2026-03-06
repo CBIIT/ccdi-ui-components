@@ -24,20 +24,20 @@ const Skipnav = React.forwardRef<HTMLAnchorElement, SkipnavProps>(
         href={href}
         className={cn(
           // Base styles - positioned off-screen initially
-          "absolute left-1 top-1 z-50",
+          "absolute top-1 left-1 z-50",
           "bg-white",
           "-translate-y-full",
 
           // Typography
           "font-open-sans font-normal",
-          "text-cerulean-60v text-center whitespace-nowrap",
+          "text-center whitespace-nowrap text-cerulean-60v",
 
           // Layout
           "px-4 py-2",
 
           // Focus state - bring into view with proper outline
-          "focus:translate-y-0 focus:outline focus:outline-offset-0 focus:outline-4 focus:outline-blue-40",
-          "focus-visible:translate-y-0 focus-visible:outline focus-visible:outline-offset-0 focus-visible:outline-4 focus-visible:outline-blue-40",
+          "focus:translate-y-0 focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40",
+          "focus-visible:translate-y-0 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-0 focus-visible:outline-blue-40",
 
           // Hover state
           "hover:bg-gray-5",

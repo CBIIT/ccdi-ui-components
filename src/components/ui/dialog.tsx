@@ -20,7 +20,7 @@ const DialogOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-40 bg-black/70 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "bg-black/70 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-40",
       className,
     )}
     {...props}
@@ -37,14 +37,14 @@ const DialogContent = React.forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed left-[50%] top-[50%] z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95  p-8 pt-10",
+        "max-w-lg bg-white data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 w-full translate-x-[-50%] translate-y-[-50%] rounded-lg p-8 pt-10 shadow-lg duration-200",
         className,
       )}
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute top-0 right-0 p-1 text-gray-50 bg-transparent rounded hover:text-gray-90 active:text-gray-90 focus:outline focus:outline-4 focus:outline-offset-4 focus:outline-blue-40 data-[state=open]:bg-transparent data-[state=open]:text-gray-50">
-        <Icon icon="close" className="size-8 mt-0.5 mr-0.5 align-middle" />
+      <DialogPrimitive.Close className="rounded absolute top-0 right-0 bg-transparent p-1 text-gray-50 hover:text-gray-90 focus:outline focus:outline-4 focus:outline-offset-4 focus:outline-blue-40 active:text-gray-90 data-[state=open]:bg-transparent data-[state=open]:text-gray-50">
+        <Icon icon="close" className="mt-0.5 mr-0.5 size-8 align-middle" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
@@ -80,7 +80,7 @@ const DialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={cn("mt-4 text-gray-60 font-public-sans", className)}
+    className={cn("font-public-sans mt-4 text-gray-60", className)}
     {...props}
   />
 ))

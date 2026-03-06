@@ -21,10 +21,10 @@ function NavigationList({ items }: { items: InPageNavigationItem[] }) {
           <a
             href={item.href}
             className={cn(
-              "block relative py-2 px-4 text-gray-60 hover:text-blue-60v hover:bg-gray-5",
+              "relative block px-4 py-2 text-gray-60 hover:bg-gray-5 hover:text-blue-60v",
               "focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40v",
-              "aria-[current=page]:text-blue-60v aria-[current=page]:font-bold",
-              "aria-[current=page]:after:block aria-[current=page]:after:absolute aria-[current=page]:after:bg-blue-60v",
+              "aria-[current=page]:font-bold aria-[current=page]:text-blue-60v",
+              "aria-[current=page]:after:absolute aria-[current=page]:after:block aria-[current=page]:after:bg-blue-60v",
               "aria-[current=page]:after:inset-y-1 aria-[current=page]:after:left-0 aria-[current=page]:after:w-1 aria-[current=page]:after:rounded-full",
             )}
             aria-current={item.isActive ? "page" : undefined}

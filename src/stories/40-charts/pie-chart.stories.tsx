@@ -96,8 +96,8 @@ export const Default: Story = {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing browser distribution for the last 6 months
         </div>
       </CardFooter>
@@ -181,8 +181,8 @@ export const WithLabels: Story = {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing browser distribution for the last 6 months
         </div>
       </CardFooter>
@@ -270,8 +270,8 @@ export const CustomLabel: Story = {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing browser distribution for the last 6 months
         </div>
       </CardFooter>
@@ -357,8 +357,8 @@ export const WithLabelList: Story = {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing browser distribution for the last 6 months
         </div>
       </CardFooter>
@@ -437,8 +437,8 @@ export const WithLegend: Story = {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing browser distribution for the last 6 months
         </div>
       </CardFooter>
@@ -508,8 +508,8 @@ export const Donut: Story = {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Annual budget distribution across departments
         </div>
       </CardFooter>
@@ -580,8 +580,8 @@ export const DonutActive: Story = {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Annual budget distribution across departments
         </div>
       </CardFooter>
@@ -638,7 +638,7 @@ export const DonutInteractive: Story = {
     const total = chartBrowserData.reduce((sum, item) => sum + item.visitors, 0)
 
     return (
-      <Card data-chart={id} className="flex flex-col max-w-xl">
+      <Card data-chart={id} className="max-w-xl flex flex-col">
         <CardHeader className="flex-row items-start space-y-0 pb-0">
           <div className="grid gap-1">
             <h2 className="font-bold font-merriweather text-lg">Pie Chart - Interactive</h2>
@@ -687,7 +687,7 @@ export const DonutInteractive: Story = {
                           <tspan
                             x={viewBox.cx}
                             y={viewBox.cy}
-                            className="fill-foreground text-xl font-bold"
+                            className="text-xl font-bold fill-foreground"
                           >
                             {displayValue.toLocaleString()}
                           </tspan>
@@ -708,8 +708,8 @@ export const DonutInteractive: Story = {
             </PieChart>
           </ChartContainer>
         </CardContent>
-        <CardFooter className="flex-col items-start gap-2 text-sm">
-          <div className="text-muted-foreground leading-none">
+        <CardFooter className="text-sm flex-col items-start gap-2">
+          <div className="leading-none text-muted-foreground">
             Hover over a segment to highlight it and see its value
           </div>
         </CardFooter>

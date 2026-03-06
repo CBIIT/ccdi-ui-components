@@ -23,7 +23,7 @@ PaginationContent.displayName = "PaginationContent"
 
 const PaginationItem = React.forwardRef<HTMLLIElement, React.ComponentProps<"li">>(
   ({ className, ...props }, ref) => (
-    <li ref={ref} className={cn("h-10 min-w-10 inline-flex", className)} {...props} />
+    <li ref={ref} className={cn("inline-flex h-10 min-w-10", className)} {...props} />
   ),
 )
 PaginationItem.displayName = "PaginationItem"
@@ -44,8 +44,8 @@ const PaginationLink = ({
     aria-current={isActive ? "page" : undefined}
     aria-label={isLast ? `Last page, page ${children}` : `Page ${children}`}
     className={cn(
-      "p-2 w-full flex rounded border border-gray-90/20 text-blue-60 justify-center items-center hover:text-blue-warm-70 hover:border-blue-warm-70 focus:text-blue-warm-70 focus:border-blue-warm-70 focus:outline focus:outline-offset-0 focus:outline-4 focus:outline-blue-40 font-public-sans",
-      isActive && "bg-gray-90 text-white hover:text-white focus:text-white",
+      "rounded font-public-sans flex w-full items-center justify-center border border-gray-90/20 p-2 text-blue-60 hover:border-blue-warm-70 hover:text-blue-warm-70 focus:border-blue-warm-70 focus:text-blue-warm-70 focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40",
+      isActive && "text-white hover:text-white focus:text-white bg-gray-90",
       className,
     )}
     {...props}
@@ -59,16 +59,16 @@ const PaginationPrevious = ({
   className,
   ...props
 }: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationItem className="h-10 min-w-10 hidden tablet:inline-flex">
+  <PaginationItem className="sm:inline-flex hidden h-10 min-w-10">
     <PaginationLink
       aria-label="Go to previous page"
       className={cn(
-        "pr-2 mr-3 inline-flex items-center text-blue-60 hover:underline hover:text-blue-warm-70 focus:underline focus:text-blue-warm-70 focus:outline focus:outline-4 focus:outline-blue-40 border-0",
+        "mr-3 inline-flex items-center border-0 pr-2 text-blue-60 hover:text-blue-warm-70 hover:underline focus:text-blue-warm-70 focus:underline focus:outline focus:outline-4 focus:outline-blue-40",
         className,
       )}
       {...props}
     >
-      <Icon icon="navigate_before" size="xs" className="align-middle size-4" aria-hidden="true" />
+      <Icon icon="navigate_before" className="size-4 align-middle" aria-hidden="true" />
       Previous
     </PaginationLink>
   </PaginationItem>
@@ -76,17 +76,17 @@ const PaginationPrevious = ({
 PaginationPrevious.displayName = "PaginationPrevious"
 
 const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationItem className="h-10 min-w-10 hidden tablet:inline-flex">
+  <PaginationItem className="sm:inline-flex hidden h-10 min-w-10">
     <PaginationLink
       aria-label="Go to next page"
       className={cn(
-        "pl-2 ml-3 inline-flex items-center text-blue-60 hover:underline hover:text-blue-warm-70 focus:underline focus:text-blue-warm-70 focus:outline focus:outline-4 focus:outline-blue-40 border-0",
+        "ml-3 inline-flex items-center border-0 pl-2 text-blue-60 hover:text-blue-warm-70 hover:underline focus:text-blue-warm-70 focus:underline focus:outline focus:outline-4 focus:outline-blue-40",
         className,
       )}
       {...props}
     >
       Next
-      <Icon icon="navigate_next" size="xs" className="align-middle size-4" aria-hidden="true" />
+      <Icon icon="navigate_next" className="size-4 align-middle" aria-hidden="true" />
     </PaginationLink>
   </PaginationItem>
 )
@@ -95,7 +95,7 @@ PaginationNext.displayName = "PaginationNext"
 const PaginationEllipsis = ({ className, ...props }: React.ComponentProps<"li">) => (
   <li
     aria-label="ellipsis indicating non-visible pages"
-    className={cn("h-10 min-w-10 p-2 select-none flex items-center justify-center", className)}
+    className={cn("flex h-10 min-w-10 items-center justify-center p-2 select-none", className)}
     {...props}
   >
     <span>...</span>

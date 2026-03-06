@@ -9,18 +9,18 @@ const radioGroupVariants = cva("space-y-2")
 const radioItemVariants = cva(
   cn(
     // Base layout and appearance
-    "flex items-center justify-center shrink-0 relative cursor-pointer",
-    "text-blue-60 border-none size-5 rounded-full",
+    "relative flex shrink-0 cursor-pointer items-center justify-center",
+    "size-5 rounded-full border-none text-blue-60",
 
     // Default ring state
-    "ring-2 ring-offset-0 ring-gray-90",
+    "ring-2 ring-gray-90 ring-offset-0",
 
     // Focus states
-    "peer-focus:ring-2 peer-focus:ring-offset-0 peer-focus:ring-gray-90",
+    "peer-focus:ring-2 peer-focus:ring-gray-90 peer-focus:ring-offset-0",
     "peer-focus:outline peer-focus:outline-4 peer-focus:outline-offset-4 peer-focus:outline-blue-40",
 
     // Disabled states
-    "peer-disabled:ring-gray-50 peer-disabled:cursor-not-allowed",
+    "peer-disabled:cursor-not-allowed peer-disabled:ring-gray-50",
     "peer-disabled:peer-checked:text-gray-50",
 
     // Checked states
@@ -44,13 +44,13 @@ const radioItemVariants = cva(
 )
 
 const radioLabelVariants = cva(
-  "pl-3 cursor-pointer block peer-disabled:text-gray-60 peer-disabled:cursor-not-allowed",
+  "block cursor-pointer pl-3 peer-disabled:cursor-not-allowed peer-disabled:text-gray-60",
   {
     variants: {
       variant: {
         default: "",
         tiled:
-          "before:absolute before:-z-10 before:inset-0 before:bg-white before:border-2 before:border-gray-20 before:rounded peer-checked:before:border-blue-60 peer-checked:before:bg-blue-60/10 peer-disabled:before:border-gray-10 peer-disabled:before:bg-white",
+          "before:bg-white before:rounded peer-disabled:before:bg-white before:absolute before:inset-0 before:-z-10 before:border-2 before:border-gray-20 peer-checked:before:border-blue-60 peer-checked:before:bg-blue-60/10 peer-disabled:before:border-gray-10",
       },
     },
     defaultVariants: {
@@ -166,7 +166,7 @@ const RadioGroupItem = React.forwardRef<HTMLInputElement, RadioGroupItemProps>(
           checked={checked}
           disabled={disabled}
           onChange={handleChange}
-          className="sr-only peer"
+          className="peer sr-only"
           {...props}
         />
         <div className={cn(radioItemVariants({ variant }), className)} />

@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils"
 const cardVariants = cva("bg-white flex flex-col", {
   variants: {
     variant: {
-      default: "border-x-2 border-t-2 border-b-2 border-gray-10 rounded",
+      default: "rounded border-x-2 border-t-2 border-b-2 border-gray-10",
       vertical:
-        "border-x-2 border-t-2 border-b-2 border-gray-10 rounded col-span-6 tablet:col-span-3 desktop:col-span-2",
-      horizontal: "col-span-2 desktop:col-span-1",
+        "rounded sm:col-span-3 lg:col-span-2 col-span-6 border-x-2 border-t-2 border-b-2 border-gray-10",
+      horizontal: "lg:col-span-1 col-span-2",
     },
   },
   defaultVariants: {
@@ -43,7 +43,7 @@ CardGroup.displayName = "CardGroup"
 
 const CardItem = React.forwardRef<HTMLLIElement, React.HTMLAttributes<HTMLLIElement>>(
   ({ className, ...props }, ref) => (
-    <li ref={ref} className={cn("border-2 border-gray-10 rounded", className)} {...props} />
+    <li ref={ref} className={cn("rounded border-2 border-gray-10", className)} {...props} />
   ),
 )
 CardItem.displayName = "CardItem"
@@ -57,14 +57,14 @@ CardHeader.displayName = "CardHeader"
 
 const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("px-6 py-2 grow", className)} {...props} />
+    <div ref={ref} className={cn("grow px-6 py-2", className)} {...props} />
   ),
 )
 CardContent.displayName = "CardContent"
 
 const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
-    return <div ref={ref} className={cn("px-6 pb-6 pt-2", className)} {...props} />
+    return <div ref={ref} className={cn("px-6 pt-2 pb-6", className)} {...props} />
   },
 )
 CardFooter.displayName = "CardFooter"
@@ -73,8 +73,8 @@ const cardMediaVariants = cva("overflow-hidden", {
   variants: {
     variant: {
       default: "-order-1",
-      inset: "p-6 pb-0 -order-1",
-      exdent: "-mt-[1px] -mr-[1px] -ml-[1px] -order-1",
+      inset: "-order-1 p-6 pb-0",
+      exdent: "-order-1 -mt-[1px] -mr-[1px] -ml-[1px]",
       first: "",
     },
   },

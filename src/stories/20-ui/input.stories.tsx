@@ -44,7 +44,7 @@ export const Default: Story = {
 // With Label
 export const WithLabel: Story = {
   render: (args) => (
-    <div className="grid w-full max-w-sm items-center">
+    <div className="max-w-sm grid w-full items-center">
       <Label htmlFor="input-with-label">Name</Label>
       <Input id="input-with-label" placeholder="Enter your name" {...args} />
     </div>
@@ -65,7 +65,7 @@ export const Email: Story = {
     placeholder: "Enter your email",
   },
   render: (args) => (
-    <div className="grid w-full max-w-sm items-center">
+    <div className="max-w-sm grid w-full items-center">
       <Label htmlFor="email-input">Email Address</Label>
       <Input id="email-input" {...args} />
     </div>
@@ -79,7 +79,7 @@ export const Password: Story = {
     placeholder: "Enter your password",
   },
   render: (args) => (
-    <div className="grid w-full max-w-sm items-center">
+    <div className="max-w-sm grid w-full items-center">
       <Label htmlFor="password-input">Password</Label>
       <Input id="password-input" {...args} />
     </div>
@@ -93,7 +93,7 @@ export const Search: Story = {
     placeholder: "Search...",
   },
   render: (args) => (
-    <div className="grid w-full max-w-sm items-center">
+    <div className="max-w-sm grid w-full items-center">
       <Label htmlFor="search-input">Search</Label>
       <Input id="search-input" {...args} />
     </div>
@@ -115,7 +115,7 @@ export const WithDefaultValue: Story = {
     defaultValue: "Default value",
   },
   render: (args) => (
-    <div className="grid w-full max-w-sm items-center">
+    <div className="max-w-sm grid w-full items-center">
       <Label htmlFor="default-value-input">Name</Label>
       <Input id="default-value-input" {...args} />
     </div>
@@ -129,10 +129,10 @@ export const WithError: Story = {
     defaultValue: "This field has an error.",
   },
   render: (args) => (
-    <div className="grid w-full max-w-sm items-center">
+    <div className="max-w-sm grid w-full items-center">
       <Label htmlFor="error-input">Description</Label>
       <Input id="error-input" {...args} />
-      <p className="text-sm text-red-60v mt-1">This field is required.</p>
+      <p className="text-sm mt-1 text-red-60v">This field is required.</p>
     </div>
   ),
   parameters: {

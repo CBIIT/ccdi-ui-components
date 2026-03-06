@@ -160,12 +160,12 @@ export const SimpleText: Story = {
 // Real-world examples
 export const FormValidation: Story = {
   render: () => (
-    <div className="space-y-4 w-full max-w-2xl">
+    <div className="max-w-2xl w-full space-y-4">
       <Alert variant="error">
         <AlertTitle>Form Validation Error</AlertTitle>
         <AlertDescription>
           Please correct the following errors:
-          <ul className="mt-2 list-disc list-inside">
+          <ul className="mt-2 list-inside list-disc">
             <li>Email address is required</li>
             <li>Password must be at least 8 characters</li>
             <li>Please accept the terms and conditions</li>
@@ -185,7 +185,7 @@ export const FormValidation: Story = {
 
 export const SystemMaintenance: Story = {
   render: () => (
-    <div className="space-y-4 w-full max-w-2xl">
+    <div className="max-w-2xl w-full space-y-4">
       <Alert variant="warning">
         <AlertTitle>Scheduled Maintenance</AlertTitle>
         <AlertDescription>

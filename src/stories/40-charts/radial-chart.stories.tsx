@@ -91,8 +91,8 @@ export const Default: Story = {
           </RadialBarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
@@ -180,8 +180,8 @@ export const WithLabel: Story = {
           </RadialBarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
@@ -263,8 +263,8 @@ export const ChartRadialGrid: Story = {
           </RadialBarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
@@ -313,7 +313,7 @@ export const ChartRadialText: Story = {
               gridType="circle"
               radialLines={false}
               stroke="none"
-              className="first:fill-gray-10 last:fill-white"
+              className="last:fill-white first:fill-gray-10"
               polarRadius={[86, 74]}
             />
             <RadialBar dataKey="visitors" background cornerRadius={10} />
@@ -348,8 +348,8 @@ export const ChartRadialText: Story = {
           </RadialBarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>

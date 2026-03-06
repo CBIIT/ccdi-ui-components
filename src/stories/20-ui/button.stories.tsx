@@ -18,7 +18,18 @@ const meta = {
   argTypes: {
     variant: {
       control: { type: "select" },
-      options: ["primary", "secondary", "outline", "success", "warning", "danger", "ghost", "link"],
+      options: [
+        "default",
+        "primary",
+        "secondary",
+        "accent",
+        "outline",
+        "success",
+        "warning",
+        "destructive",
+        "ghost",
+        "link",
+      ],
       description: "The visual style variant of the button",
     },
     size: {
@@ -62,17 +73,10 @@ export const Secondary: Story = {
   },
 }
 
-export const AccentCool: Story = {
+export const Accent: Story = {
   args: {
-    variant: "accent-cool",
-    children: "Accent Cool",
-  },
-}
-
-export const AccentWarm: Story = {
-  args: {
-    variant: "accent-warm",
-    children: "Accent Warm",
+    variant: "accent",
+    children: "Accent",
   },
 }
 
@@ -115,10 +119,10 @@ export const Warning: Story = {
   },
 }
 
-export const Danger: Story = {
+export const Destructive: Story = {
   args: {
-    variant: "danger",
-    children: "Danger",
+    variant: "destructive",
+    children: "Destructive",
   },
 }
 
@@ -171,7 +175,7 @@ export const IconButton: Story = {
   },
   render: (args) => (
     <Button {...args}>
-      <Icon icon="search" size="sm" />
+      <Icon icon="search" />
     </Button>
   ),
   parameters: {
@@ -191,7 +195,7 @@ export const WithIcon: Story = {
   render: (args) => (
     <Button {...args}>
       Primary
-      <Icon icon="navigate_next" size="xs" />
+      <Icon icon="navigate_next" />
     </Button>
   ),
   parameters: {
@@ -216,13 +220,13 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-wrap gap-4">
       <Button variant="primary">
-        Primary <Icon icon="search" size="xs" />
+        Primary <Icon icon="search" />
       </Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="outline">Outline</Button>
       <Button variant="success">Success</Button>
       <Button variant="warning">Warning</Button>
-      <Button variant="danger">Danger</Button>
+      <Button variant="destructive">Destructive</Button>
       <Button variant="link">Link</Button>
     </div>
   ),

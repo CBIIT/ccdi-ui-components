@@ -3,24 +3,14 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 // Define icon variants using class-variance-authority
-const iconVariants = cva("inline-block text-current shrink-0", {
+const iconVariants = cva("inline-block size-6 shrink-0 text-current", {
   variants: {
-    size: {
-      "2xs": "h-4 w-4",
-      xs: "h-5 w-5",
-      sm: "h-6 w-6",
-      default: "h-8 w-8", // Updated default size
-      lg: "h-10 w-10",
-      xl: "h-12 w-12",
-      "2xl": "h-16 w-16",
-    },
     spin: {
       true: "animate-spin",
       false: "",
     },
   },
   defaultVariants: {
-    size: "default",
     spin: false,
   },
 })
@@ -1742,11 +1732,11 @@ const iconPaths: Record<IconType, React.ReactNode> = {
 
 // Main Icon component
 const Icon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ className, size, spin, icon, ...props }, ref) => {
+  ({ className, spin, icon, ...props }, ref) => {
     return (
       <svg
         ref={ref}
-        className={cn("stroke-none fill-current", iconVariants({ size, spin }), className)}
+        className={cn("fill-current stroke-none", iconVariants({ spin }), className)}
         viewBox="0 0 24 24"
         role="img"
         aria-hidden="true"

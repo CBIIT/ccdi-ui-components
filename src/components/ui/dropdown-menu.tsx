@@ -154,7 +154,7 @@ const DropdownMenuContent = React.forwardRef<HTMLDivElement, DropdownMenuContent
         ref={setRefs}
         role="menu"
         className={cn(
-          "absolute z-50 min-w-[8rem] overflow-hidden rounded border border-gray-30",
+          "rounded absolute z-50 min-w-[8rem] overflow-hidden border border-gray-30",
           "bg-white shadow-lg",
           "p-1",
           "animate-in fade-in-0 zoom-in-95",
@@ -223,8 +223,8 @@ const DropdownMenuItem = React.forwardRef<HTMLButtonElement, DropdownMenuItemPro
         ref={ref}
         role="menuitem"
         className={cn(
-          "relative flex w-full cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5",
-          "text-sm font-source-sans outline-hidden text-left",
+          "rounded relative flex w-full cursor-pointer items-center gap-2 px-2 py-1.5 select-none",
+          "text-sm font-source-sans text-left outline-hidden",
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
           "disabled:pointer-events-none disabled:opacity-50",
@@ -262,8 +262,8 @@ const DropdownMenuCheckboxItem = React.forwardRef<HTMLButtonElement, DropdownMen
         role="menuitemcheckbox"
         aria-checked={checked}
         className={cn(
-          "relative flex w-full cursor-pointer select-none items-center gap-2 rounded py-1.5 pr-2 pl-8",
-          "text-sm font-source-sans outline-hidden text-left",
+          "rounded relative flex w-full cursor-pointer items-center gap-2 py-1.5 pr-2 pl-8 select-none",
+          "text-sm font-source-sans text-left outline-hidden",
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
           "disabled:pointer-events-none disabled:opacity-50",
@@ -339,8 +339,8 @@ const DropdownMenuRadioItem = React.forwardRef<HTMLButtonElement, DropdownMenuRa
         role="menuitemradio"
         aria-checked={isChecked}
         className={cn(
-          "relative flex w-full cursor-pointer select-none items-center gap-2 rounded py-1.5 pr-2 pl-8",
-          "text-sm font-source-sans outline-hidden text-left",
+          "rounded relative flex w-full cursor-pointer items-center gap-2 py-1.5 pr-2 pl-8 select-none",
+          "text-sm font-source-sans text-left outline-hidden",
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
           "disabled:pointer-events-none disabled:opacity-50",
@@ -375,7 +375,7 @@ const DropdownMenuLabel = React.forwardRef<HTMLDivElement, DropdownMenuLabelProp
       <div
         ref={ref}
         className={cn(
-          "px-2 py-1.5 text-sm font-bold font-source-sans text-gray-90",
+          "text-sm font-bold font-source-sans px-2 py-1.5 text-gray-90",
           inset && "pl-8",
           className,
         )}
@@ -408,7 +408,7 @@ const DropdownMenuShortcut = React.forwardRef<HTMLSpanElement, DropdownMenuShort
     return (
       <span
         ref={ref}
-        className={cn("ml-auto text-sm tracking-widest text-gray-50 font-source-sans", className)}
+        className={cn("text-sm font-source-sans ml-auto tracking-widest text-gray-50", className)}
         {...props}
       />
     )
@@ -459,8 +459,8 @@ const DropdownMenuSubTrigger = React.forwardRef<HTMLButtonElement, DropdownMenuS
       <button
         ref={ref}
         className={cn(
-          "relative flex w-full cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5",
-          "text-sm font-source-sans outline-hidden text-left",
+          "rounded relative flex w-full cursor-pointer items-center gap-2 px-2 py-1.5 select-none",
+          "text-sm font-source-sans text-left outline-hidden",
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
           "data-[state=open]:bg-blue-5 data-[state=open]:text-blue-70v",
@@ -494,7 +494,7 @@ const DropdownMenuSubContent = React.forwardRef<HTMLDivElement, DropdownMenuSubC
       <div
         ref={ref}
         className={cn(
-          "absolute left-full top-0 z-50 ml-1 min-w-[8rem] rounded border border-gray-30",
+          "rounded absolute top-0 left-full z-50 ml-1 min-w-[8rem] border border-gray-30",
           "bg-white shadow-lg",
           "p-1",
           "animate-in fade-in-0 zoom-in-95 slide-in-from-left-2",

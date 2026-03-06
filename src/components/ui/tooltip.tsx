@@ -5,16 +5,16 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const tooltipContentVariants = cva(
-  "absolute z-50 bg-gray-90 text-gray-5 rounded px-2 py-2 text-sm whitespace-nowrap pointer-events-none opacity-0 transition-opacity duration-200 after:content-[''] after:absolute after:border-4",
+  "rounded text-sm pointer-events-none absolute z-50 bg-gray-90 px-2 py-2 whitespace-nowrap text-gray-5 opacity-0 transition-opacity duration-200 after:absolute after:border-4 after:content-['']",
   {
     variants: {
       position: {
-        top: "bottom-full left-1/2 -translate-x-1/2 mb-1 after:top-full after:left-1/2 after:-translate-x-1/2 after:border-l-transparent after:border-r-transparent after:border-b-transparent after:border-t-gray-90",
+        top: "bottom-full left-1/2 mb-1 -translate-x-1/2 after:top-full after:left-1/2 after:-translate-x-1/2 after:border-t-gray-90 after:border-r-transparent after:border-b-transparent after:border-l-transparent",
         right:
-          "left-full top-1/2 -translate-y-1/2 ml-1 after:right-full after:top-1/2 after:-translate-y-1/2 after:border-t-transparent after:border-b-transparent after:border-l-transparent after:border-r-gray-90",
+          "top-1/2 left-full ml-1 -translate-y-1/2 after:top-1/2 after:right-full after:-translate-y-1/2 after:border-t-transparent after:border-r-gray-90 after:border-b-transparent after:border-l-transparent",
         bottom:
-          "top-full left-1/2 -translate-x-1/2 mt-1 after:bottom-full after:left-1/2 after:-translate-x-1/2 after:border-l-transparent after:border-r-transparent after:border-t-transparent after:border-b-gray-90",
-        left: "right-full top-1/2 -translate-y-1/2 mr-1 after:left-full after:top-1/2 after:-translate-y-1/2 after:border-t-transparent after:border-b-transparent after:border-r-transparent after:border-l-gray-90",
+          "top-full left-1/2 mt-1 -translate-x-1/2 after:bottom-full after:left-1/2 after:-translate-x-1/2 after:border-t-transparent after:border-r-transparent after:border-b-gray-90 after:border-l-transparent",
+        left: "top-1/2 right-full mr-1 -translate-y-1/2 after:top-1/2 after:left-full after:-translate-y-1/2 after:border-t-transparent after:border-r-transparent after:border-b-transparent after:border-l-gray-90",
       },
     },
     defaultVariants: {

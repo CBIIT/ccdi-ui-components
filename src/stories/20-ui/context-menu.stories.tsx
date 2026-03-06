@@ -31,7 +31,7 @@ export const Default: Story = {
   render: () => (
     <ContextMenu>
       <ContextMenuTrigger>
-        <div className="flex h-[200px] w-[300px] items-center justify-center rounded border-2 border-dashed border-gray-30 bg-gray-5 text-sm text-gray-70">
+        <div className="rounded text-sm flex h-[200px] w-[300px] items-center justify-center border-2 border-dashed border-gray-30 bg-gray-5 text-gray-70">
           Right click here
         </div>
       </ContextMenuTrigger>

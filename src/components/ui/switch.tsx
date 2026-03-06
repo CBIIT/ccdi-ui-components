@@ -25,13 +25,13 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
     }
 
     return (
-      <label className="relative inline-flex items-center cursor-pointer">
+      <label className="relative inline-flex cursor-pointer items-center">
         <input
           type="checkbox"
           ref={ref}
           checked={isChecked}
           onChange={handleChange}
-          className="sr-only peer"
+          className="peer sr-only"
           {...props}
         />
         <div
@@ -43,14 +43,14 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
             // Focus states
             "peer-focus:outline peer-focus:outline-4 peer-focus:outline-offset-4 peer-focus:outline-blue-40",
             // Disabled states
-            "peer-disabled:cursor-not-allowed peer-disabled:opacity-50 peer-disabled:bg-gray-30 peer-disabled:peer-checked:bg-gray-50",
+            "peer-disabled:cursor-not-allowed peer-disabled:bg-gray-30 peer-disabled:opacity-50 peer-disabled:peer-checked:bg-gray-50",
             className,
           )}
         >
           <div
             data-slot="switch-thumb"
             className={cn(
-              "pointer-events-none block size-4 rounded-full bg-white ring-0 transition-transform",
+              "bg-white pointer-events-none block size-4 rounded-full ring-0 transition-transform",
               isChecked ? "translate-x-[calc(100%-4px)]" : "translate-x-0",
             )}
           />

@@ -175,7 +175,7 @@ export const InvalidState: Story = {
         <option value="option2">Option 2</option>
         <option value="option3">Option 3</option>
       </Select>
-      <p id="select-error" className="text-sm text-red-60v mt-1">
+      <p id="select-error" className="text-sm mt-1 text-red-60v">
         This field is required
       </p>
     </div>
@@ -205,7 +205,7 @@ export const SuccessState: Story = {
         <option value="option2">Option 2</option>
         <option value="option3">Option 3</option>
       </Select>
-      <p className="text-sm text-green-60v mt-1">This field is valid</p>
+      <p className="text-sm mt-1 text-green-60v">This field is valid</p>
     </div>
   ),
   parameters: {

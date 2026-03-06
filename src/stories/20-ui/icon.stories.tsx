@@ -279,11 +279,11 @@ const meta: Meta<typeof Icon> = {
       ] as IconType[],
       description: "The icon to display",
     },
-    size: {
-      control: { type: "select" },
-      options: ["2xs", "xs", "sm", "default", "lg", "xl", "2xl"],
-      description: "Size of the icon",
-    },
+    // size: {
+    //   control: { type: "select" },
+    //   options: ["2xs", "xs", "sm", "default", "lg", "xl", "2xl"],
+    //   description: "Size of the icon",
+    // },
     spin: {
       control: { type: "boolean" },
       description: "Enable spin animation for loading states",
@@ -308,48 +308,40 @@ export const Default: Story = {
 export const WithCustomSize: Story = {
   args: {
     icon: "search",
-    size: "xl",
+    className: "size-12",
   },
 }
 
-export const WithCustomStyles: Story = {
-  args: {
-    icon: "flag",
-    size: "lg",
-    className: "text-blue-60 hover:text-blue-800",
-  },
-}
+// export const WithCustomStyles: Story = {
+//   args: {
+//     icon: "flag",
+//     size: "lg",
+//     className: "text-blue-60 hover:text-blue-800",
+//   },
+// }
 
 // Size Variations
 export const AllSizes: Story = {
   render: () => (
     <div className="flex items-center gap-4 p-6">
       <div className="flex flex-col items-center gap-2">
-        <HomeIcon size="2xs" className="text-gray-800" />
-        <span className="text-sm font-medium text-gray-70">2XS (16px)</span>
-      </div>
-      <div className="flex flex-col items-center gap-2">
-        <HomeIcon size="xs" className="text-gray-800" />
-        <span className="text-sm font-medium text-gray-70">XS (20px)</span>
-      </div>
-      <div className="flex flex-col items-center gap-2">
-        <HomeIcon size="sm" className="text-gray-800" />
+        <HomeIcon className="text-gray-800 size-4" />
         <span className="text-sm font-medium text-gray-70">SM (24px)</span>
       </div>
       <div className="flex flex-col items-center gap-2">
-        <HomeIcon size="default" className="text-gray-800" />
+        <HomeIcon className="text-gray-800 size-6" />
         <span className="text-sm font-medium text-gray-70">Default (32px)</span>
       </div>
       <div className="flex flex-col items-center gap-2">
-        <HomeIcon size="lg" className="text-gray-800" />
+        <HomeIcon className="text-gray-800 size-8" />
         <span className="text-sm font-medium text-gray-70">LG (40px)</span>
       </div>
       <div className="flex flex-col items-center gap-2">
-        <HomeIcon size="xl" className="text-gray-800" />
+        <HomeIcon className="text-gray-800 size-10" />
         <span className="text-sm font-medium text-gray-70">XL (48px)</span>
       </div>
       <div className="flex flex-col items-center gap-2">
-        <HomeIcon size="2xl" className="text-gray-800" />
+        <HomeIcon className="text-gray-800 size-12" />
         <span className="text-sm font-medium text-gray-70">2XL (64px)</span>
       </div>
     </div>
@@ -368,19 +360,19 @@ export const SpinningIcons: Story = {
   render: () => (
     <div className="flex items-center gap-8 p-6">
       <div className="flex flex-col items-center gap-2">
-        <AutorenewIcon spin size="lg" className="text-gray-600" />
+        <AutorenewIcon spin className="text-gray-600 size-8" />
         <span className="text-sm font-medium text-gray-70">Autorenew</span>
       </div>
       <div className="flex flex-col items-center gap-2">
-        <LoopIcon spin size="lg" className="text-gray-600" />
+        <LoopIcon spin className="text-gray-600 size-8" />
         <span className="text-sm font-medium text-gray-70">Loop</span>
       </div>
       <div className="flex flex-col items-center gap-2">
-        <SettingsIcon spin size="lg" className="text-gray-600" />
+        <SettingsIcon spin className="text-gray-600 size-8" />
         <span className="text-sm font-medium text-gray-70">Settings</span>
       </div>
       <div className="flex flex-col items-center gap-2">
-        <HourglassEmptyIcon spin size="lg" className="text-gray-600" />
+        <HourglassEmptyIcon spin className="text-gray-600 size-8" />
         <span className="text-sm font-medium text-gray-70">Hourglass</span>
       </div>
     </div>
@@ -399,9 +391,9 @@ export const SpinningIcons: Story = {
 export const GovernmentContactCard: Story = {
   args: { icon: "person" },
   render: () => (
-    <div className="bg-white border border-gray-200 rounded-lg p-6 max-w-sm shadow-sm">
-      <div className="flex items-center gap-3 mb-4">
-        <PersonIcon size="lg" className="text-gray-800" />
+    <div className="bg-white border-gray-200 max-w-sm rounded-lg border p-6 shadow-sm">
+      <div className="mb-4 flex items-center gap-3">
+        <PersonIcon className="text-gray-800 size-8" />
         <div>
           <h3 className="font-semibold text-gray-900">Contact Information</h3>
           <p className="text-sm text-gray-600">Get in touch with us</p>
@@ -409,25 +401,25 @@ export const GovernmentContactCard: Story = {
       </div>
       <div className="space-y-3">
         <div className="flex items-center gap-3">
-          <PhoneIcon size="sm" className="text-gray-700" />
+          <PhoneIcon className="text-gray-700 size-4" />
           <span className="text-sm text-gray-700">(555) 123-4567</span>
         </div>
         <div className="flex items-center gap-3">
-          <MailIcon size="sm" className="text-gray-700" />
+          <MailIcon className="text-gray-700 size-4" />
           <span className="text-sm text-gray-700">contact@agency.gov</span>
         </div>
         <div className="flex items-center gap-3">
-          <LocationOnIcon size="sm" className="text-gray-700" />
+          <LocationOnIcon className="text-gray-700 size-4" />
           <span className="text-sm text-gray-700">123 Government Ave, DC 20001</span>
         </div>
         <div className="flex items-center gap-3">
-          <PublicIcon size="sm" className="text-gray-700" />
+          <PublicIcon className="text-gray-700 size-4" />
           <span className="text-sm text-gray-700">www.agency.gov</span>
         </div>
       </div>
-      <div className="mt-4 pt-4 border-t border-gray-200">
+      <div className="border-gray-200 mt-4 border-t pt-4">
         <div className="flex items-center gap-2">
-          <VerifiedIcon size="sm" className="text-gray-700" />
+          <VerifiedIcon className="text-gray-700 size-4" />
           <span className="text-xs text-gray-600">Verified Government Agency</span>
         </div>
       </div>

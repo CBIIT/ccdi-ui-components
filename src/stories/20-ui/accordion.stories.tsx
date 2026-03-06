@@ -33,6 +33,11 @@ const meta = {
       description: "Selection mode - single allows one item open, multiple allows many",
       defaultValue: "single",
     },
+    defaultValue: {
+      control: "object",
+      description:
+        "Default open item(s). For single type, provide a string value. For multiple type, provide an array of strings.",
+    },
   },
 } satisfies Meta<typeof Accordion>
 
@@ -43,9 +48,15 @@ export const Borderless: Story = {
   args: {
     variant: "borderless",
     type: "single",
+    defaultValue: "item-1",
   },
   render: (args) => (
-    <Accordion variant={args.variant} type={args.type} className="w-[800px]">
+    <Accordion
+      variant={args.variant}
+      type={args.type}
+      defaultValue={args.defaultValue}
+      className="w-[800px]"
+    >
       <AccordionItem value="item-1">
         <AccordionTrigger>What is the U.S. Web Design System?</AccordionTrigger>
         <AccordionContent>
@@ -86,7 +97,12 @@ export const Bordered: Story = {
     type: "single",
   },
   render: (args) => (
-    <Accordion variant={args.variant} type={args.type} className="w-[800px]">
+    <Accordion
+      variant={args.variant}
+      type={args.type}
+      defaultValue={args.defaultValue}
+      className="w-[800px]"
+    >
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>
@@ -127,7 +143,12 @@ export const MultipleSelection: Story = {
     type: "multiple",
   },
   render: (args) => (
-    <Accordion variant={args.variant} type={args.type} className="w-[800px]">
+    <Accordion
+      variant={args.variant}
+      type={args.type}
+      defaultValue={args.defaultValue}
+      className="w-[800px]"
+    >
       <AccordionItem value="item-1">
         <AccordionTrigger>Keyboard Shortcuts</AccordionTrigger>
         <AccordionContent>
@@ -164,7 +185,12 @@ export const BorderlessWithCustomIcons: Story = {
     type: "single",
   },
   render: (args) => (
-    <Accordion variant={args.variant} type={args.type} className="w-[800px]">
+    <Accordion
+      variant={args.variant}
+      type={args.type}
+      defaultValue={args.defaultValue}
+      className="w-[800px]"
+    >
       <AccordionItem value="item-1">
         <AccordionTrigger openIcon="expand_less" closedIcon="expand_more">
           What is the U.S. Web Design System?

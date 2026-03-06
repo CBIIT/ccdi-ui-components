@@ -82,8 +82,8 @@ export const Default: Story = {
           </LineChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
@@ -157,8 +157,8 @@ export const Linear: Story = {
           </LineChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Linear interpolation connects data points with straight lines
         </div>
       </CardFooter>
@@ -227,8 +227,8 @@ export const Step: Story = {
           </LineChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Step interpolation creates a staircase effect between data points
         </div>
       </CardFooter>
@@ -306,8 +306,8 @@ export const Multiple: Story = {
           </LineChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Comparing desktop and mobile visitor trends over 6 months
         </div>
       </CardFooter>
@@ -379,8 +379,8 @@ export const WithDots: Story = {
           </LineChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
@@ -454,8 +454,8 @@ export const WithLabel: Story = {
           </LineChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
+      <CardFooter className="text-sm flex-col items-start gap-2">
+        <div className="leading-none text-muted-foreground">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>

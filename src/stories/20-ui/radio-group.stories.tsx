@@ -137,7 +137,7 @@ export const IndividualItemDisabled: Story = {
 // Form Example
 export const FormExample: Story = {
   render: () => (
-    <form className="space-y-6 w-full max-w-md">
+    <form className="max-w-md w-full space-y-6">
       <div className="space-y-3">
         <Label>Delivery method</Label>
         <RadioGroup
