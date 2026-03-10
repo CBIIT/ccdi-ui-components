@@ -67,6 +67,36 @@ For easier component installation, create a `components.json` file in your proje
 - Automatic path resolution and dependency management
 - Consistent configuration across your project
 
+#### Versioned registries
+
+The documentation site and registry support multiple versions. The **latest** version (from the `main` branch) is served at the root; older versions are served under a version path (e.g. `v1.0.0`).
+
+| Version | Storybook docs | Registry base |
+|--------|-----------------|---------------|
+| Latest (main) | [https://cbiit.github.io/ccdi-ui-components/](https://cbiit.github.io/ccdi-ui-components/) | `https://cbiit.github.io/ccdi-ui-components/r/{name}.json` |
+| v1.0.0 | [https://cbiit.github.io/ccdi-ui-components/v1.0.0/](https://cbiit.github.io/ccdi-ui-components/v1.0.0/) | `https://cbiit.github.io/ccdi-ui-components/r/v1.0.0/{name}.json` |
+
+To pin your project to a specific version, use **namespaced registries** in `components.json`. You can list multiple namespaces so different parts of your app use different versions:
+
+```json
+{
+  "registries": {
+    "@ccdi-ui-components": "https://cbiit.github.io/ccdi-ui-components/r/{name}.json",
+    "@ccdi-ui-components/v1": "https://cbiit.github.io/ccdi-ui-components/r/v1.0.0/{name}.json"
+  }
+}
+```
+
+- Use `@ccdi-ui-components/button` to install from **latest**.
+- Use `@ccdi-ui-components/v1/button` to install from **v1.0.0**.
+
+Example: install latest button and v1 dialog:
+
+```bash
+npx shadcn@latest add @ccdi-ui-components/button
+npx shadcn@latest add @ccdi-ui-components/v1/dialog
+```
+
 ### 3. Install Individual Components
 
 **Option A: With `components.json` configured**

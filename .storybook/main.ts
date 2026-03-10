@@ -15,6 +15,11 @@ const config: StorybookConfig = {
   },
   staticDirs: ["../public"],
   viteFinal: async (config) => {
+    // Support deployment to a subpath (e.g. /v1.0.0/) for versioned Storybook
+    const base = process.env.STORYBOOK_BASE_PATH
+    if (base !== undefined && base !== "") {
+      config.base = base
+    }
     // Configure Vite to resolve aliases for @
     if (config.resolve) {
       config.resolve.alias = {

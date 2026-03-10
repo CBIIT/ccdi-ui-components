@@ -2,20 +2,25 @@ name: Build & Deploy
 
 on:
   push:
-    branches: 
+    branches:
       - "main"
+      - "v*"
   pull_request:
-      branches:
+    branches:
       - "main"
 
 permissions:
   contents: read
-  pages: write          # needed for GitHub Pages deploy
-  id-token: write       # needed for GitHub Pages deploy
+  pages: write
+  id-token: write
 
 concurrency:
   group: "pages"
   cancel-in-progress: true
+
+env:
+  # Version branches to include in the site (registry + Storybook under /r/<version>/ and /<version>/)
+  REGISTRY_VERSION_BRANCHES: "v1.0.0"
 
 jobs:
   build:
@@ -24,6 +29,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch branches for versioned build
+        if: github.event_name == 'push'
+        run: git fetch origin main ${{ env.REGISTRY_VERSION_BRANCHES }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -31,34 +42,55 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install
+      # --- Latest (from main) ---
+      - name: Checkout main
+        run: git checkout main 2>/dev/null || git checkout origin/main -B main
+
+      - name: Install (latest)
         run: npm ci
 
-      - name: Clean registry directory
-        run: rm -rf registry
-        
-      - name: Build shadcn registry
-        run: npm run registry:build
-
-      - name: Clean site directory
-        run: rm -rf site
-
-      - name: Clean Storybook output directory
-        run: rm -rf storybook-static
-
-      - name: Build Storybook
-        run: npm run storybook:build
-
-      # Prepare one Pages artifact that includes both:
-      # - /r  -> your shadcn registry JSONs
-      # - /   -> Storybook static site (root)
-      - name: Assemble site artifact
+      - name: Build shadcn registry (latest)
         run: |
+          rm -rf registry
+          npm run registry:build
+
+      - name: Build Storybook (latest)
+        run: |
+          rm -rf storybook-static
+          npm run storybook:build
+
+      - name: Assemble site (latest)
+        run: |
+          rm -rf site
           mkdir -p site/r
-          # Copy Storybook static build
           cp -R storybook-static/* site/
-          # Copy your JSON registry files to site/r
           cp registry/*.json site/r/ 2>/dev/null || true
+
+      # --- Versioned branches (only on push; skip on PR so v1.0.0 need not exist) ---
+      - name: Build versioned registry + Storybook
+        if: github.event_name == 'push'
+        env:
+          VERSION_BRANCHES: ${{ env.REGISTRY_VERSION_BRANCHES }}
+        run: |
+          for branch in $VERSION_BRANCHES; do
+            if git show-ref --verify --quiet refs/heads/"$branch" 2>/dev/null || git show-ref --verify --quiet refs/remotes/origin/"$branch" 2>/dev/null; then
+              echo "Building version: $branch"
+              git checkout "$branch" 2>/dev/null || git checkout "origin/$branch" -b "$branch"
+              npm ci
+              rm -rf registry
+              npm run registry:build
+              REGISTRY_VERSION="$branch" node scripts/rewrite-registry-base.mjs
+              mkdir -p site/r/"$branch"
+              cp registry/*.json site/r/"$branch"/ 2>/dev/null || true
+              rm -rf storybook-static
+              STORYBOOK_BASE_PATH="/$branch/" npm run storybook:build
+              mkdir -p site/"$branch"
+              cp -R storybook-static/* site/"$branch"/
+              git checkout -
+            else
+              echo "Skipping $branch (branch not found)"
+            fi
+          done
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -66,7 +98,7 @@ jobs:
           path: site
 
   deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/v'))
     needs: build
     runs-on: ubuntu-latest
     environment:

@@ -48,10 +48,12 @@ npm run registry:build
 
 ## 📖 Documentation
 
-- **Live Storybook**: [https://cbiit.github.io/ccdi-ui-components/](https://cbiit.github.io/ccdi-ui-components/) - Production component documentation
+- **Live Storybook**: [https://cbiit.github.io/ccdi-ui-components/](https://cbiit.github.io/ccdi-ui-components/) - Production component documentation (latest from `main`)
 - **Storybook UI**: [http://localhost:6006](http://localhost:6006) - Interactive component documentation
 - **Registry Guide**: See [REGISTRY_USAGE.md](./REGISTRY_USAGE.md) for using components as a registry
 - **Setup Guide**: See [STORYBOOK_GUIDE.md](./STORYBOOK_GUIDE.md) for detailed Storybook usage
+
+**Versioning:** The site serves the latest version at the root and older versions under version paths (e.g. `/v1.0.0/` for the `v1.0.0` branch). Consumers can pin a version by using a versioned registry URL in `components.json` (see the Installation section in Storybook).
 
 ## 🏗️ Project Structure
 
