@@ -21,6 +21,8 @@ concurrency:
 env:
   # Version branches to include in the site (registry + Storybook under /r/<version>/ and /<version>/)
   REGISTRY_VERSION_BRANCHES: "v1.0.0"
+  # Base path for GitHub Pages (repo name); required so asset URLs use .../ccdi-ui-components/... not .../...
+  STORYBOOK_PAGES_BASE: "ccdi-ui-components"
 
 jobs:
   build:
@@ -55,6 +57,8 @@ jobs:
           npm run registry:build
 
       - name: Build Storybook (latest)
+        env:
+          STORYBOOK_BASE_PATH: "/${{ env.STORYBOOK_PAGES_BASE }}/"
         run: |
           rm -rf storybook-static
           npm run storybook:build
@@ -83,7 +87,7 @@ jobs:
               mkdir -p site/r/"$branch"
               cp registry/*.json site/r/"$branch"/ 2>/dev/null || true
               rm -rf storybook-static
-              STORYBOOK_BASE_PATH="/$branch/" npm run storybook:build
+              STORYBOOK_BASE_PATH="/${{ env.STORYBOOK_PAGES_BASE }}/$branch/" npm run storybook:build
               mkdir -p site/"$branch"
               cp -R storybook-static/* site/"$branch"/
               git checkout -
