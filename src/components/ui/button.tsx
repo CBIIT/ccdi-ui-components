@@ -21,7 +21,7 @@ const buttonVariants = cva(
         default:
           "bg-primary text-primary-foreground hover:bg-primary-hover active:bg-primary-active",
         primary:
-          "bg-secondary text-primary-foreground hover:bg-primary-hover active:bg-primary-active",
+          "bg-accent text-primary-foreground hover:bg-primary-hover active:bg-primary-active",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary-hover active:bg-secondary-active",
         accent: "bg-accent text-accent-foreground hover:bg-accent-hover active:bg-accent-active",
