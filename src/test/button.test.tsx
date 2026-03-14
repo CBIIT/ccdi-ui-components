@@ -9,7 +9,7 @@ describe("Button", () => {
 
     const button = screen.getByRole("button", { name: /test button/i })
     expect(button).toBeInTheDocument()
-    expect(button).toHaveClass("bg-primary", "text-primary-foreground", "px-5", "py-3")
+    expect(button).toHaveClass("bg-secondary", "text-primary-foreground", "px-5", "py-3")
     expect(button).toHaveClass("inline-flex", "items-center", "justify-center", "rounded")
   })
 
@@ -121,6 +121,6 @@ describe("Button", () => {
 
     expect(slottedElement.tagName).toBe("SPAN")
     expect(slottedElement).toHaveAttribute("data-slot", "button")
-    expect(slottedElement).toHaveClass("bg-primary", "text-primary-foreground")
+    expect(slottedElement).toHaveClass("bg-secondary", "text-primary-foreground")
   })
 })
