@@ -518,6 +518,27 @@
       "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
+      "name": "async-data",
+      "type": "registry:block",
+      "title": "Async data (TanStack Query)",
+      "description": "Provider, query status UI, REST/GraphQL fetch helpers, and hooks for async tables, charts, and other blocks using TanStack Query.",
+      "files": [
+        {
+          "path": "src/components/blocks/async-data.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/lib/json-fetch.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "dependencies": ["@tanstack/react-query", "clsx"],
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/alert.json"
+      ]
+    },
+    {
       "name": "all",
       "type": "registry:component",
       "title": "All CCDI Components",
@@ -559,6 +580,7 @@
         "https://cbiit.github.io/ccdi-ui-components/r/header.json",
         "https://cbiit.github.io/ccdi-ui-components/r/footer.json",
         "https://cbiit.github.io/ccdi-ui-components/r/in-page-navigation.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/async-data.json",
         "https://cbiit.github.io/ccdi-ui-components/r/utils.json"
       ]
     },
