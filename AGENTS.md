@@ -152,6 +152,10 @@ Use these specialized skill files before major artifact generation/refactors:
   - Expanded guidance: `.agents/skills/vercel-react-best-practices/AGENTS.md`
   - When to use: creating/refactoring React components, Storybook pages, async data flows, render optimization, bundle/perf-sensitive changes.
 
+- **Async data block (TanStack Query + REST/GraphQL)**
+  - Path: `.cursor/skills/async-data/SKILL.md`
+  - When to use: building or refactoring UI that uses `AsyncDataProvider`, `useAsyncFetchQuery`, `useAsyncFetchMutation`, or `AsyncDataState` from `@/components/blocks/async-data`.
+
 Agent execution guidance for this repo:
 1. Load skill instructions first for React/TSX work.
 2. Prefer existing patterns in `src/components/ui/*` and `src/stories/*` over introducing new patterns.
