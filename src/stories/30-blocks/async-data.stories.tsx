@@ -23,6 +23,14 @@ import {
   TableCaption,
 } from "@/components/ui/table"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -32,6 +40,8 @@ type DemoUser = {
   name: string
   username: string
 }
+
+const USERS_TABLE_PAGE_SIZE = 5
 
 type CreatePostVariables = {
   title: string
@@ -220,6 +230,14 @@ function AsyncGraphQLMutationDemo() {
       endpoint: "https://graphqlzero.almansi.me/api",
       query: GRAPHQL_ZERO_CREATE_POST,
     },
+    options: {
+      onSuccess(data, variables, onMutateResult, context) {
+        console.log('success:', data, variables, onMutateResult, context)
+      },
+      onError(error, variables, onMutateResult, context) {
+        console.log('error:', error, variables, onMutateResult, context)
+      },
+    }
   })
 
   return (
@@ -564,6 +582,15 @@ function AsyncTableAndChartDemo() {
     rest: { url: "https://jsonplaceholder.typicode.com/users", method: "GET" },
   })
 
+  const [usersPage, setUsersPage] = React.useState(1)
+
+  React.useEffect(() => {
+    const users = query.data
+    if (!users?.length) return
+    const totalPages = Math.max(1, Math.ceil(users.length / USERS_TABLE_PAGE_SIZE))
+    setUsersPage((p) => Math.min(p, totalPages))
+  }, [query.data])
+
   const chartRows = (query.data ?? []).slice(0, 6).map((u) => ({
     name: u.username.slice(0, 8),
     id: u.id,
@@ -591,69 +618,123 @@ function AsyncTableAndChartDemo() {
         pending={<p className="text-gray-70">Loading sample users…</p>}
         empty={<p className="text-gray-70">No users returned.</p>}
       >
-        {(users) => (
-          <>
-            <Card>
-              <CardHeader>
-                <h2 className="font-bold font-merriweather text-lg">Users (REST)</h2>
-                <p className="text-sm text-gray-70">
-                  Data from JSONPlaceholder, loaded with{" "}
-                  <code className="font-mono text-xs">useAsyncFetchQuery</code> and{" "}
-                  <code className="font-mono text-xs">AsyncDataState</code>.
-                </p>
-              </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableCaption>First five users</TableCaption>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>ID</TableHead>
-                      <TableHead>Name</TableHead>
-                      <TableHead>Username</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody striped>
-                    {users.slice(0, 5).map((user) => (
-                      <TableRow key={user.id}>
-                        <TableCell className="font-mono text-sm">{user.id}</TableCell>
-                        <TableCell>{user.name}</TableCell>
-                        <TableCell>{user.username}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
+        {(users) => {
+          const totalPages = Math.max(1, Math.ceil(users.length / USERS_TABLE_PAGE_SIZE))
+          const currentPage = Math.min(usersPage, totalPages)
+          const start = (currentPage - 1) * USERS_TABLE_PAGE_SIZE
+          const paginatedUsers = users.slice(start, start + USERS_TABLE_PAGE_SIZE)
+          const rowStart = users.length === 0 ? 0 : start + 1
+          const rowEnd = start + paginatedUsers.length
 
-            <Card>
-              <CardHeader>
-                <h2 className="font-bold font-merriweather text-lg">IDs by user</h2>
-                <p className="text-sm text-gray-70">Recharts + chart primitives on the same query.</p>
-              </CardHeader>
-              <CardContent>
-                <ChartContainer
-                  config={
-                    {
-                      id: {
-                        label: "User ID",
-                        color: "var(--color-blue-60v)",
-                      },
-                    } as ChartConfig
-                  }
-                  className="min-h-[240px] w-full"
-                >
-                  <BarChart accessibilityLayer data={chartRows}>
-                    <CartesianGrid vertical={false} />
-                    <XAxis dataKey="name" tickLine={false} axisLine={false} tickMargin={8} />
-                    <YAxis width={32} tickLine={false} axisLine={false} />
-                    <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-                    <Bar dataKey="id" fill="var(--color-id)" radius={4} />
-                  </BarChart>
-                </ChartContainer>
-              </CardContent>
-            </Card>
-          </>
-        )}
+          return (
+            <>
+              <Card>
+                <CardHeader>
+                  <h2 className="font-bold font-merriweather text-lg">Users (REST)</h2>
+                  <p className="text-sm text-gray-70">
+                    Data from JSONPlaceholder, loaded with{" "}
+                    <code className="font-mono text-xs">useAsyncFetchQuery</code> and{" "}
+                    <code className="font-mono text-xs">AsyncDataState</code>.
+                  </p>
+                </CardHeader>
+                <CardContent className="flex flex-col gap-4">
+                  <Table>
+                    <TableCaption>
+                      Showing {rowStart}–{rowEnd} of {users.length} users (client-side pagination).
+                    </TableCaption>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>ID</TableHead>
+                        <TableHead>Name</TableHead>
+                        <TableHead>Username</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody striped>
+                      {paginatedUsers.map((user) => (
+                        <TableRow key={user.id}>
+                          <TableCell className="font-mono text-sm">{user.id}</TableCell>
+                          <TableCell>{user.name}</TableCell>
+                          <TableCell>{user.username}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+
+                  <Pagination>
+                    <PaginationContent>
+                      <PaginationPrevious
+                        href="#"
+                        aria-disabled={currentPage <= 1}
+                        className={
+                          currentPage <= 1 ? "pointer-events-none opacity-50" : undefined
+                        }
+                        onClick={(e) => {
+                          e.preventDefault()
+                          if (currentPage > 1) setUsersPage((p) => Math.max(1, p - 1))
+                        }}
+                      />
+                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+                        <PaginationItem key={n}>
+                          <PaginationLink
+                            href="#"
+                            isActive={currentPage === n}
+                            isLast={n === totalPages && totalPages > 1}
+                            onClick={(e) => {
+                              e.preventDefault()
+                              setUsersPage(n)
+                            }}
+                          >
+                            {n}
+                          </PaginationLink>
+                        </PaginationItem>
+                      ))}
+                      <PaginationNext
+                        href="#"
+                        aria-disabled={currentPage >= totalPages}
+                        className={
+                          currentPage >= totalPages ? "pointer-events-none opacity-50" : undefined
+                        }
+                        onClick={(e) => {
+                          e.preventDefault()
+                          if (currentPage < totalPages)
+                            setUsersPage((p) => Math.min(totalPages, p + 1))
+                        }}
+                      />
+                    </PaginationContent>
+                  </Pagination>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <h2 className="font-bold font-merriweather text-lg">IDs by user</h2>
+                  <p className="text-sm text-gray-70">Recharts + chart primitives on the same query.</p>
+                </CardHeader>
+                <CardContent>
+                  <ChartContainer
+                    config={
+                      {
+                        id: {
+                          label: "User ID",
+                          color: "var(--color-blue-60v)",
+                        },
+                      } as ChartConfig
+                    }
+                    className="min-h-[240px] w-full"
+                  >
+                    <BarChart accessibilityLayer data={chartRows}>
+                      <CartesianGrid vertical={false} />
+                      <XAxis dataKey="name" tickLine={false} axisLine={false} tickMargin={8} />
+                      <YAxis width={32} tickLine={false} axisLine={false} />
+                      <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+                      <Bar dataKey="id" fill="var(--color-id)" radius={4} />
+                    </BarChart>
+                  </ChartContainer>
+                </CardContent>
+              </Card>
+            </>
+          )
+        }}
       </AsyncDataState>
     </div>
   )
@@ -685,16 +766,91 @@ type Story = StoryObj<typeof meta>
 
 export const TableAndChart: Story = {
   render: () => <AsyncTableAndChartDemo />,
+  parameters: {
+    docs: {
+      source: {
+        code: `
+          const query = useAsyncFetchQuery<DemoUser[]>({
+            queryKey: ["storybook", "jsonplaceholder", "users"],
+            rest: { url: "https://jsonplaceholder.typicode.com/users", method: "GET" },
+          })
+        `,
+        language: "tsx",
+      },
+    },
+  },
 }
 
 export const GraphqlQuery: Story = {
   render: () => <AsyncGraphQLQueryDemo />,
+  parameters: {
+    docs: {
+      source: {
+        code: `
+          const query = useAsyncFetchQuery<GraphQLUserByIdData>({
+            queryKey: ["storybook", "graphqlzero", "user", userId],
+            graphql: {
+              endpoint: "https://graphqlzero.almansi.me/api",
+              query: GRAPHQL_ZERO_USER_BY_ID,
+              variables: { id: userId },
+            },
+          })
+        `,
+        language: "tsx",
+      },
+    },
+  },
 }
 
 export const RestMutation: Story = {
   render: () => <AsyncMutationDemo />,
+  parameters: {
+    docs: {
+      source: {
+        code: `
+          const postMutation = useAsyncFetchMutation<CreatedPost, CreatePostVariables>({
+            rest: { url: JSONPLACEHOLDER_POSTS_URL, method: "POST" },
+          })
+          const patchMutation = useAsyncFetchMutation<CreatedPost, PatchPostVariables>({
+            rest: { url: JSONPLACEHOLDER_POST_1_URL, method: "PATCH" },
+          })
+          const putMutation = useAsyncFetchMutation<CreatedPost, PutPostVariables>({
+            rest: { url: JSONPLACEHOLDER_POST_1_URL, method: "PUT" },
+          })
+          const deleteMutation = useAsyncFetchMutation<DeletedPostResponse, void>({
+            rest: { url: JSONPLACEHOLDER_POST_1_URL, method: "DELETE" },
+          })
+        `,
+        language: "tsx",
+      },
+    },
+  },
 }
 
 export const GraphqlMutation: Story = {
   render: () => <AsyncGraphQLMutationDemo />,
+  parameters: {
+    docs: {
+      source: {
+        code: `
+          // onSuccess, onError and other mutation options can be configured in the "options" prop
+          const mutation = useAsyncFetchMutation<GraphQLCreatePostData, GraphQLCreatePostVariables>({
+            graphql: {
+              endpoint: "https://graphqlzero.almansi.me/api",
+              query: GRAPHQL_ZERO_CREATE_POST,
+            },
+            options: {
+              onSuccess(data, variables, onMutateResult, context) {
+                console.log('success:', data, variables, onMutateResult, context)
+              },
+              onError(error, variables, onMutateResult, context) {
+                console.log('error:', error, variables, onMutateResult, context)
+              },
+            }
+          })
+        `,
+        language: "tsx",
+      },
+    },
+  },
 }
