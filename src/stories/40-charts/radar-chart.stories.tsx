@@ -36,7 +36,7 @@ export const Default: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Radar Chart</h2>
+        <h2 className="font-bold text-lg font-merriweather">Radar Chart</h2>
         <p className="text-sm text-muted-foreground">
           Performance metrics across multiple categories
         </p>
@@ -92,7 +92,7 @@ export const ChartRadarDots: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Dots</h2>
+        <h2 className="font-bold text-lg font-merriweather">Radar Chart - Dots</h2>
         <p className="text-sm text-muted-foreground">
           Performance metrics with visible data points
         </p>
@@ -157,7 +157,7 @@ export const ChartRadarLinesOnly: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Lines Only</h2>
+        <h2 className="font-bold text-lg font-merriweather">Radar Chart - Lines Only</h2>
         <p className="text-sm text-muted-foreground">Performance metrics with outline only</p>
       </CardHeader>
       <CardContent className="pb-0">
@@ -229,7 +229,7 @@ export const ChartRadarMultiple: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Multiple</h2>
+        <h2 className="font-bold text-lg font-merriweather">Radar Chart - Multiple</h2>
         <p className="text-sm text-muted-foreground">Performance metrics with outline only</p>
       </CardHeader>
       <CardContent className="pb-0">
@@ -289,7 +289,7 @@ export const ChartRadarLegend: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Legend</h2>
+        <h2 className="font-bold text-lg font-merriweather">Radar Chart - Legend</h2>
         <p className="text-sm text-muted-foreground">Performance metrics with outline only</p>
       </CardHeader>
       <CardContent className="pb-0">
@@ -350,7 +350,7 @@ export const ChartRadarGridCustom: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Custom Grid</h2>
+        <h2 className="font-bold text-lg font-merriweather">Radar Chart - Custom Grid</h2>
         <p className="text-sm text-muted-foreground">
           Performance metrics across multiple categories
         </p>
@@ -407,7 +407,7 @@ export const ChartRadarGridNone: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Grid None</h2>
+        <h2 className="font-bold text-lg font-merriweather">Radar Chart - Grid None</h2>
         <p className="text-sm text-muted-foreground">
           Performance metrics across multiple categories
         </p>
@@ -471,7 +471,7 @@ export const ChartRadarGridCircle: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Radar Chart - Grid Circle</h2>
+        <h2 className="font-bold text-lg font-merriweather">Radar Chart - Grid Circle</h2>
         <p className="text-sm text-muted-foreground">
           Performance metrics across multiple categories
         </p>
@@ -536,7 +536,7 @@ export const ChartRadarGridCircleNoLines: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
+        <h2 className="font-bold text-lg font-merriweather">
           Radar Chart - Grid Circle - No Lines
         </h2>
         <p className="text-sm text-muted-foreground">
@@ -603,7 +603,7 @@ export const ChartRadarGridCircleFill: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
+        <h2 className="font-bold text-lg font-merriweather">
           Radar Chart - Grid Circle - No Lines
         </h2>
         <p className="text-sm text-muted-foreground">
@@ -662,7 +662,7 @@ export const ChartRadarGridFill: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">
+        <h2 className="font-bold text-lg font-merriweather">
           Radar Chart - Grid Circle - No Lines
         </h2>
         <p className="text-sm text-muted-foreground">

@@ -38,7 +38,7 @@ export const Default: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Area Chart</h2>
+        <h2 className="font-bold text-lg font-merriweather">Area Chart</h2>
         <p className="text-sm text-muted-foreground">Monthly visitor trend with smooth curve</p>
       </CardHeader>
       <CardContent>
@@ -105,7 +105,7 @@ export const Linear: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Area Chart - Linear</h2>
+        <h2 className="font-bold text-lg font-merriweather">Area Chart - Linear</h2>
         <p className="text-sm text-muted-foreground">
           Monthly visitor trend with linear interpolation
         </p>
@@ -175,7 +175,7 @@ export const Step: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Area Chart - Step</h2>
+        <h2 className="font-bold text-lg font-merriweather">Area Chart - Step</h2>
         <p className="text-sm text-muted-foreground">
           Monthly visitor trend with step interpolation
         </p>
@@ -245,7 +245,7 @@ export const Stacked: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Area Chart - Stacked</h2>
+        <h2 className="font-bold text-lg font-merriweather">Area Chart - Stacked</h2>
         <p className="text-sm text-muted-foreground">
           Multiple data series stacked to show total and composition
         </p>
@@ -328,7 +328,7 @@ export const WithLegend: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Area Chart - Stacked</h2>
+        <h2 className="font-bold text-lg font-merriweather">Area Chart - Stacked</h2>
         <p className="text-sm text-muted-foreground">
           Multiple data series stacked to show total and composition
         </p>
@@ -413,7 +413,7 @@ export const StackedExpanded: Story = {
     return (
       <Card className="max-w-xl">
         <CardHeader>
-          <h2 className="font-bold font-merriweather text-lg">Area Chart - Stacked Expanded</h2>
+          <h2 className="font-bold text-lg font-merriweather">Area Chart - Stacked Expanded</h2>
           <p className="text-sm text-muted-foreground">
             Showing visitor proportions for the last 6 months
           </p>
@@ -514,7 +514,7 @@ export const Gradient: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Area Chart - Gradient</h2>
+        <h2 className="font-bold text-lg font-merriweather">Area Chart - Gradient</h2>
         <p className="text-sm text-muted-foreground">
           Comparing desktop and mobile visitors with gradient fill
         </p>
@@ -607,7 +607,7 @@ export const Axes: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Area Chart - Axes</h2>
+        <h2 className="font-bold text-lg font-merriweather">Area Chart - Axes</h2>
         <p className="text-sm text-muted-foreground">
           Multiple data series stacked to show total and composition
         </p>

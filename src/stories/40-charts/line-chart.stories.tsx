@@ -36,7 +36,7 @@ export const Default: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Line Chart</h2>
+        <h2 className="font-bold text-lg font-merriweather">Line Chart</h2>
         <p className="text-sm text-muted-foreground">Monthly visitor trend with smooth curve</p>
       </CardHeader>
       <CardContent>
@@ -104,7 +104,7 @@ export const Linear: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Line Chart - Linear</h2>
+        <h2 className="font-bold text-lg font-merriweather">Line Chart - Linear</h2>
         <p className="text-sm text-muted-foreground">
           Monthly visitor trend with linear interpolation
         </p>
@@ -179,7 +179,7 @@ export const Step: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Line Chart - Step</h2>
+        <h2 className="font-bold text-lg font-merriweather">Line Chart - Step</h2>
         <p className="text-sm text-muted-foreground">
           Monthly visitor trend with step interpolation
         </p>
@@ -249,7 +249,7 @@ export const Multiple: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Line Chart - Multiple</h2>
+        <h2 className="font-bold text-lg font-merriweather">Line Chart - Multiple</h2>
         <p className="text-sm text-muted-foreground">Comparing desktop and mobile visitor trends</p>
       </CardHeader>
       <CardContent>
@@ -328,7 +328,7 @@ export const WithDots: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Line Chart - Dots</h2>
+        <h2 className="font-bold text-lg font-merriweather">Line Chart - Dots</h2>
         <p className="text-sm text-muted-foreground">Monthly visitor trend with smooth curve</p>
       </CardHeader>
       <CardContent>
@@ -401,7 +401,7 @@ export const WithLabel: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Line Chart - Label</h2>
+        <h2 className="font-bold text-lg font-merriweather">Line Chart - Label</h2>
         <p className="text-sm text-muted-foreground">Monthly visitor trend with smooth curve</p>
       </CardHeader>
       <CardContent>

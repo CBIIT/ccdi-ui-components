@@ -29,7 +29,7 @@ const Skipnav = React.forwardRef<HTMLAnchorElement, SkipnavProps>(
           "-translate-y-full",
 
           // Typography
-          "font-open-sans font-normal",
+          "font-normal font-open-sans",
           "text-center whitespace-nowrap text-cerulean-60v",
 
           // Layout

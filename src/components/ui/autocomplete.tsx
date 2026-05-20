@@ -340,7 +340,7 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
             autoComplete="off"
             className={cn(
               // Base styling
-              "font-public-sans flex w-full text-gray-90",
+              "flex w-full font-public-sans text-gray-90",
               // Size and spacing
               "h-12 px-3 py-2 pr-10",
               // Background and border
@@ -407,7 +407,7 @@ const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
                   aria-selected={activeIndex === index}
                   tabIndex={activeIndex === index ? 0 : -1}
                   className={cn(
-                    "font-public-sans cursor-pointer px-3 py-2 text-gray-90",
+                    "cursor-pointer px-3 py-2 font-public-sans text-gray-90",
                     "hover:bg-blue-10 focus:bg-blue-10",
                     activeIndex === index && "bg-blue-10",
                   )}

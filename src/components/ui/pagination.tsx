@@ -44,7 +44,7 @@ const PaginationLink = ({
     aria-current={isActive ? "page" : undefined}
     aria-label={isLast ? `Last page, page ${children}` : `Page ${children}`}
     className={cn(
-      "rounded font-public-sans flex w-full items-center justify-center border border-gray-90/20 p-2 text-blue-60 hover:border-blue-warm-70 hover:text-blue-warm-70 focus:border-blue-warm-70 focus:text-blue-warm-70 focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40",
+      "rounded flex w-full items-center justify-center border border-gray-90/20 p-2 font-public-sans text-blue-60 hover:border-blue-warm-70 hover:text-blue-warm-70 focus:border-blue-warm-70 focus:text-blue-warm-70 focus:outline focus:outline-4 focus:outline-offset-0 focus:outline-blue-40",
       isActive && "text-white hover:text-white focus:text-white bg-gray-90",
       className,
     )}

@@ -33,7 +33,7 @@ export const Default: Story = {
   render: () => (
     <Card className="max-w-sm">
       <CardHeader>
-        <h2 className="font-semibold font-poppins text-xl">Card Title</h2>
+        <h2 className="font-semibold text-xl font-poppins">Card Title</h2>
       </CardHeader>
       <CardContent>
         <p className="font-open-sans">
@@ -60,7 +60,7 @@ export const WithImage: Story = {
   render: () => (
     <Card className="max-w-sm">
       <CardHeader>
-        <h2 className="font-semibold font-poppins text-xl">Card with Image</h2>
+        <h2 className="font-semibold text-xl font-poppins">Card with Image</h2>
       </CardHeader>
       <CardMedia variant="default">
         <img
@@ -94,7 +94,7 @@ export const MediaWithHeaderFirst: Story = {
   render: () => (
     <Card className="max-w-sm">
       <CardHeader>
-        <h2 className="font-semibold font-poppins text-xl">Media with header first</h2>
+        <h2 className="font-semibold text-xl font-poppins">Media with header first</h2>
       </CardHeader>
       <CardMedia variant="first">
         <img
@@ -128,7 +128,7 @@ export const InsetMedia: Story = {
   render: () => (
     <Card className="max-w-sm">
       <CardHeader>
-        <h2 className="font-semibold font-poppins text-xl">Inset Media</h2>
+        <h2 className="font-semibold text-xl font-poppins">Inset Media</h2>
       </CardHeader>
       <CardMedia variant="inset">
         <img
@@ -162,7 +162,7 @@ export const ExdentMedia: Story = {
   render: () => (
     <Card className="max-w-sm">
       <CardHeader>
-        <h2 className="font-semibold font-poppins text-xl">Exdent Media</h2>
+        <h2 className="font-semibold text-xl font-poppins">Exdent Media</h2>
       </CardHeader>
       <CardMedia variant="exdent">
         <img
@@ -197,7 +197,7 @@ export const VerticalCardGroup: Story = {
     <CardGroup layout="vertical">
       <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
-          <h2 className="font-semibold font-poppins text-xl">Card 1</h2>
+          <h2 className="font-semibold text-xl font-poppins">Card 1</h2>
         </CardHeader>
         <CardContent>
           <p className="font-open-sans">
@@ -212,7 +212,7 @@ export const VerticalCardGroup: Story = {
 
       <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
-          <h2 className="font-semibold font-poppins text-xl">Card 2</h2>
+          <h2 className="font-semibold text-xl font-poppins">Card 2</h2>
         </CardHeader>
         <CardMedia variant="default">
           <img
@@ -234,7 +234,7 @@ export const VerticalCardGroup: Story = {
 
       <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
-          <h2 className="font-semibold font-poppins text-xl">Card 3</h2>
+          <h2 className="font-semibold text-xl font-poppins">Card 3</h2>
         </CardHeader>
         <CardMedia variant="first">
           <img
@@ -278,7 +278,7 @@ export const HorizontalCard: Story = {
       </CardMedia>
       <div className="flex grow flex-col">
         <CardHeader>
-          <h2 className="font-semibold font-poppins text-xl">Default flag</h2>
+          <h2 className="font-semibold text-xl font-poppins">Default flag</h2>
         </CardHeader>
         <CardContent>
           <p className="font-open-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -305,7 +305,7 @@ export const HorizontalCardMediaRight: Story = {
     <Card className="max-w-2xl flex-row">
       <div className="rounded-b sm:rounded-s sm:rounded-b-none sm:border-x-0 sm:border-y-2 sm:border-s-2 grow border-x-2 border-b-2 border-gray-10">
         <div className="px-6 pt-6 pb-2">
-          <h2 className="font-semibold font-poppins text-xl">Flag media right inset</h2>
+          <h2 className="font-semibold text-xl font-poppins">Flag media right inset</h2>
         </div>
         <div className="grow px-6 py-2">
           <p className="font-open-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -339,7 +339,7 @@ export const AllVerticalVariants: Story = {
       {/* Default */}
       <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
-          <h2 className="font-semibold font-poppins text-xl">Default</h2>
+          <h2 className="font-semibold text-xl font-poppins">Default</h2>
         </CardHeader>
         <CardContent>
           <p className="font-open-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -352,7 +352,7 @@ export const AllVerticalVariants: Story = {
       {/* Image First */}
       <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
-          <h2 className="font-semibold font-poppins text-xl">Image First</h2>
+          <h2 className="font-semibold text-xl font-poppins">Image First</h2>
         </CardHeader>
         <CardMedia variant="default">
           <img
@@ -372,7 +372,7 @@ export const AllVerticalVariants: Story = {
       {/* Header First */}
       <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
-          <h2 className="font-semibold font-poppins text-xl">Header First</h2>
+          <h2 className="font-semibold text-xl font-poppins">Header First</h2>
         </CardHeader>
         <CardMedia variant="first">
           <img
@@ -392,7 +392,7 @@ export const AllVerticalVariants: Story = {
       {/* Inset Media */}
       <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
-          <h2 className="font-semibold font-poppins text-xl">Inset Media</h2>
+          <h2 className="font-semibold text-xl font-poppins">Inset Media</h2>
         </CardHeader>
         <CardMedia variant="inset">
           <img
@@ -412,7 +412,7 @@ export const AllVerticalVariants: Story = {
       {/* Exdent Media */}
       <CardItem className="bg-white sm:col-span-3 lg:col-span-2 col-span-6 flex flex-col">
         <CardHeader>
-          <h2 className="font-semibold font-poppins text-xl">Exdent Media</h2>
+          <h2 className="font-semibold text-xl font-poppins">Exdent Media</h2>
         </CardHeader>
         <CardMedia variant="exdent">
           <img

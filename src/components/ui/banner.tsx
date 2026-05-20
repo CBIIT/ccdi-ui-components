@@ -42,7 +42,7 @@ const Banner = React.forwardRef<HTMLElement, BannerProps>(
                     />
                   </svg>
                 </div>
-                <span className="font-open-sans text-xs text-gray-90">
+                <span className="text-xs font-open-sans text-gray-90">
                   {languageToggle?.text || "An official website of the United States government"}
                 </span>
               </div>

@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { Icon } from "@/components/ui/icon"
 
-const alertVariants = cva("font-public-sans relative border-l-8 p-4 [&_a]:underline", {
+const alertVariants = cva("relative border-l-8 p-4 font-public-sans [&_a]:underline", {
   variants: {
     variant: {
       default: "border-l-cyan-30 bg-cyan-5 text-gray-90 [&_a]:text-blue-60v",
@@ -67,7 +67,7 @@ const AlertTitle = ({
   children,
   ...props
 }: React.HTMLAttributes<HTMLHeadingElement>) => (
-  <h4 className={cn("text-2xl font-bold font-public-sans mb-2 leading-none", className)} {...props}>
+  <h4 className={cn("text-2xl font-bold mb-2 font-public-sans leading-none", className)} {...props}>
     {children}
   </h4>
 )
