@@ -48,20 +48,20 @@
   --sidebar-border: #e5e5e5;
   --sidebar-ring: #a1a1a1;
 
+  /* --base: #f5f5f5;
+  --base-foreground: #171717; */
+
   /* Primary Font Options */
-  --font-sans:
-    "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-serif:
-    "Poppins", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-mono:
-    "Roboto Mono", "SF Mono", Monaco, "Cascadia Code", "Fira Code", Consolas, "Liberation Mono",
-    "Courier New", monospace;
+  --font-sans: var(--font-open-sans);
+  --font-sans-multiplier: var(--font-open-sans--multiplier);
+  --font-serif: var(--font-poppins);
+  --font-serif-multiplier: var(--font-poppins--multiplier);
+  --font-mono: var(--font-roboto-mono);
+  --font-mono-multiplier: var(--font-roboto-mono--multiplier);
 
   /* Secondary/Alternative Font Options */
-  --font-heading:
-    "Poppins", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-body:
-    "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-poppins);
+  --font-body: var(--font-open-sans);
 
   --radius: 0.625rem;
 
@@ -132,8 +132,8 @@
   --sidebar-border: #282828;
   --sidebar-ring: #525252;
 
-  --font-sans:
-    "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-open-sans);
+  --font-sans--multiplier: var(--font-open-sans--multiplier);
   --font-serif:
     "Poppins", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --font-mono:
@@ -285,28 +285,46 @@
   --line-height-9xl: calc(1 * var(--font-normalization, 1)); */
 
   /* Font families */
-  --font-family-merriweather: Merriweather, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-family-public-sans:
-    "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
-  --font-family-source-sans:
-    "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
-  --font-family-open-sans:
-    "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-family-roboto-mono:
-    "Roboto Mono", "SF Mono", Monaco, "Cascadia Code", "Fira Code", Consolas, "Liberation Mono",
-    "Courier New", monospace;
-  --font-family-georgia: Georgia, "Times New Roman", "Liberation Serif", "Noto Serif", serif;
-  --font-family-helvetica:
-    "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Display",
-    Roboto, Arial, sans-serif;
-  --font-family-tahoma:
-    Tahoma, "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
-  --font-family-verdana:
-    Verdana, "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
-  --font-family-poppins:
-    Poppins, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --font-open-sans:
+    "Open Sans", -apple-system, "BlinkMacSystemFont", "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-open-sans--multiplier: 1.01;
+
+  --font-public-sans:
+    "Public Sans", -apple-system, "BlinkMacSystemFont", "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-public-sans--multiplier: 1;
+
+  --font-merriweather: "Merriweather", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+  --font-merriweather--multiplier: 0.98;
+
+  --font-source-sans: "Source Sans 3", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  --font-source-sans--multiplier: 1.06;
+
+  --font-roboto-mono: "Roboto Mono", "Bitstream Vera Sans Mono", "Consolas", "Courier", monospace;
+  --font-roboto-mono--multiplier: 0.95;
+
+  --font-georgia: "Georgia", "Cambria", "Times New Roman", "Times", serif;
+  --font-georgia--multiplier: 1.05;
+
+  --font-helvetica: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  --font-helvetica--multiplier: 1.01;
+
+  --font-tahoma:
+    "Tahoma", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-tahoma--multiplier: 1;
+
+  --font-verdana:
+    "Verdana", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-verdana--multiplier: 0.99;
+
+  --font-poppins:
+    Poppins, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-poppins--multiplier: 1;
 
   /* Responsive breakpoints */
   /* --breakpoint-card: 160px;
@@ -897,53 +915,217 @@
 /* @plugin "@tailwindcss/container-queries"; */
 /* @plugin "tailwindcss-animate"; */
 
-/* Custom utilities */
-.font-merriweather {
-  --font-normalization: 0.98;
-  font-family: var(--font-family-merriweather);
-}
+@layer base {
+  /* ── Code & Kbd ── */
+  code {
+    font-family: var(--font-mono);
+    --font-normalization: var(--font-mono-multiplier);
+  }
 
-.font-public-sans {
-  --font-normalization: 1;
-  font-family: var(--font-family-public-sans);
-}
+  code::before,
+  code::after {
+    content: none;
+  }
 
-.font-source-sans {
-  --font-normalization: 1.06;
-  font-family: var(--font-family-source-sans);
-}
+  kbd {
+    font-family: var(--font-mono);
+    --font-normalization: var(--font-mono-multiplier);
+    border-radius: var(--radius);
+    border: 0.5px solid var(--color-gray-cool-30);
+    color: var(--color-black);
+    box-shadow:
+      0 2px 0px var(--color-gray-cool-20),
+      0 3px 2px var(--color-gray-cool-50),
+      inset 0 2px 0 0 var(--color-white);
+    background: var(--color-gray-cool-2);
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-gray-cool-5),
+      var(--color-gray-cool-1)
+    );
+  }
 
-.font-open-sans {
-  --font-normalization: 1.01;
-  font-family: var(--font-family-open-sans);
-}
+  /* ── Links ── */
+  a {
+    color: var(--color-blue-60v);
+    text-decoration: underline;
+  }
 
-.font-roboto-mono {
-  --font-normalization: 0.95;
-  font-family: var(--font-family-roboto-mono);
-}
+  a:visited {
+    color: var(--color-violet-70v);
+  }
 
-.font-georgia {
-  --font-normalization: 1.05;
-  font-family: var(--font-family-georgia);
-}
+  * + * {
+    margin-top: var(--spacing-4);
+    margin-bottom: 0;
+  }
 
-.font-helvetica {
-  --font-normalization: 1.01;
-  font-family: var(--font-family-helvetica);
-}
+  /* List style */
+  ol {
+    list-style: revert;
+    margin-bottom: var(--spacing-1);
+    margin-top: var(--spacing-4);
+    line-height: var(--leading-normal);
+    padding-left: var(--spacing-6);
+  }
+  li {
+    margin-top: var(--spacing-1);
+    margin-bottom: var(--spacing-1);
+  }
+  li::marker {
+    color: inherit;
+  }
+  ul ul {
+    margin-top: var(--spacing-1);
+    padding-left: var(--spacing-10);
+  }
+  ul ol {
+    margin-top: var(--spacing-1);
+    padding-left: var(--spacing-10);
+  }
+  ul li {
+    margin-bottom: var(--spacing-1);
+    padding-left: 0;
+  }
+  ol ol {
+    margin-top: var(--spacing-1);
+    padding-left: var(--spacing-10);
+  }
+  ol ul {
+    margin-top: var(--spacing-1);
+    padding-left: var(--spacing-10);
+  }
+  ol li {
+    margin-bottom: var(--spacing-1);
+    padding-left: 0;
+  }
+  ol:last-child {
+    margin-bottom: 0;
+  }
+  ul:last-child {
+    margin-bottom: 0;
+  }
+  li:last-child {
+    margin-bottom: 0;
+  }
 
-.font-tahoma {
-  --font-normalization: 1;
-  font-family: var(--font-family-tahoma);
-}
+  /* Table style */
+  table {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: var(--color-gray-90);
+    margin: var(--spacing-5) 0;
+    text-align: left;
+  }
+  table th,
+  table td {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-90);
+    font-weight: var(--font-weight-normal);
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
+    vertical-align: middle;
+  }
+  table caption {
+    text-align: left;
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: calc(var(--spacing-3));
+  }
+  table th[data-sortable] {
+    padding-right: calc(var(--spacing-10));
+    position: relative;
+  }
+  table th[data-sortable]::after {
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    bottom: 0;
+    content: "";
+    height: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+  table tbody th {
+    text-align: left;
+  }
+  table thead th {
+    background-color: var(--color-gray-cool-10);
+    color: var(--color-gray-90);
+    background-clip: padding-box;
+    font-weight: var(--font-weight-bold);
+    line-height: var(--leading-tight);
+  }
+  table thead td {
+    background-color: var(--color-gray-cool-10);
+    color: var(--color-gray-90);
+  }
 
-.font-verdana {
-  --font-normalization: 0.99;
-  font-family: var(--font-family-verdana);
-}
-
-.font-poppins {
-  --font-normalization: 1;
-  font-family: var(--font-family-poppins);
+  /* Text styles */
+  p {
+    line-height: var(--leading-normal);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  * + h1,
+  * + h2,
+  * + h3,
+  * + h4,
+  * + h5,
+  * + h6 {
+    margin-top: calc(var(--spacing-8));
+  }
+  h1 {
+    font-size: var(--text-4xl);
+    font-family: var(--font-serif);
+    --font-normalization: var(--font-serif--multiplier);
+    line-height: var(--leading-tight);
+    font-weight: var(--font-weight-bold);
+  }
+  h2 {
+    font-size: var(--text-3xl);
+    font-family: var(--font-serif);
+    --font-normalization: var(--font-serif--multiplier);
+    line-height: var(--leading-tight);
+    font-weight: var(--font-weight-bold);
+  }
+  h3 {
+    font-size: var(--text-xl);
+    font-family: var(--font-serif);
+    --font-normalization: var(--font-serif--multiplier);
+    line-height: var(--leading-tight);
+    font-weight: var(--font-weight-bold);
+  }
+  h4 {
+    font-size: var(--text-lg);
+    font-family: var(--font-serif);
+    --font-normalization: var(--font-serif--multiplier);
+    line-height: var(--leading-tight);
+    font-weight: var(--font-weight-bold);
+  }
+  h5 {
+    font-size: var(--text-base);
+    font-family: var(--font-serif);
+    --font-normalization: var(--font-serif--multiplier);
+    line-height: var(--leading-tight);
+    font-weight: var(--font-weight-bold);
+  }
+  h6 {
+    font-size: var(--text-sm);
+    font-family: var(--font-serif);
+    --font-normalization: var(--font-serif--multiplier);
+    line-height: var(--leading-none);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
 }

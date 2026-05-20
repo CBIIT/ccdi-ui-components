@@ -168,6 +168,233 @@
       "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
+      "name": "scroll-to-top",
+      "type": "registry:component",
+      "title": "Scroll to top",
+      "description": "NCI/USWDS-style fixed return-to-top tile (cerulean, rounded top-left) that smoothly scrolls the document, with optional visibility threshold.",
+      "files": [
+        {
+          "path": "src/components/ui/scroll-to-top.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:component",
+      "title": "Alert Dialog",
+      "description": "USWDS-compliant alert dialog component for disruptive confirmations and critical decisions, with accessible focus management and action composition.",
+      "files": [
+        {
+          "path": "src/components/ui/alert-dialog.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["radix-ui", "clsx"],
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/button.json"
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:component",
+      "title": "Calendar",
+      "description": "USWDS-compliant calendar component built on React DayPicker with CCDI button and icon styling for accessible date selection.",
+      "files": [
+        {
+          "path": "src/components/ui/calendar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["react-day-picker", "clsx"],
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/button.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:component",
+      "title": "Carousel",
+      "description": "Accessible carousel component powered by Embla with keyboard controls, previous/next actions, and CCDI button and icon styling.",
+      "files": [
+        {
+          "path": "src/components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["embla-carousel-react", "clsx"],
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/button.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:component",
+      "title": "Collapsible",
+      "description": "Accessible collapsible disclosure primitives for showing and hiding content while preserving Radix behavior.",
+      "files": [
+        {
+          "path": "src/components/ui/collapsible.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["radix-ui"],
+      "registryDependencies": []
+    },
+    {
+      "name": "combobox",
+      "type": "registry:component",
+      "title": "Combobox",
+      "description": "Accessible combobox component built on Base UI with input-group composition, selectable options, clear actions, and keyboard support.",
+      "files": [
+        {
+          "path": "src/components/ui/combobox.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["@base-ui/react", "clsx"],
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/button.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/input-group.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
+    },
+    {
+      "name": "feature-icon",
+      "type": "registry:component",
+      "title": "Feature Icon",
+      "description": "CCDI feature icon SVG set with fixed default sizing, current-color styling, and reusable named icon exports.",
+      "files": [
+        {
+          "path": "src/components/ui/feature-icon.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "field",
+      "type": "registry:component",
+      "title": "Field",
+      "description": "USWDS-aligned field layout components for labels, descriptions, errors, fieldsets, and grouped form controls.",
+      "files": [
+        {
+          "path": "src/components/ui/field.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx"],
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/label.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/separator.json"
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:component",
+      "title": "Hover Card",
+      "description": "Accessible hover card component for preview content, built on Radix primitives with CCDI styling.",
+      "files": [
+        {
+          "path": "src/components/ui/hover-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["radix-ui", "clsx"],
+      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:component",
+      "title": "Input Group",
+      "description": "Composable input group primitives for inputs, textareas, addons, and inline buttons with USWDS-aligned states.",
+      "files": [
+        {
+          "path": "src/components/ui/input-group.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "clsx"],
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/button.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/input.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/textarea.json"
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:component",
+      "title": "Item",
+      "description": "Composable item layout component for structured content rows with media, actions, descriptions, and separators.",
+      "files": [
+        {
+          "path": "src/components/ui/item.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["class-variance-authority", "radix-ui", "clsx"],
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/separator.json"
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "USWDS-aligned skeleton loading placeholder with accessible, theme-aware styling.",
+      "files": [
+        {
+          "path": "src/components/ui/skeleton.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json"]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:component",
+      "title": "Sonner",
+      "description": "CCDI-styled Sonner toaster with icon mappings and design-token based toast colors.",
+      "files": [
+        {
+          "path": "src/components/ui/sonner.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["sonner"],
+      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/icon.json"]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:component",
+      "title": "Spinner",
+      "description": "Accessible loading spinner component using the CCDI icon set with status semantics.",
+      "files": [
+        {
+          "path": "src/components/ui/spinner.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["clsx"],
+      "registryDependencies": [
+        "https://cbiit.github.io/ccdi-ui-components/r/utils.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/icon.json"
+      ]
+    },
+    {
       "name": "checkbox",
       "type": "registry:component",
       "title": "Checkbox",
@@ -536,6 +763,20 @@
         "https://cbiit.github.io/ccdi-ui-components/r/label.json",
         "https://cbiit.github.io/ccdi-ui-components/r/select.json",
         "https://cbiit.github.io/ccdi-ui-components/r/separator.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/scroll-to-top.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/alert-dialog.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/calendar.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/carousel.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/collapsible.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/combobox.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/feature-icon.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/field.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/hover-card.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/input-group.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/item.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/skeleton.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/sonner.json",
+        "https://cbiit.github.io/ccdi-ui-components/r/spinner.json",
         "https://cbiit.github.io/ccdi-ui-components/r/checkbox.json",
         "https://cbiit.github.io/ccdi-ui-components/r/accordion.json",
         "https://cbiit.github.io/ccdi-ui-components/r/card.json",

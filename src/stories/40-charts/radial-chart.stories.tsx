@@ -33,7 +33,7 @@ export const Default: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Radial Chart</h2>
+        <h2 className="font-bold text-lg font-merriweather">Radial Chart</h2>
         <p className="text-sm text-muted-foreground">January - June 2024</p>
       </CardHeader>
       <CardContent className="pb-0">
@@ -113,7 +113,7 @@ export const WithLabel: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Radial Chart - Label</h2>
+        <h2 className="font-bold text-lg font-merriweather">Radial Chart - Label</h2>
         <p className="text-sm text-muted-foreground">January - June 2024</p>
       </CardHeader>
       <CardContent className="pb-0">
@@ -202,7 +202,7 @@ export const ChartRadialGrid: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Radial Chart - Grid</h2>
+        <h2 className="font-bold text-lg font-merriweather">Radial Chart - Grid</h2>
         <p className="text-sm text-muted-foreground">January - June 2024</p>
       </CardHeader>
       <CardContent className="pb-0">
@@ -296,7 +296,7 @@ export const ChartRadialText: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Radial Chart - Text</h2>
+        <h2 className="font-bold text-lg font-merriweather">Radial Chart - Text</h2>
         <p className="text-sm text-muted-foreground">January - June 2024</p>
       </CardHeader>
       <CardContent className="pb-0">

@@ -35,7 +35,7 @@ export const Default: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Bar Chart</h2>
+        <h2 className="font-bold text-lg font-merriweather">Bar Chart</h2>
         <p className="text-sm text-muted-foreground">A simple bar chart example</p>
       </CardHeader>
       <CardContent>
@@ -95,7 +95,7 @@ export const Horizontal: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Horizontal</h2>
+        <h2 className="font-bold text-lg font-merriweather">Bar Chart - Horizontal</h2>
         <p className="text-sm text-muted-foreground">Comparing desktop visitors over 6 months</p>
       </CardHeader>
       <CardContent>
@@ -161,7 +161,7 @@ export const Multiple: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Multiple</h2>
+        <h2 className="font-bold text-lg font-merriweather">Bar Chart - Multiple</h2>
         <p className="text-sm text-muted-foreground">Comparing desktop and mobile visitors</p>
       </CardHeader>
       <CardContent>
@@ -227,7 +227,7 @@ export const Stacked: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Stacked</h2>
+        <h2 className="font-bold text-lg font-merriweather">Bar Chart - Stacked</h2>
         <p className="text-sm text-muted-foreground">
           Stacked bar chart comparing desktop and mobile visitors
         </p>
@@ -295,7 +295,7 @@ export const Labels: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Labels</h2>
+        <h2 className="font-bold text-lg font-merriweather">Bar Chart - Labels</h2>
         <p className="text-sm text-muted-foreground">A simple bar chart example with labels</p>
       </CardHeader>
       <CardContent>
@@ -357,7 +357,7 @@ export const CustomLabels: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Custom Labels</h2>
+        <h2 className="font-bold text-lg font-merriweather">Bar Chart - Custom Labels</h2>
         <p className="text-sm text-muted-foreground">
           A basic bar chart example with custom labels
         </p>
@@ -444,7 +444,7 @@ export const Mixed: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Mixed</h2>
+        <h2 className="font-bold text-lg font-merriweather">Bar Chart - Mixed</h2>
         <p className="text-sm text-muted-foreground">A mixed bar chart with different colors</p>
       </CardHeader>
       <CardContent>
@@ -565,7 +565,7 @@ export const CustomActiveBars: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Custom Active Bars</h2>
+        <h2 className="font-bold text-lg font-merriweather">Bar Chart - Custom Active Bars</h2>
         <p className="text-sm text-muted-foreground">
           A mixed bar chart with different colors and custom active bar
         </p>
@@ -755,7 +755,7 @@ export const Negative: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Bar Chart - Negative</h2>
+        <h2 className="font-bold text-lg font-merriweather">Bar Chart - Negative</h2>
         <p className="text-sm text-muted-foreground">January - June 2024</p>
       </CardHeader>
       <CardContent>

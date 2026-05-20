@@ -37,7 +37,7 @@ export const Default: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Pie Chart</h2>
+        <h2 className="font-bold text-lg font-merriweather">Pie Chart</h2>
         <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
@@ -117,7 +117,7 @@ export const WithLabels: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Pie Chart</h2>
+        <h2 className="font-bold text-lg font-merriweather">Pie Chart</h2>
         <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
@@ -202,7 +202,7 @@ export const CustomLabel: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Pie Chart - Custom Label</h2>
+        <h2 className="font-bold text-lg font-merriweather">Pie Chart - Custom Label</h2>
         <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
@@ -291,7 +291,7 @@ export const WithLabelList: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Pie Chart - Label List</h2>
+        <h2 className="font-bold text-lg font-merriweather">Pie Chart - Label List</h2>
         <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
@@ -378,7 +378,7 @@ export const WithLegend: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Pie Chart - Legend</h2>
+        <h2 className="font-bold text-lg font-merriweather">Pie Chart - Legend</h2>
         <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
@@ -458,7 +458,7 @@ export const Donut: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Pie Chart - Donut</h2>
+        <h2 className="font-bold text-lg font-merriweather">Pie Chart - Donut</h2>
         <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
@@ -529,7 +529,7 @@ export const DonutActive: Story = {
   render: (args) => (
     <Card className="max-w-xl">
       <CardHeader>
-        <h2 className="font-bold font-merriweather text-lg">Pie Chart - Donut Active</h2>
+        <h2 className="font-bold text-lg font-merriweather">Pie Chart - Donut Active</h2>
         <p className="text-sm text-muted-foreground">Browser usage distribution</p>
       </CardHeader>
       <CardContent>
@@ -641,7 +641,7 @@ export const DonutInteractive: Story = {
       <Card data-chart={id} className="max-w-xl flex flex-col">
         <CardHeader className="flex-row items-start space-y-0 pb-0">
           <div className="grid gap-1">
-            <h2 className="font-bold font-merriweather text-lg">Pie Chart - Interactive</h2>
+            <h2 className="font-bold text-lg font-merriweather">Pie Chart - Interactive</h2>
             <p className="text-sm text-muted-foreground">Browser usage distribution</p>
           </div>
         </CardHeader>

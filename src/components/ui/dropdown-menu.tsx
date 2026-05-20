@@ -224,7 +224,7 @@ const DropdownMenuItem = React.forwardRef<HTMLButtonElement, DropdownMenuItemPro
         role="menuitem"
         className={cn(
           "rounded relative flex w-full cursor-pointer items-center gap-2 px-2 py-1.5 select-none",
-          "text-sm font-source-sans text-left outline-hidden",
+          "text-sm text-left font-source-sans outline-hidden",
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
           "disabled:pointer-events-none disabled:opacity-50",
@@ -263,7 +263,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<HTMLButtonElement, DropdownMen
         aria-checked={checked}
         className={cn(
           "rounded relative flex w-full cursor-pointer items-center gap-2 py-1.5 pr-2 pl-8 select-none",
-          "text-sm font-source-sans text-left outline-hidden",
+          "text-sm text-left font-source-sans outline-hidden",
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
           "disabled:pointer-events-none disabled:opacity-50",
@@ -340,7 +340,7 @@ const DropdownMenuRadioItem = React.forwardRef<HTMLButtonElement, DropdownMenuRa
         aria-checked={isChecked}
         className={cn(
           "rounded relative flex w-full cursor-pointer items-center gap-2 py-1.5 pr-2 pl-8 select-none",
-          "text-sm font-source-sans text-left outline-hidden",
+          "text-sm text-left font-source-sans outline-hidden",
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
           "disabled:pointer-events-none disabled:opacity-50",
@@ -375,7 +375,7 @@ const DropdownMenuLabel = React.forwardRef<HTMLDivElement, DropdownMenuLabelProp
       <div
         ref={ref}
         className={cn(
-          "text-sm font-bold font-source-sans px-2 py-1.5 text-gray-90",
+          "text-sm font-bold px-2 py-1.5 font-source-sans text-gray-90",
           inset && "pl-8",
           className,
         )}
@@ -408,7 +408,7 @@ const DropdownMenuShortcut = React.forwardRef<HTMLSpanElement, DropdownMenuShort
     return (
       <span
         ref={ref}
-        className={cn("text-sm font-source-sans ml-auto tracking-widest text-gray-50", className)}
+        className={cn("text-sm ml-auto font-source-sans tracking-widest text-gray-50", className)}
         {...props}
       />
     )
@@ -460,7 +460,7 @@ const DropdownMenuSubTrigger = React.forwardRef<HTMLButtonElement, DropdownMenuS
         ref={ref}
         className={cn(
           "rounded relative flex w-full cursor-pointer items-center gap-2 px-2 py-1.5 select-none",
-          "text-sm font-source-sans text-left outline-hidden",
+          "text-sm text-left font-source-sans outline-hidden",
           "focus:bg-blue-5 focus:text-blue-70v",
           "hover:bg-blue-5 hover:text-blue-70v",
           "data-[state=open]:bg-blue-5 data-[state=open]:text-blue-70v",

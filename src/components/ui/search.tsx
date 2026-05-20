@@ -30,7 +30,7 @@ const searchInputVariants = cva(
 )
 
 const searchButtonVariants = cva(
-  "rounded-r font-open-sans font-semibold text-white flex items-center justify-center bg-cerulean-50 leading-none hover:bg-cerulean-70 focus:outline focus:outline-4 focus:outline-offset-4 focus:outline-blue-40 active:bg-cerulean-80",
+  "rounded-r font-semibold text-white flex items-center justify-center bg-cerulean-50 font-open-sans leading-none hover:bg-cerulean-70 focus:outline focus:outline-4 focus:outline-offset-4 focus:outline-blue-40 active:bg-cerulean-80",
   {
     variants: {
       size: {

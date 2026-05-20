@@ -31,7 +31,7 @@ const Progress = ({ className, value = 0, max = 100, label, variant, ...props }:
   return (
     <div className="w-full">
       {label && (
-        <div className="text-sm font-source-sans mb-2 flex justify-between text-gray-70">
+        <div className="text-sm mb-2 flex justify-between font-source-sans text-gray-70">
           <span>{label}</span>
           <span className="font-bold">{Math.round(percentage)}%</span>
         </div>

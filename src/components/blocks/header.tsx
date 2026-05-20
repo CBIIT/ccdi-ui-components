@@ -261,7 +261,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
                         <li key={subItemChild.id} className="my-2 leading-5">
                           <a
                             href={subItemChild.href}
-                            className="font-open-sans text-base text-white font-light leading-4 tracking-wide hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                            className="text-base text-white font-light font-open-sans leading-4 tracking-wide hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
                           >
                             {subItemChild.label}
                           </a>
@@ -288,7 +288,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
                         <li key={subItemChild.id} className="my-2 leading-5">
                           <a
                             href={subItemChild.href}
-                            className="font-open-sans text-base text-white font-light leading-4 hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                            className="text-base text-white font-light font-open-sans leading-4 hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
                           >
                             {subItemChild.label}
                           </a>
@@ -315,7 +315,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
                         <li key={subItemChild.id} className="my-2 leading-5">
                           <a
                             href={subItemChild.href}
-                            className="font-open-sans text-base text-white font-light leading-4 hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
+                            className="text-base text-white font-light font-open-sans leading-4 hover:underline focus:outline focus:outline-4 focus:outline-blue-40v"
                           >
                             {subItemChild.label}
                           </a>
@@ -340,7 +340,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
         {hasSubmenu ? (
           <button
             onClick={() => handleDropdownClick(item.id)}
-            className="font-open-sans group relative flex w-full cursor-pointer items-center justify-between gap-3 py-3 pl-4 text-left leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v"
+            className="group relative flex w-full cursor-pointer items-center justify-between gap-3 py-3 pl-4 text-left font-open-sans leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v"
           >
             <span className="text-gray-warm-60">{item.label}</span>
             <svg
@@ -356,7 +356,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
           <a
             href={item.href}
             onClick={handleCloseMobileMenu}
-            className="font-open-sans group relative block flex w-full items-center justify-between gap-3 py-3 pl-4 text-left leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v"
+            className="group relative block flex w-full items-center justify-between gap-3 py-3 pl-4 text-left font-open-sans leading-none hover:bg-gray-5 focus:z-10 focus:outline focus:outline-4 focus:outline-blue-40v"
           >
             <span className="text-gray-warm-60">{item.label}</span>
           </a>
@@ -488,7 +488,7 @@ export default function NCIDSNavbar({ logo, navItems, className }: NCIDSNavbarPr
               </div>
               {mobileMenuStack.length > 0 && (
                 <div className="mb-4">
-                  <h2 className="text-base font-open-sans font-semibold pl-4 text-cerulean-70">
+                  <h2 className="text-base font-semibold pl-4 font-open-sans text-cerulean-70">
                     {mobileMenuStack[mobileMenuStack.length - 1].label}
                   </h2>
                 </div>

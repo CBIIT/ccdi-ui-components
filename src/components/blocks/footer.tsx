@@ -220,7 +220,7 @@ const DesktopNavigation: React.FC<{
   <div className="lg:grid lg:grid-cols-3 hidden gap-8">
     {sections.map((section, index) => (
       <div key={index}>
-        <h3 className="font-semibold font-open-sans text-white text-base mb-4 leading-5">
+        <h3 className="font-semibold text-white text-base mb-4 font-open-sans leading-5">
           {section.title}
         </h3>
         <ul className="space-y-3">
@@ -228,7 +228,7 @@ const DesktopNavigation: React.FC<{
             <li key={linkIndex}>
               <a
                 href={link.href}
-                className="text-white visited:text-white hover:text-white font-open-sans text-base leading-5 hover:underline focus:outline focus:outline-4 focus:outline-blue-40"
+                className="text-white visited:text-white hover:text-white text-base font-open-sans leading-5 hover:underline focus:outline focus:outline-4 focus:outline-blue-40"
               >
                 {link.label}
               </a>
@@ -291,7 +291,7 @@ const NewsletterSignup: React.FC<{
       {/* Mobile version */}
       <div className="lg:hidden border-black border-t">
         <div className="flex flex-col gap-[20px] px-4 pt-6 pb-[30px]">
-          <h3 className="font-poppins font-semibold text-white leading-normal w-full text-[22.88px]">
+          <h3 className="font-semibold text-white leading-normal w-full font-poppins text-[22.88px]">
             Sign up for email updates
           </h3>
           <form onSubmit={handleSubmit} className="flex w-full flex-col gap-[20px]" noValidate>
@@ -303,12 +303,12 @@ const NewsletterSignup: React.FC<{
             >
               <label
                 htmlFor="footer-email-mobile"
-                className="text-white font-open-sans text-base font-normal leading-normal mb-[10px] w-full"
+                className="text-white text-base font-normal leading-normal mb-[10px] w-full font-open-sans"
               >
                 Enter your email address
               </label>
               {error && (
-                <div className="text-white font-open-sans text-base font-normal leading-normal border-l-4 border-cranberry-50v bg-cranberry-50v px-2 py-1">
+                <div className="text-white text-base font-normal leading-normal border-l-4 border-cranberry-50v bg-cranberry-50v px-2 py-1 font-open-sans">
                   {error}
                 </div>
               )}
@@ -338,7 +338,7 @@ const NewsletterSignup: React.FC<{
 
       {/* Desktop version */}
       <div className="lg:block hidden">
-        <h3 className="text-lg font-bold font-public-sans text-white mb-3">
+        <h3 className="text-lg font-bold text-white mb-3 font-public-sans">
           Sign up for email updates
         </h3>
         <form onSubmit={handleSubmit} className="space-y-4" noValidate>
@@ -367,7 +367,7 @@ const NewsletterSignup: React.FC<{
           </div>
           <Button
             type="submit"
-            className="text-sm font-open-sans text-black bg-[#F1D40E] px-4 py-2 hover:bg-[#E6C50D]"
+            className="text-sm text-black bg-[#F1D40E] px-4 py-2 font-open-sans hover:bg-[#E6C50D]"
           >
             Sign up
           </Button>
@@ -501,16 +501,16 @@ const AgencyInfo: React.FC<{
   <div className="space-y-4">
     <div>
       <h2 className="text-white mb-2">
-        <span className="font-poppins font-semibold text-2xl leading-normal">
+        <span className="font-semibold text-2xl leading-normal font-poppins">
           National Cancer Institute
         </span>
         <br />
-        <span className="font-poppins font-medium text-lg leading-[21px]">
+        <span className="font-medium text-lg font-poppins leading-[21px]">
           at the National Institutes of Health
         </span>
       </h2>
       {agency.description && (
-        <p className="text-white font-open-sans text-sm">{agency.description}</p>
+        <p className="text-white text-sm font-open-sans">{agency.description}</p>
       )}
     </div>
   </div>
@@ -581,7 +581,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
                     {/* Contact Us */}
                     {contactInfo && (
                       <div className="flex flex-col items-start gap-[4px]">
-                        <h3 className="font-poppins font-semibold text-white leading-normal text-[22px]">
+                        <h3 className="font-semibold text-white leading-normal font-poppins text-[22px]">
                           Contact Us
                         </h3>
                         <ContactInfo contact={contactInfo} />
@@ -593,7 +593,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
                       {/* Social links */}
                       {socialLinks.length > 0 && (
                         <div>
-                          <h3 className="font-poppins font-semibold text-white leading-normal mb-[14px] text-[22px]">
+                          <h3 className="font-semibold text-white leading-normal mb-[14px] font-poppins text-[22px]">
                             Follow us
                           </h3>
                           <SocialLinks socialLinks={socialLinks} />
@@ -620,7 +620,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
                       {/* Social links */}
                       {socialLinks.length > 0 && (
                         <div>
-                          <h3 className="font-poppins font-semibold text-white leading-normal mb-3 text-[22px]">
+                          <h3 className="font-semibold text-white leading-normal mb-3 font-poppins text-[22px]">
                             Follow us
                           </h3>
                           <SocialLinks socialLinks={socialLinks} />
@@ -634,7 +634,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
                         {/* Contact info */}
                         {contactInfo && (
                           <div className="flex flex-col items-end gap-[10px]">
-                            <h3 className="font-poppins font-semibold text-white leading-normal text-[22px]">
+                            <h3 className="font-semibold text-white leading-normal font-poppins text-[22px]">
                               Contact Us
                             </h3>
                             <ContactInfo contact={contactInfo} />
@@ -642,7 +642,7 @@ const USWDSFooter = React.forwardRef<HTMLElement, USWDSFooterProps>(
                         )}
 
                         {/* Government hierarchy */}
-                        <div className="text-white font-open-sans text-sm leading-normal text-right">
+                        <div className="text-white text-sm leading-normal text-right font-open-sans">
                           <p className="mb-[5px]">U.S. Department of Health and Human Services</p>
                           <p className="mb-[5px]">National Institutes of Health</p>
                           <p className="mb-[5px]">National Cancer Institute</p>

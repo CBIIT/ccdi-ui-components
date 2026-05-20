@@ -59,7 +59,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           className={cn(
             // Base styling
             "peer w-full appearance-none opacity-100",
-            "font-public-sans text-base text-gray-90",
+            "text-base font-public-sans text-gray-90",
             // Size and spacing
             "p-2 pr-8",
             // Background and border
