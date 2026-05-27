@@ -821,7 +821,7 @@
       "name": "fonts",
       "type": "registry:style",
       "title": "USWDS Fonts",
-      "description": "Self-hosted variable fonts optimized for USWDS including Public Sans, Source Sans 3, Open Sans, Roboto Mono, Merriweather, and Poppins. Latin subset only, WOFF2 format for optimal performance (~1MB total).",
+      "description": "Self-hosted variable fonts optimized for USWDS including Public Sans, Source Sans 3, Open Sans, Inter, Roboto Mono, Merriweather, and Poppins. Latin subset only, WOFF2 format for optimal performance (~1MB total).",
       "files": [
         {
           "path": "public/fonts/public-sans/public-sans.woff2",
@@ -852,6 +852,16 @@
           "path": "public/fonts/open-sans/open-sans-italic.woff2",
           "type": "registry:file",
           "target": "~/public/fonts/open-sans/open-sans-italic.woff2"
+        },
+        {
+          "path": "public/fonts/inter/inter.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/inter/inter.woff2"
+        },
+        {
+          "path": "public/fonts/inter/inter-italic.woff2",
+          "type": "registry:file",
+          "target": "~/public/fonts/inter/inter-italic.woff2"
         },
         {
           "path": "public/fonts/roboto-mono/roboto-mono.woff2",
