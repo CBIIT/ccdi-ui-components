@@ -928,7 +928,7 @@
       "registryDependencies": []
     },
     {
-      "name": "nextjs-styles",
+      "name": "next-styles",
       "type": "registry:style",
       "title": "USWDS Global Styles",
       "description": "Complete USWDS design system styles including Tailwind CSS v4 configuration, color tokens, typography system, and spacing. Government-compliant design tokens for accessible federal websites with Section 508 compliance.",
