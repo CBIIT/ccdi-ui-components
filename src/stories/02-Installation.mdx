@@ -5,24 +5,24 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Installation & Usage Guide
 
-Learn how to install and use USWDS Demo components in your Next.js project. This guide covers everything from initial setup to advanced customization.
+Learn how to install and use CCDI components in Next.js or Vite projects. This guide covers the registry setup, required dependencies, and framework-specific style packs.
 
 ## 📋 Prerequisites
 
 Before installing components, ensure you have the following:
 
 - Node.js 20+ and npm/yarn/pnpm
-- Next.js 14+ project
+- Next.js 14+ or Vite 5+ project
 - TypeScript
 - Tailwind CSS
 
 ## 🚀 Quick Installation
 
-Install components directly into your Next.js project using our shadcn-compatible registry.
+Install components directly into your project using our shadcn-compatible registry.
 
 ### 1. Initialize shadcn/ui
 
-First, set up shadcn/ui in your Next.js project:
+First, set up shadcn/ui in your project:
 
 ```bash
 npx shadcn@latest init
@@ -137,11 +137,17 @@ export default config;
 
 ### Global Styles
 
-Add USWDS-compatible base styles to your `globals.css`:
+Add the framework-specific USWDS base styles:
 
 ```bash
+# Next.js App Router
 npx shadcn@latest add https://cbiit.github.io/ccdi-ui-components/r/nextjs-styles.json
+
+# Vite
+npx shadcn@latest add https://cbiit.github.io/ccdi-ui-components/r/vite-styles.json
 ```
+
+The Next.js style pack writes to `app/globals.css` and `app/theme.css`. The Vite style pack writes to `src/index.css` and `src/theme.css`.
 
 ## 🎯 Usage Examples
 

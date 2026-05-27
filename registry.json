@@ -549,7 +549,7 @@
           "type": "registry:component"
         }
       ],
-      "dependencies": ["clsx"],
+      "dependencies": ["clsx", "recharts"],
       "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/utils.json"]
     },
     {
@@ -824,11 +824,6 @@
       "description": "Self-hosted variable fonts optimized for USWDS including Public Sans, Source Sans 3, Open Sans, Roboto Mono, Merriweather, and Poppins. Latin subset only, WOFF2 format for optimal performance (~1MB total).",
       "files": [
         {
-          "path": "src/styles/fonts.css",
-          "type": "registry:style",
-          "target": "~/app/fonts.css"
-        },
-        {
           "path": "public/fonts/public-sans/public-sans.woff2",
           "type": "registry:file",
           "target": "~/public/fonts/public-sans/public-sans.woff2"
@@ -939,6 +934,11 @@
       "description": "Complete USWDS design system styles including Tailwind CSS v4 configuration, color tokens, typography system, and spacing. Government-compliant design tokens for accessible federal websites with Section 508 compliance.",
       "files": [
         {
+          "path": "src/styles/fonts.css",
+          "type": "registry:style",
+          "target": "~/app/fonts.css"
+        },
+        {
           "path": "src/styles/globals.css",
           "type": "registry:style",
           "target": "~/app/globals.css"
@@ -947,6 +947,31 @@
           "path": "src/styles/theme.css",
           "type": "registry:style",
           "target": "~/app/theme.css"
+        }
+      ],
+      "dependencies": ["tailwindcss"],
+      "registryDependencies": ["https://cbiit.github.io/ccdi-ui-components/r/fonts.json"]
+    },
+    {
+      "name": "vite-styles",
+      "type": "registry:style",
+      "title": "USWDS Global Styles for Vite",
+      "description": "Complete USWDS design system styles including Tailwind CSS v4 configuration, color tokens, typography system, and spacing, targeted for Vite apps that load styles from src.",
+      "files": [
+        {
+          "path": "src/styles/globals.css",
+          "type": "registry:style",
+          "target": "~/src/index.css"
+        },
+        {
+          "path": "src/styles/theme.css",
+          "type": "registry:style",
+          "target": "~/src/theme.css"
+        },
+        {
+          "path": "src/styles/fonts.css",
+          "type": "registry:style",
+          "target": "~/src/fonts.css"
         }
       ],
       "dependencies": ["tailwindcss"],
